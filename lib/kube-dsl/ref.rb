@@ -37,7 +37,7 @@ module KubeDSL
       @ruby_class_path ||= begin
         path = File.join(
           'lib',
-          'kube-dsl'
+          'kube-dsl',
           *ruby_namespace[1..-1].map { |s| underscore(s) },
           "#{underscore(kind)}.rb"
         )
