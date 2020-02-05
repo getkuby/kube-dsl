@@ -3,6 +3,7 @@ require 'rspec/core/rake_task'
 require 'rubygems/package_task'
 
 require 'kube-dsl'
+require 'pry-byebug'
 
 Bundler::GemHelper.install_tasks
 
@@ -19,7 +20,14 @@ task :generate do
   )
 
   generator.resources.each do |res|
-    FileUtils.mkdir_p(File.dirname(res.ref.ruby_class_path))
-    File.write(res.ref.ruby_class_path, res.to_ruby)
+    ruby_class_path = res.ref.ruby_class_path
+    puts "Writing #{ruby_class_path}"
+    FileUtils.mkdir_p(File.dirname(ruby_class_path))
+    File.write(ruby_class_path, res.to_ruby)
+  end
+
+  generator.each_autoload_file do |path, ruby_code|
+    puts "Writing #{path}"
+    File.write(path, ruby_code)
   end
 end

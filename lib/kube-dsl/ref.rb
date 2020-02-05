@@ -27,21 +27,22 @@ module KubeDSL
 
     def ruby_namespace
       @ruby_namespace ||= begin
-        ['KubeDSL'].tap do |mods|
+        ['KubeDSL', 'DSL'].tap do |mods|
           mods << capitalize(namespace) if namespace
         end
       end
     end
 
     def ruby_class_path
-      @ruby_class_path ||= begin
-        path = File.join(
-          'lib',
-          'kube-dsl',
-          *ruby_namespace[1..-1].map { |s| underscore(s) },
-          "#{underscore(kind)}.rb"
-        )
-      end
+      @ruby_class_path ||= File.join('lib', ruby_autoload_path)
+    end
+
+    def ruby_autoload_path
+      @ruby_autoload_path ||= File.join(
+        'kube-dsl',
+        *ruby_namespace[1..-1].map { |s| underscore(s) },
+        "#{underscore(kind)}.rb"
+      )
     end
   end
 end

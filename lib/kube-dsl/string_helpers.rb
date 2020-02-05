@@ -11,4 +11,6 @@ module KubeDSL
         .downcase
     end
   end
+
+  StringHelpers.extend(StringHelpers)
 end

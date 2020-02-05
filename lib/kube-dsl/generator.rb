@@ -15,6 +15,59 @@ module KubeDSL
       end
     end
 
+    def each_autoload_file(&block)
+      each_autoload_file_helper(autoload_map['kube-dsl'], ['kube-dsl'], &block)
+    end
+
+    def each_autoload_file_helper(amap, path, &block)
+      amap.each do |ns, children|
+        return unless children.is_a?(Hash)
+
+        mod_name = [*path, ns].map do |seg|
+          case seg
+            when 'dsl'
+              'DSL'
+            when 'kube-dsl'
+              nil
+            else
+              KubeDSL::StringHelpers.capitalize(seg)
+          end
+        end.compact.join('::')
+
+        ruby_code = "module #{mod_name}\n"
+
+        children.each_pair do |child_ns, res|
+          autoload_path = File.join(*path, ns, child_ns)
+
+          if res.is_a?(Hash)
+            ruby_code << "  autoload :#{KubeDSL::StringHelpers.capitalize(child_ns)}, '#{autoload_path}'\n"
+          else
+            ruby_code << "  autoload :#{res.ref.kind}, '#{autoload_path}'\n"
+          end
+        end
+
+        ruby_code << "end\n"
+        yield File.join(*path, "#{ns}.rb"), ruby_code
+        each_autoload_file_helper(children, path + [ns], &block)
+      end
+    end
+
+    def autoload_map
+      @autoload_map ||= {}.tap do |amap|
+        resources.each do |res|
+          parts = res.ref.ruby_autoload_path.split(File::SEPARATOR)
+
+          parts.inject(amap) do |ret, seg|
+            if seg.end_with?('.rb')
+              ret[seg] = res
+            else
+              ret[seg] ||= {}
+            end
+          end
+        end
+      end
+    end
+
     def resource_from_ref(ref)
       if res = resource_cache[ref.str]
         return res
