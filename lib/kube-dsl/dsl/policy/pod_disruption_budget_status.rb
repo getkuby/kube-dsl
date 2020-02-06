@@ -3,7 +3,7 @@ module KubeDSL::DSL::Policy
     extend ::KubeDSL::ValueFields
 
     value_fields :current_healthy, :desired_healthy, :disruptions_allowed, :expected_pods, :observed_generation
-    object_field(:disrupted_pods) { ::KubeDSL::KeyValueFields.new }
+    object_field(:disrupted_pods) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

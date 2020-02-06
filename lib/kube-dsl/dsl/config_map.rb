@@ -3,8 +3,8 @@ module KubeDSL::DSL
     extend ::KubeDSL::ValueFields
 
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
-    object_field(:binary_data) { ::KubeDSL::KeyValueFields.new }
-    object_field(:data) { ::KubeDSL::KeyValueFields.new }
+    object_field(:binary_data) { ::KubeDSL::KeyValueFields.new(format: :byte) }
+    object_field(:data) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

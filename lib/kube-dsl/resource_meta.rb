@@ -8,7 +8,7 @@ module KubeDSL
     def initialize(ref)
       @ref = ref
       @fields = []
-      @key_value_fields = []
+      @key_value_fields = {}
       @array_fields = {}
       @object_fields = {}
       @default_fields = {}
@@ -60,8 +60,8 @@ module KubeDSL
           str << "    object_field(:#{underscore(name)}) { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }\n"
         end
 
-        key_value_fields.each do |name|
-          str << "    object_field(:#{underscore(name)}) { ::KubeDSL::KeyValueFields.new }\n"
+        key_value_fields.each do |name, fmt|
+          str << "    object_field(:#{underscore(name)}) { ::KubeDSL::KeyValueFields.new(format: :#{fmt}) }\n"
         end
       end
     end
@@ -95,7 +95,7 @@ module KubeDSL
           str << "        result[:#{name}] = #{underscore(name)}.serialize\n"
         end
 
-        key_value_fields.each do |name|
+        key_value_fields.each do |name, _|
           str << "        result[:#{name}] = #{underscore(name)}.serialize\n"
         end
 

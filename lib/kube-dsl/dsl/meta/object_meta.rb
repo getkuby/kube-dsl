@@ -6,8 +6,8 @@ module KubeDSL::DSL::Meta
     array_field :finalizer
     array_field(:managed_field) { KubeDSL::DSL::Meta::ManagedFieldsEntry.new }
     array_field(:owner_reference) { KubeDSL::DSL::Meta::OwnerReference.new }
-    object_field(:annotations) { ::KubeDSL::KeyValueFields.new }
-    object_field(:labels) { ::KubeDSL::KeyValueFields.new }
+    object_field(:annotations) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:labels) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

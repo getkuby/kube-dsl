@@ -6,7 +6,7 @@ module KubeDSL::DSL::Storage
     array_field(:allowed_topology) { KubeDSL::DSL::TopologySelectorTerm.new }
     array_field :mount_option
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
-    object_field(:parameters) { ::KubeDSL::KeyValueFields.new }
+    object_field(:parameters) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

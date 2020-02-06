@@ -5,7 +5,7 @@ module KubeDSL::DSL::Certificates
     value_fields :request, :uid, :username
     array_field :group
     array_field :usage
-    object_field(:extra) { ::KubeDSL::KeyValueFields.new }
+    object_field(:extra) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

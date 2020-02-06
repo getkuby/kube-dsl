@@ -6,7 +6,7 @@ module KubeDSL::DSL::Discovery
     array_field :address
     object_field(:conditions) { KubeDSL::DSL::Discovery::EndpointConditions.new }
     object_field(:target_ref) { KubeDSL::DSL::ObjectReference.new }
-    object_field(:topology) { ::KubeDSL::KeyValueFields.new }
+    object_field(:topology) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

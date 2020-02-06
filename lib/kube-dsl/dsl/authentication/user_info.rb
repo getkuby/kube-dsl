@@ -4,7 +4,7 @@ module KubeDSL::DSL::Authentication
 
     value_fields :uid, :username
     array_field :group
-    object_field(:extra) { ::KubeDSL::KeyValueFields.new }
+    object_field(:extra) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

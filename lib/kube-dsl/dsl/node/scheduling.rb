@@ -3,7 +3,7 @@ module KubeDSL::DSL::Node
     extend ::KubeDSL::ValueFields
 
     array_field(:toleration) { KubeDSL::DSL::Toleration.new }
-    object_field(:node_selector) { ::KubeDSL::KeyValueFields.new }
+    object_field(:node_selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

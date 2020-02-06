@@ -15,8 +15,8 @@ module KubeDSL::DSL
     object_field(:affinity) { KubeDSL::DSL::Affinity.new }
     object_field(:dns_config) { KubeDSL::DSL::PodDNSConfig.new }
     object_field(:security_context) { KubeDSL::DSL::PodSecurityContext.new }
-    object_field(:node_selector) { ::KubeDSL::KeyValueFields.new }
-    object_field(:overhead) { ::KubeDSL::KeyValueFields.new }
+    object_field(:node_selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:overhead) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

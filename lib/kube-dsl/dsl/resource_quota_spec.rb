@@ -4,7 +4,7 @@ module KubeDSL::DSL
 
     array_field :scope
     object_field(:scope_selector) { KubeDSL::DSL::ScopeSelector.new }
-    object_field(:hard) { ::KubeDSL::KeyValueFields.new }
+    object_field(:hard) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

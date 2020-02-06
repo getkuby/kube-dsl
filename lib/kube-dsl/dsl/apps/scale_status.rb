@@ -3,7 +3,7 @@ module KubeDSL::DSL::Apps
     extend ::KubeDSL::ValueFields
 
     value_fields :replicas, :target_selector
-    object_field(:selector) { ::KubeDSL::KeyValueFields.new }
+    object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

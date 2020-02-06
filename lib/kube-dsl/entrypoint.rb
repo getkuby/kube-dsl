@@ -1108,4 +1108,304 @@ module KubeDSL::Entrypoint
       resource.instance_eval(&block) if block
     end
   end
+
+  def controller_revision(&block)
+    ::KubeDSL::DSL::Apps::ControllerRevision.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def controller_revision_list(&block)
+    ::KubeDSL::DSL::Apps::ControllerRevisionList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set(&block)
+    ::KubeDSL::DSL::Apps::DaemonSet.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set_condition(&block)
+    ::KubeDSL::DSL::Apps::DaemonSetCondition.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set_list(&block)
+    ::KubeDSL::DSL::Apps::DaemonSetList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set_spec(&block)
+    ::KubeDSL::DSL::Apps::DaemonSetSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set_status(&block)
+    ::KubeDSL::DSL::Apps::DaemonSetStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def daemon_set_update_strategy(&block)
+    ::KubeDSL::DSL::Apps::DaemonSetUpdateStrategy.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment(&block)
+    ::KubeDSL::DSL::Apps::Deployment.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_condition(&block)
+    ::KubeDSL::DSL::Apps::DeploymentCondition.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_list(&block)
+    ::KubeDSL::DSL::Apps::DeploymentList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_spec(&block)
+    ::KubeDSL::DSL::Apps::DeploymentSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_status(&block)
+    ::KubeDSL::DSL::Apps::DeploymentStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_strategy(&block)
+    ::KubeDSL::DSL::Apps::DeploymentStrategy.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def replica_set(&block)
+    ::KubeDSL::DSL::Apps::ReplicaSet.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def replica_set_condition(&block)
+    ::KubeDSL::DSL::Apps::ReplicaSetCondition.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def replica_set_list(&block)
+    ::KubeDSL::DSL::Apps::ReplicaSetList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def replica_set_spec(&block)
+    ::KubeDSL::DSL::Apps::ReplicaSetSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def replica_set_status(&block)
+    ::KubeDSL::DSL::Apps::ReplicaSetStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def rolling_update_daemon_set(&block)
+    ::KubeDSL::DSL::Apps::RollingUpdateDaemonSet.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def rolling_update_deployment(&block)
+    ::KubeDSL::DSL::Apps::RollingUpdateDeployment.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def rolling_update_stateful_set_strategy(&block)
+    ::KubeDSL::DSL::Apps::RollingUpdateStatefulSetStrategy.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set(&block)
+    ::KubeDSL::DSL::Apps::StatefulSet.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set_condition(&block)
+    ::KubeDSL::DSL::Apps::StatefulSetCondition.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set_list(&block)
+    ::KubeDSL::DSL::Apps::StatefulSetList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set_spec(&block)
+    ::KubeDSL::DSL::Apps::StatefulSetSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set_status(&block)
+    ::KubeDSL::DSL::Apps::StatefulSetStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def stateful_set_update_strategy(&block)
+    ::KubeDSL::DSL::Apps::StatefulSetUpdateStrategy.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def deployment_rollback(&block)
+    ::KubeDSL::DSL::Apps::DeploymentRollback.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def rollback_config(&block)
+    ::KubeDSL::DSL::Apps::RollbackConfig.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def scale(&block)
+    ::KubeDSL::DSL::Apps::Scale.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def scale_spec(&block)
+    ::KubeDSL::DSL::Apps::ScaleSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def scale_status(&block)
+    ::KubeDSL::DSL::Apps::ScaleStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ip_block(&block)
+    ::KubeDSL::DSL::Networking::IPBlock.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicy.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_egress_rule(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicyEgressRule.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_ingress_rule(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicyIngressRule.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_list(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicyList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_peer(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicyPeer.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_port(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicyPort.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def network_policy_spec(&block)
+    ::KubeDSL::DSL::Networking::NetworkPolicySpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def http_ingress_path(&block)
+    ::KubeDSL::DSL::Networking::HTTPIngressPath.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def http_ingress_rule_value(&block)
+    ::KubeDSL::DSL::Networking::HTTPIngressRuleValue.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress(&block)
+    ::KubeDSL::DSL::Networking::Ingress.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_backend(&block)
+    ::KubeDSL::DSL::Networking::IngressBackend.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_list(&block)
+    ::KubeDSL::DSL::Networking::IngressList.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_rule(&block)
+    ::KubeDSL::DSL::Networking::IngressRule.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_spec(&block)
+    ::KubeDSL::DSL::Networking::IngressSpec.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_status(&block)
+    ::KubeDSL::DSL::Networking::IngressStatus.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
+
+  def ingress_tls(&block)
+    ::KubeDSL::DSL::Networking::IngressTLS.new.tap do |resource|
+      resource.instance_eval(&block) if block
+    end
+  end
 end

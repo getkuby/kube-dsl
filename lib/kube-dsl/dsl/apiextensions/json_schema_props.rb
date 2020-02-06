@@ -11,10 +11,10 @@ module KubeDSL::DSL::Apiextensions
     array_field :x-kubernetes-list-map-key
     object_field(:external_docs) { KubeDSL::DSL::Apiextensions::ExternalDocumentation.new }
     object_field(:not) { KubeDSL::DSL::Apiextensions::JSONSchemaProps.new }
-    object_field(:definitions) { ::KubeDSL::KeyValueFields.new }
-    object_field(:dependencies) { ::KubeDSL::KeyValueFields.new }
-    object_field(:pattern_properties) { ::KubeDSL::KeyValueFields.new }
-    object_field(:properties) { ::KubeDSL::KeyValueFields.new }
+    object_field(:definitions) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:dependencies) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:pattern_properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

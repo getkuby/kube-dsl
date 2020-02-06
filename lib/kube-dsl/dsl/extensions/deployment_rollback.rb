@@ -4,7 +4,7 @@ module KubeDSL::DSL::Extensions
 
     value_fields :name
     object_field(:rollback_to) { KubeDSL::DSL::Extensions::RollbackConfig.new }
-    object_field(:updated_annotations) { ::KubeDSL::KeyValueFields.new }
+    object_field(:updated_annotations) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

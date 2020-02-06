@@ -3,7 +3,7 @@ module KubeDSL::DSL::Meta
     extend ::KubeDSL::ValueFields
 
     array_field(:match_expression) { KubeDSL::DSL::Meta::LabelSelectorRequirement.new }
-    object_field(:match_labels) { ::KubeDSL::KeyValueFields.new }
+    object_field(:match_labels) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

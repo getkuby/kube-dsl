@@ -8,7 +8,7 @@ module KubeDSL::DSL
     array_field(:port) { KubeDSL::DSL::ServicePort.new }
     array_field :topology_key
     object_field(:session_affinity_config) { KubeDSL::DSL::SessionAffinityConfig.new }
-    object_field(:selector) { ::KubeDSL::KeyValueFields.new }
+    object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

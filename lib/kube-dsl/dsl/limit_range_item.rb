@@ -3,11 +3,11 @@ module KubeDSL::DSL
     extend ::KubeDSL::ValueFields
 
     value_fields :type
-    object_field(:default) { ::KubeDSL::KeyValueFields.new }
-    object_field(:default_request) { ::KubeDSL::KeyValueFields.new }
-    object_field(:max) { ::KubeDSL::KeyValueFields.new }
-    object_field(:max_limit_request_ratio) { ::KubeDSL::KeyValueFields.new }
-    object_field(:min) { ::KubeDSL::KeyValueFields.new }
+    object_field(:default) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:default_request) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:max) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:max_limit_request_ratio) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    object_field(:min) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

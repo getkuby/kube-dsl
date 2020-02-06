@@ -4,7 +4,7 @@ module KubeDSL::DSL
 
     value_fields :driver, :fs_type, :read_only
     object_field(:node_publish_secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
-    object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new }
+    object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|

@@ -5,7 +5,7 @@ module KubeDSL::DSL::Storage
     value_fields :attached
     object_field(:attach_error) { KubeDSL::DSL::Storage::VolumeError.new }
     object_field(:detach_error) { KubeDSL::DSL::Storage::VolumeError.new }
-    object_field(:attachment_metadata) { ::KubeDSL::KeyValueFields.new }
+    object_field(:attachment_metadata) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|
