@@ -1,0 +1,18 @@
+module KubeDSL::DSL::Storage
+  autoload :CSINode, 'kube-dsl/dsl/storage/csi_node'
+  autoload :CSINodeDriver, 'kube-dsl/dsl/storage/csi_node_driver'
+  autoload :CSINodeList, 'kube-dsl/dsl/storage/csi_node_list'
+  autoload :CSINodeSpec, 'kube-dsl/dsl/storage/csi_node_spec'
+  autoload :StorageClass, 'kube-dsl/dsl/storage/storage_class'
+  autoload :StorageClassList, 'kube-dsl/dsl/storage/storage_class_list'
+  autoload :VolumeAttachment, 'kube-dsl/dsl/storage/volume_attachment'
+  autoload :VolumeAttachmentList, 'kube-dsl/dsl/storage/volume_attachment_list'
+  autoload :VolumeAttachmentSource, 'kube-dsl/dsl/storage/volume_attachment_source'
+  autoload :VolumeAttachmentSpec, 'kube-dsl/dsl/storage/volume_attachment_spec'
+  autoload :VolumeAttachmentStatus, 'kube-dsl/dsl/storage/volume_attachment_status'
+  autoload :VolumeError, 'kube-dsl/dsl/storage/volume_error'
+  autoload :VolumeNodeResources, 'kube-dsl/dsl/storage/volume_node_resources'
+  autoload :CSIDriver, 'kube-dsl/dsl/storage/csi_driver'
+  autoload :CSIDriverList, 'kube-dsl/dsl/storage/csi_driver_list'
+  autoload :CSIDriverSpec, 'kube-dsl/dsl/storage/csi_driver_spec'
+end

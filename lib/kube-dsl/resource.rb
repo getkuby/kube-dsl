@@ -1,47 +1,36 @@
-require 'erb'
-
 module KubeDSL
   class Resource
-    include StringHelpers
+    attr_reader :contents
 
-    attr_reader :ref, :fields, :key_value_fields, :array_fields, :object_fields
-
-    def initialize(ref)
-      @ref = ref
-      @fields = []
-      @key_value_fields = []
-      @array_fields = {}
-      @object_fields = {}
+    def initialize(contents)
+      @contents = contents
     end
 
-    def to_ruby
-      ''.tap do |str|
-        str << "module #{ref.ruby_namespace.join('::')}\n"
-        str << "  class #{ref.kind}\n"
-        str << "    extend ValueFields\n"
+    def serialize
+      cleanup(contents)
+    end
 
-        unless fields.empty?
-          str << '    value_fields '
-          str << fields.map { |f| ":#{underscore(f)}" }.join(', ')
-          str << "\n"
-        end
+    def to_yaml
+      YAML.dump(serialize)
+    end
 
-        array_fields.each do |name, field|
-          if field
-            str << "    array_field(:#{underscore(name)})"
-            str << " { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }"
-            str << "\n"
-          else
-            str << "    array_field :#{underscore(name)}\n"
+    private
+
+    def cleanup(obj)
+      case obj
+        when Array
+          cleaned = obj.map { |child| cleanup(child) }.compact
+          cleaned.empty? ? nil : cleaned
+        when Hash
+          cleaned = obj.each_with_object({}) do |(key, val), ret|
+            if new_val = cleanup(val)
+              ret[key.to_s] = new_val
+            end
           end
-        end
 
-        object_fields.each do |name, field|
-          str << "    object_field(:#{underscore(name)}) { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }\n"
-        end
-
-        str << "  end\n"
-        str << "end\n"
+          cleaned.empty? ? nil : cleaned
+        else
+          obj
       end
     end
   end

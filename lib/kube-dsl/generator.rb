@@ -2,6 +2,8 @@ require 'json'
 
 module KubeDSL
   class Generator
+    include StringHelpers
+
     attr_reader :dir
 
     def initialize(dir)
@@ -15,42 +17,46 @@ module KubeDSL
       end
     end
 
-    def each_autoload_file(&block)
-      each_autoload_file_helper(autoload_map['kube-dsl'], ['kube-dsl'], &block)
-    end
+    def entrypoint
+      ''.tap do |ruby_code|
+        ruby_code << "module KubeDSL::Entrypoint\n"
 
-    def each_autoload_file_helper(amap, path, &block)
-      amap.each do |ns, children|
-        return unless children.is_a?(Hash)
-
-        mod_name = [*path, ns].map do |seg|
-          case seg
-            when 'dsl'
-              'DSL'
-            when 'kube-dsl'
-              nil
-            else
-              KubeDSL::StringHelpers.capitalize(seg)
-          end
-        end.compact.join('::')
-
-        ruby_code = "module #{mod_name}\n"
-
-        children.each_pair do |child_ns, res|
-          autoload_path = File.join(*path, ns, child_ns)
-
-          if res.is_a?(Hash)
-            ruby_code << "  autoload :#{KubeDSL::StringHelpers.capitalize(child_ns)}, '#{autoload_path}'\n"
-          else
-            ruby_code << "  autoload :#{res.ref.kind}, '#{autoload_path}'\n"
+        autoload_map['kube-dsl']['dsl'].map do |ns, children|
+          unless children.is_a?(Hash)
+            ruby_code << "  def #{underscore(children.ref.kind)}(&block)\n"
+            ruby_code << "    ::KubeDSL::DSL::#{children.ref.kind}.new.tap do |resource|\n"
+            ruby_code << "      resource.instance_eval(&block) if block\n"
+            ruby_code << "    end\n"
+            ruby_code << "  end\n\n"
           end
         end
 
-        ruby_code << "end\n"
-        yield File.join(*path, "#{ns}.rb"), ruby_code
-        each_autoload_file_helper(children, path + [ns], &block)
+        ruby_code.strip!
+        ruby_code << "\nend\n"
       end
     end
+
+    def each_autoload_file(&block)
+      each_autoload_file_helper(
+        autoload_map['kube-dsl'], ['kube-dsl'], &block
+      )
+    end
+
+    def resource_from_ref(ref)
+      if res = resource_cache[ref.str]
+        return res
+      end
+
+      res = resource_cache[ref.str] = ResourceMeta.new(ref)
+
+      add_doc_to_resource(
+        res, load_doc(File.join(dir, ref.filename))
+      )
+
+      res
+    end
+
+    private
 
     def autoload_map
       @autoload_map ||= {}.tap do |amap|
@@ -68,21 +74,38 @@ module KubeDSL
       end
     end
 
-    def resource_from_ref(ref)
-      if res = resource_cache[ref.str]
-        return res
+    def each_autoload_file_helper(amap, path, &block)
+      amap.each do |ns, children|
+        next unless children.is_a?(Hash)
+
+        mod_name = [*path, ns].map do |seg|
+          case seg
+            when 'dsl'
+              'DSL'
+            when 'kube-dsl'
+              'KubeDSL'
+            else
+              capitalize(seg)
+          end
+        end.join('::')
+
+        ruby_code = "module #{mod_name}\n"
+
+        children.each_pair do |child_ns, res|
+          autoload_path = File.join(*path, ns, child_ns).chomp('.rb')
+
+          if res.is_a?(Hash)
+            ruby_code << "  autoload :#{capitalize(child_ns)}, '#{autoload_path}'\n"
+          else
+            ruby_code << "  autoload :#{res.ref.kind}, '#{autoload_path}'\n"
+          end
+        end
+
+        ruby_code << "end\n"
+        yield File.join('lib', *path, "#{ns}.rb"), ruby_code
+        each_autoload_file_helper(children, path + [ns], &block)
       end
-
-      res = resource_cache[ref.str] = Resource.new(ref)
-
-      add_doc_to_resource(
-        res, load_doc(File.join(dir, ref.filename))
-      )
-
-      res
     end
-
-    private
 
     def load_doc(filename)
       JSON.parse(File.read(filename))
@@ -114,7 +137,14 @@ module KubeDSL
           res.key_value_fields << name
 
         when 'string', 'integer', 'number', 'boolean'
-          res.fields << name
+          enum = prop['enum']
+
+          if enum&.size == 1
+            # use JSON.generate to add quotes around strings, etc
+            res.default_fields[name] = JSON.generate(enum.first)
+          else
+            res.fields << name
+          end
 
         else
           ref = Ref.new(prop['$ref'])

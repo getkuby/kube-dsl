@@ -30,4 +30,8 @@ task :generate do
     puts "Writing #{path}"
     File.write(path, ruby_code)
   end
+
+  entrypoint_path = 'lib/kube-dsl/entrypoint.rb'
+  puts "Writing #{entrypoint_path}"
+  File.write(entrypoint_path, generator.entrypoint)
 end
