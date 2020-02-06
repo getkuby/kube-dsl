@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     kube-dsl (1.0.0)
-      dry-inflector (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -38,6 +37,7 @@ PLATFORMS
   x86_64-darwin-17
 
 DEPENDENCIES
+  dry-inflector (~> 0.2)
   kube-dsl!
   pry-byebug
   rake
