@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class CephFSPersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :path, :read_only, :secret_file, :user
     array_field :monitor
     object_field(:secret_ref) { KubeDSL::DSL::SecretReference.new }
@@ -18,6 +19,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ceph_fs_persistent_volume_source
     end
   end
 end

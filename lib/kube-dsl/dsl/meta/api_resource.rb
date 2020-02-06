@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class APIResource
     extend ::KubeDSL::ValueFields
+
     value_fields :group, :kind, :name, :namespaced, :singular_name, :storage_version_hash, :version
     array_field :category
     array_field :short_name
@@ -23,6 +24,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_resource
     end
   end
 end

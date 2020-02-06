@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Toleration
     extend ::KubeDSL::ValueFields
+
     value_fields :effect, :key, :operator, :toleration_seconds, :value
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :toleration
     end
   end
 end

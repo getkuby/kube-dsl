@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class AllowedHostPath
     extend ::KubeDSL::ValueFields
+
     value_fields :path_prefix, :read_only
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :allowed_host_path
     end
   end
 end

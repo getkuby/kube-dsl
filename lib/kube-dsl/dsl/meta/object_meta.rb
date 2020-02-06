@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class ObjectMeta
     extend ::KubeDSL::ValueFields
+
     value_fields :cluster_name, :creation_timestamp, :deletion_grace_period_seconds, :deletion_timestamp, :generate_name, :generation, :name, :namespace, :resource_version, :self_link, :uid
     array_field :finalizer
     array_field(:managed_field) { KubeDSL::DSL::Meta::ManagedFieldsEntry.new }
@@ -31,6 +32,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :object_meta
     end
   end
 end

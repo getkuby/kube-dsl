@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DaemonSetCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :daemon_set_condition
     end
   end
 end

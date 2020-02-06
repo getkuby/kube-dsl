@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class CSIDriver
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Storage::CSIDriverSpec.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :csi_driver
     end
   end
 end

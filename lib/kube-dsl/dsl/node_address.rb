@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeAddress
     extend ::KubeDSL::ValueFields
+
     value_fields :address, :type
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_address
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NFSVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :path, :read_only, :server
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :nfs_volume_source
     end
   end
 end

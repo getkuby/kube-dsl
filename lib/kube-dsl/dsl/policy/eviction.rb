@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class Eviction
     extend ::KubeDSL::ValueFields
+
     object_field(:delete_options) { KubeDSL::DSL::Meta::DeleteOptions.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :eviction
     end
   end
 end

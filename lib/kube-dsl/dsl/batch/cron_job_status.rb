@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class CronJobStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :last_schedule_time
     array_field(:active) { KubeDSL::DSL::ObjectReference.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cron_job_status
     end
   end
 end

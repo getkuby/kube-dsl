@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiregistration
   class APIServiceSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :ca_bundle, :group, :group_priority_minimum, :insecure_skip_tls_verify, :version, :version_priority
     object_field(:service) { KubeDSL::DSL::Apiregistration::ServiceReference.new }
 
@@ -18,6 +19,10 @@ module KubeDSL::DSL::Apiregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_service_spec
     end
   end
 end

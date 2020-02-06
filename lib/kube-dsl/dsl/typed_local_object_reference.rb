@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class TypedLocalObjectReference
     extend ::KubeDSL::ValueFields
+
     value_fields :api_group, :kind, :name
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :typed_local_object_reference
     end
   end
 end

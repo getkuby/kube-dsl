@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class ResourceMetricStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :name
     object_field(:current) { KubeDSL::DSL::Autoscaling::MetricValueStatus.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_metric_status
     end
   end
 end

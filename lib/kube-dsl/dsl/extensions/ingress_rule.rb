@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class IngressRule
     extend ::KubeDSL::ValueFields
+
     value_fields :host
     object_field(:http) { KubeDSL::DSL::Extensions::HTTPIngressRuleValue.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ingress_rule
     end
   end
 end

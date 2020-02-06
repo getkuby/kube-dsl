@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class StorageOSPersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :read_only, :volume_name, :volume_namespace
     object_field(:secret_ref) { KubeDSL::DSL::ObjectReference.new }
 
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :storage_os_persistent_volume_source
     end
   end
 end

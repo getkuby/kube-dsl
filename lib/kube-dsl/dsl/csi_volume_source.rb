@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class CSIVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :driver, :fs_type, :read_only
     object_field(:node_publish_secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
     object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :csi_volume_source
     end
   end
 end

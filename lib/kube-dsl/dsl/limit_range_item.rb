@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class LimitRangeItem
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:default) { ::KubeDSL::KeyValueFields.new }
     object_field(:default_request) { ::KubeDSL::KeyValueFields.new }
@@ -21,6 +22,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :limit_range_item
     end
   end
 end

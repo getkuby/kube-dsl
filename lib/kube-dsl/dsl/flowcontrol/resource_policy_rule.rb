@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class ResourcePolicyRule
     extend ::KubeDSL::ValueFields
+
     value_fields :cluster_scope
     array_field :api_group
     array_field :namespace
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_policy_rule
     end
   end
 end

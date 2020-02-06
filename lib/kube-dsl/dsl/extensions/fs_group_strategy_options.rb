@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class FSGroupStrategyOptions
     extend ::KubeDSL::ValueFields
+
     value_fields :rule
     array_field(:range) { KubeDSL::DSL::Extensions::IDRange.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :fs_group_strategy_options
     end
   end
 end

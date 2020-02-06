@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class ClusterRoleBindingList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Rbac::ClusterRoleBinding.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cluster_role_binding_list
     end
   end
 end

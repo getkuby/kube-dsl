@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class FlowSchemaSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :matching_precedence
     array_field(:rule) { KubeDSL::DSL::Flowcontrol::PolicyRulesWithSubjects.new }
     object_field(:distinguisher_method) { KubeDSL::DSL::Flowcontrol::FlowDistinguisherMethod.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :flow_schema_spec
     end
   end
 end

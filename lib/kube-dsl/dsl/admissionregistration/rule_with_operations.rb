@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Admissionregistration
   class RuleWithOperations
     extend ::KubeDSL::ValueFields
+
     value_fields :scope
     array_field :api_group
     array_field :api_version
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Admissionregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :rule_with_operations
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Discovery
   class EndpointSliceList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Discovery::EndpointSlice.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Discovery
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoint_slice_list
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class IngressTLS
     extend ::KubeDSL::ValueFields
+
     value_fields :secret_name
     array_field :host
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ingress_tls
     end
   end
 end

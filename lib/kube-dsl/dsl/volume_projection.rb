@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class VolumeProjection
     extend ::KubeDSL::ValueFields
+
     object_field(:config_map) { KubeDSL::DSL::ConfigMapProjection.new }
     object_field(:downward_api) { KubeDSL::DSL::DownwardAPIProjection.new }
     object_field(:secret) { KubeDSL::DSL::SecretProjection.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_projection
     end
   end
 end

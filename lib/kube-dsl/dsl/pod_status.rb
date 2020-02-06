@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :host_ip, :message, :nominated_node_name, :phase, :pod_ip, :qos_class, :reason, :start_time
     array_field(:condition) { KubeDSL::DSL::PodCondition.new }
     array_field(:container_status) { KubeDSL::DSL::ContainerStatus.new }
@@ -28,6 +29,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_status
     end
   end
 end

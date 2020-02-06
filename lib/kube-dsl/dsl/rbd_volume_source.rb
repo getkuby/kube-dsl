@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class RBDVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :image, :keyring, :pool, :read_only, :user
     array_field :monitor
     object_field(:secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
@@ -20,6 +21,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :rbd_volume_source
     end
   end
 end

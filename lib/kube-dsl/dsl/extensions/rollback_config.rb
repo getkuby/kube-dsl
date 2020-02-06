@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class RollbackConfig
     extend ::KubeDSL::ValueFields
+
     value_fields :revision
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :rollback_config
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class DownwardAPIVolumeFile
     extend ::KubeDSL::ValueFields
+
     value_fields :mode, :path
     object_field(:field_ref) { KubeDSL::DSL::ObjectFieldSelector.new }
     object_field(:resource_field_ref) { KubeDSL::DSL::ResourceFieldSelector.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :downward_api_volume_file
     end
   end
 end

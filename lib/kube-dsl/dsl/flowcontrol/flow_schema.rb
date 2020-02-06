@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class FlowSchema
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Flowcontrol::FlowSchemaSpec.new }
     object_field(:status) { KubeDSL::DSL::Flowcontrol::FlowSchemaStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :flow_schema
     end
   end
 end

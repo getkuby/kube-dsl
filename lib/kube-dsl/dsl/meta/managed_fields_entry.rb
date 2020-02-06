@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class ManagedFieldsEntry
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :fields_type, :fields_v1, :manager, :operation, :time
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :managed_fields_entry
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Probe
     extend ::KubeDSL::ValueFields
+
     value_fields :failure_threshold, :initial_delay_seconds, :period_seconds, :success_threshold, :timeout_seconds
     object_field(:exec) { KubeDSL::DSL::ExecAction.new }
     object_field(:http_get) { KubeDSL::DSL::HTTPGetAction.new }
@@ -21,6 +22,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :probe
     end
   end
 end

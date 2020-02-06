@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ObjectFieldSelector
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :field_path
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :object_field_selector
     end
   end
 end

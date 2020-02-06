@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class RollingUpdateDeployment
     extend ::KubeDSL::ValueFields
+
     value_fields :max_surge, :max_unavailable
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :rolling_update_deployment
     end
   end
 end

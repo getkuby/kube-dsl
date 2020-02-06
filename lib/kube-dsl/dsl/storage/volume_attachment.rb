@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class VolumeAttachment
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Storage::VolumeAttachmentSpec.new }
     object_field(:status) { KubeDSL::DSL::Storage::VolumeAttachmentStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_attachment
     end
   end
 end

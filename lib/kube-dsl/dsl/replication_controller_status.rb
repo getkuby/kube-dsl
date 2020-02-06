@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ReplicationControllerStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :available_replicas, :fully_labeled_replicas, :observed_generation, :ready_replicas, :replicas
     array_field(:condition) { KubeDSL::DSL::ReplicationControllerCondition.new }
 
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :replication_controller_status
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class CinderVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :read_only, :volume_id
     object_field(:secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cinder_volume_source
     end
   end
 end

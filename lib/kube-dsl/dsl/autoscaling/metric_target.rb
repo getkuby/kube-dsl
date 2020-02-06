@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class MetricTarget
     extend ::KubeDSL::ValueFields
+
     value_fields :average_utilization, :average_value, :type, :value
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :metric_target
     end
   end
 end

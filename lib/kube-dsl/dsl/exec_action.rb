@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ExecAction
     extend ::KubeDSL::ValueFields
+
     array_field :command
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :exec_action
     end
   end
 end

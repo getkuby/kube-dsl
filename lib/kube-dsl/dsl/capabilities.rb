@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Capabilities
     extend ::KubeDSL::ValueFields
+
     array_field :add
     array_field :drop
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :capabilities
     end
   end
 end

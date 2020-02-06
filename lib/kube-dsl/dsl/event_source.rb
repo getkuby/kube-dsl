@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EventSource
     extend ::KubeDSL::ValueFields
+
     value_fields :component, :host
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :event_source
     end
   end
 end

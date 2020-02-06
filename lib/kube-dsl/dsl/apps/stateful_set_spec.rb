@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class StatefulSetSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :pod_management_policy, :replicas, :revision_history_limit, :service_name
     array_field(:volume_claim_template) { KubeDSL::DSL::PersistentVolumeClaim.new }
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
@@ -22,6 +23,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :stateful_set_spec
     end
   end
 end

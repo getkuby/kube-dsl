@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class AttachedVolume
     extend ::KubeDSL::ValueFields
+
     value_fields :device_path, :name
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :attached_volume
     end
   end
 end

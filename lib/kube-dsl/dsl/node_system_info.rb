@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeSystemInfo
     extend ::KubeDSL::ValueFields
+
     value_fields :architecture, :boot_id, :container_runtime_version, :kernel_version, :kube_proxy_version, :kubelet_version, :machine_id, :operating_system, :os_image, :system_uuid
 
     def serialize
@@ -20,6 +21,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_system_info
     end
   end
 end

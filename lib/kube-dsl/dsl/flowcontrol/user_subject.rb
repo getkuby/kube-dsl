@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class UserSubject
     extend ::KubeDSL::ValueFields
+
     value_fields :name
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :user_subject
     end
   end
 end

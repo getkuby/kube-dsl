@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class WeightedPodAffinityTerm
     extend ::KubeDSL::ValueFields
+
     value_fields :weight
     object_field(:pod_affinity_term) { KubeDSL::DSL::PodAffinityTerm.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :weighted_pod_affinity_term
     end
   end
 end

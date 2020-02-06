@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class JobCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_probe_time, :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :job_condition
     end
   end
 end

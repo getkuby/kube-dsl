@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class PodDisruptionBudgetSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :max_unavailable, :min_available
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
 
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_disruption_budget_spec
     end
   end
 end

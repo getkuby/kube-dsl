@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class PolicyRule
     extend ::KubeDSL::ValueFields
+
     array_field :api_group
     array_field :non_resource_url
     array_field :resource_name
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :policy_rule
     end
   end
 end

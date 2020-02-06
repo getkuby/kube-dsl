@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class DeploymentSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :min_ready_seconds, :paused, :progress_deadline_seconds, :replicas, :revision_history_limit
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
     object_field(:strategy) { KubeDSL::DSL::Apps::DeploymentStrategy.new }
@@ -21,6 +22,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_spec
     end
   end
 end

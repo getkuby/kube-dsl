@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class SecretKeySelector
     extend ::KubeDSL::ValueFields
+
     value_fields :key, :name, :optional
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :secret_key_selector
     end
   end
 end

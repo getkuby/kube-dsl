@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class FlowSchemaCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :flow_schema_condition
     end
   end
 end

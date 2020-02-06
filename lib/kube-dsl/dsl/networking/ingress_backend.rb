@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class IngressBackend
     extend ::KubeDSL::ValueFields
+
     value_fields :service_name, :service_port
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ingress_backend
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class DaemonSetSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :min_ready_seconds, :revision_history_limit
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
     object_field(:template) { KubeDSL::DSL::PodTemplateSpec.new }
@@ -18,6 +19,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :daemon_set_spec
     end
   end
 end

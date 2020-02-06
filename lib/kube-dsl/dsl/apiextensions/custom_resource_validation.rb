@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceValidation
     extend ::KubeDSL::ValueFields
+
     object_field(:open_apiv3_schema) { KubeDSL::DSL::Apiextensions::JSONSchemaProps.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_validation
     end
   end
 end

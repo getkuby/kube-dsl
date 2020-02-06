@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class HorizontalPodAutoscaler
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Autoscaling::HorizontalPodAutoscalerSpec.new }
     object_field(:status) { KubeDSL::DSL::Autoscaling::HorizontalPodAutoscalerStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :horizontal_pod_autoscaler
     end
   end
 end

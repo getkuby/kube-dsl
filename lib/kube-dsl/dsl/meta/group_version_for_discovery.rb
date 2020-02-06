@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class GroupVersionForDiscovery
     extend ::KubeDSL::ValueFields
+
     value_fields :group_version, :version
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :group_version_for_discovery
     end
   end
 end

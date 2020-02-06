@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Lifecycle
     extend ::KubeDSL::ValueFields
+
     object_field(:post_start) { KubeDSL::DSL::Handler.new }
     object_field(:pre_stop) { KubeDSL::DSL::Handler.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :lifecycle
     end
   end
 end

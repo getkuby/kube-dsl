@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Discovery
   class Endpoint
     extend ::KubeDSL::ValueFields
+
     value_fields :hostname
     array_field :address
     object_field(:conditions) { KubeDSL::DSL::Discovery::EndpointConditions.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Discovery
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoint
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Node
   class Overhead
     extend ::KubeDSL::ValueFields
+
     object_field(:pod_fixed) { ::KubeDSL::KeyValueFields.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Node
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :overhead
     end
   end
 end

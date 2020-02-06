@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EndpointAddress
     extend ::KubeDSL::ValueFields
+
     value_fields :hostname, :ip, :node_name
     object_field(:target_ref) { KubeDSL::DSL::ObjectReference.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoint_address
     end
   end
 end

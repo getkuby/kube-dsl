@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class SecretEnvSource
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :optional
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :secret_env_source
     end
   end
 end

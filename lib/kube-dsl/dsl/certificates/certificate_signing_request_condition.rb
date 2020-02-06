@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Certificates
   class CertificateSigningRequestCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_update_time, :message, :reason, :type
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Certificates
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :certificate_signing_request_condition
     end
   end
 end

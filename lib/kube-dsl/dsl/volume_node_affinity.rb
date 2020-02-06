@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class VolumeNodeAffinity
     extend ::KubeDSL::ValueFields
+
     object_field(:required) { KubeDSL::DSL::NodeSelector.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_node_affinity
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class ReplicaSetSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :min_ready_seconds, :replicas
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
     object_field(:template) { KubeDSL::DSL::PodTemplateSpec.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :replica_set_spec
     end
   end
 end

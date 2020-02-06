@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class VolumeAttachmentList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Storage::VolumeAttachment.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_attachment_list
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodSecurityContext
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_group, :run_as_group, :run_as_non_root, :run_as_user
     array_field :supplemental_group
     array_field(:sysctl) { KubeDSL::DSL::Sysctl.new }
@@ -22,6 +23,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_security_context
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class QueuingConfiguration
     extend ::KubeDSL::ValueFields
+
     value_fields :hand_size, :queue_length_limit, :queues
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :queuing_configuration
     end
   end
 end

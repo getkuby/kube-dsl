@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Taint
     extend ::KubeDSL::ValueFields
+
     value_fields :effect, :key, :time_added, :value
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :taint
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class NetworkPolicyList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Extensions::NetworkPolicy.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :network_policy_list
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceDefinitionNames
     extend ::KubeDSL::ValueFields
+
     value_fields :kind, :list_kind, :plural, :singular
     array_field :category
     array_field :short_name
@@ -18,6 +19,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_definition_names
     end
   end
 end

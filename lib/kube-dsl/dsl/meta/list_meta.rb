@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class ListMeta
     extend ::KubeDSL::ValueFields
+
     value_fields :continue, :remaining_item_count, :resource_version, :self_link
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :list_meta
     end
   end
 end

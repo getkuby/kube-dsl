@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiregistration
   class APIServiceCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apiregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_service_condition
     end
   end
 end

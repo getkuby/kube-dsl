@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class AllowedFlexVolume
     extend ::KubeDSL::ValueFields
+
     value_fields :driver
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :allowed_flex_volume
     end
   end
 end

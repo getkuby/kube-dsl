@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class TCPSocketAction
     extend ::KubeDSL::ValueFields
+
     value_fields :host, :port
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :tcp_socket_action
     end
   end
 end

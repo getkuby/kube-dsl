@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class StatusCause
     extend ::KubeDSL::ValueFields
+
     value_fields :field, :message, :reason
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :status_cause
     end
   end
 end

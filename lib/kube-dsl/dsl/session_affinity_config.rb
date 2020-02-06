@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class SessionAffinityConfig
     extend ::KubeDSL::ValueFields
+
     object_field(:client_ip) { KubeDSL::DSL::ClientIPConfig.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :session_affinity_config
     end
   end
 end

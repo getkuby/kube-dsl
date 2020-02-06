@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class ScaleStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :replicas, :selector
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :scale_status
     end
   end
 end

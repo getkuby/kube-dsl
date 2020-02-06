@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class LimitResponse
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:queuing) { KubeDSL::DSL::Flowcontrol::QueuingConfiguration.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :limit_response
     end
   end
 end

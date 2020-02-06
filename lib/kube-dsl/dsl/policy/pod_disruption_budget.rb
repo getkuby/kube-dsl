@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class PodDisruptionBudget
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Policy::PodDisruptionBudgetSpec.new }
     object_field(:status) { KubeDSL::DSL::Policy::PodDisruptionBudgetStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_disruption_budget
     end
   end
 end

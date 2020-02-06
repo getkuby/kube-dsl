@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class StorageClassList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Storage::StorageClass.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :storage_class_list
     end
   end
 end

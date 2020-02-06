@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PreferredSchedulingTerm
     extend ::KubeDSL::ValueFields
+
     value_fields :weight
     object_field(:preference) { KubeDSL::DSL::NodeSelectorTerm.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :preferred_scheduling_term
     end
   end
 end

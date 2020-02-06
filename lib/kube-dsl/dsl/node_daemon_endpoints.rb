@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeDaemonEndpoints
     extend ::KubeDSL::ValueFields
+
     object_field(:kubelet_endpoint) { KubeDSL::DSL::DaemonEndpoint.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_daemon_endpoints
     end
   end
 end

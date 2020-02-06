@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Discovery
   class EndpointSlice
     extend ::KubeDSL::ValueFields
+
     value_fields :address_type
     array_field(:endpoint) { KubeDSL::DSL::Discovery::Endpoint.new }
     array_field(:port) { KubeDSL::DSL::Discovery::EndpointPort.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Discovery
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoint_slice
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_heartbeat_time, :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_condition
     end
   end
 end

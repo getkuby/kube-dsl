@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Admissionregistration
   class ValidatingWebhook
     extend ::KubeDSL::ValueFields
+
     value_fields :failure_policy, :match_policy, :name, :side_effects, :timeout_seconds
     array_field :admission_review_version
     array_field(:rule) { KubeDSL::DSL::Admissionregistration::RuleWithOperations.new }
@@ -25,6 +26,10 @@ module KubeDSL::DSL::Admissionregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :validating_webhook
     end
   end
 end

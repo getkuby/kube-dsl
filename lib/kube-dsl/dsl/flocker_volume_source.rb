@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class FlockerVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :dataset_name, :dataset_uuid
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :flocker_volume_source
     end
   end
 end

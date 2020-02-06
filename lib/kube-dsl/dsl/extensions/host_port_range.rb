@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class HostPortRange
     extend ::KubeDSL::ValueFields
+
     value_fields :max, :min
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :host_port_range
     end
   end
 end

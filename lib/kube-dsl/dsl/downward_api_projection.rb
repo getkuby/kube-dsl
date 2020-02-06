@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class DownwardAPIProjection
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::DownwardAPIVolumeFile.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :downward_api_projection
     end
   end
 end

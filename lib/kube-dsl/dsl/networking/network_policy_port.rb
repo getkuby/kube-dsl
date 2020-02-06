@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class NetworkPolicyPort
     extend ::KubeDSL::ValueFields
+
     value_fields :port, :protocol
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :network_policy_port
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class Scale
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Apps::ScaleSpec.new }
     object_field(:status) { KubeDSL::DSL::Apps::ScaleStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :scale
     end
   end
 end

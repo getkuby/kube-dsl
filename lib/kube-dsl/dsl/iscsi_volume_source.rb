@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ISCSIVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :chap_auth_discovery, :chap_auth_session, :fs_type, :initiator_name, :iqn, :iscsi_interface, :lun, :read_only, :target_portal
     array_field :portal
     object_field(:secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
@@ -23,6 +24,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :iscsi_volume_source
     end
   end
 end

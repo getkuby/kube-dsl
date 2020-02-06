@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class VolumeError
     extend ::KubeDSL::ValueFields
+
     value_fields :message, :time
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_error
     end
   end
 end

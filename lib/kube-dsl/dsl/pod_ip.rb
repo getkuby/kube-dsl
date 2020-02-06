@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodIP
     extend ::KubeDSL::ValueFields
+
     value_fields :ip
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_ip
     end
   end
 end

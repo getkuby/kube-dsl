@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EnvFromSource
     extend ::KubeDSL::ValueFields
+
     value_fields :prefix
     object_field(:config_map_ref) { KubeDSL::DSL::ConfigMapEnvSource.new }
     object_field(:secret_ref) { KubeDSL::DSL::SecretEnvSource.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :env_from_source
     end
   end
 end

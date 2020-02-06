@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class ControllerRevisionList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Apps::ControllerRevision.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :controller_revision_list
     end
   end
 end

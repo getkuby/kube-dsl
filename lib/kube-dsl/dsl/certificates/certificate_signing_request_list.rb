@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Certificates
   class CertificateSigningRequestList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Certificates::CertificateSigningRequest.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Certificates
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :certificate_signing_request_list
     end
   end
 end

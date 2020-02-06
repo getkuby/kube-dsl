@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class TopologySelectorLabelRequirement
     extend ::KubeDSL::ValueFields
+
     value_fields :key
     array_field :value
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :topology_selector_label_requirement
     end
   end
 end

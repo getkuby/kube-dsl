@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DeploymentStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :available_replicas, :collision_count, :observed_generation, :ready_replicas, :replicas, :unavailable_replicas, :updated_replicas
     array_field(:condition) { KubeDSL::DSL::Extensions::DeploymentCondition.new }
 
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_status
     end
   end
 end

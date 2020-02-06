@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeAffinity
     extend ::KubeDSL::ValueFields
+
     array_field(:preferred_during_scheduling_ignored_during_execution) { KubeDSL::DSL::PreferredSchedulingTerm.new }
     object_field(:required_during_scheduling_ignored_during_execution) { KubeDSL::DSL::NodeSelector.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_affinity
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Volume
     extend ::KubeDSL::ValueFields
+
     value_fields :name
     object_field(:aws_elastic_block_store) { KubeDSL::DSL::AWSElasticBlockStoreVolumeSource.new }
     object_field(:azure_disk) { KubeDSL::DSL::AzureDiskVolumeSource.new }
@@ -67,6 +68,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume
     end
   end
 end

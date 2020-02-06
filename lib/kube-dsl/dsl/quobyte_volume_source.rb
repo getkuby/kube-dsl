@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class QuobyteVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :group, :read_only, :registry, :tenant, :user, :volume
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :quobyte_volume_source
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class WatchEvent
     extend ::KubeDSL::ValueFields
+
     value_fields :object, :type
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :watch_event
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ResourceFieldSelector
     extend ::KubeDSL::ValueFields
+
     value_fields :container_name, :divisor, :resource
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_field_selector
     end
   end
 end

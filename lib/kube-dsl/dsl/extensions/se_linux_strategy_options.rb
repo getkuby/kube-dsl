@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class SELinuxStrategyOptions
     extend ::KubeDSL::ValueFields
+
     value_fields :rule
     object_field(:se_linux_options) { KubeDSL::DSL::SELinuxOptions.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :se_linux_strategy_options
     end
   end
 end

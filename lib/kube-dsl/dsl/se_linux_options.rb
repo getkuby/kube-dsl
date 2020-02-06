@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class SELinuxOptions
     extend ::KubeDSL::ValueFields
+
     value_fields :level, :role, :type, :user
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :se_linux_options
     end
   end
 end

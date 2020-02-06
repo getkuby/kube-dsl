@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class UserInfo
     extend ::KubeDSL::ValueFields
+
     value_fields :uid, :username
     array_field :group
     object_field(:extra) { ::KubeDSL::KeyValueFields.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :user_info
     end
   end
 end

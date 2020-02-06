@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiregistration
   class APIService
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Apiregistration::APIServiceSpec.new }
     object_field(:status) { KubeDSL::DSL::Apiregistration::APIServiceStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Apiregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_service
     end
   end
 end

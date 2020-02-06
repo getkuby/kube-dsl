@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ReplicationControllerSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :min_ready_seconds, :replicas
     object_field(:template) { KubeDSL::DSL::PodTemplateSpec.new }
     object_field(:selector) { ::KubeDSL::KeyValueFields.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :replication_controller_spec
     end
   end
 end

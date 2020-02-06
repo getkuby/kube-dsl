@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ClientIPConfig
     extend ::KubeDSL::ValueFields
+
     value_fields :timeout_seconds
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :client_ip_config
     end
   end
 end

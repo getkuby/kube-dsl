@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Node
   class RuntimeClass
     extend ::KubeDSL::ValueFields
+
     value_fields :handler
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:overhead) { KubeDSL::DSL::Node::Overhead.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Node
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :runtime_class
     end
   end
 end

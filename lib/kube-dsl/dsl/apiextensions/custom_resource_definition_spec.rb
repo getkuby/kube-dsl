@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceDefinitionSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :group, :preserve_unknown_fields, :scope, :version
     array_field(:additional_printer_column) { KubeDSL::DSL::Apiextensions::CustomResourceColumnDefinition.new }
     array_field(:version) { KubeDSL::DSL::Apiextensions::CustomResourceDefinitionVersion.new }
@@ -26,6 +27,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_definition_spec
     end
   end
 end

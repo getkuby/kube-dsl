@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class CSINodeDriver
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :node_id
     array_field :topology_key
     object_field(:allocatable) { KubeDSL::DSL::Storage::VolumeNodeResources.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :csi_node_driver
     end
   end
 end

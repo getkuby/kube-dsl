@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class GlusterfsPersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :endpoints, :endpoints_namespace, :path, :read_only
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :glusterfs_persistent_volume_source
     end
   end
 end

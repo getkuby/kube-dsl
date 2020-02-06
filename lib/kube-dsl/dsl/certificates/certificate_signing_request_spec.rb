@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Certificates
   class CertificateSigningRequestSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :request, :uid, :username
     array_field :group
     array_field :usage
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Certificates
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :certificate_signing_request_spec
     end
   end
 end

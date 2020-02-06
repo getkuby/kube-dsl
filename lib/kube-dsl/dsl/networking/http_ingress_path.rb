@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class HTTPIngressPath
     extend ::KubeDSL::ValueFields
+
     value_fields :path
     object_field(:backend) { KubeDSL::DSL::Networking::IngressBackend.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :http_ingress_path
     end
   end
 end

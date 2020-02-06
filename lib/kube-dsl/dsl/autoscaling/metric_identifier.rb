@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class MetricIdentifier
     extend ::KubeDSL::ValueFields
+
     value_fields :name
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :metric_identifier
     end
   end
 end

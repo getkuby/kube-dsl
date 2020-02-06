@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class AzureDiskVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :caching_mode, :disk_name, :disk_uri, :fs_type, :kind, :read_only
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :azure_disk_volume_source
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class IngressSpec
     extend ::KubeDSL::ValueFields
+
     array_field(:rule) { KubeDSL::DSL::Extensions::IngressRule.new }
     array_field(:tl) { KubeDSL::DSL::Extensions::IngressTLS.new }
     object_field(:backend) { KubeDSL::DSL::Extensions::IngressBackend.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ingress_spec
     end
   end
 end

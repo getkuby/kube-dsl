@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class Role
     extend ::KubeDSL::ValueFields
+
     array_field(:rule) { KubeDSL::DSL::Rbac::PolicyRule.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :role
     end
   end
 end

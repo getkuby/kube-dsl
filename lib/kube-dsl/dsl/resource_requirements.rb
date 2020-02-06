@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ResourceRequirements
     extend ::KubeDSL::ValueFields
+
     object_field(:limits) { ::KubeDSL::KeyValueFields.new }
     object_field(:requests) { ::KubeDSL::KeyValueFields.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_requirements
     end
   end
 end

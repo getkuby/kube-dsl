@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class NonResourceAttributes
     extend ::KubeDSL::ValueFields
+
     value_fields :path, :verb
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :non_resource_attributes
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class JobTemplateSpec
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Batch::JobSpec.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :job_template_spec
     end
   end
 end

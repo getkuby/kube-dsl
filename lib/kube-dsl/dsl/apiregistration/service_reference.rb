@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiregistration
   class ServiceReference
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :namespace, :port
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Apiregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_reference
     end
   end
 end

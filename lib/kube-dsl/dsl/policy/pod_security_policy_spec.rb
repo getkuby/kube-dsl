@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class PodSecurityPolicySpec
     extend ::KubeDSL::ValueFields
+
     value_fields :allow_privilege_escalation, :default_allow_privilege_escalation, :host_ipc, :host_network, :host_pid, :privileged, :read_only_root_filesystem
     array_field(:allowed_csi_driver) { KubeDSL::DSL::Policy::AllowedCSIDriver.new }
     array_field :allowed_capability
@@ -51,6 +52,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_security_policy_spec
     end
   end
 end

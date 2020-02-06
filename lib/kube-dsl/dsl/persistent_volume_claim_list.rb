@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PersistentVolumeClaimList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::PersistentVolumeClaim.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :persistent_volume_claim_list
     end
   end
 end

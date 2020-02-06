@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DaemonSetList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Extensions::DaemonSet.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :daemon_set_list
     end
   end
 end

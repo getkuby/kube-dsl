@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ResourceQuotaStatus
     extend ::KubeDSL::ValueFields
+
     object_field(:hard) { ::KubeDSL::KeyValueFields.new }
     object_field(:used) { ::KubeDSL::KeyValueFields.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_quota_status
     end
   end
 end

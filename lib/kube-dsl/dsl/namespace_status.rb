@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NamespaceStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :phase
     array_field(:condition) { KubeDSL::DSL::NamespaceCondition.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :namespace_status
     end
   end
 end

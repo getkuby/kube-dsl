@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DeploymentRollback
     extend ::KubeDSL::ValueFields
+
     value_fields :name
     object_field(:rollback_to) { KubeDSL::DSL::Extensions::RollbackConfig.new }
     object_field(:updated_annotations) { ::KubeDSL::KeyValueFields.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_rollback
     end
   end
 end

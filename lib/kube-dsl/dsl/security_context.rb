@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class SecurityContext
     extend ::KubeDSL::ValueFields
+
     value_fields :allow_privilege_escalation, :privileged, :proc_mount, :read_only_root_filesystem, :run_as_group, :run_as_non_root, :run_as_user
     object_field(:capabilities) { KubeDSL::DSL::Capabilities.new }
     object_field(:se_linux_options) { KubeDSL::DSL::SELinuxOptions.new }
@@ -23,6 +24,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :security_context
     end
   end
 end

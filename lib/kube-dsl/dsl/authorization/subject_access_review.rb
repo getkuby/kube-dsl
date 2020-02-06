@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class SubjectAccessReview
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Authorization::SubjectAccessReviewSpec.new }
     object_field(:status) { KubeDSL::DSL::Authorization::SubjectAccessReviewStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :subject_access_review
     end
   end
 end

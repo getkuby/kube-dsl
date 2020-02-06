@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class PriorityLevelConfigurationList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Flowcontrol::PriorityLevelConfiguration.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :priority_level_configuration_list
     end
   end
 end

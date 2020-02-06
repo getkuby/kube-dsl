@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class CronJobSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :concurrency_policy, :failed_jobs_history_limit, :schedule, :starting_deadline_seconds, :successful_jobs_history_limit, :suspend
     object_field(:job_template) { KubeDSL::DSL::Batch::JobTemplateSpec.new }
 
@@ -18,6 +19,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cron_job_spec
     end
   end
 end

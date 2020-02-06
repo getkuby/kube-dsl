@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class LoadBalancerIngress
     extend ::KubeDSL::ValueFields
+
     value_fields :hostname, :ip
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :load_balancer_ingress
     end
   end
 end

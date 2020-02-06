@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class ServiceAccountSubject
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :namespace
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_account_subject
     end
   end
 end

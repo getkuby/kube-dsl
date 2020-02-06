@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PersistentVolumeClaimVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :claim_name, :read_only
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :persistent_volume_claim_volume_source
     end
   end
 end

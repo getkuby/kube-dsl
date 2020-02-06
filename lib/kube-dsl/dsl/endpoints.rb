@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Endpoints
     extend ::KubeDSL::ValueFields
+
     array_field(:subset) { KubeDSL::DSL::EndpointSubset.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoints
     end
   end
 end

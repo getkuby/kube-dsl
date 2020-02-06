@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class TokenRequestStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :expiration_timestamp, :token
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :token_request_status
     end
   end
 end

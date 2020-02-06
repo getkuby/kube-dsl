@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class JSONSchemaProps
     extend ::KubeDSL::ValueFields
+
     value_fields :$ref, :$schema, :additional_items, :additional_properties, :default, :description, :example, :exclusive_maximum, :exclusive_minimum, :format, :id, :items, :max_items, :max_length, :max_properties, :maximum, :min_items, :min_length, :min_properties, :minimum, :multiple_of, :nullable, :pattern, :title, :type, :unique_items, :x-kubernetes-embedded-resource, :x-kubernetes-int-or-string, :x-kubernetes-list-type, :x-kubernetes-map-type, :x-kubernetes-preserve-unknown-fields
     array_field(:all_of) { KubeDSL::DSL::Apiextensions::JSONSchemaProps.new }
     array_field(:any_of) { KubeDSL::DSL::Apiextensions::JSONSchemaProps.new }
@@ -65,6 +66,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :json_schema_props
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class HorizontalPodAutoscalerSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :max_replicas, :min_replicas
     array_field(:metric) { KubeDSL::DSL::Autoscaling::MetricSpec.new }
     object_field(:scale_target_ref) { KubeDSL::DSL::Autoscaling::CrossVersionObjectReference.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :horizontal_pod_autoscaler_spec
     end
   end
 end

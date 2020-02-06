@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class VolumeAttachmentSource
     extend ::KubeDSL::ValueFields
+
     value_fields :persistent_volume_name
     object_field(:inline_volume_spec) { KubeDSL::DSL::PersistentVolumeSpec.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_attachment_source
     end
   end
 end

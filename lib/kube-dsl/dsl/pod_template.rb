@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodTemplate
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:template) { KubeDSL::DSL::PodTemplateSpec.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_template
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class LoadBalancerStatus
     extend ::KubeDSL::ValueFields
+
     array_field(:ingress) { KubeDSL::DSL::LoadBalancerIngress.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :load_balancer_status
     end
   end
 end

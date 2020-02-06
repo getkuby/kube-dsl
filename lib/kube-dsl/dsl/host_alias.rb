@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class HostAlias
     extend ::KubeDSL::ValueFields
+
     value_fields :ip
     array_field :hostname
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :host_alias
     end
   end
 end

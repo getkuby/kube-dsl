@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DeploymentSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :min_ready_seconds, :paused, :progress_deadline_seconds, :replicas, :revision_history_limit
     object_field(:rollback_to) { KubeDSL::DSL::Extensions::RollbackConfig.new }
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
@@ -23,6 +24,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_spec
     end
   end
 end

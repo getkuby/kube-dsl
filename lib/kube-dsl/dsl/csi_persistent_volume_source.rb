@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class CSIPersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :driver, :fs_type, :read_only, :volume_handle
     object_field(:controller_expand_secret_ref) { KubeDSL::DSL::SecretReference.new }
     object_field(:controller_publish_secret_ref) { KubeDSL::DSL::SecretReference.new }
@@ -24,6 +25,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :csi_persistent_volume_source
     end
   end
 end

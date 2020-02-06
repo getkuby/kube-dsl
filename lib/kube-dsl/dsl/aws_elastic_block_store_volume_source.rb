@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class AWSElasticBlockStoreVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :partition, :read_only, :volume_id
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :aws_elastic_block_store_volume_source
     end
   end
 end

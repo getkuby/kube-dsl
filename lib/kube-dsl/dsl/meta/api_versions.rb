@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class APIVersions
     extend ::KubeDSL::ValueFields
+
     array_field(:server_address_by_client_cidr) { KubeDSL::DSL::Meta::ServerAddressByClientCIDR.new }
     array_field :version
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_versions
     end
   end
 end

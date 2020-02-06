@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class WindowsSecurityContextOptions
     extend ::KubeDSL::ValueFields
+
     value_fields :gmsa_credential_spec, :gmsa_credential_spec_name, :run_as_user_name
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :windows_security_context_options
     end
   end
 end

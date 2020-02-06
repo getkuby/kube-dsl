@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :phase
     array_field(:address) { KubeDSL::DSL::NodeAddress.new }
     array_field(:condition) { KubeDSL::DSL::NodeCondition.new }
@@ -31,6 +32,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_status
     end
   end
 end

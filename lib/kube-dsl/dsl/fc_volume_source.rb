@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class FCVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :lun, :read_only
     array_field :target_wwn
     array_field :wwid
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :fc_volume_source
     end
   end
 end

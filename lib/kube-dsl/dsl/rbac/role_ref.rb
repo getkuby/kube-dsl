@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class RoleRef
     extend ::KubeDSL::ValueFields
+
     value_fields :api_group, :kind, :name
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :role_ref
     end
   end
 end

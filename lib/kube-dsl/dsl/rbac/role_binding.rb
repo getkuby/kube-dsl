@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class RoleBinding
     extend ::KubeDSL::ValueFields
+
     array_field(:subject) { KubeDSL::DSL::Rbac::Subject.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:role_ref) { KubeDSL::DSL::Rbac::RoleRef.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :role_binding
     end
   end
 end

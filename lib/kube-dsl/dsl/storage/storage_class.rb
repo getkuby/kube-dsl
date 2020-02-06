@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class StorageClass
     extend ::KubeDSL::ValueFields
+
     value_fields :allow_volume_expansion, :provisioner, :reclaim_policy, :volume_binding_mode
     array_field(:allowed_topology) { KubeDSL::DSL::TopologySelectorTerm.new }
     array_field :mount_option
@@ -24,6 +25,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :storage_class
     end
   end
 end

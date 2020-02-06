@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class StatusDetails
     extend ::KubeDSL::ValueFields
+
     value_fields :group, :kind, :name, :retry_after_seconds, :uid
     array_field(:cause) { KubeDSL::DSL::Meta::StatusCause.new }
 
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :status_details
     end
   end
 end

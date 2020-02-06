@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ServiceAccountTokenProjection
     extend ::KubeDSL::ValueFields
+
     value_fields :audience, :expiration_seconds, :path
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_account_token_projection
     end
   end
 end

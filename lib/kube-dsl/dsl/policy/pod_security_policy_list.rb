@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class PodSecurityPolicyList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Policy::PodSecurityPolicy.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_security_policy_list
     end
   end
 end

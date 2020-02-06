@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class LimitRangeSpec
     extend ::KubeDSL::ValueFields
+
     array_field(:limit) { KubeDSL::DSL::LimitRangeItem.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :limit_range_spec
     end
   end
 end

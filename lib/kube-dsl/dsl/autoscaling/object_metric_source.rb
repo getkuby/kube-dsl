@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class ObjectMetricSource
     extend ::KubeDSL::ValueFields
+
     object_field(:described_object) { KubeDSL::DSL::Autoscaling::CrossVersionObjectReference.new }
     object_field(:metric) { KubeDSL::DSL::Autoscaling::MetricIdentifier.new }
     object_field(:target) { KubeDSL::DSL::Autoscaling::MetricTarget.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :object_metric_source
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ObjectReference
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :field_path, :kind, :name, :namespace, :resource_version, :uid
 
     def serialize
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :object_reference
     end
   end
 end

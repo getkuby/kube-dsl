@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceDefinitionStatus
     extend ::KubeDSL::ValueFields
+
     array_field(:condition) { KubeDSL::DSL::Apiextensions::CustomResourceDefinitionCondition.new }
     array_field :stored_version
     object_field(:accepted_names) { KubeDSL::DSL::Apiextensions::CustomResourceDefinitionNames.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_definition_status
     end
   end
 end

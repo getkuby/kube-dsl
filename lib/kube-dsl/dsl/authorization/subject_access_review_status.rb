@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class SubjectAccessReviewStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :allowed, :denied, :evaluation_error, :reason
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :subject_access_review_status
     end
   end
 end

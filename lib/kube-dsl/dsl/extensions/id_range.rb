@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class IDRange
     extend ::KubeDSL::ValueFields
+
     value_fields :max, :min
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :id_range
     end
   end
 end

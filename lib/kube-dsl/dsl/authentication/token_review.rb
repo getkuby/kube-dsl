@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class TokenReview
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Authentication::TokenReviewSpec.new }
     object_field(:status) { KubeDSL::DSL::Authentication::TokenReviewStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :token_review
     end
   end
 end

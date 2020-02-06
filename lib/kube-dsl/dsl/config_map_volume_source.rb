@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ConfigMapVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :default_mode, :name, :optional
     array_field(:item) { KubeDSL::DSL::KeyToPath.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :config_map_volume_source
     end
   end
 end

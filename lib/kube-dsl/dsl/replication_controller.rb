@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ReplicationController
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::ReplicationControllerSpec.new }
     object_field(:status) { KubeDSL::DSL::ReplicationControllerStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :replication_controller
     end
   end
 end

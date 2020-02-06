@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Auditregistration
   class Policy
     extend ::KubeDSL::ValueFields
+
     value_fields :level
     array_field :stage
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Auditregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :policy
     end
   end
 end

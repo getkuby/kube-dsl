@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class StatefulSetCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :stateful_set_condition
     end
   end
 end

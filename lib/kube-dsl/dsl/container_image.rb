@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ContainerImage
     extend ::KubeDSL::ValueFields
+
     value_fields :size_bytes
     array_field :name
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :container_image
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class AllowedCSIDriver
     extend ::KubeDSL::ValueFields
+
     value_fields :name
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :allowed_csi_driver
     end
   end
 end

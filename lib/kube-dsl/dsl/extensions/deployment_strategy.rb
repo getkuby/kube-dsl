@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class DeploymentStrategy
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:rolling_update) { KubeDSL::DSL::Extensions::RollingUpdateDeployment.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_strategy
     end
   end
 end

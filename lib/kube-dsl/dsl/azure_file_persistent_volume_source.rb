@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class AzureFilePersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :read_only, :secret_name, :secret_namespace, :share_name
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :azure_file_persistent_volume_source
     end
   end
 end

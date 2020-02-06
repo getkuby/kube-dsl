@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class VsphereVirtualDiskVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :storage_policy_id, :storage_policy_name, :volume_path
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :vsphere_virtual_disk_volume_source
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EmptyDirVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :medium, :size_limit
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :empty_dir_volume_source
     end
   end
 end

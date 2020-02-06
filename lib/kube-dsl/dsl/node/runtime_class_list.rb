@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Node
   class RuntimeClassList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Node::RuntimeClass.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Node
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :runtime_class_list
     end
   end
 end

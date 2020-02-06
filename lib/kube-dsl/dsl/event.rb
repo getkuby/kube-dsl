@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Event
     extend ::KubeDSL::ValueFields
+
     value_fields :action, :count, :event_time, :first_timestamp, :last_timestamp, :message, :reason, :reporting_component, :reporting_instance, :type
     object_field(:involved_object) { KubeDSL::DSL::ObjectReference.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
@@ -32,6 +33,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :event
     end
   end
 end

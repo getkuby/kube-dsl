@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ContainerStateTerminated
     extend ::KubeDSL::ValueFields
+
     value_fields :container_id, :exit_code, :finished_at, :message, :reason, :signal, :started_at
 
     def serialize
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :container_state_terminated
     end
   end
 end

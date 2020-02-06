@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class IPBlock
     extend ::KubeDSL::ValueFields
+
     value_fields :cidr
     array_field :except
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ip_block
     end
   end
 end

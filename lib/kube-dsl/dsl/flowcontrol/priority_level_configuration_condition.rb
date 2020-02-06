@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class PriorityLevelConfigurationCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :message, :reason, :status, :type
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :priority_level_configuration_condition
     end
   end
 end

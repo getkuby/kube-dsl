@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EnvVarSource
     extend ::KubeDSL::ValueFields
+
     object_field(:config_map_key_ref) { KubeDSL::DSL::ConfigMapKeySelector.new }
     object_field(:field_ref) { KubeDSL::DSL::ObjectFieldSelector.new }
     object_field(:resource_field_ref) { KubeDSL::DSL::ResourceFieldSelector.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :env_var_source
     end
   end
 end

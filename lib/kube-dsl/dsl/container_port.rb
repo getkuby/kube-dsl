@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ContainerPort
     extend ::KubeDSL::ValueFields
+
     value_fields :container_port, :host_ip, :host_port, :name, :protocol
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :container_port
     end
   end
 end

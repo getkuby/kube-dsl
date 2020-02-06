@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class ReplicaSet
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Extensions::ReplicaSetSpec.new }
     object_field(:status) { KubeDSL::DSL::Extensions::ReplicaSetStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :replica_set
     end
   end
 end

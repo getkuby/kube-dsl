@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ContainerStateRunning
     extend ::KubeDSL::ValueFields
+
     value_fields :started_at
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :container_state_running
     end
   end
 end

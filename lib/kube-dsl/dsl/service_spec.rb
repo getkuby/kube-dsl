@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ServiceSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :cluster_ip, :external_name, :external_traffic_policy, :health_check_node_port, :ip_family, :load_balancer_ip, :publish_not_ready_addresses, :session_affinity, :type
     array_field :external_ip
     array_field :load_balancer_source_range
@@ -31,6 +32,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_spec
     end
   end
 end

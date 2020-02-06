@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Coordination
   class LeaseSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :acquire_time, :holder_identity, :lease_duration_seconds, :lease_transitions, :renew_time
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Coordination
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :lease_spec
     end
   end
 end

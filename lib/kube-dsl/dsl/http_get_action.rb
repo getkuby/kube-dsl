@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class HTTPGetAction
     extend ::KubeDSL::ValueFields
+
     value_fields :host, :path, :port, :scheme
     array_field(:http_header) { KubeDSL::DSL::HTTPHeader.new }
 
@@ -16,6 +17,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :http_get_action
     end
   end
 end

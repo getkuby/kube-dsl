@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceDefinitionList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Apiextensions::CustomResourceDefinition.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_definition_list
     end
   end
 end

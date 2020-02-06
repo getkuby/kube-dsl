@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodDNSConfigOption
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :value
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_dns_config_option
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class DaemonSetStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :collision_count, :current_number_scheduled, :desired_number_scheduled, :number_available, :number_misscheduled, :number_ready, :number_unavailable, :observed_generation, :updated_number_scheduled
     array_field(:condition) { KubeDSL::DSL::Apps::DaemonSetCondition.new }
 
@@ -21,6 +22,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :daemon_set_status
     end
   end
 end

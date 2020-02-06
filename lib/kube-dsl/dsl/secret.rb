@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Secret
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:data) { ::KubeDSL::KeyValueFields.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :secret
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class FlexPersistentVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :driver, :fs_type, :read_only
     object_field(:secret_ref) { KubeDSL::DSL::SecretReference.new }
     object_field(:options) { ::KubeDSL::KeyValueFields.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :flex_persistent_volume_source
     end
   end
 end

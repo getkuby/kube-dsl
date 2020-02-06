@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class APIResourceList
     extend ::KubeDSL::ValueFields
+
     value_fields :group_version
     array_field(:resource) { KubeDSL::DSL::Meta::APIResource.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :api_resource_list
     end
   end
 end

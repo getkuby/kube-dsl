@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class CronJob
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Batch::CronJobSpec.new }
     object_field(:status) { KubeDSL::DSL::Batch::CronJobStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cron_job
     end
   end
 end

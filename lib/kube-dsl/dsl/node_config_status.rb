@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeConfigStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :error
     object_field(:active) { KubeDSL::DSL::NodeConfigSource.new }
     object_field(:assigned) { KubeDSL::DSL::NodeConfigSource.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_config_status
     end
   end
 end

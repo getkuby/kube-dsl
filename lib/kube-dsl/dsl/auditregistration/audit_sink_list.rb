@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Auditregistration
   class AuditSinkList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Auditregistration::AuditSink.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Auditregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :audit_sink_list
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class VolumeAttachmentStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :attached
     object_field(:attach_error) { KubeDSL::DSL::Storage::VolumeError.new }
     object_field(:detach_error) { KubeDSL::DSL::Storage::VolumeError.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_attachment_status
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Settings
   class PodPresetSpec
     extend ::KubeDSL::ValueFields
+
     array_field(:env) { KubeDSL::DSL::EnvVar.new }
     array_field(:env_from) { KubeDSL::DSL::EnvFromSource.new }
     array_field(:volume_mount) { KubeDSL::DSL::VolumeMount.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Settings
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_preset_spec
     end
   end
 end

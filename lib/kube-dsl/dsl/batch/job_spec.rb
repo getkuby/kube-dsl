@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Batch
   class JobSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :active_deadline_seconds, :backoff_limit, :completions, :manual_selector, :parallelism, :ttl_seconds_after_finished
     object_field(:selector) { KubeDSL::DSL::Meta::LabelSelector.new }
     object_field(:template) { KubeDSL::DSL::PodTemplateSpec.new }
@@ -20,6 +21,10 @@ module KubeDSL::DSL::Batch
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :job_spec
     end
   end
 end

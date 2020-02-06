@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class DeploymentCondition
     extend ::KubeDSL::ValueFields
+
     value_fields :last_transition_time, :last_update_time, :message, :reason, :status, :type
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :deployment_condition
     end
   end
 end

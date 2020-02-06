@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class TokenReviewStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :authenticated, :error
     array_field :audience
     object_field(:user) { KubeDSL::DSL::Authentication::UserInfo.new }
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :token_review_status
     end
   end
 end

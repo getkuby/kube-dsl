@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Scheduling
   class PriorityClass
     extend ::KubeDSL::ValueFields
+
     value_fields :description, :global_default, :preemption_policy, :value
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
 
@@ -18,6 +19,10 @@ module KubeDSL::DSL::Scheduling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :priority_class
     end
   end
 end

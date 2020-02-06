@@ -19,12 +19,17 @@ module KubeDSL
         str << "module #{ref.ruby_namespace.join('::')}\n"
         str << "  class #{ref.kind}\n"
         str << "    extend ::KubeDSL::ValueFields\n"
+        str << "\n"
         str << fields_to_ruby
         str << "\n"
         str << serialize_method
         str << "\n"
         str << "    def to_resource\n"
         str << "      ::KubeDSL::Resource.new(serialize)\n"
+        str << "    end\n"
+        str << "\n"
+        str << "    def kind\n"
+        str << "      :#{underscore(ref.kind)}\n"
         str << "    end\n"
         str << "  end\n"
         str << "end\n"

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class SelfSubjectAccessReviewSpec
     extend ::KubeDSL::ValueFields
+
     object_field(:non_resource_attributes) { KubeDSL::DSL::Authorization::NonResourceAttributes.new }
     object_field(:resource_attributes) { KubeDSL::DSL::Authorization::ResourceAttributes.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :self_subject_access_review_spec
     end
   end
 end

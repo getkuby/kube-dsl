@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Admissionregistration
   class WebhookClientConfig
     extend ::KubeDSL::ValueFields
+
     value_fields :ca_bundle, :url
     object_field(:service) { KubeDSL::DSL::Admissionregistration::ServiceReference.new }
 
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Admissionregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :webhook_client_config
     end
   end
 end

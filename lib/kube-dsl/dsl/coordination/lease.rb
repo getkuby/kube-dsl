@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Coordination
   class Lease
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Coordination::LeaseSpec.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Coordination
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :lease
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class NonResourcePolicyRule
     extend ::KubeDSL::ValueFields
+
     array_field :non_resource_url
     array_field :verb
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :non_resource_policy_rule
     end
   end
 end

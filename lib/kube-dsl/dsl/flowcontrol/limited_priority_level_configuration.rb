@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class LimitedPriorityLevelConfiguration
     extend ::KubeDSL::ValueFields
+
     value_fields :assured_concurrency_shares
     object_field(:limit_response) { KubeDSL::DSL::Flowcontrol::LimitResponse.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :limited_priority_level_configuration
     end
   end
 end

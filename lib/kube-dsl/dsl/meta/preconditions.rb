@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class Preconditions
     extend ::KubeDSL::ValueFields
+
     value_fields :resource_version, :uid
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :preconditions
     end
   end
 end

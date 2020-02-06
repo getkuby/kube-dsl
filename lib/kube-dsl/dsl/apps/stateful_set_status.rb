@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class StatefulSetStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :collision_count, :current_replicas, :current_revision, :observed_generation, :ready_replicas, :replicas, :update_revision, :updated_replicas
     array_field(:condition) { KubeDSL::DSL::Apps::StatefulSetCondition.new }
 
@@ -20,6 +21,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :stateful_set_status
     end
   end
 end

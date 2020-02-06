@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class NetworkPolicyIngressRule
     extend ::KubeDSL::ValueFields
+
     array_field(:from) { KubeDSL::DSL::Networking::NetworkPolicyPeer.new }
     array_field(:port) { KubeDSL::DSL::Networking::NetworkPolicyPort.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :network_policy_ingress_rule
     end
   end
 end

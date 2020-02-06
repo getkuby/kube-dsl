@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ServiceList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Service.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_list
     end
   end
 end

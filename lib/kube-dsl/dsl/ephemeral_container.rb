@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EphemeralContainer
     extend ::KubeDSL::ValueFields
+
     value_fields :image, :image_pull_policy, :name, :stdin, :stdin_once, :target_container_name, :termination_message_path, :termination_message_policy, :tty, :working_dir
     array_field :arg
     array_field :command
@@ -46,6 +47,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ephemeral_container
     end
   end
 end

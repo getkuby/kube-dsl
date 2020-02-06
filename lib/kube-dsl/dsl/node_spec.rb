@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :external_id, :pod_cidr, :provider_id, :unschedulable
     array_field :pod_cidr
     array_field(:taint) { KubeDSL::DSL::Taint.new }
@@ -20,6 +21,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_spec
     end
   end
 end

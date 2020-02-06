@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class TokenRequest
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Authentication::TokenRequestSpec.new }
     object_field(:status) { KubeDSL::DSL::Authentication::TokenRequestStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :token_request
     end
   end
 end

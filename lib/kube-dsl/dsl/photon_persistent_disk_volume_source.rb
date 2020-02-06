@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PhotonPersistentDiskVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :pd_id
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :photon_persistent_disk_volume_source
     end
   end
 end

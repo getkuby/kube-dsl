@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Discovery
   class EndpointPort
     extend ::KubeDSL::ValueFields
+
     value_fields :app_protocol, :name, :port, :protocol
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Discovery
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :endpoint_port
     end
   end
 end

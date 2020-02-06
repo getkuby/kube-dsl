@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class TokenRequestSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :expiration_seconds
     array_field :audience
     object_field(:bound_object_ref) { KubeDSL::DSL::Authentication::BoundObjectReference.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :token_request_spec
     end
   end
 end

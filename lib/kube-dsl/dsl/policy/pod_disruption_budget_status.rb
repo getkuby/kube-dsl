@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Policy
   class PodDisruptionBudgetStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :current_healthy, :desired_healthy, :disruptions_allowed, :expected_pods, :observed_generation
     object_field(:disrupted_pods) { ::KubeDSL::KeyValueFields.new }
 
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Policy
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_disruption_budget_status
     end
   end
 end

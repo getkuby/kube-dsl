@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ServiceAccount
     extend ::KubeDSL::ValueFields
+
     value_fields :automount_service_account_token
     array_field(:image_pull_secret) { KubeDSL::DSL::LocalObjectReference.new }
     array_field(:secret) { KubeDSL::DSL::ObjectReference.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :service_account
     end
   end
 end

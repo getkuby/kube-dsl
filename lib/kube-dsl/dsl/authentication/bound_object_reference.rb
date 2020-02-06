@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authentication
   class BoundObjectReference
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :kind, :name, :uid
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Authentication
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :bound_object_reference
     end
   end
 end

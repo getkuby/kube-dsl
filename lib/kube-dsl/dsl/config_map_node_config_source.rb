@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ConfigMapNodeConfigSource
     extend ::KubeDSL::ValueFields
+
     value_fields :kubelet_config_key, :name, :namespace, :resource_version, :uid
 
     def serialize
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :config_map_node_config_source
     end
   end
 end

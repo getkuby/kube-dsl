@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Settings
   class PodPresetList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Settings::PodPreset.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Settings
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_preset_list
     end
   end
 end

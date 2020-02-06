@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class CustomResourceColumnDefinition
     extend ::KubeDSL::ValueFields
+
     value_fields :json_path, :description, :format, :name, :priority, :type
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :custom_resource_column_definition
     end
   end
 end

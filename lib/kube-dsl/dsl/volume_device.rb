@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class VolumeDevice
     extend ::KubeDSL::ValueFields
+
     value_fields :device_path, :name
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :volume_device
     end
   end
 end

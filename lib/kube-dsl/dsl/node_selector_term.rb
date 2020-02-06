@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeSelectorTerm
     extend ::KubeDSL::ValueFields
+
     array_field(:match_expression) { KubeDSL::DSL::NodeSelectorRequirement.new }
     array_field(:match_field) { KubeDSL::DSL::NodeSelectorRequirement.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_selector_term
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class ScaleStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :replicas, :target_selector
     object_field(:selector) { ::KubeDSL::KeyValueFields.new }
 
@@ -14,6 +15,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :scale_status
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PersistentVolumeClaimSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :storage_class_name, :volume_mode, :volume_name
     array_field :access_mode
     object_field(:data_source) { KubeDSL::DSL::TypedLocalObjectReference.new }
@@ -21,6 +22,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :persistent_volume_claim_spec
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class NodeSelectorRequirement
     extend ::KubeDSL::ValueFields
+
     value_fields :key, :operator
     array_field :value
 
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :node_selector_requirement
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Node
   class Scheduling
     extend ::KubeDSL::ValueFields
+
     array_field(:toleration) { KubeDSL::DSL::Toleration.new }
     object_field(:node_selector) { ::KubeDSL::KeyValueFields.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Node
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :scheduling
     end
   end
 end

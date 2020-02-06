@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class NetworkPolicyPeer
     extend ::KubeDSL::ValueFields
+
     object_field(:ip_block) { KubeDSL::DSL::Extensions::IPBlock.new }
     object_field(:namespace_selector) { KubeDSL::DSL::Meta::LabelSelector.new }
     object_field(:pod_selector) { KubeDSL::DSL::Meta::LabelSelector.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :network_policy_peer
     end
   end
 end

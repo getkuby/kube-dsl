@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Events
   class Event
     extend ::KubeDSL::ValueFields
+
     value_fields :action, :deprecated_count, :deprecated_first_timestamp, :deprecated_last_timestamp, :event_time, :note, :reason, :reporting_controller, :reporting_instance, :type
     object_field(:deprecated_source) { KubeDSL::DSL::EventSource.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
@@ -32,6 +33,10 @@ module KubeDSL::DSL::Events
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :event
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class ServerAddressByClientCIDR
     extend ::KubeDSL::ValueFields
+
     value_fields :client_cidr, :server_address
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :server_address_by_client_cidr
     end
   end
 end

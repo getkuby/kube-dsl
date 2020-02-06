@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class ResourceRule
     extend ::KubeDSL::ValueFields
+
     array_field :api_group
     array_field :resource_name
     array_field :resource
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :resource_rule
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class Status
     extend ::KubeDSL::ValueFields
+
     value_fields :code, :message, :reason, :status
     object_field(:details) { KubeDSL::DSL::Meta::StatusDetails.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
@@ -20,6 +21,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :status
     end
   end
 end

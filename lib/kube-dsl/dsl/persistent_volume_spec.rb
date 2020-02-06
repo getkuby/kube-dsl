@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PersistentVolumeSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :persistent_volume_reclaim_policy, :storage_class_name, :volume_mode
     array_field :access_mode
     array_field :mount_option
@@ -67,6 +68,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :persistent_volume_spec
     end
   end
 end

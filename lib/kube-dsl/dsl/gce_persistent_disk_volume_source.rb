@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class GCEPersistentDiskVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :partition, :pd_name, :read_only
 
     def serialize
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :gce_persistent_disk_volume_source
     end
   end
 end

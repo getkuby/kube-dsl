@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class RollingUpdateDaemonSet
     extend ::KubeDSL::ValueFields
+
     value_fields :max_unavailable
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :rolling_update_daemon_set
     end
   end
 end

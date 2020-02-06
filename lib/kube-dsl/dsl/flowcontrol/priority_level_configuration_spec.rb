@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Flowcontrol
   class PriorityLevelConfigurationSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:limited) { KubeDSL::DSL::Flowcontrol::LimitedPriorityLevelConfiguration.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Flowcontrol
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :priority_level_configuration_spec
     end
   end
 end

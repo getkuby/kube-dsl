@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class DaemonSet
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Apps::DaemonSetSpec.new }
     object_field(:status) { KubeDSL::DSL::Apps::DaemonSetStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :daemon_set
     end
   end
 end

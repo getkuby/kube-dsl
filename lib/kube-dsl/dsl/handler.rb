@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class Handler
     extend ::KubeDSL::ValueFields
+
     object_field(:exec) { KubeDSL::DSL::ExecAction.new }
     object_field(:http_get) { KubeDSL::DSL::HTTPGetAction.new }
     object_field(:tcp_socket) { KubeDSL::DSL::TCPSocketAction.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :handler
     end
   end
 end

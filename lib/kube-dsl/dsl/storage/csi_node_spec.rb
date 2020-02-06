@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Storage
   class CSINodeSpec
     extend ::KubeDSL::ValueFields
+
     array_field(:driver) { KubeDSL::DSL::Storage::CSINodeDriver.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Storage
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :csi_node_spec
     end
   end
 end

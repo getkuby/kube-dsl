@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class DeleteOptions
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :grace_period_seconds, :orphan_dependents, :propagation_policy
     array_field :dry_run
     object_field(:preconditions) { KubeDSL::DSL::Meta::Preconditions.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :delete_options
     end
   end
 end

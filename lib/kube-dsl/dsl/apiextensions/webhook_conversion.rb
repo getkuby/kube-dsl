@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apiextensions
   class WebhookConversion
     extend ::KubeDSL::ValueFields
+
     array_field :conversion_review_version
     object_field(:client_config) { KubeDSL::DSL::Apiextensions::WebhookClientConfig.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Apiextensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :webhook_conversion
     end
   end
 end

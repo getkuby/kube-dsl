@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class SelfSubjectRulesReview
     extend ::KubeDSL::ValueFields
+
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Authorization::SelfSubjectRulesReviewSpec.new }
     object_field(:status) { KubeDSL::DSL::Authorization::SubjectRulesReviewStatus.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :self_subject_rules_review
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class OwnerReference
     extend ::KubeDSL::ValueFields
+
     value_fields :api_version, :block_owner_deletion, :controller, :kind, :name, :uid
 
     def serialize
@@ -16,6 +17,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :owner_reference
     end
   end
 end

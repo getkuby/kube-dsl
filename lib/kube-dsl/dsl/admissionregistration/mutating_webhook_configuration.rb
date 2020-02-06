@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Admissionregistration
   class MutatingWebhookConfiguration
     extend ::KubeDSL::ValueFields
+
     array_field(:webhook) { KubeDSL::DSL::Admissionregistration::MutatingWebhook.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Admissionregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :mutating_webhook_configuration
     end
   end
 end

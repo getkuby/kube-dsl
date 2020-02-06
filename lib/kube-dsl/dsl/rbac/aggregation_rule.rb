@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class AggregationRule
     extend ::KubeDSL::ValueFields
+
     array_field(:cluster_role_selector) { KubeDSL::DSL::Meta::LabelSelector.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :aggregation_rule
     end
   end
 end

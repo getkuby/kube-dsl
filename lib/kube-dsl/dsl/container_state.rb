@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ContainerState
     extend ::KubeDSL::ValueFields
+
     object_field(:running) { KubeDSL::DSL::ContainerStateRunning.new }
     object_field(:terminated) { KubeDSL::DSL::ContainerStateTerminated.new }
     object_field(:waiting) { KubeDSL::DSL::ContainerStateWaiting.new }
@@ -15,6 +16,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :container_state
     end
   end
 end

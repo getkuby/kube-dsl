@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Auditregistration
   class WebhookThrottleConfig
     extend ::KubeDSL::ValueFields
+
     value_fields :burst, :qps
 
     def serialize
@@ -12,6 +13,10 @@ module KubeDSL::DSL::Auditregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :webhook_throttle_config
     end
   end
 end

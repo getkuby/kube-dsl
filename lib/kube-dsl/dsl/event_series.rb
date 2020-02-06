@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class EventSeries
     extend ::KubeDSL::ValueFields
+
     value_fields :count, :last_observed_time, :state
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :event_series
     end
   end
 end

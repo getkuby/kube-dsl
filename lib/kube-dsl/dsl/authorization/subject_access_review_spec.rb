@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Authorization
   class SubjectAccessReviewSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :uid, :user
     array_field :group
     object_field(:non_resource_attributes) { KubeDSL::DSL::Authorization::NonResourceAttributes.new }
@@ -20,6 +21,10 @@ module KubeDSL::DSL::Authorization
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :subject_access_review_spec
     end
   end
 end

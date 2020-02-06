@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class PodSpec
     extend ::KubeDSL::ValueFields
+
     value_fields :active_deadline_seconds, :automount_service_account_token, :dns_policy, :enable_service_links, :host_ipc, :host_network, :host_pid, :hostname, :node_name, :preemption_policy, :priority, :priority_class_name, :restart_policy, :runtime_class_name, :scheduler_name, :service_account, :service_account_name, :share_process_namespace, :subdomain, :termination_grace_period_seconds
     array_field(:container) { KubeDSL::DSL::Container.new }
     array_field(:ephemeral_container) { KubeDSL::DSL::EphemeralContainer.new }
@@ -58,6 +59,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :pod_spec
     end
   end
 end

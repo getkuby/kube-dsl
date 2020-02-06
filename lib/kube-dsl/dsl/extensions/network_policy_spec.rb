@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Extensions
   class NetworkPolicySpec
     extend ::KubeDSL::ValueFields
+
     array_field(:egress) { KubeDSL::DSL::Extensions::NetworkPolicyEgressRule.new }
     array_field(:ingress) { KubeDSL::DSL::Extensions::NetworkPolicyIngressRule.new }
     array_field :policy_type
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Extensions
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :network_policy_spec
     end
   end
 end

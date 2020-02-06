@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Apps
   class StatefulSetList
     extend ::KubeDSL::ValueFields
+
     array_field(:item) { KubeDSL::DSL::Apps::StatefulSet.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ListMeta.new }
 
@@ -15,6 +16,10 @@ module KubeDSL::DSL::Apps
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :stateful_set_list
     end
   end
 end

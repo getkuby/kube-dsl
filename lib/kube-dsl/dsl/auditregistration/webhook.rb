@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Auditregistration
   class Webhook
     extend ::KubeDSL::ValueFields
+
     object_field(:client_config) { KubeDSL::DSL::Auditregistration::WebhookClientConfig.new }
     object_field(:throttle) { KubeDSL::DSL::Auditregistration::WebhookThrottleConfig.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Auditregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :webhook
     end
   end
 end

@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ConfigMapProjection
     extend ::KubeDSL::ValueFields
+
     value_fields :name, :optional
     array_field(:item) { KubeDSL::DSL::KeyToPath.new }
 
@@ -14,6 +15,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :config_map_projection
     end
   end
 end

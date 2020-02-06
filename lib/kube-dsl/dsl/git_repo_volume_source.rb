@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class GitRepoVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :directory, :repository, :revision
 
     def serialize
@@ -13,6 +14,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :git_repo_volume_source
     end
   end
 end

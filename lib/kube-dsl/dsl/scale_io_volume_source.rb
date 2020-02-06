@@ -1,6 +1,7 @@
 module KubeDSL::DSL
   class ScaleIOVolumeSource
     extend ::KubeDSL::ValueFields
+
     value_fields :fs_type, :gateway, :protection_domain, :read_only, :ssl_enabled, :storage_mode, :storage_pool, :system, :volume_name
     object_field(:secret_ref) { KubeDSL::DSL::LocalObjectReference.new }
 
@@ -21,6 +22,10 @@ module KubeDSL::DSL
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :scale_io_volume_source
     end
   end
 end

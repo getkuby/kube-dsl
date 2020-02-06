@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Rbac
   class ClusterRole
     extend ::KubeDSL::ValueFields
+
     array_field(:rule) { KubeDSL::DSL::Rbac::PolicyRule.new }
     object_field(:aggregation_rule) { KubeDSL::DSL::Rbac::AggregationRule.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::ObjectMeta.new }
@@ -17,6 +18,10 @@ module KubeDSL::DSL::Rbac
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :cluster_role
     end
   end
 end

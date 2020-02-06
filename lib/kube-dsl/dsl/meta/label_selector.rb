@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Meta
   class LabelSelector
     extend ::KubeDSL::ValueFields
+
     array_field(:match_expression) { KubeDSL::DSL::Meta::LabelSelectorRequirement.new }
     object_field(:match_labels) { ::KubeDSL::KeyValueFields.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Meta
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :label_selector
     end
   end
 end

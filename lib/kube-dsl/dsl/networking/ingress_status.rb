@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Networking
   class IngressStatus
     extend ::KubeDSL::ValueFields
+
     object_field(:load_balancer) { KubeDSL::DSL::LoadBalancerStatus.new }
 
     def serialize
@@ -11,6 +12,10 @@ module KubeDSL::DSL::Networking
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :ingress_status
     end
   end
 end

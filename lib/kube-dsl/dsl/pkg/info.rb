@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Pkg
   class Info
     extend ::KubeDSL::ValueFields
+
     value_fields :build_date, :compiler, :git_commit, :git_tree_state, :git_version, :go_version, :major, :minor, :platform
 
     def serialize
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Pkg
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :info
     end
   end
 end

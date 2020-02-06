@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Autoscaling
   class MetricStatus
     extend ::KubeDSL::ValueFields
+
     value_fields :type
     object_field(:external) { KubeDSL::DSL::Autoscaling::ExternalMetricStatus.new }
     object_field(:object) { KubeDSL::DSL::Autoscaling::ObjectMetricStatus.new }
@@ -19,6 +20,10 @@ module KubeDSL::DSL::Autoscaling
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :metric_status
     end
   end
 end

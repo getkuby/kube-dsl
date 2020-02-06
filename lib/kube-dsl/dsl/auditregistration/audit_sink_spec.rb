@@ -1,6 +1,7 @@
 module KubeDSL::DSL::Auditregistration
   class AuditSinkSpec
     extend ::KubeDSL::ValueFields
+
     object_field(:policy) { KubeDSL::DSL::Auditregistration::Policy.new }
     object_field(:webhook) { KubeDSL::DSL::Auditregistration::Webhook.new }
 
@@ -13,6 +14,10 @@ module KubeDSL::DSL::Auditregistration
 
     def to_resource
       ::KubeDSL::Resource.new(serialize)
+    end
+
+    def kind
+      :audit_sink_spec
     end
   end
 end
