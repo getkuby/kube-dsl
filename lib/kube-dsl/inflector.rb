@@ -7,23 +7,13 @@ module KubeDSL
 
     class << self
       def pluralize(*args)
-        instance.pluralize(*args)
+        instance.inflector.pluralize(*args)
       end
 
       def singularize(*args)
-        instance.singularize(*args)
+        instance.inflector.singularize(*args)
       end
     end
-
-    def pluralize(*args)
-      inflector.pluralize(*args)
-    end
-
-    def singularize(*args)
-      inflector.singularize(*args)
-    end
-
-    private
 
     def inflector
       @inflector ||= Dry::Inflector.new
