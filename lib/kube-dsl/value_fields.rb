@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module KubeDSL
   module ValueFields
     def value_fields(*fields)
@@ -34,18 +36,25 @@ module KubeDSL
     def array_field(field, accessor = nil, &field_block)
       accessor ||= Inflector.pluralize(field.to_s).to_sym
 
-      define_method(field) do |&block|
+      define_method(field) do |elem_name = nil, &block|
         ivar = :"@#{accessor}"
         arr = instance_variable_get(ivar)
 
+        # use a hash so elements can be named and modified later
         unless arr
-          arr = []
+          arr = {}
           instance_variable_set(ivar, arr)
         end
 
-        new_val = field_block.call
-        new_val.instance_eval(&block) if block
-        arr << new_val
+        if elem_name && elem = arr[elem_name]
+          elem.instance_eval(&block) if block
+        else
+          new_val = field_block.call
+          new_val.instance_eval(&block) if block
+          arr[elem_name || SecureRandom.hex] = new_val
+        end
+
+        nil
       end
 
       define_method(accessor) do
@@ -53,11 +62,11 @@ module KubeDSL
         arr = instance_variable_get(ivar)
 
         unless arr
-          arr = []
+          arr = {}
           instance_variable_set(ivar, arr)
         end
 
-        arr
+        arr.values
       end
     end
   end
