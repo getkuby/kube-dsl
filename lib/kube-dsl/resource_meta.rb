@@ -22,6 +22,10 @@ module KubeDSL
         str << "\n"
         str << fields_to_ruby
         str << "\n"
+        str << "    def initialize(&block)\n"
+        str << "      instance_eval(&block) if block\n"
+        str << "    end\n"
+        str << "\n"
         str << serialize_method
         str << "\n"
         str << "    def to_resource\n"

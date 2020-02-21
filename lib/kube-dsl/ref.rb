@@ -29,6 +29,7 @@ module KubeDSL
       @ruby_namespace ||= begin
         ['KubeDSL', 'DSL'].tap do |mods|
           mods << capitalize(namespace) if namespace
+          mods << capitalize(version) if version
         end
       end
     end

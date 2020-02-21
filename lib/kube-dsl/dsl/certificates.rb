@@ -1,7 +1,3 @@
 module KubeDSL::DSL::Certificates
-  autoload :CertificateSigningRequest, 'kube-dsl/dsl/certificates/certificate_signing_request'
-  autoload :CertificateSigningRequestCondition, 'kube-dsl/dsl/certificates/certificate_signing_request_condition'
-  autoload :CertificateSigningRequestList, 'kube-dsl/dsl/certificates/certificate_signing_request_list'
-  autoload :CertificateSigningRequestSpec, 'kube-dsl/dsl/certificates/certificate_signing_request_spec'
-  autoload :CertificateSigningRequestStatus, 'kube-dsl/dsl/certificates/certificate_signing_request_status'
+  autoload :V1beta1, 'kube-dsl/dsl/certificates/v1beta1'
 end

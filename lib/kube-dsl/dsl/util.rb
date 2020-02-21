@@ -1,3 +1,3 @@
 module KubeDSL::DSL::Util
-  autoload :IntOrString, 'kube-dsl/dsl/util/int_or_string'
+  autoload :Intstr, 'kube-dsl/dsl/util/intstr'
 end

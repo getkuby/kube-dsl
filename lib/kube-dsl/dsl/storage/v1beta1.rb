@@ -1,0 +1,18 @@
+module KubeDSL::DSL::Storage::V1beta1
+  autoload :CSIDriver, 'kube-dsl/dsl/storage/v1beta1/csi_driver'
+  autoload :CSIDriverList, 'kube-dsl/dsl/storage/v1beta1/csi_driver_list'
+  autoload :CSIDriverSpec, 'kube-dsl/dsl/storage/v1beta1/csi_driver_spec'
+  autoload :CSINode, 'kube-dsl/dsl/storage/v1beta1/csi_node'
+  autoload :CSINodeDriver, 'kube-dsl/dsl/storage/v1beta1/csi_node_driver'
+  autoload :CSINodeList, 'kube-dsl/dsl/storage/v1beta1/csi_node_list'
+  autoload :CSINodeSpec, 'kube-dsl/dsl/storage/v1beta1/csi_node_spec'
+  autoload :StorageClass, 'kube-dsl/dsl/storage/v1beta1/storage_class'
+  autoload :StorageClassList, 'kube-dsl/dsl/storage/v1beta1/storage_class_list'
+  autoload :VolumeAttachment, 'kube-dsl/dsl/storage/v1beta1/volume_attachment'
+  autoload :VolumeAttachmentList, 'kube-dsl/dsl/storage/v1beta1/volume_attachment_list'
+  autoload :VolumeAttachmentSource, 'kube-dsl/dsl/storage/v1beta1/volume_attachment_source'
+  autoload :VolumeAttachmentSpec, 'kube-dsl/dsl/storage/v1beta1/volume_attachment_spec'
+  autoload :VolumeAttachmentStatus, 'kube-dsl/dsl/storage/v1beta1/volume_attachment_status'
+  autoload :VolumeError, 'kube-dsl/dsl/storage/v1beta1/volume_error'
+  autoload :VolumeNodeResources, 'kube-dsl/dsl/storage/v1beta1/volume_node_resources'
+end

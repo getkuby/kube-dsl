@@ -1,5 +1,4 @@
 module KubeDSL::DSL::Coordination
-  autoload :Lease, 'kube-dsl/dsl/coordination/lease'
-  autoload :LeaseList, 'kube-dsl/dsl/coordination/lease_list'
-  autoload :LeaseSpec, 'kube-dsl/dsl/coordination/lease_spec'
+  autoload :V1, 'kube-dsl/dsl/coordination/v1'
+  autoload :V1beta1, 'kube-dsl/dsl/coordination/v1beta1'
 end

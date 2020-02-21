@@ -15,9 +15,18 @@ RSpec::Core::RakeTask.new do |t|
 end
 
 task :generate do
-  generator = KubeDSL::Generator.new(
-    '/Users/cameron/workspace/kubernetes-json-schema/v1.17.0-local'
-  )
+  FileUtils.rm_rf('./lib/kube-dsl/dsl')
+  FileUtils.mkdir_p('./lib/kube-dsl/dsl')
+  FileUtils.mkdir_p('./vendor')
+
+  export_url = "https://github.com/instrumenta/kubernetes-json-schema/trunk/v#{KubeDSL::KUBERNETES_VERSION}-local"
+  local_path = "./vendor/kubernetes-json-schema/v#{KubeDSL::KUBERNETES_VERSION}-local"
+
+  unless File.exist?(local_path)
+    system("svn export #{export_url} #{local_path}")
+  end
+
+  generator = KubeDSL::Generator.new(local_path)
 
   generator.resources.each do |res|
     ruby_class_path = res.ref.ruby_class_path

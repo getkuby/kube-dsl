@@ -21,22 +21,13 @@ module KubeDSL
       ''.tap do |ruby_code|
         ruby_code << "module KubeDSL::Entrypoint\n"
 
-        to_emit = [
-          autoload_map['kube-dsl']['dsl'],
-          autoload_map['kube-dsl']['dsl']['apps'],
-          autoload_map['kube-dsl']['dsl']['networking']
-        ]
+        resources.each do |resource|
+          version = resource.ref.version || ''
+          next if version.include?('beta') || version.include?('alpha')
 
-        to_emit.each do |emit_map|
-          emit_map.each do |ns, children|
-            unless children.is_a?(Hash)
-              ruby_code << "  def #{underscore(children.ref.kind)}(&block)\n"
-              ruby_code << "    ::#{children.ref.ruby_namespace.join('::')}::#{children.ref.kind}.new.tap do |resource|\n"
-              ruby_code << "      resource.instance_eval(&block) if block\n"
-              ruby_code << "    end\n"
-              ruby_code << "  end\n\n"
-            end
-          end
+          ruby_code << "  def #{underscore(resource.ref.kind)}(&block)\n"
+          ruby_code << "    ::#{resource.ref.ruby_namespace.join('::')}::#{resource.ref.kind}.new(&block)\n"
+          ruby_code << "  end\n\n"
         end
 
         ruby_code.strip!

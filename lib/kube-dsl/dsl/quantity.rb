@@ -3,6 +3,10 @@ module KubeDSL::DSL
     extend ::KubeDSL::ValueFields
 
 
+    def initialize(&block)
+      instance_eval(&block) if block
+    end
+
     def serialize
       {}.tap do |result|
       end

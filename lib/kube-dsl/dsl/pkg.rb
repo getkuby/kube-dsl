@@ -1,4 +1,4 @@
 module KubeDSL::DSL::Pkg
-  autoload :RawExtension, 'kube-dsl/dsl/pkg/raw_extension'
-  autoload :Info, 'kube-dsl/dsl/pkg/info'
+  autoload :Runtime, 'kube-dsl/dsl/pkg/runtime'
+  autoload :Version, 'kube-dsl/dsl/pkg/version'
 end

@@ -1,4 +1,5 @@
 module KubeDSL::DSL::Scheduling
-  autoload :PriorityClass, 'kube-dsl/dsl/scheduling/priority_class'
-  autoload :PriorityClassList, 'kube-dsl/dsl/scheduling/priority_class_list'
+  autoload :V1, 'kube-dsl/dsl/scheduling/v1'
+  autoload :V1alpha1, 'kube-dsl/dsl/scheduling/v1alpha1'
+  autoload :V1beta1, 'kube-dsl/dsl/scheduling/v1beta1'
 end
