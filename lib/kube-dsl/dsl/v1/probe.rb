@@ -1,15 +1,9 @@
 module KubeDSL::DSL::V1
-  class Probe
-    extend ::KubeDSL::ValueFields
-
+  class Probe < ::KubeDSL::DSLObject
     value_fields :failure_threshold, :initial_delay_seconds, :period_seconds, :success_threshold, :timeout_seconds
     object_field(:exec) { KubeDSL::DSL::V1::ExecAction.new }
     object_field(:http_get) { KubeDSL::DSL::V1::HTTPGetAction.new }
     object_field(:tcp_socket) { KubeDSL::DSL::V1::TCPSocketAction.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -22,10 +16,6 @@ module KubeDSL::DSL::V1
         result[:httpGet] = http_get.serialize
         result[:tcpSocket] = tcp_socket.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

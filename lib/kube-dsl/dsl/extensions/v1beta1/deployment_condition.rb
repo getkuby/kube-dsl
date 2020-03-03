@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Extensions::V1beta1
-  class DeploymentCondition
-    extend ::KubeDSL::ValueFields
-
+  class DeploymentCondition < ::KubeDSL::DSLObject
     value_fields :last_transition_time, :last_update_time, :message, :reason, :status, :type
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Extensions::V1beta1
         result[:status] = status
         result[:type] = type
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

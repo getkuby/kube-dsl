@@ -14,6 +14,10 @@ module KubeDSL
       YAML.dump(serialize)
     end
 
+    def to_resource
+      self
+    end
+
     private
 
     def cleanup(obj)

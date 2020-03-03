@@ -1,22 +1,12 @@
 module KubeDSL::DSL::V1
-  class PhotonPersistentDiskVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class PhotonPersistentDiskVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :pd_id
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:fsType] = fs_type
         result[:pdID] = pd_id
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

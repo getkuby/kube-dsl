@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class ConfigMap
-    extend ::KubeDSL::ValueFields
-
+  class ConfigMap < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:binary_data) { ::KubeDSL::KeyValueFields.new(format: :byte) }
     object_field(:data) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::V1
         result[:binaryData] = binary_data.serialize
         result[:data] = data.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

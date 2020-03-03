@@ -16,7 +16,10 @@ module KubeDSL
     end
 
     def inflector
-      @inflector ||= Dry::Inflector.new
+      @inflector ||= Dry::Inflector.new do |inflections|
+        inflections.plural('tls', 'tlses')
+        inflections.singular('tls', 'tls')
+      end
     end
   end
 end

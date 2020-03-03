@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
-  class WebhookClientConfig
-    extend ::KubeDSL::ValueFields
-
+  class WebhookClientConfig < ::KubeDSL::DSLObject
     value_fields :ca_bundle, :url
     object_field(:service) { KubeDSL::DSL::Apiextensions::V1beta1::ServiceReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
         result[:url] = url
         result[:service] = service.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Coordination::V1beta1
-  class LeaseSpec
-    extend ::KubeDSL::ValueFields
-
+  class LeaseSpec < ::KubeDSL::DSLObject
     value_fields :acquire_time, :holder_identity, :lease_duration_seconds, :lease_transitions, :renew_time
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::Coordination::V1beta1
         result[:leaseTransitions] = lease_transitions
         result[:renewTime] = renew_time
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Authentication::V1
-  class TokenReviewStatus
-    extend ::KubeDSL::ValueFields
-
+  class TokenReviewStatus < ::KubeDSL::DSLObject
     value_fields :authenticated, :error
     array_field :audience
     object_field(:user) { KubeDSL::DSL::Authentication::V1::UserInfo.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Authentication::V1
         result[:audiences] = audiences
         result[:user] = user.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

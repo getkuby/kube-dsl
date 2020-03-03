@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class ServiceSpec
-    extend ::KubeDSL::ValueFields
-
+  class ServiceSpec < ::KubeDSL::DSLObject
     value_fields :cluster_ip, :external_name, :external_traffic_policy, :health_check_node_port, :ip_family, :load_balancer_ip, :publish_not_ready_addresses, :session_affinity, :type
     array_field :external_ip
     array_field :load_balancer_source_range
@@ -9,10 +7,6 @@ module KubeDSL::DSL::V1
     array_field :topology_key
     object_field(:session_affinity_config) { KubeDSL::DSL::V1::SessionAffinityConfig.new }
     object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -32,10 +26,6 @@ module KubeDSL::DSL::V1
         result[:sessionAffinityConfig] = session_affinity_config.serialize
         result[:selector] = selector.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,16 +1,10 @@
 module KubeDSL::DSL::V1
-  class PersistentVolumeClaimSpec
-    extend ::KubeDSL::ValueFields
-
+  class PersistentVolumeClaimSpec < ::KubeDSL::DSLObject
     value_fields :storage_class_name, :volume_mode, :volume_name
     array_field :access_mode
     object_field(:data_source) { KubeDSL::DSL::V1::TypedLocalObjectReference.new }
     object_field(:resources) { KubeDSL::DSL::V1::ResourceRequirements.new }
     object_field(:selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -22,10 +16,6 @@ module KubeDSL::DSL::V1
         result[:resources] = resources.serialize
         result[:selector] = selector.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

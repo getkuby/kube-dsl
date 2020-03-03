@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Meta::V1
-  class ListMeta
-    extend ::KubeDSL::ValueFields
-
+  class ListMeta < ::KubeDSL::DSLObject
     value_fields :continue, :remaining_item_count, :resource_version, :self_link
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Meta::V1
         result[:resourceVersion] = resource_version
         result[:selfLink] = self_link
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

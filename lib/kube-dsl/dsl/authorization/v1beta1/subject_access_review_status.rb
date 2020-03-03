@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Authorization::V1beta1
-  class SubjectAccessReviewStatus
-    extend ::KubeDSL::ValueFields
-
+  class SubjectAccessReviewStatus < ::KubeDSL::DSLObject
     value_fields :allowed, :denied, :evaluation_error, :reason
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Authorization::V1beta1
         result[:evaluationError] = evaluation_error
         result[:reason] = reason
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

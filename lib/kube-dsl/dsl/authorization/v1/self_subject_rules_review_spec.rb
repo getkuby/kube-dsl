@@ -1,21 +1,11 @@
 module KubeDSL::DSL::Authorization::V1
-  class SelfSubjectRulesReviewSpec
-    extend ::KubeDSL::ValueFields
-
+  class SelfSubjectRulesReviewSpec < ::KubeDSL::DSLObject
     value_fields :namespace
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:namespace] = namespace
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

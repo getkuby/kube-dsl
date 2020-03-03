@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Events::V1beta1
-  class EventSeries
-    extend ::KubeDSL::ValueFields
-
+  class EventSeries < ::KubeDSL::DSLObject
     value_fields :count, :last_observed_time, :state
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::Events::V1beta1
         result[:lastObservedTime] = last_observed_time
         result[:state] = state
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

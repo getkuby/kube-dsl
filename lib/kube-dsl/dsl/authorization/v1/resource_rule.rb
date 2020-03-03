@@ -1,15 +1,9 @@
 module KubeDSL::DSL::Authorization::V1
-  class ResourceRule
-    extend ::KubeDSL::ValueFields
-
+  class ResourceRule < ::KubeDSL::DSLObject
     array_field :api_group
     array_field :resource_name
     array_field :resource
     array_field :verb
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Authorization::V1
         result[:resources] = resources
         result[:verbs] = verbs
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

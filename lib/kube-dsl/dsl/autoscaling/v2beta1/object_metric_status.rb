@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
-  class ObjectMetricStatus
-    extend ::KubeDSL::ValueFields
-
+  class ObjectMetricStatus < ::KubeDSL::DSLObject
     value_fields :average_value, :current_value, :metric_name
     object_field(:selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
     object_field(:target) { KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Autoscaling::V2beta1
         result[:selector] = selector.serialize
         result[:target] = target.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

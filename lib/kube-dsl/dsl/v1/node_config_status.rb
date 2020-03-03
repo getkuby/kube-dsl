@@ -1,15 +1,9 @@
 module KubeDSL::DSL::V1
-  class NodeConfigStatus
-    extend ::KubeDSL::ValueFields
-
+  class NodeConfigStatus < ::KubeDSL::DSLObject
     value_fields :error
     object_field(:active) { KubeDSL::DSL::V1::NodeConfigSource.new }
     object_field(:assigned) { KubeDSL::DSL::V1::NodeConfigSource.new }
     object_field(:last_known_good) { KubeDSL::DSL::V1::NodeConfigSource.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::V1
         result[:assigned] = assigned.serialize
         result[:lastKnownGood] = last_known_good.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

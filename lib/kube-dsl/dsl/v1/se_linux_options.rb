@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class SELinuxOptions
-    extend ::KubeDSL::ValueFields
-
+  class SELinuxOptions < ::KubeDSL::DSLObject
     value_fields :level, :role, :type, :user
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:type] = type
         result[:user] = user
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

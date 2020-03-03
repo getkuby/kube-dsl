@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class AWSElasticBlockStoreVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class AWSElasticBlockStoreVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :partition, :read_only, :volume_id
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:readOnly] = read_only
         result[:volumeID] = volume_id
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

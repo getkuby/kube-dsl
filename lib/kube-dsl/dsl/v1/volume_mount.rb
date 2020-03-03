@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class VolumeMount
-    extend ::KubeDSL::ValueFields
-
+  class VolumeMount < ::KubeDSL::DSLObject
     value_fields :mount_path, :mount_propagation, :name, :read_only, :sub_path, :sub_path_expr
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::V1
         result[:subPath] = sub_path
         result[:subPathExpr] = sub_path_expr
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

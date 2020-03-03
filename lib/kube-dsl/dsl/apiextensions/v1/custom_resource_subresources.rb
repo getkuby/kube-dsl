@@ -1,23 +1,13 @@
 module KubeDSL::DSL::Apiextensions::V1
-  class CustomResourceSubresources
-    extend ::KubeDSL::ValueFields
-
+  class CustomResourceSubresources < ::KubeDSL::DSLObject
     value_fields :status
     object_field(:scale) { KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceScale.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:status] = status
         result[:scale] = scale.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,22 +1,12 @@
 module KubeDSL::DSL::V1
-  class FlockerVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class FlockerVolumeSource < ::KubeDSL::DSLObject
     value_fields :dataset_name, :dataset_uuid
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:datasetName] = dataset_name
         result[:datasetUUID] = dataset_uuid
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

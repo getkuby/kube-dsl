@@ -1,16 +1,10 @@
 module KubeDSL::DSL::Storage::V1beta1
-  class StorageClass
-    extend ::KubeDSL::ValueFields
-
+  class StorageClass < ::KubeDSL::DSLObject
     value_fields :allow_volume_expansion, :provisioner, :reclaim_policy, :volume_binding_mode
     array_field(:allowed_topology) { KubeDSL::DSL::V1::TopologySelectorTerm.new }
     array_field :mount_option
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:parameters) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -25,10 +19,6 @@ module KubeDSL::DSL::Storage::V1beta1
         result[:metadata] = metadata.serialize
         result[:parameters] = parameters.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

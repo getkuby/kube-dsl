@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class CephFSPersistentVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class CephFSPersistentVolumeSource < ::KubeDSL::DSLObject
     value_fields :path, :read_only, :secret_file, :user
     array_field :monitor
     object_field(:secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -19,10 +13,6 @@ module KubeDSL::DSL::V1
         result[:monitors] = monitors
         result[:secretRef] = secret_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

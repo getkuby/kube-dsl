@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Apiextensions::V1
-  class CustomResourceDefinitionList
-    extend ::KubeDSL::ValueFields
-
+  class CustomResourceDefinitionList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinition.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ListMeta.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::Apiextensions::V1
         result[:items] = items.map(&:serialize)
         result[:metadata] = metadata.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

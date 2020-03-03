@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Extensions::V1beta1
-  class DaemonSetStatus
-    extend ::KubeDSL::ValueFields
-
+  class DaemonSetStatus < ::KubeDSL::DSLObject
     value_fields :collision_count, :current_number_scheduled, :desired_number_scheduled, :number_available, :number_misscheduled, :number_ready, :number_unavailable, :observed_generation, :updated_number_scheduled
     array_field(:condition) { KubeDSL::DSL::Extensions::V1beta1::DaemonSetCondition.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -22,10 +16,6 @@ module KubeDSL::DSL::Extensions::V1beta1
         result[:updatedNumberScheduled] = updated_number_scheduled
         result[:conditions] = conditions.map(&:serialize)
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

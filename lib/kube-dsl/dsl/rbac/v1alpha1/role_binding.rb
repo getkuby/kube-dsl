@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Rbac::V1alpha1
-  class RoleBinding
-    extend ::KubeDSL::ValueFields
-
+  class RoleBinding < ::KubeDSL::DSLObject
     array_field(:subject) { KubeDSL::DSL::Rbac::V1alpha1::Subject.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:role_ref) { KubeDSL::DSL::Rbac::V1alpha1::RoleRef.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Rbac::V1alpha1
         result[:metadata] = metadata.serialize
         result[:roleRef] = role_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

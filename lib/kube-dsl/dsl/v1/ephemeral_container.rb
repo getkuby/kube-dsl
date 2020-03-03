@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class EphemeralContainer
-    extend ::KubeDSL::ValueFields
-
+  class EphemeralContainer < ::KubeDSL::DSLObject
     value_fields :image, :image_pull_policy, :name, :stdin, :stdin_once, :target_container_name, :termination_message_path, :termination_message_policy, :tty, :working_dir
     array_field :arg
     array_field :command
@@ -16,10 +14,6 @@ module KubeDSL::DSL::V1
     object_field(:resources) { KubeDSL::DSL::V1::ResourceRequirements.new }
     object_field(:security_context) { KubeDSL::DSL::V1::SecurityContext.new }
     object_field(:startup_probe) { KubeDSL::DSL::V1::Probe.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -47,10 +41,6 @@ module KubeDSL::DSL::V1
         result[:securityContext] = security_context.serialize
         result[:startupProbe] = startup_probe.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

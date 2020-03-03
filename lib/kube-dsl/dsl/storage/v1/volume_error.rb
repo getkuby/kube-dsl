@@ -1,22 +1,12 @@
 module KubeDSL::DSL::Storage::V1
-  class VolumeError
-    extend ::KubeDSL::ValueFields
-
+  class VolumeError < ::KubeDSL::DSLObject
     value_fields :message, :time
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:message] = message
         result[:time] = time
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

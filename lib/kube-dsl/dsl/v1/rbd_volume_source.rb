@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class RBDVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class RBDVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :image, :keyring, :pool, :read_only, :user
     array_field :monitor
     object_field(:secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -21,10 +15,6 @@ module KubeDSL::DSL::V1
         result[:monitors] = monitors
         result[:secretRef] = secret_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

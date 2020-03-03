@@ -1,16 +1,14 @@
 module KubeDSL::DSL::Policy::V1beta1
-  class PodSecurityPolicySpec
-    extend ::KubeDSL::ValueFields
-
+  class PodSecurityPolicySpec < ::KubeDSL::DSLObject
     value_fields :allow_privilege_escalation, :default_allow_privilege_escalation, :host_ipc, :host_network, :host_pid, :privileged, :read_only_root_filesystem
     array_field(:allowed_csi_driver) { KubeDSL::DSL::Policy::V1beta1::AllowedCSIDriver.new }
     array_field :allowed_capability
     array_field(:allowed_flex_volume) { KubeDSL::DSL::Policy::V1beta1::AllowedFlexVolume.new }
     array_field(:allowed_host_path) { KubeDSL::DSL::Policy::V1beta1::AllowedHostPath.new }
     array_field :allowed_proc_mount_type
-    array_field :allowed_unsafe_sysctl
+    array_field :allowed_unsafe_sysctls
     array_field :default_add_capability
-    array_field :forbidden_sysctl
+    array_field :forbidden_sysctls
     array_field(:host_port) { KubeDSL::DSL::Policy::V1beta1::HostPortRange.new }
     array_field :required_drop_capability
     array_field :volume
@@ -20,10 +18,6 @@ module KubeDSL::DSL::Policy::V1beta1
     object_field(:runtime_class) { KubeDSL::DSL::Policy::V1beta1::RuntimeClassStrategyOptions.new }
     object_field(:se_linux) { KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions.new }
     object_field(:supplemental_groups) { KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -39,9 +33,9 @@ module KubeDSL::DSL::Policy::V1beta1
         result[:allowedFlexVolumes] = allowed_flex_volumes.map(&:serialize)
         result[:allowedHostPaths] = allowed_host_paths.map(&:serialize)
         result[:allowedProcMountTypes] = allowed_proc_mount_types
-        result[:allowedUnsafeSysctls] = allowed_unsafe_sysctls
+        result[:allowedUnsafeSysctls] = allowed_unsafe_sysctlses
         result[:defaultAddCapabilities] = default_add_capabilities
-        result[:forbiddenSysctls] = forbidden_sysctls
+        result[:forbiddenSysctls] = forbidden_sysctlses
         result[:hostPorts] = host_ports.map(&:serialize)
         result[:requiredDropCapabilities] = required_drop_capabilities
         result[:volumes] = volumes
@@ -52,10 +46,6 @@ module KubeDSL::DSL::Policy::V1beta1
         result[:seLinux] = se_linux.serialize
         result[:supplementalGroups] = supplemental_groups.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

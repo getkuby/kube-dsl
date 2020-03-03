@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class Node
-    extend ::KubeDSL::ValueFields
-
+  class Node < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::V1::NodeSpec.new }
     object_field(:status) { KubeDSL::DSL::V1::NodeStatus.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::V1
         result[:spec] = spec.serialize
         result[:status] = status.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

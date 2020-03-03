@@ -1,17 +1,11 @@
 module KubeDSL::DSL::V1
-  class Event
-    extend ::KubeDSL::ValueFields
-
+  class Event < ::KubeDSL::DSLObject
     value_fields :action, :count, :event_time, :first_timestamp, :last_timestamp, :message, :reason, :reporting_component, :reporting_instance, :type
     object_field(:involved_object) { KubeDSL::DSL::V1::ObjectReference.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:related) { KubeDSL::DSL::V1::ObjectReference.new }
     object_field(:series) { KubeDSL::DSL::V1::EventSeries.new }
     object_field(:source) { KubeDSL::DSL::V1::EventSource.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -33,10 +27,6 @@ module KubeDSL::DSL::V1
         result[:series] = series.serialize
         result[:source] = source.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

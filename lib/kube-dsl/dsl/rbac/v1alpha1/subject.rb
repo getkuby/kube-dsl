@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Rbac::V1alpha1
-  class Subject
-    extend ::KubeDSL::ValueFields
-
+  class Subject < ::KubeDSL::DSLObject
     value_fields :api_version, :kind, :name, :namespace
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Rbac::V1alpha1
         result[:name] = name
         result[:namespace] = namespace
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

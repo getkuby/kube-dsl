@@ -1,21 +1,11 @@
 module KubeDSL::DSL::Apps::V1beta1
-  class RollingUpdateStatefulSetStrategy
-    extend ::KubeDSL::ValueFields
-
+  class RollingUpdateStatefulSetStrategy < ::KubeDSL::DSLObject
     value_fields :partition
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:partition] = partition
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

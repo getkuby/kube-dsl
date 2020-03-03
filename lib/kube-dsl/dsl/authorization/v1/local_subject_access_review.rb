@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Authorization::V1
-  class LocalSubjectAccessReview
-    extend ::KubeDSL::ValueFields
-
+  class LocalSubjectAccessReview < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Authorization::V1::SubjectAccessReviewSpec.new }
     object_field(:status) { KubeDSL::DSL::Authorization::V1::SubjectAccessReviewStatus.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Authorization::V1
         result[:spec] = spec.serialize
         result[:status] = status.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

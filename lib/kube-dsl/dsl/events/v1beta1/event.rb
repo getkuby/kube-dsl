@@ -1,17 +1,11 @@
 module KubeDSL::DSL::Events::V1beta1
-  class Event
-    extend ::KubeDSL::ValueFields
-
+  class Event < ::KubeDSL::DSLObject
     value_fields :action, :deprecated_count, :deprecated_first_timestamp, :deprecated_last_timestamp, :event_time, :note, :reason, :reporting_controller, :reporting_instance, :type
     object_field(:deprecated_source) { KubeDSL::DSL::V1::EventSource.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:regarding) { KubeDSL::DSL::V1::ObjectReference.new }
     object_field(:related) { KubeDSL::DSL::V1::ObjectReference.new }
     object_field(:series) { KubeDSL::DSL::Events::V1beta1::EventSeries.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -33,10 +27,6 @@ module KubeDSL::DSL::Events::V1beta1
         result[:related] = related.serialize
         result[:series] = series.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

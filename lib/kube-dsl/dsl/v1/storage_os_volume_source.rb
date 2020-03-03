@@ -1,13 +1,7 @@
 module KubeDSL::DSL::V1
-  class StorageOSVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class StorageOSVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :read_only, :volume_name, :volume_namespace
     object_field(:secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::V1
         result[:volumeNamespace] = volume_namespace
         result[:secretRef] = secret_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

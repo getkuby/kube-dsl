@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Batch::V1beta1
-  class CronJobSpec
-    extend ::KubeDSL::ValueFields
-
+  class CronJobSpec < ::KubeDSL::DSLObject
     value_fields :concurrency_policy, :failed_jobs_history_limit, :schedule, :starting_deadline_seconds, :successful_jobs_history_limit, :suspend
     object_field(:job_template) { KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -19,10 +13,6 @@ module KubeDSL::DSL::Batch::V1beta1
         result[:suspend] = suspend
         result[:jobTemplate] = job_template.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

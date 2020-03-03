@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class PersistentVolumeStatus
-    extend ::KubeDSL::ValueFields
-
+  class PersistentVolumeStatus < ::KubeDSL::DSLObject
     value_fields :message, :phase, :reason
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::V1
         result[:phase] = phase
         result[:reason] = reason
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

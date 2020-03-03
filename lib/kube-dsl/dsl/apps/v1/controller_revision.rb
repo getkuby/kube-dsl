@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Apps::V1
-  class ControllerRevision
-    extend ::KubeDSL::ValueFields
-
+  class ControllerRevision < ::KubeDSL::DSLObject
     value_fields :data, :revision
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Apps::V1
         result[:revision] = revision
         result[:metadata] = metadata.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

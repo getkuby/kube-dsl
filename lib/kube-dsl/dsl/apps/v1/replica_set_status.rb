@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Apps::V1
-  class ReplicaSetStatus
-    extend ::KubeDSL::ValueFields
-
+  class ReplicaSetStatus < ::KubeDSL::DSLObject
     value_fields :available_replicas, :fully_labeled_replicas, :observed_generation, :ready_replicas, :replicas
     array_field(:condition) { KubeDSL::DSL::Apps::V1::ReplicaSetCondition.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Apps::V1
         result[:replicas] = replicas
         result[:conditions] = conditions.map(&:serialize)
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

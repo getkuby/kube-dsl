@@ -1,22 +1,12 @@
 module KubeDSL::DSL::Meta::V1
-  class ServerAddressByClientCIDR
-    extend ::KubeDSL::ValueFields
-
+  class ServerAddressByClientCIDR < ::KubeDSL::DSLObject
     value_fields :client_cidr, :server_address
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:clientCIDR] = client_cidr
         result[:serverAddress] = server_address
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

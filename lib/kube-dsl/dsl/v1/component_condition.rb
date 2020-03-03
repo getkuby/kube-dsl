@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class ComponentCondition
-    extend ::KubeDSL::ValueFields
-
+  class ComponentCondition < ::KubeDSL::DSLObject
     value_fields :error, :message, :status, :type
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:status] = status
         result[:type] = type
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

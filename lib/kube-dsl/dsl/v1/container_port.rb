@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class ContainerPort
-    extend ::KubeDSL::ValueFields
-
+  class ContainerPort < ::KubeDSL::DSLObject
     value_fields :container_port, :host_ip, :host_port, :name, :protocol
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::V1
         result[:name] = name
         result[:protocol] = protocol
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

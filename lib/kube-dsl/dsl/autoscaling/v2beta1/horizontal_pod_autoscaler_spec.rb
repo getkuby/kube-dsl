@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
-  class HorizontalPodAutoscalerSpec
-    extend ::KubeDSL::ValueFields
-
+  class HorizontalPodAutoscalerSpec < ::KubeDSL::DSLObject
     value_fields :max_replicas, :min_replicas
     array_field(:metric) { KubeDSL::DSL::Autoscaling::V2beta1::MetricSpec.new }
     object_field(:scale_target_ref) { KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Autoscaling::V2beta1
         result[:metrics] = metrics.map(&:serialize)
         result[:scaleTargetRef] = scale_target_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

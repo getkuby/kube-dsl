@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class NodeSystemInfo
-    extend ::KubeDSL::ValueFields
-
+  class NodeSystemInfo < ::KubeDSL::DSLObject
     value_fields :architecture, :boot_id, :container_runtime_version, :kernel_version, :kube_proxy_version, :kubelet_version, :machine_id, :operating_system, :os_image, :system_uuid
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -21,10 +15,6 @@ module KubeDSL::DSL::V1
         result[:osImage] = os_image
         result[:systemUUID] = system_uuid
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

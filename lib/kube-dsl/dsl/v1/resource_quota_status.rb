@@ -1,23 +1,13 @@
 module KubeDSL::DSL::V1
-  class ResourceQuotaStatus
-    extend ::KubeDSL::ValueFields
-
+  class ResourceQuotaStatus < ::KubeDSL::DSLObject
     object_field(:hard) { ::KubeDSL::KeyValueFields.new(format: :string) }
     object_field(:used) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:hard] = hard.serialize
         result[:used] = used.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

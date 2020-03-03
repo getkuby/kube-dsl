@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Certificates::V1beta1
-  class CertificateSigningRequestCondition
-    extend ::KubeDSL::ValueFields
-
+  class CertificateSigningRequestCondition < ::KubeDSL::DSLObject
     value_fields :last_update_time, :message, :reason, :type
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Certificates::V1beta1
         result[:reason] = reason
         result[:type] = type
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

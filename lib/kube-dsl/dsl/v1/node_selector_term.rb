@@ -1,23 +1,13 @@
 module KubeDSL::DSL::V1
-  class NodeSelectorTerm
-    extend ::KubeDSL::ValueFields
-
+  class NodeSelectorTerm < ::KubeDSL::DSLObject
     array_field(:match_expression) { KubeDSL::DSL::V1::NodeSelectorRequirement.new }
     array_field(:match_field) { KubeDSL::DSL::V1::NodeSelectorRequirement.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:matchExpressions] = match_expressions.map(&:serialize)
         result[:matchFields] = match_fields.map(&:serialize)
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

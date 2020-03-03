@@ -1,21 +1,11 @@
 module KubeDSL::DSL::Apps::V1beta1
-  class RollbackConfig
-    extend ::KubeDSL::ValueFields
-
+  class RollbackConfig < ::KubeDSL::DSLObject
     value_fields :revision
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:revision] = revision
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

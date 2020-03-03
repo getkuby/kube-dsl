@@ -1,13 +1,7 @@
 module KubeDSL::DSL::V1
-  class EnvVar
-    extend ::KubeDSL::ValueFields
-
+  class EnvVar < ::KubeDSL::DSLObject
     value_fields :name, :value
     object_field(:value_from) { KubeDSL::DSL::V1::EnvVarSource.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:value] = value
         result[:valueFrom] = value_from.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

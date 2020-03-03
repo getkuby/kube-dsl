@@ -49,8 +49,13 @@ module KubeDSL
         if elem_name && elem = arr[elem_name]
           elem.instance_eval(&block) if block
         else
-          new_val = field_block.call
-          new_val.instance_eval(&block) if block
+          if field_block
+            new_val = field_block.call
+            new_val.instance_eval(&block) if block
+          else
+            new_val = block.call if block
+          end
+
           arr[elem_name || SecureRandom.hex] = new_val
         end
 

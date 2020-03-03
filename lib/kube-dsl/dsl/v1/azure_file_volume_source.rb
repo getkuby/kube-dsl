@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class AzureFileVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class AzureFileVolumeSource < ::KubeDSL::DSLObject
     value_fields :read_only, :secret_name, :share_name
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::V1
         result[:secretName] = secret_name
         result[:shareName] = share_name
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

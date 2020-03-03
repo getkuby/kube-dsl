@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Apps::V1
-  class StatefulSet
-    extend ::KubeDSL::ValueFields
-
+  class StatefulSet < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Apps::V1::StatefulSetSpec.new }
     object_field(:status) { KubeDSL::DSL::Apps::V1::StatefulSetStatus.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Apps::V1
         result[:spec] = spec.serialize
         result[:status] = status.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

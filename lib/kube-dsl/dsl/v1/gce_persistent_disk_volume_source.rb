@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class GCEPersistentDiskVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class GCEPersistentDiskVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :partition, :pd_name, :read_only
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:pdName] = pd_name
         result[:readOnly] = read_only
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

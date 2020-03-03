@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Admissionregistration::V1beta1
-  class MutatingWebhookConfiguration
-    extend ::KubeDSL::ValueFields
-
+  class MutatingWebhookConfiguration < ::KubeDSL::DSLObject
     array_field(:webhook) { KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhook.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::Admissionregistration::V1beta1
         result[:webhooks] = webhooks.map(&:serialize)
         result[:metadata] = metadata.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

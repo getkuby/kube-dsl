@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class WindowsSecurityContextOptions
-    extend ::KubeDSL::ValueFields
-
+  class WindowsSecurityContextOptions < ::KubeDSL::DSLObject
     value_fields :gmsa_credential_spec, :gmsa_credential_spec_name, :run_as_user_name
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::V1
         result[:gmsaCredentialSpecName] = gmsa_credential_spec_name
         result[:runAsUserName] = run_as_user_name
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

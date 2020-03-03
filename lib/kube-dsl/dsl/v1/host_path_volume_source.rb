@@ -1,22 +1,12 @@
 module KubeDSL::DSL::V1
-  class HostPathVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class HostPathVolumeSource < ::KubeDSL::DSLObject
     value_fields :path, :type
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:path] = path
         result[:type] = type
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

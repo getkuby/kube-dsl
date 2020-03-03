@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Storage::V1beta1
-  class CSIDriverSpec
-    extend ::KubeDSL::ValueFields
-
+  class CSIDriverSpec < ::KubeDSL::DSLObject
     value_fields :attach_required, :pod_info_on_mount
     array_field :volume_lifecycle_mode
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Storage::V1beta1
         result[:podInfoOnMount] = pod_info_on_mount
         result[:volumeLifecycleModes] = volume_lifecycle_modes
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

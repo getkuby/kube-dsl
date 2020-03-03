@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class NodeStatus
-    extend ::KubeDSL::ValueFields
-
+  class NodeStatus < ::KubeDSL::DSLObject
     value_fields :phase
     array_field(:address) { KubeDSL::DSL::V1::NodeAddress.new }
     array_field(:condition) { KubeDSL::DSL::V1::NodeCondition.new }
@@ -13,10 +11,6 @@ module KubeDSL::DSL::V1
     object_field(:node_info) { KubeDSL::DSL::V1::NodeSystemInfo.new }
     object_field(:allocatable) { ::KubeDSL::KeyValueFields.new(format: :string) }
     object_field(:capacity) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -32,10 +26,6 @@ module KubeDSL::DSL::V1
         result[:allocatable] = allocatable.serialize
         result[:capacity] = capacity.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

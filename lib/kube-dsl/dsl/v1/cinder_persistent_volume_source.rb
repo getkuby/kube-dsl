@@ -1,13 +1,7 @@
 module KubeDSL::DSL::V1
-  class CinderPersistentVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class CinderPersistentVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :read_only, :volume_id
     object_field(:secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::V1
         result[:volumeID] = volume_id
         result[:secretRef] = secret_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

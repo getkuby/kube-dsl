@@ -1,16 +1,10 @@
 module KubeDSL::DSL::V1
-  class PodSecurityContext
-    extend ::KubeDSL::ValueFields
-
+  class PodSecurityContext < ::KubeDSL::DSLObject
     value_fields :fs_group, :run_as_group, :run_as_non_root, :run_as_user
     array_field :supplemental_group
-    array_field(:sysctl) { KubeDSL::DSL::V1::Sysctl.new }
+    array_field(:sysctls) { KubeDSL::DSL::V1::Sysctl.new }
     object_field(:se_linux_options) { KubeDSL::DSL::V1::SELinuxOptions.new }
     object_field(:windows_options) { KubeDSL::DSL::V1::WindowsSecurityContextOptions.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -19,14 +13,10 @@ module KubeDSL::DSL::V1
         result[:runAsNonRoot] = run_as_non_root
         result[:runAsUser] = run_as_user
         result[:supplementalGroups] = supplemental_groups
-        result[:sysctls] = sysctls.map(&:serialize)
+        result[:sysctls] = sysctlses.map(&:serialize)
         result[:seLinuxOptions] = se_linux_options.serialize
         result[:windowsOptions] = windows_options.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

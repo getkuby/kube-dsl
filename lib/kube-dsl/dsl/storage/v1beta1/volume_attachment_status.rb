@@ -1,15 +1,9 @@
 module KubeDSL::DSL::Storage::V1beta1
-  class VolumeAttachmentStatus
-    extend ::KubeDSL::ValueFields
-
+  class VolumeAttachmentStatus < ::KubeDSL::DSLObject
     value_fields :attached
     object_field(:attach_error) { KubeDSL::DSL::Storage::V1beta1::VolumeError.new }
     object_field(:detach_error) { KubeDSL::DSL::Storage::V1beta1::VolumeError.new }
     object_field(:attachment_metadata) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Storage::V1beta1
         result[:detachError] = detach_error.serialize
         result[:attachmentMetadata] = attachment_metadata.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

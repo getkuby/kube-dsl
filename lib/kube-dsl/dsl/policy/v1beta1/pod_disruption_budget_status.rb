@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Policy::V1beta1
-  class PodDisruptionBudgetStatus
-    extend ::KubeDSL::ValueFields
-
+  class PodDisruptionBudgetStatus < ::KubeDSL::DSLObject
     value_fields :current_healthy, :desired_healthy, :disruptions_allowed, :expected_pods, :observed_generation
     object_field(:disrupted_pods) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::Policy::V1beta1
         result[:observedGeneration] = observed_generation
         result[:disruptedPods] = disrupted_pods.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

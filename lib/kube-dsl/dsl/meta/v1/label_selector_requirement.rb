@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Meta::V1
-  class LabelSelectorRequirement
-    extend ::KubeDSL::ValueFields
-
+  class LabelSelectorRequirement < ::KubeDSL::DSLObject
     value_fields :key, :operator
     array_field :value
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Meta::V1
         result[:operator] = operator
         result[:values] = values
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

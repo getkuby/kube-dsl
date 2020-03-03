@@ -1,17 +1,11 @@
 module KubeDSL::DSL::V1
-  class CSIPersistentVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class CSIPersistentVolumeSource < ::KubeDSL::DSLObject
     value_fields :driver, :fs_type, :read_only, :volume_handle
     object_field(:controller_expand_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:controller_publish_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:node_publish_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:node_stage_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -25,10 +19,6 @@ module KubeDSL::DSL::V1
         result[:nodeStageSecretRef] = node_stage_secret_ref.serialize
         result[:volumeAttributes] = volume_attributes.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

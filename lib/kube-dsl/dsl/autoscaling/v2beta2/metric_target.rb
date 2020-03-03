@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
-  class MetricTarget
-    extend ::KubeDSL::ValueFields
-
+  class MetricTarget < ::KubeDSL::DSLObject
     value_fields :average_utilization, :average_value, :type, :value
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Autoscaling::V2beta2
         result[:type] = type
         result[:value] = value
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

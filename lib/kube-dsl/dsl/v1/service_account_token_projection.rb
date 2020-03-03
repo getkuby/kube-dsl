@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class ServiceAccountTokenProjection
-    extend ::KubeDSL::ValueFields
-
+  class ServiceAccountTokenProjection < ::KubeDSL::DSLObject
     value_fields :audience, :expiration_seconds, :path
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::V1
         result[:expirationSeconds] = expiration_seconds
         result[:path] = path
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

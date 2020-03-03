@@ -1,21 +1,11 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
-  class UserSubject
-    extend ::KubeDSL::ValueFields
-
+  class UserSubject < ::KubeDSL::DSLObject
     value_fields :name
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:name] = name
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class FCVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class FCVolumeSource < ::KubeDSL::DSLObject
     value_fields :fs_type, :lun, :read_only
     array_field :target_wwn
     array_field :wwid
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -18,10 +12,6 @@ module KubeDSL::DSL::V1
         result[:targetWWNs] = target_wwns
         result[:wwids] = wwids
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

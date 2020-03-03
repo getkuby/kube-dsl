@@ -1,16 +1,10 @@
 module KubeDSL::DSL::Rbac::V1
-  class PolicyRule
-    extend ::KubeDSL::ValueFields
-
+  class PolicyRule < ::KubeDSL::DSLObject
     array_field :api_group
     array_field :non_resource_url
     array_field :resource_name
     array_field :resource
     array_field :verb
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -20,10 +14,6 @@ module KubeDSL::DSL::Rbac::V1
         result[:resources] = resources
         result[:verbs] = verbs
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

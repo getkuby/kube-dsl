@@ -1,13 +1,7 @@
 module KubeDSL::DSL::V1
-  class ScopedResourceSelectorRequirement
-    extend ::KubeDSL::ValueFields
-
+  class ScopedResourceSelectorRequirement < ::KubeDSL::DSLObject
     value_fields :operator, :scope_name
     array_field :value
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::V1
         result[:scopeName] = scope_name
         result[:values] = values
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

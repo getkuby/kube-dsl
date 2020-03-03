@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Rbac::V1
-  class RoleRef
-    extend ::KubeDSL::ValueFields
-
+  class RoleRef < ::KubeDSL::DSLObject
     value_fields :api_group, :kind, :name
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::Rbac::V1
         result[:kind] = kind
         result[:name] = name
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

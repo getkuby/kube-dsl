@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class PersistentVolumeSpec
-    extend ::KubeDSL::ValueFields
-
+  class PersistentVolumeSpec < ::KubeDSL::DSLObject
     value_fields :persistent_volume_reclaim_policy, :storage_class_name, :volume_mode
     array_field :access_mode
     array_field :mount_option
@@ -30,10 +28,6 @@ module KubeDSL::DSL::V1
     object_field(:storageos) { KubeDSL::DSL::V1::StorageOSPersistentVolumeSource.new }
     object_field(:vsphere_volume) { KubeDSL::DSL::V1::VsphereVirtualDiskVolumeSource.new }
     object_field(:capacity) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -68,10 +62,6 @@ module KubeDSL::DSL::V1
         result[:vsphereVolume] = vsphere_volume.serialize
         result[:capacity] = capacity.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
-  class QueuingConfiguration
-    extend ::KubeDSL::ValueFields
-
+  class QueuingConfiguration < ::KubeDSL::DSLObject
     value_fields :hand_size, :queue_length_limit, :queues
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::Flowcontrol::V1alpha1
         result[:queueLengthLimit] = queue_length_limit
         result[:queues] = queues
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

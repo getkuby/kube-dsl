@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class Volume
-    extend ::KubeDSL::ValueFields
-
+  class Volume < ::KubeDSL::DSLObject
     value_fields :name
     object_field(:aws_elastic_block_store) { KubeDSL::DSL::V1::AWSElasticBlockStoreVolumeSource.new }
     object_field(:azure_disk) { KubeDSL::DSL::V1::AzureDiskVolumeSource.new }
@@ -31,10 +29,6 @@ module KubeDSL::DSL::V1
     object_field(:secret) { KubeDSL::DSL::V1::SecretVolumeSource.new }
     object_field(:storageos) { KubeDSL::DSL::V1::StorageOSVolumeSource.new }
     object_field(:vsphere_volume) { KubeDSL::DSL::V1::VsphereVirtualDiskVolumeSource.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -68,10 +62,6 @@ module KubeDSL::DSL::V1
         result[:storageos] = storageos.serialize
         result[:vsphereVolume] = vsphere_volume.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

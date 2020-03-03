@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
-  class CustomResourceColumnDefinition
-    extend ::KubeDSL::ValueFields
-
+  class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
     value_fields :json_path, :description, :format, :name, :priority, :type
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
         result[:priority] = priority
         result[:type] = type
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

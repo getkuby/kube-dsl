@@ -1,7 +1,5 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
-  class CustomResourceDefinitionSpec
-    extend ::KubeDSL::ValueFields
-
+  class CustomResourceDefinitionSpec < ::KubeDSL::DSLObject
     value_fields :group, :preserve_unknown_fields, :scope, :version
     array_field(:additional_printer_column) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceColumnDefinition.new }
     array_field(:version) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionVersion.new }
@@ -9,10 +7,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
     object_field(:names) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionNames.new }
     object_field(:subresources) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresources.new }
     object_field(:validation) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceValidation.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -27,10 +21,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
         result[:subresources] = subresources.serialize
         result[:validation] = validation.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

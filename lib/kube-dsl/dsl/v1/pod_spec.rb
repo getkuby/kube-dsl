@@ -1,7 +1,5 @@
 module KubeDSL::DSL::V1
-  class PodSpec
-    extend ::KubeDSL::ValueFields
-
+  class PodSpec < ::KubeDSL::DSLObject
     value_fields :active_deadline_seconds, :automount_service_account_token, :dns_policy, :enable_service_links, :host_ipc, :host_network, :host_pid, :hostname, :node_name, :preemption_policy, :priority, :priority_class_name, :restart_policy, :runtime_class_name, :scheduler_name, :service_account, :service_account_name, :share_process_namespace, :subdomain, :termination_grace_period_seconds
     array_field(:container) { KubeDSL::DSL::V1::Container.new }
     array_field(:ephemeral_container) { KubeDSL::DSL::V1::EphemeralContainer.new }
@@ -17,10 +15,6 @@ module KubeDSL::DSL::V1
     object_field(:security_context) { KubeDSL::DSL::V1::PodSecurityContext.new }
     object_field(:node_selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
     object_field(:overhead) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -59,10 +53,6 @@ module KubeDSL::DSL::V1
         result[:nodeSelector] = node_selector.serialize
         result[:overhead] = overhead.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

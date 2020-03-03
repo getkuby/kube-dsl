@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
-  class ResourceMetricSource
-    extend ::KubeDSL::ValueFields
-
+  class ResourceMetricSource < ::KubeDSL::DSLObject
     value_fields :name, :target_average_utilization, :target_average_value
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::Autoscaling::V2beta1
         result[:targetAverageUtilization] = target_average_utilization
         result[:targetAverageValue] = target_average_value
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

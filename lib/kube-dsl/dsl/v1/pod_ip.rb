@@ -1,21 +1,11 @@
 module KubeDSL::DSL::V1
-  class PodIP
-    extend ::KubeDSL::ValueFields
-
+  class PodIP < ::KubeDSL::DSLObject
     value_fields :ip
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:ip] = ip
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

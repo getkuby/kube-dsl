@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Meta::V1
-  class ManagedFieldsEntry
-    extend ::KubeDSL::ValueFields
-
+  class ManagedFieldsEntry < ::KubeDSL::DSLObject
     value_fields :api_version, :fields_type, :fields_v1, :manager, :operation, :time
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Meta::V1
         result[:operation] = operation
         result[:time] = time
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

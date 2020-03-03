@@ -1,12 +1,6 @@
 module KubeDSL::DSL::Authentication::V1
-  class BoundObjectReference
-    extend ::KubeDSL::ValueFields
-
+  class BoundObjectReference < ::KubeDSL::DSLObject
     value_fields :api_version, :kind, :name, :uid
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -15,10 +9,6 @@ module KubeDSL::DSL::Authentication::V1
         result[:name] = name
         result[:uid] = uid
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

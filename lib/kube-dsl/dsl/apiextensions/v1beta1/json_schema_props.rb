@@ -1,7 +1,5 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
-  class JSONSchemaProps
-    extend ::KubeDSL::ValueFields
-
+  class JSONSchemaProps < ::KubeDSL::DSLObject
     value_fields :$ref, :$schema, :additional_items, :additional_properties, :default, :description, :example, :exclusive_maximum, :exclusive_minimum, :format, :id, :items, :max_items, :max_length, :max_properties, :maximum, :min_items, :min_length, :min_properties, :minimum, :multiple_of, :nullable, :pattern, :title, :type, :unique_items, :x-kubernetes-embedded-resource, :x-kubernetes-int-or-string, :x-kubernetes-list-type, :x-kubernetes-map-type, :x-kubernetes-preserve-unknown-fields
     array_field(:all_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     array_field(:any_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
@@ -15,10 +13,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
     object_field(:dependencies) { ::KubeDSL::KeyValueFields.new(format: :string) }
     object_field(:pattern_properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
     object_field(:properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -66,10 +60,6 @@ module KubeDSL::DSL::Apiextensions::V1beta1
         result[:patternProperties] = pattern_properties.serialize
         result[:properties] = properties.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

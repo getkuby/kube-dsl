@@ -1,14 +1,8 @@
 module KubeDSL::DSL::Storage::V1beta1
-  class CSINodeDriver
-    extend ::KubeDSL::ValueFields
-
+  class CSINodeDriver < ::KubeDSL::DSLObject
     value_fields :name, :node_id
     array_field :topology_key
     object_field(:allocatable) { KubeDSL::DSL::Storage::V1beta1::VolumeNodeResources.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::Storage::V1beta1
         result[:topologyKeys] = topology_keys
         result[:allocatable] = allocatable.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

@@ -1,22 +1,12 @@
 module KubeDSL::DSL::Networking::V1
-  class NetworkPolicyPort
-    extend ::KubeDSL::ValueFields
-
+  class NetworkPolicyPort < ::KubeDSL::DSLObject
     value_fields :port, :protocol
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
         result[:port] = port
         result[:protocol] = protocol
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

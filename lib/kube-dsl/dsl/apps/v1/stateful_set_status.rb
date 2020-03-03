@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Apps::V1
-  class StatefulSetStatus
-    extend ::KubeDSL::ValueFields
-
+  class StatefulSetStatus < ::KubeDSL::DSLObject
     value_fields :collision_count, :current_replicas, :current_revision, :observed_generation, :ready_replicas, :replicas, :update_revision, :updated_replicas
     array_field(:condition) { KubeDSL::DSL::Apps::V1::StatefulSetCondition.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -21,10 +15,6 @@ module KubeDSL::DSL::Apps::V1
         result[:updatedReplicas] = updated_replicas
         result[:conditions] = conditions.map(&:serialize)
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

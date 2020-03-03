@@ -1,14 +1,8 @@
 module KubeDSL::DSL::V1
-  class PodAffinityTerm
-    extend ::KubeDSL::ValueFields
-
+  class PodAffinityTerm < ::KubeDSL::DSLObject
     value_fields :topology_key
     array_field :namespace
     object_field(:label_selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::V1
         result[:namespaces] = namespaces
         result[:labelSelector] = label_selector.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

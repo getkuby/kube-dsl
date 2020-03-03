@@ -1,15 +1,9 @@
 module KubeDSL::DSL::V1
-  class Secret
-    extend ::KubeDSL::ValueFields
-
+  class Secret < ::KubeDSL::DSLObject
     value_fields :type
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:data) { ::KubeDSL::KeyValueFields.new(format: :byte) }
     object_field(:string_data) { ::KubeDSL::KeyValueFields.new(format: :string) }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -20,10 +14,6 @@ module KubeDSL::DSL::V1
         result[:data] = data.serialize
         result[:stringData] = string_data.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

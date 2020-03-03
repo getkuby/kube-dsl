@@ -1,17 +1,11 @@
 module KubeDSL::DSL::Admissionregistration::V1
-  class MutatingWebhook
-    extend ::KubeDSL::ValueFields
-
+  class MutatingWebhook < ::KubeDSL::DSLObject
     value_fields :failure_policy, :match_policy, :name, :reinvocation_policy, :side_effects, :timeout_seconds
     array_field :admission_review_version
     array_field(:rule) { KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations.new }
     object_field(:client_config) { KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig.new }
     object_field(:namespace_selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
     object_field(:object_selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -27,10 +21,6 @@ module KubeDSL::DSL::Admissionregistration::V1
         result[:namespaceSelector] = namespace_selector.serialize
         result[:objectSelector] = object_selector.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

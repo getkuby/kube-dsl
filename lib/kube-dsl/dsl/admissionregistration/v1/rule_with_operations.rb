@@ -1,16 +1,10 @@
 module KubeDSL::DSL::Admissionregistration::V1
-  class RuleWithOperations
-    extend ::KubeDSL::ValueFields
-
+  class RuleWithOperations < ::KubeDSL::DSLObject
     value_fields :scope
     array_field :api_group
     array_field :api_version
     array_field :operation
     array_field :resource
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -20,10 +14,6 @@ module KubeDSL::DSL::Admissionregistration::V1
         result[:operations] = operations
         result[:resources] = resources
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

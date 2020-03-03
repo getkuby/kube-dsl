@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class QuobyteVolumeSource
-    extend ::KubeDSL::ValueFields
-
+  class QuobyteVolumeSource < ::KubeDSL::DSLObject
     value_fields :group, :read_only, :registry, :tenant, :user, :volume
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -17,10 +11,6 @@ module KubeDSL::DSL::V1
         result[:user] = user
         result[:volume] = volume
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

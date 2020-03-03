@@ -1,16 +1,10 @@
 module KubeDSL::DSL::Apps::V1beta1
-  class DeploymentSpec
-    extend ::KubeDSL::ValueFields
-
+  class DeploymentSpec < ::KubeDSL::DSLObject
     value_fields :min_ready_seconds, :paused, :progress_deadline_seconds, :replicas, :revision_history_limit
     object_field(:rollback_to) { KubeDSL::DSL::Apps::V1beta1::RollbackConfig.new }
     object_field(:selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
     object_field(:strategy) { KubeDSL::DSL::Apps::V1beta1::DeploymentStrategy.new }
     object_field(:template) { KubeDSL::DSL::V1::PodTemplateSpec.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -24,10 +18,6 @@ module KubeDSL::DSL::Apps::V1beta1
         result[:strategy] = strategy.serialize
         result[:template] = template.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

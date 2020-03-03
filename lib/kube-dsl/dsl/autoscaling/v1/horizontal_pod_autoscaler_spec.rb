@@ -1,13 +1,7 @@
 module KubeDSL::DSL::Autoscaling::V1
-  class HorizontalPodAutoscalerSpec
-    extend ::KubeDSL::ValueFields
-
+  class HorizontalPodAutoscalerSpec < ::KubeDSL::DSLObject
     value_fields :max_replicas, :min_replicas, :target_cpu_utilization_percentage
     object_field(:scale_target_ref) { KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference.new }
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -16,10 +10,6 @@ module KubeDSL::DSL::Autoscaling::V1
         result[:targetCPUUtilizationPercentage] = target_cpu_utilization_percentage
         result[:scaleTargetRef] = scale_target_ref.serialize
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind

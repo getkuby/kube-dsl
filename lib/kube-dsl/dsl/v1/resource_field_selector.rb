@@ -1,12 +1,6 @@
 module KubeDSL::DSL::V1
-  class ResourceFieldSelector
-    extend ::KubeDSL::ValueFields
-
+  class ResourceFieldSelector < ::KubeDSL::DSLObject
     value_fields :container_name, :divisor, :resource
-
-    def initialize(&block)
-      instance_eval(&block) if block
-    end
 
     def serialize
       {}.tap do |result|
@@ -14,10 +8,6 @@ module KubeDSL::DSL::V1
         result[:divisor] = divisor
         result[:resource] = resource
       end
-    end
-
-    def to_resource
-      ::KubeDSL::Resource.new(serialize)
     end
 
     def kind
