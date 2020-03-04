@@ -1,6 +1,7 @@
 module KubeDSL
   KUBERNETES_VERSION = '1.17.0'.freeze
 
+  autoload :Builder,        'kube-dsl/builder'
   autoload :DSL,            'kube-dsl/dsl'
   autoload :DSLObject,      'kube-dsl/dsl_object'
   autoload :Entrypoint,     'kube-dsl/entrypoint'

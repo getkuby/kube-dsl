@@ -2,11 +2,15 @@ module KubeDSL
   class ResourceMeta
     include StringHelpers
 
-    attr_reader :ref, :fields, :key_value_fields, :array_fields, :object_fields
+    attr_reader :ref, :namespace ,:inflector
+    attr_reader :fields, :key_value_fields, :array_fields, :object_fields
     attr_reader :default_fields
 
-    def initialize(ref)
+    def initialize(ref, namespace, inflector)
       @ref = ref
+      @namespace = namespace
+      @inflector = inflector
+
       @fields = []
       @key_value_fields = {}
       @array_fields = {}
@@ -16,7 +20,7 @@ module KubeDSL
 
     def to_ruby
       ''.tap do |str|
-        str << "module #{ref.ruby_namespace.join('::')}\n"
+        str << "module #{(namespace + ref.ruby_namespace).join('::')}\n"
         str << "  class #{ref.kind} < ::KubeDSL::DSLObject\n"
         str << fields_to_ruby
         str << "\n"
@@ -42,16 +46,16 @@ module KubeDSL
 
         array_fields.each do |name, field|
           if field
-            str << "    array_field(:#{underscore(Inflector.singularize(name))})"
-            str << " { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }"
+            str << "    array_field(:#{underscore(inflector.singularize(name))})"
+            str << " { #{(namespace + field.ref.ruby_namespace).join('::')}::#{field.ref.kind}.new }"
             str << "\n"
           else
-            str << "    array_field :#{underscore(Inflector.singularize(name))}\n"
+            str << "    array_field :#{underscore(inflector.singularize(name))}\n"
           end
         end
 
         object_fields.each do |name, field|
-          str << "    object_field(:#{underscore(name)}) { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }\n"
+          str << "    object_field(:#{underscore(name)}) { #{(namespace + field.ref.ruby_namespace).join('::')}::#{field.ref.kind}.new }\n"
         end
 
         key_value_fields.each do |name, fmt|
@@ -66,36 +70,40 @@ module KubeDSL
         str << "      {}.tap do |result|\n"
 
         default_fields.each do |name, value|
-          str << "        result[:#{name}] = #{value}\n"
+          str << "        result[:#{quote_sym(name)}] = #{value}\n"
         end
 
         fields.each do |f|
-          str << "        result[:#{f}] = #{underscore(f)}\n"
+          str << "        result[:#{quote_sym(f)}] = #{underscore(f)}\n"
         end
 
         array_fields.each do |name, field|
-          plural_name = Inflector.pluralize(
-            underscore(Inflector.singularize(name))
+          plural_name = inflector.pluralize(
+            underscore(inflector.singularize(name))
           )
 
           if field
-            str << "        result[:#{name}] = #{plural_name}.map(&:serialize)\n"
+            str << "        result[:#{quote_sym(name)}] = #{plural_name}.map(&:serialize)\n"
           else
-            str << "        result[:#{name}] = #{plural_name}\n"
+            str << "        result[:#{quote_sym(name)}] = #{plural_name}\n"
           end
         end
 
         object_fields.each do |name, field|
-          str << "        result[:#{name}] = #{underscore(name)}.serialize\n"
+          str << "        result[:#{quote_sym(name)}] = #{underscore(name)}.serialize\n"
         end
 
         key_value_fields.each do |name, _|
-          str << "        result[:#{name}] = #{underscore(name)}.serialize\n"
+          str << "        result[:#{quote_sym(name)}] = #{underscore(name)}.serialize\n"
         end
 
         str << "      end\n"
         str << "    end\n"
       end
+    end
+
+    def quote_sym(sym_str)
+      sym_str.include?('-') ? "'#{sym_str}'" : sym_str
     end
   end
 end

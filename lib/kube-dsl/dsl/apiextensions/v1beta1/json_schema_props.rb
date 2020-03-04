@@ -1,12 +1,12 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
   class JSONSchemaProps < ::KubeDSL::DSLObject
-    value_fields :$ref, :$schema, :additional_items, :additional_properties, :default, :description, :example, :exclusive_maximum, :exclusive_minimum, :format, :id, :items, :max_items, :max_length, :max_properties, :maximum, :min_items, :min_length, :min_properties, :minimum, :multiple_of, :nullable, :pattern, :title, :type, :unique_items, :x-kubernetes-embedded-resource, :x-kubernetes-int-or-string, :x-kubernetes-list-type, :x-kubernetes-map-type, :x-kubernetes-preserve-unknown-fields
+    value_fields :$ref, :$schema, :additional_items, :additional_properties, :default, :description, :example, :exclusive_maximum, :exclusive_minimum, :format, :id, :items, :max_items, :max_length, :max_properties, :maximum, :min_items, :min_length, :min_properties, :minimum, :multiple_of, :nullable, :pattern, :title, :type, :unique_items, :x_kubernetes_embedded_resource, :x_kubernetes_int_or_string, :x_kubernetes_list_type, :x_kubernetes_map_type, :x_kubernetes_preserve_unknown_fields
     array_field(:all_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     array_field(:any_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     array_field(:enum) { KubeDSL::DSL::Apiextensions::V1beta1::JSON.new }
     array_field(:one_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     array_field :required
-    array_field :x-kubernetes-list-map-key
+    array_field :x_kubernetes_list_map_key
     object_field(:external_docs) { KubeDSL::DSL::Apiextensions::V1beta1::ExternalDocumentation.new }
     object_field(:not) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     object_field(:definitions) { ::KubeDSL::KeyValueFields.new(format: :string) }
@@ -42,17 +42,17 @@ module KubeDSL::DSL::Apiextensions::V1beta1
         result[:title] = title
         result[:type] = type
         result[:uniqueItems] = unique_items
-        result[:x-kubernetes-embedded-resource] = x-kubernetes-embedded-resource
-        result[:x-kubernetes-int-or-string] = x-kubernetes-int-or-string
-        result[:x-kubernetes-list-type] = x-kubernetes-list-type
-        result[:x-kubernetes-map-type] = x-kubernetes-map-type
-        result[:x-kubernetes-preserve-unknown-fields] = x-kubernetes-preserve-unknown-fields
+        result[:'x-kubernetes-embedded-resource'] = x_kubernetes_embedded_resource
+        result[:'x-kubernetes-int-or-string'] = x_kubernetes_int_or_string
+        result[:'x-kubernetes-list-type'] = x_kubernetes_list_type
+        result[:'x-kubernetes-map-type'] = x_kubernetes_map_type
+        result[:'x-kubernetes-preserve-unknown-fields'] = x_kubernetes_preserve_unknown_fields
         result[:allOf] = all_oves.map(&:serialize)
         result[:anyOf] = any_oves.map(&:serialize)
         result[:enum] = ena.map(&:serialize)
         result[:oneOf] = one_oves.map(&:serialize)
         result[:required] = requireds
-        result[:x-kubernetes-list-map-keys] = x-kubernetes-list-map-keys
+        result[:'x-kubernetes-list-map-keys'] = x_kubernetes_list_map_keys
         result[:externalDocs] = external_docs.serialize
         result[:not] = not.serialize
         result[:definitions] = definitions.serialize

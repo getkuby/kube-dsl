@@ -15,32 +15,31 @@ RSpec::Core::RakeTask.new do |t|
 end
 
 task :generate do
+  require 'dry/inflector'
+
   FileUtils.rm_rf('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./vendor')
 
   export_url = "https://github.com/instrumenta/kubernetes-json-schema/trunk/v#{KubeDSL::KUBERNETES_VERSION}-local"
-  local_path = "./vendor/kubernetes-json-schema/v#{KubeDSL::KUBERNETES_VERSION}-local"
+  local_path = "vendor/kubernetes-json-schema/v#{KubeDSL::KUBERNETES_VERSION}-local"
 
   unless File.exist?(local_path)
     system("svn export #{export_url} #{local_path}")
   end
 
-  generator = KubeDSL::Generator.new(local_path)
+  Dir.chdir('lib') do
+    generator = KubeDSL::Generator.new(
+      schema_dir: File.join('..', local_path),
+      output_dir: File.join('kube-dsl', 'dsl'),
+      inflector: Dry::Inflector.new do |inflections|
+        inflections.acronym('DSL')
 
-  generator.resources.each do |res|
-    ruby_class_path = res.ref.ruby_class_path
-    puts "Writing #{ruby_class_path}"
-    FileUtils.mkdir_p(File.dirname(ruby_class_path))
-    File.write(ruby_class_path, res.to_ruby)
+        inflections.plural('tls', 'tlses')
+        inflections.singular('tls', 'tls')
+      end
+    )
+
+    generator.generate
   end
-
-  generator.each_autoload_file do |path, ruby_code|
-    puts "Writing #{path}"
-    File.write(path, ruby_code)
-  end
-
-  entrypoint_path = 'lib/kube-dsl/entrypoint.rb'
-  puts "Writing #{entrypoint_path}"
-  File.write(entrypoint_path, generator.entrypoint)
 end
