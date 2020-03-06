@@ -17,6 +17,8 @@ end
 task :generate do
   require 'dry/inflector'
 
+  FileUtils.rm('./lib/kube-dsl/entrypoint.rb')
+  FileUtils.rm('./lib/kube-dsl/dsl.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./vendor')

@@ -2,10 +2,15 @@ module KubeDSL
   class Ref
     include StringHelpers
 
-    attr_reader :str, :kind, :namespace, :version
+    attr_reader :str, :kind, :namespace, :version, :inflector, :schema_dir
+    attr_reader :ruby_namespace_prefix, :autoload_prefix
 
-    def initialize(str)
+    def initialize(str, ruby_namespace_prefix, autoload_prefix, inflector, schema_dir)
       @str = str
+      @ruby_namespace_prefix = ruby_namespace_prefix
+      @autoload_prefix = autoload_prefix
+      @inflector = inflector
+      @schema_dir = schema_dir
 
       ns, v, k = str.split('.').last(3)
 
@@ -21,13 +26,17 @@ module KubeDSL
       end
     end
 
-    def filename
-      @filename ||= "#{[kind, namespace, version].compact.map(&:downcase).join('-')}.json"
+    def meta
+      @meta ||= ResourceMeta.new(self, inflector)
+    end
+
+    def document
+      JSON.parse(File.read(filename))
     end
 
     def ruby_namespace
       @ruby_namespace ||= begin
-        [].tap do |mods|
+        [*ruby_namespace_prefix].tap do |mods|
           mods << capitalize(namespace) if namespace
           mods << capitalize(version) if version
         end
@@ -36,9 +45,36 @@ module KubeDSL
 
     def ruby_autoload_path
       @ruby_autoload_path ||= File.join(
-        ruby_namespace.map { |s| underscore(s) },
-        "#{underscore(kind)}.rb"
+        [*autoload_prefix.split(File::SEPARATOR)].tap do |path|
+          path << underscore(namespace) if namespace
+          path << underscore(version) if version
+          path << "#{underscore(kind)}.rb"
+        end
       )
+    end
+
+    private
+
+    def filename
+      @filename ||= begin
+        parts = [kind, namespace, version]
+
+        filenames = (parts.size - 1).downto(0).map do |i|
+          File.join(
+            schema_dir,
+            "#{parts[i..-1].compact.map(&:downcase).join('-')}.json"
+          )
+        end
+
+        filenames += 0.upto(parts.size - 1).map do |i|
+          File.join(
+            schema_dir,
+            "#{parts[0..i].compact.map(&:downcase).join('-')}.json"
+          )
+        end
+
+        filenames.find { |f| File.exist?(f) }
+      end
     end
   end
 end

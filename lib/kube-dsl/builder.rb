@@ -4,18 +4,24 @@ module KubeDSL
   class Builder
     include StringHelpers
 
-    attr_reader :schema_dir, :output_dir, :namespace, :inflector
+    attr_reader :schema_dir, :output_dir, :namespace, :inflector, :resolvers
 
     def initialize(schema_dir:, output_dir:, inflector:)
       @schema_dir = schema_dir
       @output_dir = output_dir
       @inflector = inflector
-      @resources = {}
+      @resolvers ||= {}
     end
 
-    def resources
-      load_doc(start_path)['oneOf'].map do |entry|
-        resource_from_ref(Ref.new(entry['$ref']))
+    def register_resolver(prefix, &resolver)
+      @resolvers[prefix] = resolver
+    end
+
+    def each_resource
+      return to_enum(__method__) unless block_given?
+
+      resources.each do |res|
+        yield res if res
       end
     end
 
@@ -23,12 +29,12 @@ module KubeDSL
       ''.tap do |ruby_code|
         ruby_code << "module #{namespace[0..-2].join('::')}::Entrypoint\n"
 
-        resources.each do |resource|
+        each_resource do |resource|
           version = resource.ref.version || ''
           next if version.include?('beta') || version.include?('alpha')
 
           ruby_code << "  def #{underscore(resource.ref.kind)}(&block)\n"
-          ruby_code << "    ::#{(namespace + resource.ref.ruby_namespace).join('::')}::#{resource.ref.kind}.new(&block)\n"
+          ruby_code << "    ::#{resource.ref.ruby_namespace.join('::')}::#{resource.ref.kind}.new(&block)\n"
           ruby_code << "  end\n\n"
         end
 
@@ -65,25 +71,25 @@ module KubeDSL
         return res
       end
 
-      res = resource_cache[ref.str] = ResourceMeta.new(
-        ref, namespace, inflector
-      )
+      res = resource_cache[ref.str] = ref.meta
 
-      add_doc_to_resource(
-        res, load_doc(File.join(schema_dir, ref.filename))
-      )
+      add_doc_to_resource(res, ref.document)
 
       res
     end
 
     private
 
+    def resources
+      JSON.parse(File.read(start_path))['oneOf'].map do |entry|
+        resource_from_ref(resolve_ref(entry['$ref']))
+      end
+    end
+
     def autoload_map
       @autoload_map ||= {}.tap do |amap|
-        resources.each do |res|
-          parts = output_dir.split(File::SEPARATOR) +
-            res.ref.ruby_autoload_path.split(File::SEPARATOR)
-
+        each_resource do |res|
+          parts = res.ref.ruby_autoload_path.split(File::SEPARATOR)
           parts.reject!(&:empty?)
 
           parts.inject(amap) do |ret, seg|
@@ -123,10 +129,6 @@ module KubeDSL
       end
     end
 
-    def load_doc(filename)
-      JSON.parse(File.read(filename))
-    end
-
     def add_doc_to_resource(res, doc)
       if props = doc['properties']
         add_props_to_resource(props, res)
@@ -139,11 +141,23 @@ module KubeDSL
       end
     end
 
+    def resolve_ref(ref_str)
+      type = ref_str.split('/').last
+
+      resolvers.each do |prefix, resolver|
+        if type.start_with?(prefix)
+          return resolver.call(ref_str, self)
+        end
+      end
+
+      Ref.new(ref_str, namespace, output_dir, inflector, schema_dir)
+    end
+
     def add_prop_to_resource(name, prop, res)
-      case (prop['type'] || []).first
+      case Array(prop['type']).first
         when 'array'
           if ref_str = prop['items']['$ref']
-            ref = Ref.new(ref_str)
+            ref = resolve_ref(ref_str)
             res.array_fields[name] = resource_from_ref(ref)
           else
             res.array_fields[name] = nil
@@ -164,19 +178,21 @@ module KubeDSL
           end
 
         else
-          ref = Ref.new(prop['$ref'])
-          child = load_doc(File.join(schema_dir, ref.filename))
+          ref = resolve_ref(prop['$ref'])
+          child = ref.document
 
           if child['properties']
             # this ref refers to a nested type
             res.object_fields[name] = resource_from_ref(
-              Ref.new(prop['$ref'])
+              resolve_ref(prop['$ref'])
             )
           else
             # this ref refers to just a field
             res.fields << name
           end
       end
+    rescue => e
+      binding.pry
     end
 
     def start_path

@@ -5,6 +5,7 @@ module KubeDSL
   autoload :DSL,            'kube-dsl/dsl'
   autoload :DSLObject,      'kube-dsl/dsl_object'
   autoload :Entrypoint,     'kube-dsl/entrypoint'
+  autoload :ExternalRef,    'kube-dsl/external_ref'
   autoload :Generator,      'kube-dsl/generator'
   autoload :Inflector,      'kube-dsl/inflector'
   autoload :KeyValueFields, 'kube-dsl/key_value_fields'

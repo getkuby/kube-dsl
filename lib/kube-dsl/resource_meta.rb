@@ -2,13 +2,12 @@ module KubeDSL
   class ResourceMeta
     include StringHelpers
 
-    attr_reader :ref, :namespace ,:inflector
+    attr_reader :ref ,:inflector
     attr_reader :fields, :key_value_fields, :array_fields, :object_fields
     attr_reader :default_fields
 
-    def initialize(ref, namespace, inflector)
+    def initialize(ref, inflector)
       @ref = ref
-      @namespace = namespace
       @inflector = inflector
 
       @fields = []
@@ -20,7 +19,7 @@ module KubeDSL
 
     def to_ruby
       ''.tap do |str|
-        str << "module #{(namespace + ref.ruby_namespace).join('::')}\n"
+        str << "module #{ref.ruby_namespace.join('::')}\n"
         str << "  class #{ref.kind} < ::KubeDSL::DSLObject\n"
         str << fields_to_ruby
         str << "\n"
@@ -47,7 +46,7 @@ module KubeDSL
         array_fields.each do |name, field|
           if field
             str << "    array_field(:#{underscore(inflector.singularize(name))})"
-            str << " { #{(namespace + field.ref.ruby_namespace).join('::')}::#{field.ref.kind}.new }"
+            str << " { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }"
             str << "\n"
           else
             str << "    array_field :#{underscore(inflector.singularize(name))}\n"
@@ -55,7 +54,7 @@ module KubeDSL
         end
 
         object_fields.each do |name, field|
-          str << "    object_field(:#{underscore(name)}) { #{(namespace + field.ref.ruby_namespace).join('::')}::#{field.ref.kind}.new }\n"
+          str << "    object_field(:#{underscore(name)}) { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }\n"
         end
 
         key_value_fields.each do |name, fmt|
