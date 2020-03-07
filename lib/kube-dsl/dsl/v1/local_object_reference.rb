@@ -8,7 +8,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :local_object_reference
     end
   end

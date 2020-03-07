@@ -13,7 +13,7 @@ module KubeDSL::DSL::Apps::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :deployment_condition
     end
   end

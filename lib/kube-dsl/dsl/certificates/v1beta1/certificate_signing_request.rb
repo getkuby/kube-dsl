@@ -14,7 +14,7 @@ module KubeDSL::DSL::Certificates::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :certificate_signing_request
     end
   end

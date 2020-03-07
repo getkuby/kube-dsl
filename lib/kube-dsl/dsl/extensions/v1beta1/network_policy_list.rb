@@ -12,7 +12,7 @@ module KubeDSL::DSL::Extensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :network_policy_list
     end
   end

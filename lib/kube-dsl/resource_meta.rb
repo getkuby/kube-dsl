@@ -17,6 +17,20 @@ module KubeDSL
       @default_fields = {}
     end
 
+    def external?
+      false
+    end
+
+    def empty?
+      field_count = fields.size +
+        key_value_fields.size +
+        array_fields.size +
+        object_fields.size +
+        default_fields.size
+
+      field_count.zero?
+    end
+
     def to_ruby
       ''.tap do |str|
         str << "module #{ref.ruby_namespace.join('::')}\n"
@@ -25,7 +39,7 @@ module KubeDSL
         str << "\n"
         str << serialize_method
         str << "\n"
-        str << "    def kind\n"
+        str << "    def kind_sym\n"
         str << "      :#{underscore(ref.kind)}\n"
         str << "    end\n"
         str << "  end\n"

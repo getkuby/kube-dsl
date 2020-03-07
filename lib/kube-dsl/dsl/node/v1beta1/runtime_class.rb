@@ -16,7 +16,7 @@ module KubeDSL::DSL::Node::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :runtime_class
     end
   end

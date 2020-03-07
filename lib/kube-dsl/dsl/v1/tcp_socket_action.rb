@@ -9,7 +9,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :tcp_socket_action
     end
   end

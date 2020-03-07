@@ -12,7 +12,7 @@ module KubeDSL::DSL::Autoscaling::V1
       end
     end
 
-    def kind
+    def kind_sym
       :horizontal_pod_autoscaler_list
     end
   end

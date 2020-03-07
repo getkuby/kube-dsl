@@ -9,7 +9,7 @@ module KubeDSL::DSL::Auditregistration::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :webhook_throttle_config
     end
   end

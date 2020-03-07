@@ -12,7 +12,7 @@ module KubeDSL::DSL::Node::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :runtime_class_list
     end
   end

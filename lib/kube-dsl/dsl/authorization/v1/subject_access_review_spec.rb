@@ -17,7 +17,7 @@ module KubeDSL::DSL::Authorization::V1
       end
     end
 
-    def kind
+    def kind_sym
       :subject_access_review_spec
     end
   end

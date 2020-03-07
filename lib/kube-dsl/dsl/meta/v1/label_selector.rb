@@ -10,7 +10,7 @@ module KubeDSL::DSL::Meta::V1
       end
     end
 
-    def kind
+    def kind_sym
       :label_selector
     end
   end

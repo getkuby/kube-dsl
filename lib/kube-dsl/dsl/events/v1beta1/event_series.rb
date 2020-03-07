@@ -10,7 +10,7 @@ module KubeDSL::DSL::Events::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :event_series
     end
   end

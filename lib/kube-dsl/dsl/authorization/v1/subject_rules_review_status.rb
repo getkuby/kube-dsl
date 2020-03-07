@@ -13,7 +13,7 @@ module KubeDSL::DSL::Authorization::V1
       end
     end
 
-    def kind
+    def kind_sym
       :subject_rules_review_status
     end
   end

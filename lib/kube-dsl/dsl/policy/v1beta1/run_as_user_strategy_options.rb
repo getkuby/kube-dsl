@@ -10,7 +10,7 @@ module KubeDSL::DSL::Policy::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :run_as_user_strategy_options
     end
   end

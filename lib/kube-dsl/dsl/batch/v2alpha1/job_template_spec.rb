@@ -10,7 +10,7 @@ module KubeDSL::DSL::Batch::V2alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :job_template_spec
     end
   end

@@ -13,7 +13,7 @@ module KubeDSL::DSL::Apps::V1
       end
     end
 
-    def kind
+    def kind_sym
       :replica_set_spec
     end
   end

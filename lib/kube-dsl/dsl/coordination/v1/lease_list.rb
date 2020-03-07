@@ -12,7 +12,7 @@ module KubeDSL::DSL::Coordination::V1
       end
     end
 
-    def kind
+    def kind_sym
       :lease_list
     end
   end

@@ -13,7 +13,7 @@ module KubeDSL::DSL::Batch::V1
       end
     end
 
-    def kind
+    def kind_sym
       :job_condition
     end
   end

@@ -10,7 +10,7 @@ module KubeDSL::DSL::Autoscaling::V2beta1
       end
     end
 
-    def kind
+    def kind_sym
       :resource_metric_source
     end
   end

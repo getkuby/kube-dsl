@@ -1,11 +1,16 @@
 module KubeDSL
   class ExternalRef < Ref
     def meta
-      nil
+      @meta ||= ExternalResourceMeta.new(self)
     end
 
     def document
       {}
+    end
+
+    # assume external refs are always object fields
+    def object?
+      true
     end
   end
 end

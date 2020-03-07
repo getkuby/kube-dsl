@@ -16,7 +16,7 @@ module KubeDSL::DSL::Discovery::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :endpoint_slice
     end
   end

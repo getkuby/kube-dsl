@@ -10,7 +10,7 @@ module KubeDSL::DSL::Authorization::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :non_resource_rule
     end
   end

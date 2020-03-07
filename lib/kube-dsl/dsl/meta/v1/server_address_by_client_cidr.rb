@@ -9,7 +9,7 @@ module KubeDSL::DSL::Meta::V1
       end
     end
 
-    def kind
+    def kind_sym
       :server_address_by_client_cidr
     end
   end

@@ -14,7 +14,7 @@ module KubeDSL::DSL::Apps::V1
       end
     end
 
-    def kind
+    def kind_sym
       :stateful_set
     end
   end

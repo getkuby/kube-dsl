@@ -13,7 +13,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :downward_api_volume_file
     end
   end

@@ -8,7 +8,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :volume_node_affinity
     end
   end

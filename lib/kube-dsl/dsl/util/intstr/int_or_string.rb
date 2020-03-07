@@ -6,7 +6,7 @@ module KubeDSL::DSL::Util::Intstr
       end
     end
 
-    def kind
+    def kind_sym
       :int_or_string
     end
   end

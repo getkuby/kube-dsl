@@ -8,7 +8,7 @@ module KubeDSL::DSL::Autoscaling::V1
       end
     end
 
-    def kind
+    def kind_sym
       :scale_spec
     end
   end

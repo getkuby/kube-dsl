@@ -11,7 +11,7 @@ module KubeDSL::DSL::Authentication::V1
       end
     end
 
-    def kind
+    def kind_sym
       :bound_object_reference
     end
   end

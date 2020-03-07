@@ -48,7 +48,7 @@ module KubeDSL::DSL::Policy::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :pod_security_policy_spec
     end
   end

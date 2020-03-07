@@ -14,7 +14,7 @@ module KubeDSL::DSL::Networking::V1
       end
     end
 
-    def kind
+    def kind_sym
       :network_policy_spec
     end
   end

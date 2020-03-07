@@ -9,7 +9,7 @@ module KubeDSL::DSL::Extensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :host_port_range
     end
   end

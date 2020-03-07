@@ -8,7 +8,7 @@ module KubeDSL::DSL::Apps::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :rollback_config
     end
   end

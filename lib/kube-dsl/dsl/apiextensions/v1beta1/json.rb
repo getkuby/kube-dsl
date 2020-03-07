@@ -6,7 +6,7 @@ module KubeDSL::DSL::Apiextensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :json
     end
   end

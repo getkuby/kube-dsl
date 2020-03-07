@@ -10,7 +10,7 @@ module KubeDSL::DSL::Policy::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :runtime_class_strategy_options
     end
   end

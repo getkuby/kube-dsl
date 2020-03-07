@@ -10,7 +10,7 @@ module KubeDSL::DSL::Networking::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :http_ingress_path
     end
   end

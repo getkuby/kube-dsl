@@ -62,7 +62,7 @@ module KubeDSL::DSL::Apiextensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :json_schema_props
     end
   end

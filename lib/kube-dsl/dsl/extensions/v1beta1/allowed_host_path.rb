@@ -9,7 +9,7 @@ module KubeDSL::DSL::Extensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :allowed_host_path
     end
   end

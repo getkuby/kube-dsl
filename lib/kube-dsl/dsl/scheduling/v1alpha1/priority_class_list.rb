@@ -12,7 +12,7 @@ module KubeDSL::DSL::Scheduling::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :priority_class_list
     end
   end

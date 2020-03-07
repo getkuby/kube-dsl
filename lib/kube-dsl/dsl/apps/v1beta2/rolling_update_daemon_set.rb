@@ -8,7 +8,7 @@ module KubeDSL::DSL::Apps::V1beta2
       end
     end
 
-    def kind
+    def kind_sym
       :rolling_update_daemon_set
     end
   end

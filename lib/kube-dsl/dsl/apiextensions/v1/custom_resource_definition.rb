@@ -14,7 +14,7 @@ module KubeDSL::DSL::Apiextensions::V1
       end
     end
 
-    def kind
+    def kind_sym
       :custom_resource_definition
     end
   end

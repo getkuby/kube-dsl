@@ -9,7 +9,7 @@ module KubeDSL::DSL::Apiextensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :external_documentation
     end
   end

@@ -34,6 +34,10 @@ module KubeDSL
       JSON.parse(File.read(filename))
     end
 
+    def object?
+      document.include?('properties')
+    end
+
     def ruby_namespace
       @ruby_namespace ||= begin
         [*ruby_namespace_prefix].tap do |mods|

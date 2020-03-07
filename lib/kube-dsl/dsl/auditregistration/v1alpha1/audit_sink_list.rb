@@ -12,7 +12,7 @@ module KubeDSL::DSL::Auditregistration::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :audit_sink_list
     end
   end

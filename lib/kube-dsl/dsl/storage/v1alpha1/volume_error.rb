@@ -9,7 +9,7 @@ module KubeDSL::DSL::Storage::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :volume_error
     end
   end

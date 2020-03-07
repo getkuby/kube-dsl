@@ -14,7 +14,7 @@ module KubeDSL::DSL::Rbac::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :cluster_role
     end
   end

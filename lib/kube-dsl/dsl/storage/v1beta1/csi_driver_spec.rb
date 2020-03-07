@@ -11,7 +11,7 @@ module KubeDSL::DSL::Storage::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :csi_driver_spec
     end
   end

@@ -10,7 +10,7 @@ module KubeDSL::DSL::Storage::V1
       end
     end
 
-    def kind
+    def kind_sym
       :volume_attachment_source
     end
   end

@@ -10,7 +10,7 @@ module KubeDSL::DSL::Extensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :ingress_tls
     end
   end

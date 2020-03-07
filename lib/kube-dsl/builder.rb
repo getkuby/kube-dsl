@@ -13,15 +13,17 @@ module KubeDSL
       @resolvers ||= {}
     end
 
-    def register_resolver(prefix, &resolver)
-      @resolvers[prefix] = resolver
+    def register_resolver(*prefixes, &resolver)
+      prefixes.each do |prefix|
+        @resolvers[prefix] = resolver
+      end
     end
 
     def each_resource
       return to_enum(__method__) unless block_given?
 
       resources.each do |res|
-        yield res if res
+        yield res if !res.external? && !res.empty?
       end
     end
 
@@ -76,6 +78,10 @@ module KubeDSL
       add_doc_to_resource(res, ref.document)
 
       res
+    end
+
+    def parse_ref(ref_str)
+      Ref.new(ref_str, namespace, output_dir, inflector, schema_dir)
     end
 
     private
@@ -150,7 +156,7 @@ module KubeDSL
         end
       end
 
-      Ref.new(ref_str, namespace, output_dir, inflector, schema_dir)
+      parse_ref(ref_str)
     end
 
     def add_prop_to_resource(name, prop, res)
@@ -179,20 +185,15 @@ module KubeDSL
 
         else
           ref = resolve_ref(prop['$ref'])
-          child = ref.document
 
-          if child['properties']
+          if ref.object?
             # this ref refers to a nested type
-            res.object_fields[name] = resource_from_ref(
-              resolve_ref(prop['$ref'])
-            )
+            res.object_fields[name] = resource_from_ref(ref)
           else
             # this ref refers to just a field
             res.fields << name
           end
       end
-    rescue => e
-      binding.pry
     end
 
     def start_path

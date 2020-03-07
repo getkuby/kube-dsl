@@ -12,7 +12,7 @@ module KubeDSL::DSL::Authentication::V1
       end
     end
 
-    def kind
+    def kind_sym
       :token_request_spec
     end
   end

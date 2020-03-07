@@ -16,7 +16,7 @@ module KubeDSL::DSL::Settings::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :pod_preset_spec
     end
   end

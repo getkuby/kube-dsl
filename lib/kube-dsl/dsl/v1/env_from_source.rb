@@ -12,7 +12,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :env_from_source
     end
   end

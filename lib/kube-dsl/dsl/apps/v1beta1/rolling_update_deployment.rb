@@ -9,7 +9,7 @@ module KubeDSL::DSL::Apps::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :rolling_update_deployment
     end
   end

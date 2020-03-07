@@ -18,7 +18,7 @@ module KubeDSL::DSL::Apps::V1
       end
     end
 
-    def kind
+    def kind_sym
       :daemon_set_status
     end
   end

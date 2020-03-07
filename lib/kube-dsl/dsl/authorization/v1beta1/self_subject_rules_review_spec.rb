@@ -8,7 +8,7 @@ module KubeDSL::DSL::Authorization::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :self_subject_rules_review_spec
     end
   end

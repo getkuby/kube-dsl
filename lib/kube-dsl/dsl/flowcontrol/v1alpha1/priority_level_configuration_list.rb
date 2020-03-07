@@ -12,7 +12,7 @@ module KubeDSL::DSL::Flowcontrol::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :priority_level_configuration_list
     end
   end

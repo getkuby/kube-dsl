@@ -14,7 +14,7 @@ module KubeDSL::DSL::Networking::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :ingress
     end
   end

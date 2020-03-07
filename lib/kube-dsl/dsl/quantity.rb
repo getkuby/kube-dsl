@@ -6,7 +6,7 @@ module KubeDSL::DSL
       end
     end
 
-    def kind
+    def kind_sym
       :quantity
     end
   end

@@ -13,7 +13,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :storage_os_persistent_volume_source
     end
   end

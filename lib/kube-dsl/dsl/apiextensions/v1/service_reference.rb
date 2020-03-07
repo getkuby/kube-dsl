@@ -11,7 +11,7 @@ module KubeDSL::DSL::Apiextensions::V1
       end
     end
 
-    def kind
+    def kind_sym
       :service_reference
     end
   end

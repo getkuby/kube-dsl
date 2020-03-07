@@ -43,7 +43,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :ephemeral_container
     end
   end

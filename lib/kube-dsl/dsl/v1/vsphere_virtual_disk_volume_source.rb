@@ -11,7 +11,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :vsphere_virtual_disk_volume_source
     end
   end

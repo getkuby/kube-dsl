@@ -16,7 +16,7 @@ module KubeDSL::DSL::Rbac::V1
       end
     end
 
-    def kind
+    def kind_sym
       :policy_rule
     end
   end

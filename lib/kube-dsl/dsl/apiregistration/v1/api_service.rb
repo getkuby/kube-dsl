@@ -14,7 +14,7 @@ module KubeDSL::DSL::Apiregistration::V1
       end
     end
 
-    def kind
+    def kind_sym
       :api_service
     end
   end

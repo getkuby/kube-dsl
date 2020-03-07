@@ -12,7 +12,7 @@ module KubeDSL::DSL::Flowcontrol::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :flow_schema_list
     end
   end

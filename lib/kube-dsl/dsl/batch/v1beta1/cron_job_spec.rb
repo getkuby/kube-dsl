@@ -15,7 +15,7 @@ module KubeDSL::DSL::Batch::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :cron_job_spec
     end
   end

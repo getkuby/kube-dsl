@@ -12,7 +12,7 @@ module KubeDSL::DSL::Autoscaling::V2beta2
       end
     end
 
-    def kind
+    def kind_sym
       :object_metric_status
     end
   end

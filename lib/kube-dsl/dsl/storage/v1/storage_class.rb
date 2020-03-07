@@ -21,7 +21,7 @@ module KubeDSL::DSL::Storage::V1
       end
     end
 
-    def kind
+    def kind_sym
       :storage_class
     end
   end

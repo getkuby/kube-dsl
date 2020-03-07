@@ -14,7 +14,7 @@ module KubeDSL::DSL::Batch::V1
       end
     end
 
-    def kind
+    def kind_sym
       :job_status
     end
   end

@@ -12,7 +12,7 @@ module KubeDSL::DSL::Rbac::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :role_binding_list
     end
   end

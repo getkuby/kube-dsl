@@ -11,7 +11,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :aws_elastic_block_store_volume_source
     end
   end

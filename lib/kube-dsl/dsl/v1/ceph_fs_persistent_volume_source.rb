@@ -15,7 +15,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :ceph_fs_persistent_volume_source
     end
   end

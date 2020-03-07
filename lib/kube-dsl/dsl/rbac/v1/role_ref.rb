@@ -10,7 +10,7 @@ module KubeDSL::DSL::Rbac::V1
       end
     end
 
-    def kind
+    def kind_sym
       :role_ref
     end
   end

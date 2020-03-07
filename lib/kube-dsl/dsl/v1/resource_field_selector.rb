@@ -10,7 +10,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :resource_field_selector
     end
   end

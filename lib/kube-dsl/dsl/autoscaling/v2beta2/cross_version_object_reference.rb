@@ -10,7 +10,7 @@ module KubeDSL::DSL::Autoscaling::V2beta2
       end
     end
 
-    def kind
+    def kind_sym
       :cross_version_object_reference
     end
   end

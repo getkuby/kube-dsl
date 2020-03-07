@@ -18,7 +18,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :limit_range_item
     end
   end

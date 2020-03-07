@@ -14,7 +14,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :fc_volume_source
     end
   end

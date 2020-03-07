@@ -13,7 +13,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :pod_condition
     end
   end

@@ -12,7 +12,7 @@ module KubeDSL::DSL::Admissionregistration::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :validating_webhook_configuration
     end
   end

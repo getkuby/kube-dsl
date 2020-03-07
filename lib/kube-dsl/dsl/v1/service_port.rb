@@ -12,7 +12,7 @@ module KubeDSL::DSL::V1
       end
     end
 
-    def kind
+    def kind_sym
       :service_port
     end
   end

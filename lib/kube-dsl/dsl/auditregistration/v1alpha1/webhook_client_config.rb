@@ -11,7 +11,7 @@ module KubeDSL::DSL::Auditregistration::V1alpha1
       end
     end
 
-    def kind
+    def kind_sym
       :webhook_client_config
     end
   end

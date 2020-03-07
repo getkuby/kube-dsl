@@ -8,7 +8,7 @@ module KubeDSL::DSL::Extensions::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :http_ingress_rule_value
     end
   end

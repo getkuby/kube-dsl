@@ -6,7 +6,7 @@ module KubeDSL::DSL::Meta::V1
       end
     end
 
-    def kind
+    def kind_sym
       :micro_time
     end
   end

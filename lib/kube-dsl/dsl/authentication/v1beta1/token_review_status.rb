@@ -13,7 +13,7 @@ module KubeDSL::DSL::Authentication::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :token_review_status
     end
   end

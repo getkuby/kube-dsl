@@ -23,7 +23,7 @@ module KubeDSL::DSL::Admissionregistration::V1beta1
       end
     end
 
-    def kind
+    def kind_sym
       :mutating_webhook
     end
   end
