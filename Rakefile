@@ -17,8 +17,8 @@ end
 task :generate do
   require 'dry/inflector'
 
-  FileUtils.rm('./lib/kube-dsl/entrypoint.rb')
-  FileUtils.rm('./lib/kube-dsl/dsl.rb')
+  FileUtils.rm_rf('./lib/kube-dsl/entrypoint.rb')
+  FileUtils.rm_rf('./lib/kube-dsl/dsl.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./vendor')
@@ -42,6 +42,11 @@ task :generate do
       end
     )
 
-    generator.generate
+    generator.generate_resource_files
+    generator.generate_autoload_files
+    generator.generate_entrypoint_file do |resource, ns|
+      version = resource.ref.version || ''
+      !version.include?('beta') && !version.include?('alpha')
+    end
   end
 end

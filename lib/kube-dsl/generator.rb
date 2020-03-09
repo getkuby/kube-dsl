@@ -12,8 +12,6 @@ module KubeDSL
       generate_entrypoint_file
     end
 
-    private
-
     def generate_resource_files
       builder.each_resource do |res|
         FileUtils.mkdir_p(File.dirname(res.ref.ruby_autoload_path))
@@ -38,12 +36,12 @@ module KubeDSL
       end
     end
 
-    def generate_entrypoint_file
+    def generate_entrypoint_file(&block)
       if File.exist?(builder.entrypoint_path)
         puts "Skipping #{builder.entrypoint_path} because it already exists"
       else
         puts "Writing #{builder.entrypoint_path}"
-        File.write(builder.entrypoint_path, builder.entrypoint)
+        File.write(builder.entrypoint_path, builder.entrypoint(&block))
       end
     end
   end

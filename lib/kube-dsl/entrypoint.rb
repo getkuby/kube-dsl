@@ -1211,10 +1211,6 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceScale.new(&block)
   end
 
-  def custom_resource_subresource_status(&block)
-    ::KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceStatus.new(&block)
-  end
-
   def custom_resource_subresources(&block)
     ::KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources.new(&block)
   end
@@ -1227,24 +1223,8 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation.new(&block)
   end
 
-  def json(&block)
-    ::KubeDSL::DSL::Apiextensions::V1::JSON.new(&block)
-  end
-
   def json_schema_props(&block)
     ::KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new(&block)
-  end
-
-  def json_schema_props_or_array(&block)
-    ::KubeDSL::DSL::Apiextensions::V1::JSONSchemaPropsOrArray.new(&block)
-  end
-
-  def json_schema_props_or_bool(&block)
-    ::KubeDSL::DSL::Apiextensions::V1::JSONSchemaPropsOrBool.new(&block)
-  end
-
-  def json_schema_props_or_string_array(&block)
-    ::KubeDSL::DSL::Apiextensions::V1::JSONSchemaPropsOrStringArray.new(&block)
   end
 
   def service_reference(&block)
@@ -1257,10 +1237,6 @@ module KubeDSL::Entrypoint
 
   def webhook_conversion(&block)
     ::KubeDSL::DSL::Apiextensions::V1::WebhookConversion.new(&block)
-  end
-
-  def quantity(&block)
-    ::KubeDSL::DSL::Quantity.new(&block)
   end
 
   def api_group(&block)
@@ -1287,10 +1263,6 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Meta::V1::DeleteOptions.new(&block)
   end
 
-  def fields_v1(&block)
-    ::KubeDSL::DSL::Meta::V1::FieldsV1.new(&block)
-  end
-
   def group_version_for_discovery(&block)
     ::KubeDSL::DSL::Meta::V1::GroupVersionForDiscovery.new(&block)
   end
@@ -1311,20 +1283,12 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Meta::V1::ManagedFieldsEntry.new(&block)
   end
 
-  def micro_time(&block)
-    ::KubeDSL::DSL::Meta::V1::MicroTime.new(&block)
-  end
-
   def object_meta(&block)
     ::KubeDSL::DSL::Meta::V1::ObjectMeta.new(&block)
   end
 
   def owner_reference(&block)
     ::KubeDSL::DSL::Meta::V1::OwnerReference.new(&block)
-  end
-
-  def patch(&block)
-    ::KubeDSL::DSL::Meta::V1::Patch.new(&block)
   end
 
   def preconditions(&block)
@@ -1347,20 +1311,8 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Meta::V1::StatusDetails.new(&block)
   end
 
-  def time(&block)
-    ::KubeDSL::DSL::Meta::V1::Time.new(&block)
-  end
-
   def watch_event(&block)
     ::KubeDSL::DSL::Meta::V1::WatchEvent.new(&block)
-  end
-
-  def raw_extension(&block)
-    ::KubeDSL::DSL::Pkg::Runtime::RawExtension.new(&block)
-  end
-
-  def int_or_string(&block)
-    ::KubeDSL::DSL::Util::Intstr::IntOrString.new(&block)
   end
 
   def info(&block)

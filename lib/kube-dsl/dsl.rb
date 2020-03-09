@@ -21,9 +21,7 @@ module KubeDSL::DSL
   autoload :Settings, 'kube-dsl/dsl/settings'
   autoload :Storage, 'kube-dsl/dsl/storage'
   autoload :Apiextensions, 'kube-dsl/dsl/apiextensions'
-  autoload :Quantity, 'kube-dsl/dsl/quantity'
   autoload :Meta, 'kube-dsl/dsl/meta'
   autoload :Pkg, 'kube-dsl/dsl/pkg'
-  autoload :Util, 'kube-dsl/dsl/util'
   autoload :Apiregistration, 'kube-dsl/dsl/apiregistration'
 end

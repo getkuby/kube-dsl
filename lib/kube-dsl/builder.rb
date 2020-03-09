@@ -23,20 +23,28 @@ module KubeDSL
       return to_enum(__method__) unless block_given?
 
       resources.each do |res|
+        # "External" resources are ones that live outside the current
+        # schema, i.e. k8s resources like ObjectMeta that other
+        # k8s-compatible schemas depend on.
+        #
+        # Resources can be "empty" if they contain no properties. This
+        # usually happens for resources that are really just aliases
+        # for basic types like integer and string. The k8s' Duration
+        # object is a good example. It's just an alias for string.
         yield res if !res.external? && !res.empty?
       end
     end
 
-    def entrypoint
+    def entrypoint(&block)
       ''.tap do |ruby_code|
         ruby_code << "module #{namespace[0..-2].join('::')}::Entrypoint\n"
 
         each_resource do |resource|
-          version = resource.ref.version || ''
-          next if version.include?('beta') || version.include?('alpha')
+          ns = resource.ref.ruby_namespace.join('::')
+          next if block && !block.call(resource, ns)
 
           ruby_code << "  def #{underscore(resource.ref.kind)}(&block)\n"
-          ruby_code << "    ::#{resource.ref.ruby_namespace.join('::')}::#{resource.ref.kind}.new(&block)\n"
+          ruby_code << "    ::#{ns}::#{resource.ref.kind}.new(&block)\n"
           ruby_code << "  end\n\n"
         end
 
@@ -173,7 +181,7 @@ module KubeDSL
           fmt = prop['additionalProperties']['format'] || 'string'
           res.key_value_fields[name] = fmt
 
-        when 'string', 'integer', 'number', 'boolean'
+        when 'string', 'integer', 'number', 'boolean', 'date-time'
           enum = prop['enum']
 
           if enum&.size == 1
