@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kube-dsl (1.0.0)
+    kube-dsl (0.1.0)
       dry-inflector (~> 0.2)
 
 GEM

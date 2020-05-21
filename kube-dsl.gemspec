@@ -10,8 +10,6 @@ Gem::Specification.new do |s|
 
   s.description = s.summary = 'A Ruby DSL for defining Kubernetes resources.'
 
-  s.platform = Gem::Platform::RUBY
-
   s.add_dependency 'dry-inflector', '~> 0.2'
 
   s.require_path = 'lib'

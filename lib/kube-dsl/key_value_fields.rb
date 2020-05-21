@@ -21,6 +21,10 @@ module KubeDSL
       @kv_pairs[key]
     end
 
+    def set(key, value)
+      @kv_pairs[key] = value
+    end
+
     def serialize
       @kv_pairs.each_with_object({}) do |(key, value), ret|
         ret[key] = serialize_value(value)
