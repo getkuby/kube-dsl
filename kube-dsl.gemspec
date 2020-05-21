@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version  = ::KubeDSL::VERSION
   s.authors  = ['Cameron Dutro']
   s.email    = ['camertron@gmail.com']
-  s.homepage = 'http://github.com/camertron/kube-dsl'
+  s.homepage = 'http://github.com/getkuby/kube-dsl'
 
   s.description = s.summary = 'A Ruby DSL for defining Kubernetes resources.'
 
