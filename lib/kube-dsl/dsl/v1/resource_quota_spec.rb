@@ -1,6 +1,6 @@
 module KubeDSL::DSL::V1
   class ResourceQuotaSpec < ::KubeDSL::DSLObject
-    array_field :scope
+    value_fields :scopes
     object_field(:scope_selector) { KubeDSL::DSL::V1::ScopeSelector.new }
     object_field(:hard) { ::KubeDSL::KeyValueFields.new(format: :string) }
 

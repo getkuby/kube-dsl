@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class ScopedResourceSelectorRequirement < ::KubeDSL::DSLObject
-    value_fields :operator, :scope_name
-    array_field :value
+    value_fields :operator, :scope_name, :values
 
     def serialize
       {}.tap do |result|

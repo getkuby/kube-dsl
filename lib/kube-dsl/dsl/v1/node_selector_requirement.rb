@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class NodeSelectorRequirement < ::KubeDSL::DSLObject
-    value_fields :key, :operator
-    array_field :value
+    value_fields :key, :operator, :values
 
     def serialize
       {}.tap do |result|

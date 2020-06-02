@@ -1,8 +1,6 @@
 module KubeDSL::DSL::V1
   class Container < ::KubeDSL::DSLObject
-    value_fields :image, :image_pull_policy, :name, :stdin, :stdin_once, :termination_message_path, :termination_message_policy, :tty, :working_dir
-    array_field :arg
-    array_field :command
+    value_fields :args, :command, :image, :image_pull_policy, :name, :stdin, :stdin_once, :termination_message_path, :termination_message_policy, :tty, :working_dir
     array_field(:env) { KubeDSL::DSL::V1::EnvVar.new }
     array_field(:env_from) { KubeDSL::DSL::V1::EnvFromSource.new }
     array_field(:port) { KubeDSL::DSL::V1::ContainerPort.new }
@@ -17,6 +15,8 @@ module KubeDSL::DSL::V1
 
     def serialize
       {}.tap do |result|
+        result[:args] = args
+        result[:command] = command
         result[:image] = image
         result[:imagePullPolicy] = image_pull_policy
         result[:name] = name
@@ -26,8 +26,6 @@ module KubeDSL::DSL::V1
         result[:terminationMessagePolicy] = termination_message_policy
         result[:tty] = tty
         result[:workingDir] = working_dir
-        result[:args] = args
-        result[:command] = commands
         result[:env] = envs.map(&:serialize)
         result[:envFrom] = env_froms.map(&:serialize)
         result[:ports] = ports.map(&:serialize)

@@ -1,12 +1,11 @@
 module KubeDSL::DSL::Networking::V1beta1
   class IngressTLS < ::KubeDSL::DSLObject
-    value_fields :secret_name
-    array_field :host
+    value_fields :hosts, :secret_name
 
     def serialize
       {}.tap do |result|
-        result[:secretName] = secret_name
         result[:hosts] = hosts
+        result[:secretName] = secret_name
       end
     end
 

@@ -1,12 +1,11 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class RuntimeClassStrategyOptions < ::KubeDSL::DSLObject
-    value_fields :default_runtime_class_name
-    array_field :allowed_runtime_class_name
+    value_fields :allowed_runtime_class_names, :default_runtime_class_name
 
     def serialize
       {}.tap do |result|
-        result[:defaultRuntimeClassName] = default_runtime_class_name
         result[:allowedRuntimeClassNames] = allowed_runtime_class_names
+        result[:defaultRuntimeClassName] = default_runtime_class_name
       end
     end
 

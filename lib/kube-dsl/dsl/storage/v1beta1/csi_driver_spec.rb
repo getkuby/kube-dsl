@@ -1,7 +1,6 @@
 module KubeDSL::DSL::Storage::V1beta1
   class CSIDriverSpec < ::KubeDSL::DSLObject
-    value_fields :attach_required, :pod_info_on_mount
-    array_field :volume_lifecycle_mode
+    value_fields :attach_required, :pod_info_on_mount, :volume_lifecycle_modes
 
     def serialize
       {}.tap do |result|

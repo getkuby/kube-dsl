@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class PodSecurityContext < ::KubeDSL::DSLObject
-    value_fields :fs_group, :run_as_group, :run_as_non_root, :run_as_user
-    array_field :supplemental_group
+    value_fields :fs_group, :run_as_group, :run_as_non_root, :run_as_user, :supplemental_groups
     array_field(:sysctls) { KubeDSL::DSL::V1::Sysctl.new }
     object_field(:se_linux_options) { KubeDSL::DSL::V1::SELinuxOptions.new }
     object_field(:windows_options) { KubeDSL::DSL::V1::WindowsSecurityContextOptions.new }

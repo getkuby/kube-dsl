@@ -1,13 +1,12 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceConversion < ::KubeDSL::DSLObject
-    value_fields :strategy
-    array_field :conversion_review_version
+    value_fields :conversion_review_versions, :strategy
     object_field(:webhook_client_config) { KubeDSL::DSL::Apiextensions::V1beta1::WebhookClientConfig.new }
 
     def serialize
       {}.tap do |result|
-        result[:strategy] = strategy
         result[:conversionReviewVersions] = conversion_review_versions
+        result[:strategy] = strategy
         result[:webhookClientConfig] = webhook_client_config.serialize
       end
     end

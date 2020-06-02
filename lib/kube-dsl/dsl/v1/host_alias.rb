@@ -1,12 +1,11 @@
 module KubeDSL::DSL::V1
   class HostAlias < ::KubeDSL::DSLObject
-    value_fields :ip
-    array_field :hostname
+    value_fields :hostnames, :ip
 
     def serialize
       {}.tap do |result|
-        result[:ip] = ip
         result[:hostnames] = hostnames
+        result[:ip] = ip
       end
     end
 

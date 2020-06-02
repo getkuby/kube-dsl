@@ -1,17 +1,15 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceDefinitionNames < ::KubeDSL::DSLObject
-    value_fields :kind, :list_kind, :plural, :singular
-    array_field :category
-    array_field :short_name
+    value_fields :categories, :kind, :list_kind, :plural, :short_names, :singular
 
     def serialize
       {}.tap do |result|
+        result[:categories] = categories
         result[:kind] = kind
         result[:listKind] = list_kind
         result[:plural] = plural
-        result[:singular] = singular
-        result[:categories] = categories
         result[:shortNames] = short_names
+        result[:singular] = singular
       end
     end
 

@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class RBDVolumeSource < ::KubeDSL::DSLObject
-    value_fields :fs_type, :image, :keyring, :pool, :read_only, :user
-    array_field :monitor
+    value_fields :fs_type, :image, :keyring, :monitors, :pool, :read_only, :user
     object_field(:secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
 
     def serialize
@@ -9,10 +8,10 @@ module KubeDSL::DSL::V1
         result[:fsType] = fs_type
         result[:image] = image
         result[:keyring] = keyring
+        result[:monitors] = monitors
         result[:pool] = pool
         result[:readOnly] = read_only
         result[:user] = user
-        result[:monitors] = monitors
         result[:secretRef] = secret_ref.serialize
       end
     end

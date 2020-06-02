@@ -1,12 +1,11 @@
 module KubeDSL::DSL::V1
   class Capabilities < ::KubeDSL::DSLObject
-    array_field :add
-    array_field :drop
+    value_fields :add, :drop
 
     def serialize
       {}.tap do |result|
-        result[:add] = adds
-        result[:drop] = drops
+        result[:add] = add
+        result[:drop] = drop
       end
     end
 

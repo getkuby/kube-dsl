@@ -1,6 +1,6 @@
 module KubeDSL::DSL::V1
   class NamespaceSpec < ::KubeDSL::DSLObject
-    array_field :finalizer
+    value_fields :finalizers
 
     def serialize
       {}.tap do |result|

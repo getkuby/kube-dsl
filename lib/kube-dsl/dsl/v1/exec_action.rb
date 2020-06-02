@@ -1,10 +1,10 @@
 module KubeDSL::DSL::V1
   class ExecAction < ::KubeDSL::DSLObject
-    array_field :command
+    value_fields :command
 
     def serialize
       {}.tap do |result|
-        result[:command] = commands
+        result[:command] = command
       end
     end
 

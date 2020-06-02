@@ -1,11 +1,10 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class NonResourcePolicyRule < ::KubeDSL::DSLObject
-    array_field :non_resource_url
-    array_field :verb
+    value_fields :non_resource_ur_ls, :verbs
 
     def serialize
       {}.tap do |result|
-        result[:nonResourceURLs] = non_resource_urls
+        result[:nonResourceURLs] = non_resource_ur_ls
         result[:verbs] = verbs
       end
     end

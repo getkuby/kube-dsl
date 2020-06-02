@@ -1,9 +1,6 @@
 module KubeDSL::DSL::Authorization::V1
   class ResourceRule < ::KubeDSL::DSLObject
-    array_field :api_group
-    array_field :resource_name
-    array_field :resource
-    array_field :verb
+    value_fields :api_groups, :resource_names, :resources, :verbs
 
     def serialize
       {}.tap do |result|

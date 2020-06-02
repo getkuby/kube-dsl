@@ -1,12 +1,11 @@
 module KubeDSL::DSL::Authentication::V1beta1
   class TokenReviewSpec < ::KubeDSL::DSLObject
-    value_fields :token
-    array_field :audience
+    value_fields :audiences, :token
 
     def serialize
       {}.tap do |result|
-        result[:token] = token
         result[:audiences] = audiences
+        result[:token] = token
       end
     end
 

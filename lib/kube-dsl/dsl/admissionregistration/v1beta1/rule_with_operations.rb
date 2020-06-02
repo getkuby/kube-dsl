@@ -1,18 +1,14 @@
 module KubeDSL::DSL::Admissionregistration::V1beta1
   class RuleWithOperations < ::KubeDSL::DSLObject
-    value_fields :scope
-    array_field :api_group
-    array_field :api_version
-    array_field :operation
-    array_field :resource
+    value_fields :api_groups, :api_versions, :operations, :resources, :scope
 
     def serialize
       {}.tap do |result|
-        result[:scope] = scope
         result[:apiGroups] = api_groups
         result[:apiVersions] = api_versions
         result[:operations] = operations
         result[:resources] = resources
+        result[:scope] = scope
       end
     end
 

@@ -1,8 +1,6 @@
 module KubeDSL::DSL::V1
   class PersistentVolumeSpec < ::KubeDSL::DSLObject
-    value_fields :persistent_volume_reclaim_policy, :storage_class_name, :volume_mode
-    array_field :access_mode
-    array_field :mount_option
+    value_fields :access_modes, :mount_options, :persistent_volume_reclaim_policy, :storage_class_name, :volume_mode
     object_field(:aws_elastic_block_store) { KubeDSL::DSL::V1::AWSElasticBlockStoreVolumeSource.new }
     object_field(:azure_disk) { KubeDSL::DSL::V1::AzureDiskVolumeSource.new }
     object_field(:azure_file) { KubeDSL::DSL::V1::AzureFilePersistentVolumeSource.new }
@@ -31,11 +29,11 @@ module KubeDSL::DSL::V1
 
     def serialize
       {}.tap do |result|
+        result[:accessModes] = access_modes
+        result[:mountOptions] = mount_options
         result[:persistentVolumeReclaimPolicy] = persistent_volume_reclaim_policy
         result[:storageClassName] = storage_class_name
         result[:volumeMode] = volume_mode
-        result[:accessModes] = access_modes
-        result[:mountOptions] = mount_options
         result[:awsElasticBlockStore] = aws_elastic_block_store.serialize
         result[:azureDisk] = azure_disk.serialize
         result[:azureFile] = azure_file.serialize

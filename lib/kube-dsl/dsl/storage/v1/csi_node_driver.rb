@@ -1,7 +1,6 @@
 module KubeDSL::DSL::Storage::V1
   class CSINodeDriver < ::KubeDSL::DSLObject
-    value_fields :name, :node_id
-    array_field :topology_key
+    value_fields :name, :node_id, :topology_keys
     object_field(:allocatable) { KubeDSL::DSL::Storage::V1::VolumeNodeResources.new }
 
     def serialize

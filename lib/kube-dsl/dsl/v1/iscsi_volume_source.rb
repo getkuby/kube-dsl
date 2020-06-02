@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class ISCSIVolumeSource < ::KubeDSL::DSLObject
-    value_fields :chap_auth_discovery, :chap_auth_session, :fs_type, :initiator_name, :iqn, :iscsi_interface, :lun, :read_only, :target_portal
-    array_field :portal
+    value_fields :chap_auth_discovery, :chap_auth_session, :fs_type, :initiator_name, :iqn, :iscsi_interface, :lun, :portals, :read_only, :target_portal
     object_field(:secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
 
     def serialize
@@ -13,9 +12,9 @@ module KubeDSL::DSL::V1
         result[:iqn] = iqn
         result[:iscsiInterface] = iscsi_interface
         result[:lun] = lun
+        result[:portals] = portals
         result[:readOnly] = read_only
         result[:targetPortal] = target_portal
-        result[:portals] = portals
         result[:secretRef] = secret_ref.serialize
       end
     end

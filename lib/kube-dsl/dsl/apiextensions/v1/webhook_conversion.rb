@@ -1,6 +1,6 @@
 module KubeDSL::DSL::Apiextensions::V1
   class WebhookConversion < ::KubeDSL::DSLObject
-    array_field :conversion_review_version
+    value_fields :conversion_review_versions
     object_field(:client_config) { KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig.new }
 
     def serialize

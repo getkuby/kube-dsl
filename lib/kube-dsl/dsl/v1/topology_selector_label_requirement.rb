@@ -1,7 +1,6 @@
 module KubeDSL::DSL::V1
   class TopologySelectorLabelRequirement < ::KubeDSL::DSLObject
-    value_fields :key
-    array_field :value
+    value_fields :key, :values
 
     def serialize
       {}.tap do |result|

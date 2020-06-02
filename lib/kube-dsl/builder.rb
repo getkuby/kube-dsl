@@ -174,7 +174,7 @@ module KubeDSL
             ref = resolve_ref(ref_str)
             res.array_fields[name] = resource_from_ref(ref)
           else
-            res.array_fields[name] = nil
+            res.fields << name
           end
 
         when 'object' # this means key/value pairs

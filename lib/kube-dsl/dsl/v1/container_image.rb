@@ -1,12 +1,11 @@
 module KubeDSL::DSL::V1
   class ContainerImage < ::KubeDSL::DSLObject
-    value_fields :size_bytes
-    array_field :name
+    value_fields :names, :size_bytes
 
     def serialize
       {}.tap do |result|
-        result[:sizeBytes] = size_bytes
         result[:names] = names
+        result[:sizeBytes] = size_bytes
       end
     end
 

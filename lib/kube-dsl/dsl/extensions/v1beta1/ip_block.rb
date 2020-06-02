@@ -1,12 +1,11 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class IPBlock < ::KubeDSL::DSLObject
-    value_fields :cidr
-    array_field :except
+    value_fields :cidr, :except
 
     def serialize
       {}.tap do |result|
         result[:cidr] = cidr
-        result[:except] = excepts
+        result[:except] = except
       end
     end
 

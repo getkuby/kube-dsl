@@ -1,17 +1,15 @@
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestSpec < ::KubeDSL::DSLObject
-    value_fields :request, :uid, :username
-    array_field :group
-    array_field :usage
+    value_fields :groups, :request, :uid, :usages, :username
     object_field(:extra) { ::KubeDSL::KeyValueFields.new(format: :string) }
 
     def serialize
       {}.tap do |result|
+        result[:groups] = groups
         result[:request] = request
         result[:uid] = uid
-        result[:username] = username
-        result[:groups] = groups
         result[:usages] = usages
+        result[:username] = username
         result[:extra] = extra.serialize
       end
     end

@@ -1,7 +1,6 @@
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class Policy < ::KubeDSL::DSLObject
-    value_fields :level
-    array_field :stage
+    value_fields :level, :stages
 
     def serialize
       {}.tap do |result|
