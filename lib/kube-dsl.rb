@@ -15,6 +15,7 @@ module KubeDSL
   autoload :ResourceMeta,         'kube-dsl/resource_meta'
   autoload :StringHelpers,        'kube-dsl/string_helpers'
   autoload :ValueFields,          'kube-dsl/value_fields'
+  autoload :Validator,            'kube-dsl/validator'
 
   extend Entrypoint
 end

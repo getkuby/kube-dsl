@@ -1,6 +1,7 @@
 module KubeDSL
   class DSLObject
     extend ::KubeDSL::ValueFields
+    include ::KubeDSL::Validator
 
     def initialize(&block)
       instance_eval(&block) if block
