@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'dry-inflector', '~> 0.2'
 
   s.require_path = 'lib'
-  s.files = Dir['{lib,spec}/**/*', 'Gemfile', 'CHANGELOG.md', 'README.md', 'Rakefile', 'kube-dsl.gemspec']
+  s.files = Dir['{lib,spec}/**/*', 'Gemfile', 'LICENSE', 'CHANGELOG.md', 'README.md', 'Rakefile', 'kube-dsl.gemspec']
 end
