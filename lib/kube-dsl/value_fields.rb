@@ -48,6 +48,7 @@ module KubeDSL
 
         if elem_name && elem = arr[elem_name]
           elem.instance_eval(&block) if block
+          elem
         else
           if field_block
             new_val = field_block.call
@@ -57,9 +58,8 @@ module KubeDSL
           end
 
           arr[elem_name || SecureRandom.hex] = new_val
+          new_val
         end
-
-        nil
       end
 
       define_method(accessor) do
