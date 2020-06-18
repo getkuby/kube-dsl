@@ -1,6 +1,6 @@
 module KubeDSL::DSL::Node::V1beta1
   class Overhead < ::KubeDSL::DSLObject
-    object_field(:pod_fixed) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:pod_fixed, format: :string)
 
     def serialize
       {}.tap do |result|

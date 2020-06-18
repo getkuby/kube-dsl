@@ -2,7 +2,7 @@ module KubeDSL::DSL::V1
   class ReplicationControllerSpec < ::KubeDSL::DSLObject
     value_fields :min_ready_seconds, :replicas
     object_field(:template) { KubeDSL::DSL::V1::PodTemplateSpec.new }
-    object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:selector, format: :string)
 
     def serialize
       {}.tap do |result|

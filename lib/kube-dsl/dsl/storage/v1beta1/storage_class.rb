@@ -3,7 +3,7 @@ module KubeDSL::DSL::Storage::V1beta1
     value_fields :allow_volume_expansion, :mount_options, :provisioner, :reclaim_policy, :volume_binding_mode
     array_field(:allowed_topology) { KubeDSL::DSL::V1::TopologySelectorTerm.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
-    object_field(:parameters) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:parameters, format: :string)
 
     def serialize
       {}.tap do |result|

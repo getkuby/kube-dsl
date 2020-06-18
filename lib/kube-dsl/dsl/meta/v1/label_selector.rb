@@ -1,7 +1,7 @@
 module KubeDSL::DSL::Meta::V1
   class LabelSelector < ::KubeDSL::DSLObject
     array_field(:match_expression) { KubeDSL::DSL::Meta::V1::LabelSelectorRequirement.new }
-    object_field(:match_labels) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:match_labels, format: :string)
 
     def serialize
       {}.tap do |result|

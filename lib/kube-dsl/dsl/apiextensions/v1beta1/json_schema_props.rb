@@ -7,10 +7,10 @@ module KubeDSL::DSL::Apiextensions::V1beta1
     array_field(:one_of) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
     object_field(:external_docs) { KubeDSL::DSL::Apiextensions::V1beta1::ExternalDocumentation.new }
     object_field(:not) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }
-    object_field(:definitions) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:dependencies) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:pattern_properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:properties) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:definitions, format: :string)
+    key_value_field(:dependencies, format: :string)
+    key_value_field(:pattern_properties, format: :string)
+    key_value_field(:properties, format: :string)
 
     def serialize
       {}.tap do |result|

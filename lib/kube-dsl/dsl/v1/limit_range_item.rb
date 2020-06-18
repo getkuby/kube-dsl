@@ -1,11 +1,11 @@
 module KubeDSL::DSL::V1
   class LimitRangeItem < ::KubeDSL::DSLObject
     value_fields :type
-    object_field(:default) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:default_request) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:max) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:max_limit_request_ratio) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:min) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:default, format: :string)
+    key_value_field(:default_request, format: :string)
+    key_value_field(:max, format: :string)
+    key_value_field(:max_limit_request_ratio, format: :string)
+    key_value_field(:min, format: :string)
 
     def serialize
       {}.tap do |result|

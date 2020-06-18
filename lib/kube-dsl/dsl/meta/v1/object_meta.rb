@@ -3,8 +3,8 @@ module KubeDSL::DSL::Meta::V1
     value_fields :cluster_name, :creation_timestamp, :deletion_grace_period_seconds, :deletion_timestamp, :finalizers, :generate_name, :generation, :name, :namespace, :resource_version, :self_link, :uid
     array_field(:managed_field) { KubeDSL::DSL::Meta::V1::ManagedFieldsEntry.new }
     array_field(:owner_reference) { KubeDSL::DSL::Meta::V1::OwnerReference.new }
-    object_field(:annotations) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:labels) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:annotations, format: :string)
+    key_value_field(:labels, format: :string)
 
     def serialize
       {}.tap do |result|

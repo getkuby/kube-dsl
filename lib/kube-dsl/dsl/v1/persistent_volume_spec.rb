@@ -25,7 +25,7 @@ module KubeDSL::DSL::V1
     object_field(:scale_io) { KubeDSL::DSL::V1::ScaleIOPersistentVolumeSource.new }
     object_field(:storageos) { KubeDSL::DSL::V1::StorageOSPersistentVolumeSource.new }
     object_field(:vsphere_volume) { KubeDSL::DSL::V1::VsphereVirtualDiskVolumeSource.new }
-    object_field(:capacity) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:capacity, format: :string)
 
     def serialize
       {}.tap do |result|

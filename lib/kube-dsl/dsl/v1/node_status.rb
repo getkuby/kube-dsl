@@ -8,8 +8,8 @@ module KubeDSL::DSL::V1
     object_field(:config) { KubeDSL::DSL::V1::NodeConfigStatus.new }
     object_field(:daemon_endpoints) { KubeDSL::DSL::V1::NodeDaemonEndpoints.new }
     object_field(:node_info) { KubeDSL::DSL::V1::NodeSystemInfo.new }
-    object_field(:allocatable) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:capacity) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:allocatable, format: :string)
+    key_value_field(:capacity, format: :string)
 
     def serialize
       {}.tap do |result|

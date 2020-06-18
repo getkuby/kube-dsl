@@ -1,7 +1,7 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class ScaleStatus < ::KubeDSL::DSLObject
     value_fields :replicas, :target_selector
-    object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:selector, format: :string)
 
     def serialize
       {}.tap do |result|

@@ -3,7 +3,7 @@ module KubeDSL::DSL::V1
     value_fields :cluster_ip, :external_i_ps, :external_name, :external_traffic_policy, :health_check_node_port, :ip_family, :load_balancer_ip, :load_balancer_source_ranges, :publish_not_ready_addresses, :session_affinity, :topology_keys, :type
     array_field(:port) { KubeDSL::DSL::V1::ServicePort.new }
     object_field(:session_affinity_config) { KubeDSL::DSL::V1::SessionAffinityConfig.new }
-    object_field(:selector) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:selector, format: :string)
 
     def serialize
       {}.tap do |result|

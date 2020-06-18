@@ -2,7 +2,7 @@ module KubeDSL::DSL::Extensions::V1beta1
   class DeploymentRollback < ::KubeDSL::DSLObject
     value_fields :name
     object_field(:rollback_to) { KubeDSL::DSL::Extensions::V1beta1::RollbackConfig.new }
-    object_field(:updated_annotations) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:updated_annotations, format: :string)
 
     def serialize
       {}.tap do |result|

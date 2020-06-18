@@ -2,7 +2,7 @@ module KubeDSL::DSL::V1
   class PersistentVolumeClaimStatus < ::KubeDSL::DSLObject
     value_fields :access_modes, :phase
     array_field(:condition) { KubeDSL::DSL::V1::PersistentVolumeClaimCondition.new }
-    object_field(:capacity) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:capacity, format: :string)
 
     def serialize
       {}.tap do |result|

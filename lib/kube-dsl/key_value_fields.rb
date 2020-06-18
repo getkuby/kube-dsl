@@ -31,6 +31,10 @@ module KubeDSL
       end
     end
 
+    def merge!(other)
+      @kv_pairs.merge!(other.instance_variable_get(:@kv_pairs))
+    end
+
     private
 
     def serialize_value(data)

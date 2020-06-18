@@ -2,7 +2,7 @@ module KubeDSL::DSL::V1
   class CSIVolumeSource < ::KubeDSL::DSLObject
     value_fields :driver, :fs_type, :read_only
     object_field(:node_publish_secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
-    object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:volume_attributes, format: :string)
 
     def serialize
       {}.tap do |result|

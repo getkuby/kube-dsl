@@ -1,7 +1,7 @@
 module KubeDSL::DSL::V1
   class ResourceQuotaStatus < ::KubeDSL::DSLObject
-    object_field(:hard) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:used) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:hard, format: :string)
+    key_value_field(:used, format: :string)
 
     def serialize
       {}.tap do |result|

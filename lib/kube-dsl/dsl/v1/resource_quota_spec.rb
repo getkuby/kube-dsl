@@ -2,7 +2,7 @@ module KubeDSL::DSL::V1
   class ResourceQuotaSpec < ::KubeDSL::DSLObject
     value_fields :scopes
     object_field(:scope_selector) { KubeDSL::DSL::V1::ScopeSelector.new }
-    object_field(:hard) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:hard, format: :string)
 
     def serialize
       {}.tap do |result|

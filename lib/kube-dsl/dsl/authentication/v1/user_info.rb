@@ -1,7 +1,7 @@
 module KubeDSL::DSL::Authentication::V1
   class UserInfo < ::KubeDSL::DSLObject
     value_fields :groups, :uid, :username
-    object_field(:extra) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:extra, format: :string)
 
     def serialize
       {}.tap do |result|

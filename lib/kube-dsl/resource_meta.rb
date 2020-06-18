@@ -72,7 +72,7 @@ module KubeDSL
         end
 
         key_value_fields.each do |name, fmt|
-          str << "    object_field(:#{underscore(name)}) { ::KubeDSL::KeyValueFields.new(format: :#{fmt}) }\n"
+          str << "    key_value_field(:#{underscore(name)}, format: :#{fmt})\n"
         end
       end
     end

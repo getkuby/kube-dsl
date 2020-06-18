@@ -3,7 +3,7 @@ module KubeDSL::DSL::Authorization::V1
     value_fields :groups, :uid, :user
     object_field(:non_resource_attributes) { KubeDSL::DSL::Authorization::V1::NonResourceAttributes.new }
     object_field(:resource_attributes) { KubeDSL::DSL::Authorization::V1::ResourceAttributes.new }
-    object_field(:extra) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:extra, format: :string)
 
     def serialize
       {}.tap do |result|

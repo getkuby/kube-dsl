@@ -1,7 +1,7 @@
 module KubeDSL::DSL::V1
   class ResourceRequirements < ::KubeDSL::DSLObject
-    object_field(:limits) { ::KubeDSL::KeyValueFields.new(format: :string) }
-    object_field(:requests) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:limits, format: :string)
+    key_value_field(:requests, format: :string)
 
     def serialize
       {}.tap do |result|

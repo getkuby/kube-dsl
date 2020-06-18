@@ -5,7 +5,7 @@ module KubeDSL::DSL::V1
     object_field(:controller_publish_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:node_publish_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
     object_field(:node_stage_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
-    object_field(:volume_attributes) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:volume_attributes, format: :string)
 
     def serialize
       {}.tap do |result|

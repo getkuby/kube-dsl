@@ -2,7 +2,7 @@ module KubeDSL::DSL::V1
   class FlexVolumeSource < ::KubeDSL::DSLObject
     value_fields :driver, :fs_type, :read_only
     object_field(:secret_ref) { KubeDSL::DSL::V1::LocalObjectReference.new }
-    object_field(:options) { ::KubeDSL::KeyValueFields.new(format: :string) }
+    key_value_field(:options, format: :string)
 
     def serialize
       {}.tap do |result|
