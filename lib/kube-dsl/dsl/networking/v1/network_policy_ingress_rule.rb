@@ -3,6 +3,9 @@ module KubeDSL::DSL::Networking::V1
     array_field(:from) { KubeDSL::DSL::Networking::V1::NetworkPolicyPeer.new }
     array_field(:port) { KubeDSL::DSL::Networking::V1::NetworkPolicyPort.new }
 
+    validates :froms, array: { kind_of: KubeDSL::DSL::Networking::V1::NetworkPolicyPeer }, presence: false
+    validates :ports, array: { kind_of: KubeDSL::DSL::Networking::V1::NetworkPolicyPort }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:from] = froms.map(&:serialize)

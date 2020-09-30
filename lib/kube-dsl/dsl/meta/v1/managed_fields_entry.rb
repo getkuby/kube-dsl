@@ -1,6 +1,18 @@
 module KubeDSL::DSL::Meta::V1
   class ManagedFieldsEntry < ::KubeDSL::DSLObject
-    value_fields :api_version, :fields_type, :fields_v1, :manager, :operation, :time
+    value_field :api_version
+    value_field :fields_type
+    value_field :fields_v1
+    value_field :manager
+    value_field :operation
+    value_field :time
+
+    validates :api_version, field: { format: :string }, presence: false
+    validates :fields_type, field: { format: :string }, presence: false
+    validates :fields_v1, field: { format: :string }, presence: false
+    validates :manager, field: { format: :string }, presence: false
+    validates :operation, field: { format: :string }, presence: false
+    validates :time, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

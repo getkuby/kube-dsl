@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Networking::V1beta1
   class HTTPIngressPath < ::KubeDSL::DSLObject
-    value_fields :path
     object_field(:backend) { KubeDSL::DSL::Networking::V1beta1::IngressBackend.new }
+    value_field :path
+
+    validates :backend, object: { kind_of: KubeDSL::DSL::Networking::V1beta1::IngressBackend }
+    validates :path, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:path] = path
         result[:backend] = backend.serialize
+        result[:path] = path
       end
     end
 

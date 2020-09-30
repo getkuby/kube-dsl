@@ -1,8 +1,14 @@
 module KubeDSL::DSL::Authorization::V1beta1
   class SubjectRulesReviewStatus < ::KubeDSL::DSLObject
-    value_fields :evaluation_error, :incomplete
+    value_field :evaluation_error
+    value_field :incomplete
     array_field(:non_resource_rule) { KubeDSL::DSL::Authorization::V1beta1::NonResourceRule.new }
     array_field(:resource_rule) { KubeDSL::DSL::Authorization::V1beta1::ResourceRule.new }
+
+    validates :evaluation_error, field: { format: :string }, presence: false
+    validates :incomplete, field: { format: :boolean }, presence: false
+    validates :non_resource_rules, array: { kind_of: KubeDSL::DSL::Authorization::V1beta1::NonResourceRule }, presence: false
+    validates :resource_rules, array: { kind_of: KubeDSL::DSL::Authorization::V1beta1::ResourceRule }, presence: false
 
     def serialize
       {}.tap do |result|

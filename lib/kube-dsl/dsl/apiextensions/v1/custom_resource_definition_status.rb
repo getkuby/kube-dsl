@@ -1,14 +1,18 @@
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceDefinitionStatus < ::KubeDSL::DSLObject
-    value_fields :stored_versions
-    array_field(:condition) { KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionCondition.new }
     object_field(:accepted_names) { KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames.new }
+    array_field(:condition) { KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionCondition.new }
+    value_field :stored_versions
+
+    validates :accepted_names, object: { kind_of: KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames }
+    validates :conditions, array: { kind_of: KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionCondition }, presence: false
+    validates :stored_versions, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:storedVersions] = stored_versions
-        result[:conditions] = conditions.map(&:serialize)
         result[:acceptedNames] = accepted_names.serialize
+        result[:conditions] = conditions.map(&:serialize)
+        result[:storedVersions] = stored_versions
       end
     end
 

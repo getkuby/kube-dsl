@@ -1,6 +1,18 @@
 module KubeDSL::DSL::V1
   class QuobyteVolumeSource < ::KubeDSL::DSLObject
-    value_fields :group, :read_only, :registry, :tenant, :user, :volume
+    value_field :group
+    value_field :read_only
+    value_field :registry
+    value_field :tenant
+    value_field :user
+    value_field :volume
+
+    validates :group, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :registry, field: { format: :string }, presence: false
+    validates :tenant, field: { format: :string }, presence: false
+    validates :user, field: { format: :string }, presence: false
+    validates :volume, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

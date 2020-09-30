@@ -1,13 +1,18 @@
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class WebhookClientConfig < ::KubeDSL::DSLObject
-    value_fields :ca_bundle, :url
+    value_field :ca_bundle
     object_field(:service) { KubeDSL::DSL::Auditregistration::V1alpha1::ServiceReference.new }
+    value_field :url
+
+    validates :ca_bundle, field: { format: :string }, presence: false
+    validates :service, object: { kind_of: KubeDSL::DSL::Auditregistration::V1alpha1::ServiceReference }
+    validates :url, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
         result[:caBundle] = ca_bundle
-        result[:url] = url
         result[:service] = service.serialize
+        result[:url] = url
       end
     end
 

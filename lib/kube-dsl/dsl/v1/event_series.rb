@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class EventSeries < ::KubeDSL::DSLObject
-    value_fields :count, :last_observed_time, :state
+    value_field :count
+    value_field :last_observed_time
+    value_field :state
+
+    validates :count, field: { format: :integer }, presence: false
+    validates :last_observed_time, field: { format: :string }, presence: false
+    validates :state, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

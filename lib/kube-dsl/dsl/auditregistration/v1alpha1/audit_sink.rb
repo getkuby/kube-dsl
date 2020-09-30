@@ -3,6 +3,9 @@ module KubeDSL::DSL::Auditregistration::V1alpha1
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Auditregistration::V1alpha1::AuditSinkSpec.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Auditregistration::V1alpha1::AuditSinkSpec }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "auditregistration.k8s.io/v1alpha1"

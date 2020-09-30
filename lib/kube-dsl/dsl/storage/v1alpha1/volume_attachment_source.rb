@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Storage::V1alpha1
   class VolumeAttachmentSource < ::KubeDSL::DSLObject
-    value_fields :persistent_volume_name
     object_field(:inline_volume_spec) { KubeDSL::DSL::V1::PersistentVolumeSpec.new }
+    value_field :persistent_volume_name
+
+    validates :inline_volume_spec, object: { kind_of: KubeDSL::DSL::V1::PersistentVolumeSpec }
+    validates :persistent_volume_name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:persistentVolumeName] = persistent_volume_name
         result[:inlineVolumeSpec] = inline_volume_spec.serialize
+        result[:persistentVolumeName] = persistent_volume_name
       end
     end
 

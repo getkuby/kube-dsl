@@ -1,7 +1,10 @@
 module KubeDSL::DSL::V1
   class DownwardAPIVolumeSource < ::KubeDSL::DSLObject
-    value_fields :default_mode
+    value_field :default_mode
     array_field(:item) { KubeDSL::DSL::V1::DownwardAPIVolumeFile.new }
+
+    validates :default_mode, field: { format: :integer }, presence: false
+    validates :items, array: { kind_of: KubeDSL::DSL::V1::DownwardAPIVolumeFile }, presence: false
 
     def serialize
       {}.tap do |result|

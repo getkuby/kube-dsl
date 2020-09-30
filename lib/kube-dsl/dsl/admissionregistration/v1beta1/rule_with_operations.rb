@@ -1,6 +1,16 @@
 module KubeDSL::DSL::Admissionregistration::V1beta1
   class RuleWithOperations < ::KubeDSL::DSLObject
-    value_fields :api_groups, :api_versions, :operations, :resources, :scope
+    value_field :api_groups
+    value_field :api_versions
+    value_field :operations
+    value_field :resources
+    value_field :scope
+
+    validates :api_groups, field: { format: :string }, presence: false
+    validates :api_versions, field: { format: :string }, presence: false
+    validates :operations, field: { format: :string }, presence: false
+    validates :resources, field: { format: :string }, presence: false
+    validates :scope, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

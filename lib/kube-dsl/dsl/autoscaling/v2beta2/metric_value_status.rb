@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
   class MetricValueStatus < ::KubeDSL::DSLObject
-    value_fields :average_utilization, :average_value, :value
+    value_field :average_utilization
+    value_field :average_value
+    value_field :value
+
+    validates :average_utilization, field: { format: :integer }, presence: false
+    validates :average_value, field: { format: :string }, presence: false
+    validates :value, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

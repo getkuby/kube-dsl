@@ -1,7 +1,10 @@
 module KubeDSL::DSL::V1
   class ProjectedVolumeSource < ::KubeDSL::DSLObject
-    value_fields :default_mode
+    value_field :default_mode
     array_field(:source) { KubeDSL::DSL::V1::VolumeProjection.new }
+
+    validates :default_mode, field: { format: :integer }, presence: false
+    validates :sources, array: { kind_of: KubeDSL::DSL::V1::VolumeProjection }, presence: false
 
     def serialize
       {}.tap do |result|

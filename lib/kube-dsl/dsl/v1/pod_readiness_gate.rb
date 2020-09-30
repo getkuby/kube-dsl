@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class PodReadinessGate < ::KubeDSL::DSLObject
-    value_fields :condition_type
+    value_field :condition_type
+
+    validates :condition_type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

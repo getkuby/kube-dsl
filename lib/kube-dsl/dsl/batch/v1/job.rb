@@ -4,6 +4,10 @@ module KubeDSL::DSL::Batch::V1
     object_field(:spec) { KubeDSL::DSL::Batch::V1::JobSpec.new }
     object_field(:status) { KubeDSL::DSL::Batch::V1::JobStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Batch::V1::JobSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Batch::V1::JobStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "batch/v1"

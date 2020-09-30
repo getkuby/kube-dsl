@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Apiregistration::V1
   class ServiceReference < ::KubeDSL::DSLObject
-    value_fields :name, :namespace, :port
+    value_field :name
+    value_field :namespace
+    value_field :port
+
+    validates :name, field: { format: :string }, presence: false
+    validates :namespace, field: { format: :string }, presence: false
+    validates :port, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

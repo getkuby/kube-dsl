@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Meta::V1
   class StatusCause < ::KubeDSL::DSLObject
-    value_fields :field, :message, :reason
+    value_field :field
+    value_field :message
+    value_field :reason
+
+    validates :field, field: { format: :string }, presence: false
+    validates :message, field: { format: :string }, presence: false
+    validates :reason, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

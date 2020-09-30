@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class Capabilities < ::KubeDSL::DSLObject
-    value_fields :add, :drop
+    value_field :add
+    value_field :drop
+
+    validates :add, field: { format: :string }, presence: false
+    validates :drop, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

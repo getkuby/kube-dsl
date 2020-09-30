@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class PodIP < ::KubeDSL::DSLObject
-    value_fields :ip
+    value_field :ip
+
+    validates :ip, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

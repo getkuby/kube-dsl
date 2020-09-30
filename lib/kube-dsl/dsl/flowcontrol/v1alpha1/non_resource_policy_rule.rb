@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class NonResourcePolicyRule < ::KubeDSL::DSLObject
-    value_fields :non_resource_ur_ls, :verbs
+    value_field :non_resource_ur_ls
+    value_field :verbs
+
+    validates :non_resource_ur_ls, field: { format: :string }, presence: false
+    validates :verbs, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

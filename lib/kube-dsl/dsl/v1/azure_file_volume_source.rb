@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class AzureFileVolumeSource < ::KubeDSL::DSLObject
-    value_fields :read_only, :secret_name, :share_name
+    value_field :read_only
+    value_field :secret_name
+    value_field :share_name
+
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :secret_name, field: { format: :string }, presence: false
+    validates :share_name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

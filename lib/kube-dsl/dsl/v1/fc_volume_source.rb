@@ -1,6 +1,16 @@
 module KubeDSL::DSL::V1
   class FCVolumeSource < ::KubeDSL::DSLObject
-    value_fields :fs_type, :lun, :read_only, :target_ww_ns, :wwids
+    value_field :fs_type
+    value_field :lun
+    value_field :read_only
+    value_field :target_ww_ns
+    value_field :wwids
+
+    validates :fs_type, field: { format: :string }, presence: false
+    validates :lun, field: { format: :integer }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :target_ww_ns, field: { format: :string }, presence: false
+    validates :wwids, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,6 +1,18 @@
 module KubeDSL::DSL::V1
   class AzureDiskVolumeSource < ::KubeDSL::DSLObject
-    value_fields :caching_mode, :disk_name, :disk_uri, :fs_type, :kind, :read_only
+    value_field :caching_mode
+    value_field :disk_name
+    value_field :disk_uri
+    value_field :fs_type
+    value_field :kind
+    value_field :read_only
+
+    validates :caching_mode, field: { format: :string }, presence: false
+    validates :disk_name, field: { format: :string }, presence: false
+    validates :disk_uri, field: { format: :string }, presence: false
+    validates :fs_type, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
 
     def serialize
       {}.tap do |result|

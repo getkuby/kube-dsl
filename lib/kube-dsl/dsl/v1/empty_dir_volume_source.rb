@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class EmptyDirVolumeSource < ::KubeDSL::DSLObject
-    value_fields :medium, :size_limit
+    value_field :medium
+    value_field :size_limit
+
+    validates :medium, field: { format: :string }, presence: false
+    validates :size_limit, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

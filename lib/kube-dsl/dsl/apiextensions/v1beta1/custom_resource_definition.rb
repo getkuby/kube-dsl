@@ -4,6 +4,10 @@ module KubeDSL::DSL::Apiextensions::V1beta1
     object_field(:spec) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionSpec.new }
     object_field(:status) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "apiextensions.k8s.io/v1beta1"

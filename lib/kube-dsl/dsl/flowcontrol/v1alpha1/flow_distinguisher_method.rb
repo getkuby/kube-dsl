@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class FlowDistinguisherMethod < ::KubeDSL::DSLObject
-    value_fields :type
+    value_field :type
+
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

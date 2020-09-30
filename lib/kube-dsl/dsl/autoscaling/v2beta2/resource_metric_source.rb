@@ -1,7 +1,10 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
   class ResourceMetricSource < ::KubeDSL::DSLObject
-    value_fields :name
+    value_field :name
     object_field(:target) { KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget.new }
+
+    validates :name, field: { format: :string }, presence: false
+    validates :target, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget }
 
     def serialize
       {}.tap do |result|

@@ -4,6 +4,10 @@ module KubeDSL::DSL::Apps::V1beta2
     object_field(:spec) { KubeDSL::DSL::Apps::V1beta2::DeploymentSpec.new }
     object_field(:status) { KubeDSL::DSL::Apps::V1beta2::DeploymentStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Apps::V1beta2::DeploymentSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Apps::V1beta2::DeploymentStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "apps/v1beta2"

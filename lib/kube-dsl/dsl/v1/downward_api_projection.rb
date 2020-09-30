@@ -2,6 +2,8 @@ module KubeDSL::DSL::V1
   class DownwardAPIProjection < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::V1::DownwardAPIVolumeFile.new }
 
+    validates :items, array: { kind_of: KubeDSL::DSL::V1::DownwardAPIVolumeFile }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:items] = items.map(&:serialize)

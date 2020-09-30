@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Apps::V1beta2
   class RollingUpdateDeployment < ::KubeDSL::DSLObject
-    value_fields :max_surge, :max_unavailable
+    value_field :max_surge
+    value_field :max_unavailable
+
+    validates :max_surge, field: { format: :string }, presence: false
+    validates :max_unavailable, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

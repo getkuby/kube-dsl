@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Discovery::V1beta1
   class EndpointConditions < ::KubeDSL::DSLObject
-    value_fields :ready
+    value_field :ready
+
+    validates :ready, field: { format: :boolean }, presence: false
 
     def serialize
       {}.tap do |result|

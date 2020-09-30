@@ -3,6 +3,9 @@ module KubeDSL::DSL::V1
     object_field(:post_start) { KubeDSL::DSL::V1::Handler.new }
     object_field(:pre_stop) { KubeDSL::DSL::V1::Handler.new }
 
+    validates :post_start, object: { kind_of: KubeDSL::DSL::V1::Handler }
+    validates :pre_stop, object: { kind_of: KubeDSL::DSL::V1::Handler }
+
     def serialize
       {}.tap do |result|
         result[:postStart] = post_start.serialize

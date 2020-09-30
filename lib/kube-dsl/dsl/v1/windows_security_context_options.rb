@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class WindowsSecurityContextOptions < ::KubeDSL::DSLObject
-    value_fields :gmsa_credential_spec, :gmsa_credential_spec_name, :run_as_user_name
+    value_field :gmsa_credential_spec
+    value_field :gmsa_credential_spec_name
+    value_field :run_as_user_name
+
+    validates :gmsa_credential_spec, field: { format: :string }, presence: false
+    validates :gmsa_credential_spec_name, field: { format: :string }, presence: false
+    validates :run_as_user_name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

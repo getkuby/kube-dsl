@@ -1,7 +1,10 @@
 module KubeDSL::DSL::Networking::V1beta1
   class IngressRule < ::KubeDSL::DSLObject
-    value_fields :host
+    value_field :host
     object_field(:http) { KubeDSL::DSL::Networking::V1beta1::HTTPIngressRuleValue.new }
+
+    validates :host, field: { format: :string }, presence: false
+    validates :http, object: { kind_of: KubeDSL::DSL::Networking::V1beta1::HTTPIngressRuleValue }
 
     def serialize
       {}.tap do |result|

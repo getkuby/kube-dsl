@@ -4,6 +4,10 @@ module KubeDSL::DSL::Policy::V1beta1
     object_field(:spec) { KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetSpec.new }
     object_field(:status) { KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "policy/v1beta1"

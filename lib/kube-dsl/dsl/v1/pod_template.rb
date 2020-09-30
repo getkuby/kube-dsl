@@ -3,6 +3,9 @@ module KubeDSL::DSL::V1
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:template) { KubeDSL::DSL::V1::PodTemplateSpec.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :template, object: { kind_of: KubeDSL::DSL::V1::PodTemplateSpec }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "v1"

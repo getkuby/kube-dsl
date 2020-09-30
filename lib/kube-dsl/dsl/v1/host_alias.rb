@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class HostAlias < ::KubeDSL::DSLObject
-    value_fields :hostnames, :ip
+    value_field :hostnames
+    value_field :ip
+
+    validates :hostnames, field: { format: :string }, presence: false
+    validates :ip, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Meta::V1
   class LabelSelectorRequirement < ::KubeDSL::DSLObject
-    value_fields :key, :operator, :values
+    value_field :key
+    value_field :operator
+    value_field :values
+
+    validates :key, field: { format: :string }, presence: false
+    validates :operator, field: { format: :string }, presence: false
+    validates :values, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

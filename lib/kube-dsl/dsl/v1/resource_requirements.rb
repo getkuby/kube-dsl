@@ -3,6 +3,9 @@ module KubeDSL::DSL::V1
     key_value_field(:limits, format: :string)
     key_value_field(:requests, format: :string)
 
+    validates :limits, kv: { value_format: :string }, presence: false
+    validates :requests, kv: { value_format: :string }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:limits] = limits.serialize

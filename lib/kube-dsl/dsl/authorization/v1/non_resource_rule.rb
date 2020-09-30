@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Authorization::V1
   class NonResourceRule < ::KubeDSL::DSLObject
-    value_fields :non_resource_ur_ls, :verbs
+    value_field :non_resource_ur_ls
+    value_field :verbs
+
+    validates :non_resource_ur_ls, field: { format: :string }, presence: false
+    validates :verbs, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

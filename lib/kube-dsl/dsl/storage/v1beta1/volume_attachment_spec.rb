@@ -1,7 +1,12 @@
 module KubeDSL::DSL::Storage::V1beta1
   class VolumeAttachmentSpec < ::KubeDSL::DSLObject
-    value_fields :attacher, :node_name
+    value_field :attacher
+    value_field :node_name
     object_field(:source) { KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentSource.new }
+
+    validates :attacher, field: { format: :string }, presence: false
+    validates :node_name, field: { format: :string }, presence: false
+    validates :source, object: { kind_of: KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentSource }
 
     def serialize
       {}.tap do |result|

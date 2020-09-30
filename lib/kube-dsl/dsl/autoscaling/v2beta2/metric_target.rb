@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
   class MetricTarget < ::KubeDSL::DSLObject
-    value_fields :average_utilization, :average_value, :type, :value
+    value_field :average_utilization
+    value_field :average_value
+    value_field :type
+    value_field :value
+
+    validates :average_utilization, field: { format: :integer }, presence: false
+    validates :average_value, field: { format: :string }, presence: false
+    validates :type, field: { format: :string }, presence: false
+    validates :value, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

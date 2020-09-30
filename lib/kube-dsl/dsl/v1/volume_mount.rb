@@ -1,6 +1,18 @@
 module KubeDSL::DSL::V1
   class VolumeMount < ::KubeDSL::DSLObject
-    value_fields :mount_path, :mount_propagation, :name, :read_only, :sub_path, :sub_path_expr
+    value_field :mount_path
+    value_field :mount_propagation
+    value_field :name
+    value_field :read_only
+    value_field :sub_path
+    value_field :sub_path_expr
+
+    validates :mount_path, field: { format: :string }, presence: false
+    validates :mount_propagation, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :sub_path, field: { format: :string }, presence: false
+    validates :sub_path_expr, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,6 +1,16 @@
 module KubeDSL::DSL::Coordination::V1
   class LeaseSpec < ::KubeDSL::DSLObject
-    value_fields :acquire_time, :holder_identity, :lease_duration_seconds, :lease_transitions, :renew_time
+    value_field :acquire_time
+    value_field :holder_identity
+    value_field :lease_duration_seconds
+    value_field :lease_transitions
+    value_field :renew_time
+
+    validates :acquire_time, field: { format: :string }, presence: false
+    validates :holder_identity, field: { format: :string }, presence: false
+    validates :lease_duration_seconds, field: { format: :integer }, presence: false
+    validates :lease_transitions, field: { format: :integer }, presence: false
+    validates :renew_time, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

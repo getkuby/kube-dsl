@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class IDRange < ::KubeDSL::DSLObject
-    value_fields :max, :min
+    value_field :max
+    value_field :min
+
+    validates :max, field: { format: :integer }, presence: false
+    validates :min, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -2,6 +2,8 @@ module KubeDSL::DSL::Node::V1beta1
   class Overhead < ::KubeDSL::DSLObject
     key_value_field(:pod_fixed, format: :string)
 
+    validates :pod_fixed, kv: { value_format: :string }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:podFixed] = pod_fixed.serialize

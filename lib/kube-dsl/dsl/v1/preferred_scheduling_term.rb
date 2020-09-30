@@ -1,12 +1,15 @@
 module KubeDSL::DSL::V1
   class PreferredSchedulingTerm < ::KubeDSL::DSLObject
-    value_fields :weight
     object_field(:preference) { KubeDSL::DSL::V1::NodeSelectorTerm.new }
+    value_field :weight
+
+    validates :preference, object: { kind_of: KubeDSL::DSL::V1::NodeSelectorTerm }
+    validates :weight, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:weight] = weight
         result[:preference] = preference.serialize
+        result[:weight] = weight
       end
     end
 

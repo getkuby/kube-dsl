@@ -39,6 +39,10 @@ task :generate do
 
         inflections.plural('tls', 'tlses')
         inflections.singular('tls', 'tls')
+        inflections.plural('enum', 'enums')
+        inflections.plural('one_of', 'one_ofs')
+        inflections.plural('any_of', 'any_ofs')
+        inflections.plural('all_of', 'all_ofs')
       end
     )
 

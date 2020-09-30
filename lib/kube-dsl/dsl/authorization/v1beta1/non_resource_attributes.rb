@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Authorization::V1beta1
   class NonResourceAttributes < ::KubeDSL::DSLObject
-    value_fields :path, :verb
+    value_field :path
+    value_field :verb
+
+    validates :path, field: { format: :string }, presence: false
+    validates :verb, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

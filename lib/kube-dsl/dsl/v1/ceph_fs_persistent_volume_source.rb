@@ -1,7 +1,18 @@
 module KubeDSL::DSL::V1
   class CephFSPersistentVolumeSource < ::KubeDSL::DSLObject
-    value_fields :monitors, :path, :read_only, :secret_file, :user
+    value_field :monitors
+    value_field :path
+    value_field :read_only
+    value_field :secret_file
     object_field(:secret_ref) { KubeDSL::DSL::V1::SecretReference.new }
+    value_field :user
+
+    validates :monitors, field: { format: :string }, presence: false
+    validates :path, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :secret_file, field: { format: :string }, presence: false
+    validates :secret_ref, object: { kind_of: KubeDSL::DSL::V1::SecretReference }
+    validates :user, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
@@ -9,8 +20,8 @@ module KubeDSL::DSL::V1
         result[:path] = path
         result[:readOnly] = read_only
         result[:secretFile] = secret_file
-        result[:user] = user
         result[:secretRef] = secret_ref.serialize
+        result[:user] = user
       end
     end
 

@@ -2,19 +2,12 @@ module KubeDSL
   class ResourceMeta
     include StringHelpers
 
-    attr_reader :ref ,:inflector
-    attr_reader :fields, :key_value_fields, :array_fields, :object_fields
-    attr_reader :default_fields
+    attr_reader :ref ,:inflector, :fields
 
     def initialize(ref, inflector)
       @ref = ref
       @inflector = inflector
-
-      @fields = []
-      @key_value_fields = {}
-      @array_fields = {}
-      @object_fields = {}
-      @default_fields = {}
+      @fields = {}
     end
 
     def external?
@@ -22,13 +15,7 @@ module KubeDSL
     end
 
     def empty?
-      field_count = fields.size +
-        key_value_fields.size +
-        array_fields.size +
-        object_fields.size +
-        default_fields.size
-
-      field_count.zero?
+      fields.size.zero?
     end
 
     def to_ruby
@@ -36,6 +23,8 @@ module KubeDSL
         str << "module #{ref.ruby_namespace.join('::')}\n"
         str << "  class #{ref.kind} < ::KubeDSL::DSLObject\n"
         str << fields_to_ruby
+        str << "\n"
+        str << validations
         str << "\n"
         str << serialize_method
         str << "\n"
@@ -49,32 +38,30 @@ module KubeDSL
 
     private
 
-    def fields_to_ruby
-      ''.tap do |str|
-        unless fields.empty?
-          str << '    value_fields '
-          str << fields.map { |f| ":#{underscore(f)}" }.join(', ')
-          str << "\n"
-        end
-
-        array_fields.each do |name, field|
-          if field
-            str << "    array_field(:#{underscore(inflector.singularize(name))})"
-            str << " { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }"
-            str << "\n"
-          else
-            str << "    array_field :#{underscore(inflector.singularize(name))}\n"
-          end
-        end
-
-        object_fields.each do |name, field|
-          str << "    object_field(:#{underscore(name)}) { #{field.ref.ruby_namespace.join('::')}::#{field.ref.kind}.new }\n"
-        end
-
-        key_value_fields.each do |name, fmt|
-          str << "    key_value_field(:#{underscore(name)}, format: :#{fmt})\n"
-        end
+    def indent(lines, level)
+      lines.map do |line|
+        "#{'  ' * level}#{line}"
       end
+    end
+
+    def fields_to_ruby
+      lines = fields.flat_map do |name, field|
+        indent(field.fields_to_ruby(inflector), 2)
+      end
+
+      result = lines.join("\n")
+      result << "\n" unless result.empty?
+      result
+    end
+
+    def validations
+      lines = fields.flat_map do |name, field|
+        indent(field.validations(inflector), 2)
+      end
+
+      result = lines.join("\n")
+      result << "\n" unless result.empty?
+      result
     end
 
     def serialize_method
@@ -82,32 +69,8 @@ module KubeDSL
         str << "    def serialize\n"
         str << "      {}.tap do |result|\n"
 
-        default_fields.each do |name, value|
-          str << "        result[:#{quote_sym(name)}] = #{value}\n"
-        end
-
-        fields.each do |f|
-          str << "        result[:#{quote_sym(f)}] = #{underscore(f)}\n"
-        end
-
-        array_fields.each do |name, field|
-          plural_name = inflector.pluralize(
-            underscore(inflector.singularize(name))
-          )
-
-          if field
-            str << "        result[:#{quote_sym(name)}] = #{plural_name}.map(&:serialize)\n"
-          else
-            str << "        result[:#{quote_sym(name)}] = #{plural_name}\n"
-          end
-        end
-
-        object_fields.each do |name, field|
-          str << "        result[:#{quote_sym(name)}] = #{underscore(name)}.serialize\n"
-        end
-
-        key_value_fields.each do |name, _|
-          str << "        result[:#{quote_sym(name)}] = #{underscore(name)}.serialize\n"
+        fields.each do |name, field|
+          str << "        result[:#{quote_sym(name)}] = #{field.serialize_call(inflector)}\n"
         end
 
         str << "      end\n"

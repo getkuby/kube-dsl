@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Apps::V1beta1
   class RollingUpdateStatefulSetStrategy < ::KubeDSL::DSLObject
-    value_fields :partition
+    value_field :partition
+
+    validates :partition, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

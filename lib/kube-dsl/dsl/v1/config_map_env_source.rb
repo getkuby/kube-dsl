@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class ConfigMapEnvSource < ::KubeDSL::DSLObject
-    value_fields :name, :optional
+    value_field :name
+    value_field :optional
+
+    validates :name, field: { format: :string }, presence: false
+    validates :optional, field: { format: :boolean }, presence: false
 
     def serialize
       {}.tap do |result|

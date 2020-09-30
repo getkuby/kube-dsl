@@ -4,6 +4,10 @@ module KubeDSL::DSL::Autoscaling::V1
     object_field(:spec) { KubeDSL::DSL::Autoscaling::V1::ScaleSpec.new }
     object_field(:status) { KubeDSL::DSL::Autoscaling::V1::ScaleStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Autoscaling::V1::ScaleSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Autoscaling::V1::ScaleStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "autoscaling/v1"

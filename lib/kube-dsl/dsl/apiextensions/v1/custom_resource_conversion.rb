@@ -1,7 +1,10 @@
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceConversion < ::KubeDSL::DSLObject
-    value_fields :strategy
+    value_field :strategy
     object_field(:webhook) { KubeDSL::DSL::Apiextensions::V1::WebhookConversion.new }
+
+    validates :strategy, field: { format: :string }, presence: false
+    validates :webhook, object: { kind_of: KubeDSL::DSL::Apiextensions::V1::WebhookConversion }
 
     def serialize
       {}.tap do |result|

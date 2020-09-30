@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Apps::V1beta1
   class RollbackConfig < ::KubeDSL::DSLObject
-    value_fields :revision
+    value_field :revision
+
+    validates :revision, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

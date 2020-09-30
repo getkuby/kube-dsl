@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Authorization::V1beta1
   class SubjectAccessReviewStatus < ::KubeDSL::DSLObject
-    value_fields :allowed, :denied, :evaluation_error, :reason
+    value_field :allowed
+    value_field :denied
+    value_field :evaluation_error
+    value_field :reason
+
+    validates :allowed, field: { format: :boolean }, presence: false
+    validates :denied, field: { format: :boolean }, presence: false
+    validates :evaluation_error, field: { format: :string }, presence: false
+    validates :reason, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

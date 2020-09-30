@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class SecretReference < ::KubeDSL::DSLObject
-    value_fields :name, :namespace
+    value_field :name
+    value_field :namespace
+
+    validates :name, field: { format: :string }, presence: false
+    validates :namespace, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

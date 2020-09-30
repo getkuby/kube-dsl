@@ -1,7 +1,14 @@
 module KubeDSL::DSL::Authentication::V1beta1
   class TokenReviewStatus < ::KubeDSL::DSLObject
-    value_fields :audiences, :authenticated, :error
+    value_field :audiences
+    value_field :authenticated
+    value_field :error
     object_field(:user) { KubeDSL::DSL::Authentication::V1beta1::UserInfo.new }
+
+    validates :audiences, field: { format: :string }, presence: false
+    validates :authenticated, field: { format: :boolean }, presence: false
+    validates :error, field: { format: :string }, presence: false
+    validates :user, object: { kind_of: KubeDSL::DSL::Authentication::V1beta1::UserInfo }
 
     def serialize
       {}.tap do |result|

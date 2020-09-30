@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class HostPathVolumeSource < ::KubeDSL::DSLObject
-    value_fields :path, :type
+    value_field :path
+    value_field :type
+
+    validates :path, field: { format: :string }, presence: false
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

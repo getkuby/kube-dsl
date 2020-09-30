@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Apps::V1beta2
   class RollingUpdateDaemonSet < ::KubeDSL::DSLObject
-    value_fields :max_unavailable
+    value_field :max_unavailable
+
+    validates :max_unavailable, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

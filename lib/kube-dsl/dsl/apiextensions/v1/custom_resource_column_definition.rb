@@ -1,6 +1,18 @@
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
-    value_fields :description, :format, :json_path, :name, :priority, :type
+    value_field :description
+    value_field :format
+    value_field :json_path
+    value_field :name
+    value_field :priority
+    value_field :type
+
+    validates :description, field: { format: :string }, presence: false
+    validates :format, field: { format: :string }, presence: false
+    validates :json_path, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :priority, field: { format: :integer }, presence: false
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

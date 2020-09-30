@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class RuntimeClassStrategyOptions < ::KubeDSL::DSLObject
-    value_fields :allowed_runtime_class_names, :default_runtime_class_name
+    value_field :allowed_runtime_class_names
+    value_field :default_runtime_class_name
+
+    validates :allowed_runtime_class_names, field: { format: :string }, presence: false
+    validates :default_runtime_class_name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

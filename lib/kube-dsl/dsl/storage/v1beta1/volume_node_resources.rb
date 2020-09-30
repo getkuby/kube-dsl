@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Storage::V1beta1
   class VolumeNodeResources < ::KubeDSL::DSLObject
-    value_fields :count
+    value_field :count
+
+    validates :count, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

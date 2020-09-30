@@ -3,6 +3,9 @@ module KubeDSL::DSL::Coordination::V1beta1
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Coordination::V1beta1::LeaseSpec.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Coordination::V1beta1::LeaseSpec }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "coordination.k8s.io/v1beta1"

@@ -4,6 +4,10 @@ module KubeDSL::DSL::V1
     object_field(:terminated) { KubeDSL::DSL::V1::ContainerStateTerminated.new }
     object_field(:waiting) { KubeDSL::DSL::V1::ContainerStateWaiting.new }
 
+    validates :running, object: { kind_of: KubeDSL::DSL::V1::ContainerStateRunning }
+    validates :terminated, object: { kind_of: KubeDSL::DSL::V1::ContainerStateTerminated }
+    validates :waiting, object: { kind_of: KubeDSL::DSL::V1::ContainerStateWaiting }
+
     def serialize
       {}.tap do |result|
         result[:running] = running.serialize

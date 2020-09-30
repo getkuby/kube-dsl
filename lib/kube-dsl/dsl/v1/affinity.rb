@@ -4,6 +4,10 @@ module KubeDSL::DSL::V1
     object_field(:pod_affinity) { KubeDSL::DSL::V1::PodAffinity.new }
     object_field(:pod_anti_affinity) { KubeDSL::DSL::V1::PodAntiAffinity.new }
 
+    validates :node_affinity, object: { kind_of: KubeDSL::DSL::V1::NodeAffinity }
+    validates :pod_affinity, object: { kind_of: KubeDSL::DSL::V1::PodAffinity }
+    validates :pod_anti_affinity, object: { kind_of: KubeDSL::DSL::V1::PodAntiAffinity }
+
     def serialize
       {}.tap do |result|
         result[:nodeAffinity] = node_affinity.serialize

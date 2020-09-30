@@ -2,7 +2,7 @@ require 'base64'
 
 module KubeDSL
   class KeyValueFields
-    attr_reader :format
+    attr_reader :format, :kv_pairs
 
     def initialize(format: :string)
       @format = format

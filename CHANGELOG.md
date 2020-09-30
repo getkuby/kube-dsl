@@ -1,3 +1,9 @@
+## 0.4.0
+* Add validations.
+  - You can now call `#valid?` and `#validate` methods on DSL objects.
+* Fixed several bad inflections causing Ruby keywords to appear in unexpected places, namely in `#serialize` methods.
+* Prevent JSON schema "$" variables (eg. "$ref") from being added as fields.
+
 ## 0.3.0
 * Introduce the `key_value_field` method to simplify creating key/value fields.
 * Add `#merge` and `#merge!` methods to anything that includes or extends `ValueFields`.

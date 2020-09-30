@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceSubresourceScale < ::KubeDSL::DSLObject
-    value_fields :label_selector_path, :spec_replicas_path, :status_replicas_path
+    value_field :label_selector_path
+    value_field :spec_replicas_path
+    value_field :status_replicas_path
+
+    validates :label_selector_path, field: { format: :string }, presence: false
+    validates :spec_replicas_path, field: { format: :string }, presence: false
+    validates :status_replicas_path, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

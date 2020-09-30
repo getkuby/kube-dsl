@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Networking::V1beta1
   class IngressBackend < ::KubeDSL::DSLObject
-    value_fields :service_name, :service_port
+    value_field :service_name
+    value_field :service_port
+
+    validates :service_name, field: { format: :string }, presence: false
+    validates :service_port, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

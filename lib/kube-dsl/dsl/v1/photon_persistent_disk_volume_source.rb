@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class PhotonPersistentDiskVolumeSource < ::KubeDSL::DSLObject
-    value_fields :fs_type, :pd_id
+    value_field :fs_type
+    value_field :pd_id
+
+    validates :fs_type, field: { format: :string }, presence: false
+    validates :pd_id, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -3,6 +3,9 @@ module KubeDSL::DSL::V1
     array_field(:preferred_during_scheduling_ignored_during_execution) { KubeDSL::DSL::V1::PreferredSchedulingTerm.new }
     object_field(:required_during_scheduling_ignored_during_execution) { KubeDSL::DSL::V1::NodeSelector.new }
 
+    validates :preferred_during_scheduling_ignored_during_executions, array: { kind_of: KubeDSL::DSL::V1::PreferredSchedulingTerm }, presence: false
+    validates :required_during_scheduling_ignored_during_execution, object: { kind_of: KubeDSL::DSL::V1::NodeSelector }
+
     def serialize
       {}.tap do |result|
         result[:preferredDuringSchedulingIgnoredDuringExecution] = preferred_during_scheduling_ignored_during_executions.map(&:serialize)

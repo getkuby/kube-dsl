@@ -1,12 +1,15 @@
 module KubeDSL::DSL::V1
   class WeightedPodAffinityTerm < ::KubeDSL::DSLObject
-    value_fields :weight
     object_field(:pod_affinity_term) { KubeDSL::DSL::V1::PodAffinityTerm.new }
+    value_field :weight
+
+    validates :pod_affinity_term, object: { kind_of: KubeDSL::DSL::V1::PodAffinityTerm }
+    validates :weight, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:weight] = weight
         result[:podAffinityTerm] = pod_affinity_term.serialize
+        result[:weight] = weight
       end
     end
 

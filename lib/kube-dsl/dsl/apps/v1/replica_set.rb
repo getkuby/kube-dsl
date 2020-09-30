@@ -4,6 +4,10 @@ module KubeDSL::DSL::Apps::V1
     object_field(:spec) { KubeDSL::DSL::Apps::V1::ReplicaSetSpec.new }
     object_field(:status) { KubeDSL::DSL::Apps::V1::ReplicaSetStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Apps::V1::ReplicaSetSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Apps::V1::ReplicaSetStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "apps/v1"

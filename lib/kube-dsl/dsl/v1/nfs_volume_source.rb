@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class NFSVolumeSource < ::KubeDSL::DSLObject
-    value_fields :path, :read_only, :server
+    value_field :path
+    value_field :read_only
+    value_field :server
+
+    validates :path, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
+    validates :server, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

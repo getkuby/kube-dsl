@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class TypedLocalObjectReference < ::KubeDSL::DSLObject
-    value_fields :api_group, :kind, :name
+    value_field :api_group
+    value_field :kind
+    value_field :name
+
+    validates :api_group, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

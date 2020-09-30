@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class ClientIPConfig < ::KubeDSL::DSLObject
-    value_fields :timeout_seconds
+    value_field :timeout_seconds
+
+    validates :timeout_seconds, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

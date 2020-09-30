@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class ContainerStateRunning < ::KubeDSL::DSLObject
-    value_fields :started_at
+    value_field :started_at
+
+    validates :started_at, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -5,6 +5,11 @@ module KubeDSL::DSL::V1
     object_field(:secret) { KubeDSL::DSL::V1::SecretProjection.new }
     object_field(:service_account_token) { KubeDSL::DSL::V1::ServiceAccountTokenProjection.new }
 
+    validates :config_map, object: { kind_of: KubeDSL::DSL::V1::ConfigMapProjection }
+    validates :downward_api, object: { kind_of: KubeDSL::DSL::V1::DownwardAPIProjection }
+    validates :secret, object: { kind_of: KubeDSL::DSL::V1::SecretProjection }
+    validates :service_account_token, object: { kind_of: KubeDSL::DSL::V1::ServiceAccountTokenProjection }
+
     def serialize
       {}.tap do |result|
         result[:configMap] = config_map.serialize

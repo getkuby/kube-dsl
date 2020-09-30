@@ -1,9 +1,22 @@
 module KubeDSL::DSL::V1
   class PodSecurityContext < ::KubeDSL::DSLObject
-    value_fields :fs_group, :run_as_group, :run_as_non_root, :run_as_user, :supplemental_groups
-    array_field(:sysctls) { KubeDSL::DSL::V1::Sysctl.new }
+    value_field :fs_group
+    value_field :run_as_group
+    value_field :run_as_non_root
+    value_field :run_as_user
     object_field(:se_linux_options) { KubeDSL::DSL::V1::SELinuxOptions.new }
+    value_field :supplemental_groups
+    array_field(:sysctls) { KubeDSL::DSL::V1::Sysctl.new }
     object_field(:windows_options) { KubeDSL::DSL::V1::WindowsSecurityContextOptions.new }
+
+    validates :fs_group, field: { format: :integer }, presence: false
+    validates :run_as_group, field: { format: :integer }, presence: false
+    validates :run_as_non_root, field: { format: :boolean }, presence: false
+    validates :run_as_user, field: { format: :integer }, presence: false
+    validates :se_linux_options, object: { kind_of: KubeDSL::DSL::V1::SELinuxOptions }
+    validates :supplemental_groups, field: { format: :string }, presence: false
+    validates :sysctlses, array: { kind_of: KubeDSL::DSL::V1::Sysctl }, presence: false
+    validates :windows_options, object: { kind_of: KubeDSL::DSL::V1::WindowsSecurityContextOptions }
 
     def serialize
       {}.tap do |result|
@@ -11,9 +24,9 @@ module KubeDSL::DSL::V1
         result[:runAsGroup] = run_as_group
         result[:runAsNonRoot] = run_as_non_root
         result[:runAsUser] = run_as_user
+        result[:seLinuxOptions] = se_linux_options.serialize
         result[:supplementalGroups] = supplemental_groups
         result[:sysctls] = sysctlses.map(&:serialize)
-        result[:seLinuxOptions] = se_linux_options.serialize
         result[:windowsOptions] = windows_options.serialize
       end
     end

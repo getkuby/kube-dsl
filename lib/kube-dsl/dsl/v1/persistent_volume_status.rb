@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class PersistentVolumeStatus < ::KubeDSL::DSLObject
-    value_fields :message, :phase, :reason
+    value_field :message
+    value_field :phase
+    value_field :reason
+
+    validates :message, field: { format: :string }, presence: false
+    validates :phase, field: { format: :string }, presence: false
+    validates :reason, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

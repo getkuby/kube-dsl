@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
   class ResourceMetricSource < ::KubeDSL::DSLObject
-    value_fields :name, :target_average_utilization, :target_average_value
+    value_field :name
+    value_field :target_average_utilization
+    value_field :target_average_value
+
+    validates :name, field: { format: :string }, presence: false
+    validates :target_average_utilization, field: { format: :integer }, presence: false
+    validates :target_average_value, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

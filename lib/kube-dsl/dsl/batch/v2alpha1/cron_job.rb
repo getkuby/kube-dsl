@@ -4,6 +4,10 @@ module KubeDSL::DSL::Batch::V2alpha1
     object_field(:spec) { KubeDSL::DSL::Batch::V2alpha1::CronJobSpec.new }
     object_field(:status) { KubeDSL::DSL::Batch::V2alpha1::CronJobStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Batch::V2alpha1::CronJobSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Batch::V2alpha1::CronJobStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "batch/v2alpha1"

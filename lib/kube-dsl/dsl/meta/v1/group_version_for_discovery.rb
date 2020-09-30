@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Meta::V1
   class GroupVersionForDiscovery < ::KubeDSL::DSLObject
-    value_fields :group_version, :version
+    value_field :group_version
+    value_field :version
+
+    validates :group_version, field: { format: :string }, presence: false
+    validates :version, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Batch::V1beta1
   class CronJobStatus < ::KubeDSL::DSLObject
-    value_fields :last_schedule_time
     array_field(:active) { KubeDSL::DSL::V1::ObjectReference.new }
+    value_field :last_schedule_time
+
+    validates :actives, array: { kind_of: KubeDSL::DSL::V1::ObjectReference }, presence: false
+    validates :last_schedule_time, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:lastScheduleTime] = last_schedule_time
         result[:active] = actives.map(&:serialize)
+        result[:lastScheduleTime] = last_schedule_time
       end
     end
 

@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class NamespaceSpec < ::KubeDSL::DSLObject
-    value_fields :finalizers
+    value_field :finalizers
+
+    validates :finalizers, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

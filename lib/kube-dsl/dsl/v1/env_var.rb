@@ -1,7 +1,12 @@
 module KubeDSL::DSL::V1
   class EnvVar < ::KubeDSL::DSLObject
-    value_fields :name, :value
+    value_field :name
+    value_field :value
     object_field(:value_from) { KubeDSL::DSL::V1::EnvVarSource.new }
+
+    validates :name, field: { format: :string }, presence: false
+    validates :value, field: { format: :string }, presence: false
+    validates :value_from, object: { kind_of: KubeDSL::DSL::V1::EnvVarSource }
 
     def serialize
       {}.tap do |result|

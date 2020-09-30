@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Apps::V1
   class StatefulSetUpdateStrategy < ::KubeDSL::DSLObject
-    value_fields :type
     object_field(:rolling_update) { KubeDSL::DSL::Apps::V1::RollingUpdateStatefulSetStrategy.new }
+    value_field :type
+
+    validates :rolling_update, object: { kind_of: KubeDSL::DSL::Apps::V1::RollingUpdateStatefulSetStrategy }
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:type] = type
         result[:rollingUpdate] = rolling_update.serialize
+        result[:type] = type
       end
     end
 

@@ -3,6 +3,9 @@ module KubeDSL::DSL::Settings::V1alpha1
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:spec) { KubeDSL::DSL::Settings::V1alpha1::PodPresetSpec.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Settings::V1alpha1::PodPresetSpec }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "settings.k8s.io/v1alpha1"

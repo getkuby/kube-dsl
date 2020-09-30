@@ -1,6 +1,16 @@
 module KubeDSL::DSL::Autoscaling::V1
   class HorizontalPodAutoscalerStatus < ::KubeDSL::DSLObject
-    value_fields :current_cpu_utilization_percentage, :current_replicas, :desired_replicas, :last_scale_time, :observed_generation
+    value_field :current_cpu_utilization_percentage
+    value_field :current_replicas
+    value_field :desired_replicas
+    value_field :last_scale_time
+    value_field :observed_generation
+
+    validates :current_cpu_utilization_percentage, field: { format: :integer }, presence: false
+    validates :current_replicas, field: { format: :integer }, presence: false
+    validates :desired_replicas, field: { format: :integer }, presence: false
+    validates :last_scale_time, field: { format: :string }, presence: false
+    validates :observed_generation, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

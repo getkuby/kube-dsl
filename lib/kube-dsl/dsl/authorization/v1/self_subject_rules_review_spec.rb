@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Authorization::V1
   class SelfSubjectRulesReviewSpec < ::KubeDSL::DSLObject
-    value_fields :namespace
+    value_field :namespace
+
+    validates :namespace, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

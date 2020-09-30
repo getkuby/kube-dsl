@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class KeyToPath < ::KubeDSL::DSLObject
-    value_fields :key, :mode, :path
+    value_field :key
+    value_field :mode
+    value_field :path
+
+    validates :key, field: { format: :string }, presence: false
+    validates :mode, field: { format: :integer }, presence: false
+    validates :path, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

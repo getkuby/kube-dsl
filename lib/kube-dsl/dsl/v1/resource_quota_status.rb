@@ -3,6 +3,9 @@ module KubeDSL::DSL::V1
     key_value_field(:hard, format: :string)
     key_value_field(:used, format: :string)
 
+    validates :hard, kv: { value_format: :string }, presence: false
+    validates :used, kv: { value_format: :string }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:hard] = hard.serialize

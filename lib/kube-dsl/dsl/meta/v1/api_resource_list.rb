@@ -1,13 +1,16 @@
 module KubeDSL::DSL::Meta::V1
   class APIResourceList < ::KubeDSL::DSLObject
-    value_fields :group_version
+    value_field :group_version
     array_field(:resource) { KubeDSL::DSL::Meta::V1::APIResource.new }
+
+    validates :group_version, field: { format: :string }, presence: false
+    validates :resources, array: { kind_of: KubeDSL::DSL::Meta::V1::APIResource }, presence: false
 
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "v1"
-        result[:kind] = "APIResourceList"
         result[:groupVersion] = group_version
+        result[:kind] = "APIResourceList"
         result[:resources] = resources.map(&:serialize)
       end
     end

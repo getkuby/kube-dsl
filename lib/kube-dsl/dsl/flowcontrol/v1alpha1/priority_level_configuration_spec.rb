@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class PriorityLevelConfigurationSpec < ::KubeDSL::DSLObject
-    value_fields :type
     object_field(:limited) { KubeDSL::DSL::Flowcontrol::V1alpha1::LimitedPriorityLevelConfiguration.new }
+    value_field :type
+
+    validates :limited, object: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::LimitedPriorityLevelConfiguration }
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:type] = type
         result[:limited] = limited.serialize
+        result[:type] = type
       end
     end
 

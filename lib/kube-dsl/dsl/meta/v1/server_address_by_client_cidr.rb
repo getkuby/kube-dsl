@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Meta::V1
   class ServerAddressByClientCIDR < ::KubeDSL::DSLObject
-    value_fields :client_cidr, :server_address
+    value_field :client_cidr
+    value_field :server_address
+
+    validates :client_cidr, field: { format: :string }, presence: false
+    validates :server_address, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -4,6 +4,10 @@ module KubeDSL::DSL::Authentication::V1beta1
     object_field(:spec) { KubeDSL::DSL::Authentication::V1beta1::TokenReviewSpec.new }
     object_field(:status) { KubeDSL::DSL::Authentication::V1beta1::TokenReviewStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Authentication::V1beta1::TokenReviewSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Authentication::V1beta1::TokenReviewStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "authentication.k8s.io/v1beta1"

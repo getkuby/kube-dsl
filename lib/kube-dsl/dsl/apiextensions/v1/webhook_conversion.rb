@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Apiextensions::V1
   class WebhookConversion < ::KubeDSL::DSLObject
-    value_fields :conversion_review_versions
     object_field(:client_config) { KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig.new }
+    value_field :conversion_review_versions
+
+    validates :client_config, object: { kind_of: KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig }
+    validates :conversion_review_versions, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:conversionReviewVersions] = conversion_review_versions
         result[:clientConfig] = client_config.serialize
+        result[:conversionReviewVersions] = conversion_review_versions
       end
     end
 

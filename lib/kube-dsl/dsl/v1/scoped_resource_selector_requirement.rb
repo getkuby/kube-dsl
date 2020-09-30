@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class ScopedResourceSelectorRequirement < ::KubeDSL::DSLObject
-    value_fields :operator, :scope_name, :values
+    value_field :operator
+    value_field :scope_name
+    value_field :values
+
+    validates :operator, field: { format: :string }, presence: false
+    validates :scope_name, field: { format: :string }, presence: false
+    validates :values, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

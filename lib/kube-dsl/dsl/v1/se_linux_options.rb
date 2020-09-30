@@ -1,6 +1,14 @@
 module KubeDSL::DSL::V1
   class SELinuxOptions < ::KubeDSL::DSLObject
-    value_fields :level, :role, :type, :user
+    value_field :level
+    value_field :role
+    value_field :type
+    value_field :user
+
+    validates :level, field: { format: :string }, presence: false
+    validates :role, field: { format: :string }, presence: false
+    validates :type, field: { format: :string }, presence: false
+    validates :user, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

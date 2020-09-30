@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class ContainerImage < ::KubeDSL::DSLObject
-    value_fields :names, :size_bytes
+    value_field :names
+    value_field :size_bytes
+
+    validates :names, field: { format: :string }, presence: false
+    validates :size_bytes, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

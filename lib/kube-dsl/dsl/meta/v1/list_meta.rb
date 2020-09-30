@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Meta::V1
   class ListMeta < ::KubeDSL::DSLObject
-    value_fields :continue, :remaining_item_count, :resource_version, :self_link
+    value_field :continue
+    value_field :remaining_item_count
+    value_field :resource_version
+    value_field :self_link
+
+    validates :continue, field: { format: :string }, presence: false
+    validates :remaining_item_count, field: { format: :integer }, presence: false
+    validates :resource_version, field: { format: :string }, presence: false
+    validates :self_link, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

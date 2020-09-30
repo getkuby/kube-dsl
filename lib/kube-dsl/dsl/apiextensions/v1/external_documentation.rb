@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Apiextensions::V1
   class ExternalDocumentation < ::KubeDSL::DSLObject
-    value_fields :description, :url
+    value_field :description
+    value_field :url
+
+    validates :description, field: { format: :string }, presence: false
+    validates :url, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

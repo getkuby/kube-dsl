@@ -1,12 +1,15 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceSubresources < ::KubeDSL::DSLObject
-    value_fields :status
     object_field(:scale) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresourceScale.new }
+    value_field :status
+
+    validates :scale, object: { kind_of: KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresourceScale }
+    validates :status, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:status] = status
         result[:scale] = scale.serialize
+        result[:status] = status
       end
     end
 

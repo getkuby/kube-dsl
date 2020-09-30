@@ -1,6 +1,14 @@
 module KubeDSL::DSL::V1
   class ComponentCondition < ::KubeDSL::DSLObject
-    value_fields :error, :message, :status, :type
+    value_field :error
+    value_field :message
+    value_field :status
+    value_field :type
+
+    validates :error, field: { format: :string }, presence: false
+    validates :message, field: { format: :string }, presence: false
+    validates :status, field: { format: :string }, presence: false
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

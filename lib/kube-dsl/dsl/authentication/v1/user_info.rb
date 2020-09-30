@@ -1,14 +1,21 @@
 module KubeDSL::DSL::Authentication::V1
   class UserInfo < ::KubeDSL::DSLObject
-    value_fields :groups, :uid, :username
     key_value_field(:extra, format: :string)
+    value_field :groups
+    value_field :uid
+    value_field :username
+
+    validates :extra, kv: { value_format: :string }, presence: false
+    validates :groups, field: { format: :string }, presence: false
+    validates :uid, field: { format: :string }, presence: false
+    validates :username, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
+        result[:extra] = extra.serialize
         result[:groups] = groups
         result[:uid] = uid
         result[:username] = username
-        result[:extra] = extra.serialize
       end
     end
 

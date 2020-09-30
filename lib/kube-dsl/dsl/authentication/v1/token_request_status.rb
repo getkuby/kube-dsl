@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Authentication::V1
   class TokenRequestStatus < ::KubeDSL::DSLObject
-    value_fields :expiration_timestamp, :token
+    value_field :expiration_timestamp
+    value_field :token
+
+    validates :expiration_timestamp, field: { format: :string }, presence: false
+    validates :token, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

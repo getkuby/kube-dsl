@@ -1,15 +1,20 @@
 module KubeDSL::DSL::Apps::V1beta2
   class ControllerRevision < ::KubeDSL::DSLObject
-    value_fields :data, :revision
+    value_field :data
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
+    value_field :revision
+
+    validates :data, field: { format: :string }, presence: false
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :revision, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "apps/v1beta2"
-        result[:kind] = "ControllerRevision"
         result[:data] = data
-        result[:revision] = revision
+        result[:kind] = "ControllerRevision"
         result[:metadata] = metadata.serialize
+        result[:revision] = revision
       end
     end
 

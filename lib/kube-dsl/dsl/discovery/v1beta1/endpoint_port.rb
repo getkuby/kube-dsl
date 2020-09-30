@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Discovery::V1beta1
   class EndpointPort < ::KubeDSL::DSLObject
-    value_fields :app_protocol, :name, :port, :protocol
+    value_field :app_protocol
+    value_field :name
+    value_field :port
+    value_field :protocol
+
+    validates :app_protocol, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :port, field: { format: :integer }, presence: false
+    validates :protocol, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

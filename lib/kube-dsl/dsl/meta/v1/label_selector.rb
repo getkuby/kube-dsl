@@ -3,6 +3,9 @@ module KubeDSL::DSL::Meta::V1
     array_field(:match_expression) { KubeDSL::DSL::Meta::V1::LabelSelectorRequirement.new }
     key_value_field(:match_labels, format: :string)
 
+    validates :match_expressions, array: { kind_of: KubeDSL::DSL::Meta::V1::LabelSelectorRequirement }, presence: false
+    validates :match_labels, kv: { value_format: :string }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:matchExpressions] = match_expressions.map(&:serialize)

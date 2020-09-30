@@ -1,16 +1,20 @@
 module KubeDSL::DSL::Rbac::V1beta1
   class RoleBinding < ::KubeDSL::DSLObject
-    array_field(:subject) { KubeDSL::DSL::Rbac::V1beta1::Subject.new }
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
     object_field(:role_ref) { KubeDSL::DSL::Rbac::V1beta1::RoleRef.new }
+    array_field(:subject) { KubeDSL::DSL::Rbac::V1beta1::Subject.new }
+
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :role_ref, object: { kind_of: KubeDSL::DSL::Rbac::V1beta1::RoleRef }
+    validates :subjects, array: { kind_of: KubeDSL::DSL::Rbac::V1beta1::Subject }, presence: false
 
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "rbac.authorization.k8s.io/v1beta1"
         result[:kind] = "RoleBinding"
-        result[:subjects] = subjects.map(&:serialize)
         result[:metadata] = metadata.serialize
         result[:roleRef] = role_ref.serialize
+        result[:subjects] = subjects.map(&:serialize)
       end
     end
 

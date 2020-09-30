@@ -4,6 +4,10 @@ module KubeDSL::DSL::Extensions::V1beta1
     object_field(:spec) { KubeDSL::DSL::Extensions::V1beta1::DaemonSetSpec.new }
     object_field(:status) { KubeDSL::DSL::Extensions::V1beta1::DaemonSetStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Extensions::V1beta1::DaemonSetSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Extensions::V1beta1::DaemonSetStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "extensions/v1beta1"

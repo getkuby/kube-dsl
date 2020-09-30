@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
   class ResourceMetricStatus < ::KubeDSL::DSLObject
-    value_fields :current_average_utilization, :current_average_value, :name
+    value_field :current_average_utilization
+    value_field :current_average_value
+    value_field :name
+
+    validates :current_average_utilization, field: { format: :integer }, presence: false
+    validates :current_average_value, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

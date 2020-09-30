@@ -1,6 +1,12 @@
 module KubeDSL::DSL::V1
   class GitRepoVolumeSource < ::KubeDSL::DSLObject
-    value_fields :directory, :repository, :revision
+    value_field :directory
+    value_field :repository
+    value_field :revision
+
+    validates :directory, field: { format: :string }, presence: false
+    validates :repository, field: { format: :string }, presence: false
+    validates :revision, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

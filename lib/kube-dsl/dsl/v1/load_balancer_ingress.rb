@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class LoadBalancerIngress < ::KubeDSL::DSLObject
-    value_fields :hostname, :ip
+    value_field :hostname
+    value_field :ip
+
+    validates :hostname, field: { format: :string }, presence: false
+    validates :ip, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

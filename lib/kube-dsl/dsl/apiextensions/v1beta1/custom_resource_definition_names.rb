@@ -1,6 +1,18 @@
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceDefinitionNames < ::KubeDSL::DSLObject
-    value_fields :categories, :kind, :list_kind, :plural, :short_names, :singular
+    value_field :categories
+    value_field :kind
+    value_field :list_kind
+    value_field :plural
+    value_field :short_names
+    value_field :singular
+
+    validates :categories, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :list_kind, field: { format: :string }, presence: false
+    validates :plural, field: { format: :string }, presence: false
+    validates :short_names, field: { format: :string }, presence: false
+    validates :singular, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

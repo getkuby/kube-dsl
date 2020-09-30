@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class WebhookThrottleConfig < ::KubeDSL::DSLObject
-    value_fields :burst, :qps
+    value_field :burst
+    value_field :qps
+
+    validates :burst, field: { format: :integer }, presence: false
+    validates :qps, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

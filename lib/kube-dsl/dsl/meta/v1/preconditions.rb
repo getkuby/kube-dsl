@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Meta::V1
   class Preconditions < ::KubeDSL::DSLObject
-    value_fields :resource_version, :uid
+    value_field :resource_version
+    value_field :uid
+
+    validates :resource_version, field: { format: :string }, presence: false
+    validates :uid, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

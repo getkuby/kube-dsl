@@ -4,6 +4,10 @@ module KubeDSL::DSL::Autoscaling::V2beta2
     object_field(:metric) { KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier.new }
     object_field(:target) { KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget.new }
 
+    validates :described_object, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference }
+    validates :metric, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier }
+    validates :target, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget }
+
     def serialize
       {}.tap do |result|
         result[:describedObject] = described_object.serialize

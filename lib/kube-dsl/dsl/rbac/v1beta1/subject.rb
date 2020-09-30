@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Rbac::V1beta1
   class Subject < ::KubeDSL::DSLObject
-    value_fields :api_group, :kind, :name, :namespace
+    value_field :api_group
+    value_field :kind
+    value_field :name
+    value_field :namespace
+
+    validates :api_group, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :namespace, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

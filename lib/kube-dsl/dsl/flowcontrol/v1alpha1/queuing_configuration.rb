@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class QueuingConfiguration < ::KubeDSL::DSLObject
-    value_fields :hand_size, :queue_length_limit, :queues
+    value_field :hand_size
+    value_field :queue_length_limit
+    value_field :queues
+
+    validates :hand_size, field: { format: :integer }, presence: false
+    validates :queue_length_limit, field: { format: :integer }, presence: false
+    validates :queues, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

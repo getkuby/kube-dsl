@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class PersistentVolumeClaimVolumeSource < ::KubeDSL::DSLObject
-    value_fields :claim_name, :read_only
+    value_field :claim_name
+    value_field :read_only
+
+    validates :claim_name, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
 
     def serialize
       {}.tap do |result|

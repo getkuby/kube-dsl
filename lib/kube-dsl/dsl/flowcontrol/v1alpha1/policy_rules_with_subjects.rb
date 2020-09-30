@@ -4,6 +4,10 @@ module KubeDSL::DSL::Flowcontrol::V1alpha1
     array_field(:resource_rule) { KubeDSL::DSL::Flowcontrol::V1alpha1::ResourcePolicyRule.new }
     array_field(:subject) { KubeDSL::DSL::Flowcontrol::V1alpha1::Subject.new }
 
+    validates :non_resource_rules, array: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::NonResourcePolicyRule }, presence: false
+    validates :resource_rules, array: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::ResourcePolicyRule }, presence: false
+    validates :subjects, array: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::Subject }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:nonResourceRules] = non_resource_rules.map(&:serialize)

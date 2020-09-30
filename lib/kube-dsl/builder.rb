@@ -82,7 +82,6 @@ module KubeDSL
       end
 
       res = resource_cache[ref.str] = ref.meta
-
       add_doc_to_resource(res, ref.document)
 
       res
@@ -151,6 +150,7 @@ module KubeDSL
 
     def add_props_to_resource(properties, res)
       properties.each do |name, prop|
+        next if name.start_with?('$')
         add_prop_to_resource(name, prop, res)
       end
     end
@@ -168,27 +168,34 @@ module KubeDSL
     end
 
     def add_prop_to_resource(name, prop, res)
+      required = prop.include?('type') && !prop['type'].include?('null')
+
       case Array(prop['type']).first
         when 'array'
-          if ref_str = prop['items']['$ref']
+          if ref_str = prop.dig('items', '$ref')
             ref = resolve_ref(ref_str)
-            res.array_fields[name] = resource_from_ref(ref)
+            res.fields[name] = ArrayFieldRes.new(
+              name, required, resource_from_ref(ref)
+            )
           else
-            res.fields << name
+            res.fields[name] = FieldRes.new(
+              name, (prop.dig('items', 'types') || ['string']).first, required
+            )
           end
 
         when 'object' # this means key/value pairs
-          fmt = prop['additionalProperties']['format'] || 'string'
-          res.key_value_fields[name] = fmt
+          type = prop.dig('additionalProperties', 'format') || 'string'
+          res.fields[name] = KeyValueFieldRes.new(name, res, type, required)
 
         when 'string', 'integer', 'number', 'boolean', 'date-time'
           enum = prop['enum']
 
           if enum&.size == 1
-            # use JSON.generate to add quotes around strings, etc
-            res.default_fields[name] = JSON.generate(enum.first)
+            res.fields[name] = DefaultFieldRes.new(name, res, enum)
           else
-            res.fields << name
+            res.fields[name] = FieldRes.new(
+              name, prop['type'].first, required
+            )
           end
 
         else
@@ -196,10 +203,14 @@ module KubeDSL
 
           if ref.object?
             # this ref refers to a nested type
-            res.object_fields[name] = resource_from_ref(ref)
+            res.fields[name] = ObjectFieldRes.new(
+              name, resource_from_ref(ref)
+            )
           else
             # this ref refers to just a field
-            res.fields << name
+            res.fields[name] = FieldRes.new(
+              name, (prop.dig('items', 'types') || ['string']).first, required
+            )
           end
       end
     end

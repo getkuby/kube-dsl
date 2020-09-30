@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Authorization::V1
   class ResourceRule < ::KubeDSL::DSLObject
-    value_fields :api_groups, :resource_names, :resources, :verbs
+    value_field :api_groups
+    value_field :resource_names
+    value_field :resources
+    value_field :verbs
+
+    validates :api_groups, field: { format: :string }, presence: false
+    validates :resource_names, field: { format: :string }, presence: false
+    validates :resources, field: { format: :string }, presence: false
+    validates :verbs, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

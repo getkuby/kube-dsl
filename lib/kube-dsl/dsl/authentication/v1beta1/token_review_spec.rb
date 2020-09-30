@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Authentication::V1beta1
   class TokenReviewSpec < ::KubeDSL::DSLObject
-    value_fields :audiences, :token
+    value_field :audiences
+    value_field :token
+
+    validates :audiences, field: { format: :string }, presence: false
+    validates :token, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

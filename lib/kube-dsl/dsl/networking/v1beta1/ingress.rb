@@ -4,6 +4,10 @@ module KubeDSL::DSL::Networking::V1beta1
     object_field(:spec) { KubeDSL::DSL::Networking::V1beta1::IngressSpec.new }
     object_field(:status) { KubeDSL::DSL::Networking::V1beta1::IngressStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Networking::V1beta1::IngressSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Networking::V1beta1::IngressStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "networking.k8s.io/v1beta1"

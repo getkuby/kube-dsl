@@ -4,6 +4,10 @@ module KubeDSL::DSL::Flowcontrol::V1alpha1
     object_field(:spec) { KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaSpec.new }
     object_field(:status) { KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "flowcontrol.apiserver.k8s.io/v1alpha1"

@@ -1,6 +1,16 @@
 module KubeDSL::DSL::V1
   class ConfigMapNodeConfigSource < ::KubeDSL::DSLObject
-    value_fields :kubelet_config_key, :name, :namespace, :resource_version, :uid
+    value_field :kubelet_config_key
+    value_field :name
+    value_field :namespace
+    value_field :resource_version
+    value_field :uid
+
+    validates :kubelet_config_key, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :namespace, field: { format: :string }, presence: false
+    validates :resource_version, field: { format: :string }, presence: false
+    validates :uid, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

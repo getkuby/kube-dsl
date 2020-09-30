@@ -1,11 +1,31 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class DaemonSetStatus < ::KubeDSL::DSLObject
-    value_fields :collision_count, :current_number_scheduled, :desired_number_scheduled, :number_available, :number_misscheduled, :number_ready, :number_unavailable, :observed_generation, :updated_number_scheduled
+    value_field :collision_count
     array_field(:condition) { KubeDSL::DSL::Extensions::V1beta1::DaemonSetCondition.new }
+    value_field :current_number_scheduled
+    value_field :desired_number_scheduled
+    value_field :number_available
+    value_field :number_misscheduled
+    value_field :number_ready
+    value_field :number_unavailable
+    value_field :observed_generation
+    value_field :updated_number_scheduled
+
+    validates :collision_count, field: { format: :integer }, presence: false
+    validates :conditions, array: { kind_of: KubeDSL::DSL::Extensions::V1beta1::DaemonSetCondition }, presence: false
+    validates :current_number_scheduled, field: { format: :integer }, presence: false
+    validates :desired_number_scheduled, field: { format: :integer }, presence: false
+    validates :number_available, field: { format: :integer }, presence: false
+    validates :number_misscheduled, field: { format: :integer }, presence: false
+    validates :number_ready, field: { format: :integer }, presence: false
+    validates :number_unavailable, field: { format: :integer }, presence: false
+    validates :observed_generation, field: { format: :integer }, presence: false
+    validates :updated_number_scheduled, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|
         result[:collisionCount] = collision_count
+        result[:conditions] = conditions.map(&:serialize)
         result[:currentNumberScheduled] = current_number_scheduled
         result[:desiredNumberScheduled] = desired_number_scheduled
         result[:numberAvailable] = number_available
@@ -14,7 +34,6 @@ module KubeDSL::DSL::Extensions::V1beta1
         result[:numberUnavailable] = number_unavailable
         result[:observedGeneration] = observed_generation
         result[:updatedNumberScheduled] = updated_number_scheduled
-        result[:conditions] = conditions.map(&:serialize)
       end
     end
 

@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class TCPSocketAction < ::KubeDSL::DSLObject
-    value_fields :host, :port
+    value_field :host
+    value_field :port
+
+    validates :host, field: { format: :string }, presence: false
+    validates :port, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,6 +1,14 @@
 module KubeDSL::DSL::V1
   class VsphereVirtualDiskVolumeSource < ::KubeDSL::DSLObject
-    value_fields :fs_type, :storage_policy_id, :storage_policy_name, :volume_path
+    value_field :fs_type
+    value_field :storage_policy_id
+    value_field :storage_policy_name
+    value_field :volume_path
+
+    validates :fs_type, field: { format: :string }, presence: false
+    validates :storage_policy_id, field: { format: :string }, presence: false
+    validates :storage_policy_name, field: { format: :string }, presence: false
+    validates :volume_path, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

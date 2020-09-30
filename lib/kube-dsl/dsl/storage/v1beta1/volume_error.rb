@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Storage::V1beta1
   class VolumeError < ::KubeDSL::DSLObject
-    value_fields :message, :time
+    value_field :message
+    value_field :time
+
+    validates :message, field: { format: :string }, presence: false
+    validates :time, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

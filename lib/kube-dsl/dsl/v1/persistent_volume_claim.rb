@@ -4,6 +4,10 @@ module KubeDSL::DSL::V1
     object_field(:spec) { KubeDSL::DSL::V1::PersistentVolumeClaimSpec.new }
     object_field(:status) { KubeDSL::DSL::V1::PersistentVolumeClaimStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::V1::PersistentVolumeClaimSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::V1::PersistentVolumeClaimStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "v1"

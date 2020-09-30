@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class NetworkPolicyPort < ::KubeDSL::DSLObject
-    value_fields :port, :protocol
+    value_field :port
+    value_field :protocol
+
+    validates :port, field: { format: :string }, presence: false
+    validates :protocol, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

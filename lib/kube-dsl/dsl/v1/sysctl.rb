@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class Sysctl < ::KubeDSL::DSLObject
-    value_fields :name, :value
+    value_field :name
+    value_field :value
+
+    validates :name, field: { format: :string }, presence: false
+    validates :value, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

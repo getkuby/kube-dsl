@@ -1,16 +1,21 @@
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class FlowSchemaSpec < ::KubeDSL::DSLObject
-    value_fields :matching_precedence
-    array_field(:rule) { KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects.new }
     object_field(:distinguisher_method) { KubeDSL::DSL::Flowcontrol::V1alpha1::FlowDistinguisherMethod.new }
+    value_field :matching_precedence
     object_field(:priority_level_configuration) { KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationReference.new }
+    array_field(:rule) { KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects.new }
+
+    validates :distinguisher_method, object: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::FlowDistinguisherMethod }
+    validates :matching_precedence, field: { format: :integer }, presence: false
+    validates :priority_level_configuration, object: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationReference }
+    validates :rules, array: { kind_of: KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects }, presence: false
 
     def serialize
       {}.tap do |result|
-        result[:matchingPrecedence] = matching_precedence
-        result[:rules] = rules.map(&:serialize)
         result[:distinguisherMethod] = distinguisher_method.serialize
+        result[:matchingPrecedence] = matching_precedence
         result[:priorityLevelConfiguration] = priority_level_configuration.serialize
+        result[:rules] = rules.map(&:serialize)
       end
     end
 

@@ -1,6 +1,12 @@
 module KubeDSL::DSL::Rbac::V1
   class RoleRef < ::KubeDSL::DSLObject
-    value_fields :api_group, :kind, :name
+    value_field :api_group
+    value_field :kind
+    value_field :name
+
+    validates :api_group, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

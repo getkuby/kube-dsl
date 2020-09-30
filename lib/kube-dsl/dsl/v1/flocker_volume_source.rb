@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class FlockerVolumeSource < ::KubeDSL::DSLObject
-    value_fields :dataset_name, :dataset_uuid
+    value_field :dataset_name
+    value_field :dataset_uuid
+
+    validates :dataset_name, field: { format: :string }, presence: false
+    validates :dataset_uuid, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,6 +1,8 @@
 module KubeDSL::DSL::V1
   class DaemonEndpoint < ::KubeDSL::DSLObject
-    value_fields :port
+    value_field :port
+
+    validates :port, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

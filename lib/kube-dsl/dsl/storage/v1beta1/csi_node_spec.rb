@@ -2,6 +2,8 @@ module KubeDSL::DSL::Storage::V1beta1
   class CSINodeSpec < ::KubeDSL::DSLObject
     array_field(:driver) { KubeDSL::DSL::Storage::V1beta1::CSINodeDriver.new }
 
+    validates :drivers, array: { kind_of: KubeDSL::DSL::Storage::V1beta1::CSINodeDriver }, presence: false
+
     def serialize
       {}.tap do |result|
         result[:drivers] = drivers.map(&:serialize)

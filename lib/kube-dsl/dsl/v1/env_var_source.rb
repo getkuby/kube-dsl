@@ -5,6 +5,11 @@ module KubeDSL::DSL::V1
     object_field(:resource_field_ref) { KubeDSL::DSL::V1::ResourceFieldSelector.new }
     object_field(:secret_key_ref) { KubeDSL::DSL::V1::SecretKeySelector.new }
 
+    validates :config_map_key_ref, object: { kind_of: KubeDSL::DSL::V1::ConfigMapKeySelector }
+    validates :field_ref, object: { kind_of: KubeDSL::DSL::V1::ObjectFieldSelector }
+    validates :resource_field_ref, object: { kind_of: KubeDSL::DSL::V1::ResourceFieldSelector }
+    validates :secret_key_ref, object: { kind_of: KubeDSL::DSL::V1::SecretKeySelector }
+
     def serialize
       {}.tap do |result|
         result[:configMapKeyRef] = config_map_key_ref.serialize

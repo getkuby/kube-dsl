@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Extensions::V1beta1
   class AllowedHostPath < ::KubeDSL::DSLObject
-    value_fields :path_prefix, :read_only
+    value_field :path_prefix
+    value_field :read_only
+
+    validates :path_prefix, field: { format: :string }, presence: false
+    validates :read_only, field: { format: :boolean }, presence: false
 
     def serialize
       {}.tap do |result|

@@ -1,7 +1,10 @@
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestStatus < ::KubeDSL::DSLObject
-    value_fields :certificate
+    value_field :certificate
     array_field(:condition) { KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestCondition.new }
+
+    validates :certificate, field: { format: :string }, presence: false
+    validates :conditions, array: { kind_of: KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestCondition }, presence: false
 
     def serialize
       {}.tap do |result|

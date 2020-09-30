@@ -1,6 +1,14 @@
 module KubeDSL::DSL::Authentication::V1
   class BoundObjectReference < ::KubeDSL::DSLObject
-    value_fields :api_version, :kind, :name, :uid
+    value_field :api_version
+    value_field :kind
+    value_field :name
+    value_field :uid
+
+    validates :api_version, field: { format: :string }, presence: false
+    validates :kind, field: { format: :string }, presence: false
+    validates :name, field: { format: :string }, presence: false
+    validates :uid, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

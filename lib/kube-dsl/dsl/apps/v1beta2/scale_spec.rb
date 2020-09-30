@@ -1,6 +1,8 @@
 module KubeDSL::DSL::Apps::V1beta2
   class ScaleSpec < ::KubeDSL::DSLObject
-    value_fields :replicas
+    value_field :replicas
+
+    validates :replicas, field: { format: :integer }, presence: false
 
     def serialize
       {}.tap do |result|

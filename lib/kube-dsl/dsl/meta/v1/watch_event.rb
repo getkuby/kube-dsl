@@ -1,6 +1,10 @@
 module KubeDSL::DSL::Meta::V1
   class WatchEvent < ::KubeDSL::DSLObject
-    value_fields :object, :type
+    value_field :object
+    value_field :type
+
+    validates :object, field: { format: :string }, presence: false
+    validates :type, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|

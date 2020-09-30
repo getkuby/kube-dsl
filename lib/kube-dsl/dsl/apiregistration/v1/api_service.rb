@@ -4,6 +4,10 @@ module KubeDSL::DSL::Apiregistration::V1
     object_field(:spec) { KubeDSL::DSL::Apiregistration::V1::APIServiceSpec.new }
     object_field(:status) { KubeDSL::DSL::Apiregistration::V1::APIServiceStatus.new }
 
+    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+    validates :spec, object: { kind_of: KubeDSL::DSL::Apiregistration::V1::APIServiceSpec }
+    validates :status, object: { kind_of: KubeDSL::DSL::Apiregistration::V1::APIServiceStatus }
+
     def serialize
       {}.tap do |result|
         result[:apiVersion] = "apiregistration.k8s.io/v1"

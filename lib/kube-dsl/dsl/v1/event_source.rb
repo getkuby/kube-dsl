@@ -1,6 +1,10 @@
 module KubeDSL::DSL::V1
   class EventSource < ::KubeDSL::DSLObject
-    value_fields :component, :host
+    value_field :component
+    value_field :host
+
+    validates :component, field: { format: :string }, presence: false
+    validates :host, field: { format: :string }, presence: false
 
     def serialize
       {}.tap do |result|
