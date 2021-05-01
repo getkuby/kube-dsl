@@ -257,3 +257,19 @@ KubeDSL.secret do
   end
 end
 ```
+
+## Code Generation
+
+All the Ruby code present in KubeDSL is generated from the Kubernetes JSON schema available [here](https://github.com/instrumenta/kubernetes-json-schema). Run the following rake task to regenerate:
+
+```bash
+bundle exec rake generate
+```
+
+## Authors
+
+* Cameron C. Dutro: http://github.com/camertron
+
+## License
+
+Licensed under the MIT license.
