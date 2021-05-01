@@ -95,6 +95,11 @@ end
 
 ### Deployment Example
 
+Note:
+
+1. Elements of arrays can be given names (see the use of the `#container` method below) so they can be easily retrieved and/or modified later.
+1. The example below shows how to add config maps and secrets to a deployment via references.
+
 ```ruby
 KubeDSL.deployment do
   metadata do
