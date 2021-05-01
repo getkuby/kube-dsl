@@ -188,6 +188,67 @@ end
 
 ### Ingress Example
 
+NOTE: the example below includes an annotation that is specific to the Nginx ingress controller.
+
+```ruby
+KubeDSL::DSL::Extensions::V1beta1::Ingress.new do
+  metadata do
+    name 'my-ingress'
+    namespace 'my-namespace'
+
+    annotations do
+      add :'kubernetes.io/ingress.class', 'nginx'
+    end
+  end
+
+  spec do
+    rule do
+      host 'my-website.com'
+
+      http do
+        path do
+          path '/'
+
+          backend do
+            service_name 'my-service'
+            service_port 80
+          end
+        end
+      end
+    end
+  end
+end
+```
+
 ### ConfigMap Example
 
+```ruby
+KubeDSL.config_map do
+  metadata do
+    name 'my-config-map'
+    namespace 'my-namespace'
+  end
+
+  data do
+    add :MY_VAR, 'value'
+    add :MY_OTHER_VAR, 'value'
+  end
+end
+```
+
 ### Secret Example
+
+```ruby
+KubeDSL.secret do
+  metadata do
+    name 'my-secrets'
+    namespace 'my-namespace'
+  end
+
+  type 'Opaque'
+
+  data do
+    add :MY_SECRET, 'value'
+  end
+end
+```
