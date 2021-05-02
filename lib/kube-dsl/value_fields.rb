@@ -15,7 +15,7 @@ module KubeDSL
         define_method(field) do |*args|
           if args.empty?
             instance_variable_get(:"@#{field}") || (
-              default.respond_to?(:call) ? default.call : default
+              default.respond_to?(:call) ? default.call(self) : default
             )
           else
             instance_variable_set(:"@#{field}", args.first)

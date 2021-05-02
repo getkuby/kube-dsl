@@ -27,9 +27,9 @@ module KubeDSL
         @presence = presence
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         if presence && obj_empty?(obj)
-          errors.add(field_name, 'is required')
+          errors.add([*nesting, field_name].join('.'), 'is required')
         end
       end
 
@@ -52,17 +52,17 @@ module KubeDSL
         @kind_of = opts.fetch(:kind_of)
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         unless obj.is_a?(Array)
-          errors.add(field_name, 'is not an array')
+          errors.add([*nesting, field_name].join('.'), 'is not an array')
           return
         end
 
         obj.each_with_index do |elem, idx|
           unless elem.nil? || elem.is_a?(kind_of)
             errors.add(
-              field_name, "contains an object at index #{idx} of type '#{elem.class.name}', "\
-                "expected '#{kind_of.name}'"
+              [*nesting, field_name].join('.'), "contains an object at index #{idx} "\
+                "of type '#{elem.class.name}', expected '#{kind_of.name}'"
             )
           end
         end
@@ -102,9 +102,9 @@ module KubeDSL
         @format_validator ||= FormatValidator.new(options[:format])
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         unless format_validator.valid?(obj)
-          errors.add(field_name, "is not a #{format_validator.klasses.map(&:to_s).join(', ')}")
+          errors.add([*nesting, field_name].join('.'), "is not a #{format_validator.klasses.map(&:to_s).join(', ')}")
         end
       end
     end
@@ -117,9 +117,9 @@ module KubeDSL
         @kind_of = opts.fetch(:kind_of)
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         unless obj.nil? || obj.is_a?(kind_of)
-          errors.add(field_name, "'#{obj.class.name}', expected '#{kind_of.name}'")
+          errors.add([*nesting, field_name].join('.'), "'#{obj.class.name}', expected '#{kind_of.name}'")
         end
       end
     end
@@ -132,10 +132,12 @@ module KubeDSL
         @format_validator ||= FormatValidator.new(options[:value_format])
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         obj.kv_pairs.each_pair do |k, v|
           unless format_validator.valid?(v)
-            errors.add(field_name, "expected element '#{k}' to be a #{format_validator.klasses.map(&:to_s).join(', ')}, got #{v.class.name}")
+            errors.add(
+              [*nesting, field_name].join('.'),
+              "expected element '#{k}' to be a #{format_validator.klasses.map(&:to_s).join(', ')}, got #{v.class.name}")
           end
         end
       end
@@ -149,9 +151,9 @@ module KubeDSL
         @list = opts[:in]
       end
 
-      def validate(obj, errors)
+      def validate(obj, errors, nesting)
         unless list.include?(obj)
-          errors.add(field_name, "is not in #{list.join(', ')}")
+          errors.add([*nesting, field_name].join('.'), "is not in #{list.join(', ')}")
         end
       end
     end
@@ -186,12 +188,16 @@ module KubeDSL
     end
 
     module InstanceMethods
-      def validate
-        errors = ValidationErrors.new
+      def validate(errors = nil, nesting = [])
+        errors ||= ValidationErrors.new
 
         self.class.validators.each do |field_name, validators|
           field = send(field_name)
-          validators.each { |val| val.validate(field, errors) }
+          validators.each { |val| val.validate(field, errors, nesting) }
+
+          if field.respond_to?(:validate)
+            field.validate(errors, nesting + [field_name.to_s])
+          end
         end
 
         errors
