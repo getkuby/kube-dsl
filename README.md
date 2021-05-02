@@ -258,6 +258,24 @@ KubeDSL.secret do
 end
 ```
 
+## Validations
+
+All `KubeDSL::DSLObject`s respond to `#valid?` and `#validate` methods. Use `#valid?` to determine whether or not an object is valid. Use `#validate` to retrieve a list of validation errors:
+
+```ruby
+ns = KubeDSL.namespace do
+  metadata do
+    name 123
+  end
+end
+
+ns.valid?  # => false
+ns.validate  # => #<KubeDSL::Validations::ValidationErrors:0x00007fc8ce276e80 ... >
+ns.validate.messages  # => {"metadata.name"=>["is not a String"]}
+```
+
+The handy `#validate!` method will raise a `KubeDSL::ValidationError` if the object is invalid.
+
 ## Code Generation
 
 All the Ruby code present in KubeDSL is generated from the Kubernetes JSON schema available [here](https://github.com/instrumenta/kubernetes-json-schema). Run the following rake task to regenerate:

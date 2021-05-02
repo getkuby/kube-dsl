@@ -1,3 +1,7 @@
+## 0.5.0
+* Recursively validate.
+* Add README.
+
 ## 0.4.0
 * Add validations.
   - You can now call `#valid?` and `#validate` methods on DSL objects.
