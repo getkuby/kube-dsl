@@ -1,5 +1,3 @@
-require 'irb/ruby-token'
-
 module KubeDSL
   class FieldRes
     include StringHelpers

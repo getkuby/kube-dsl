@@ -1,10 +1,10 @@
 module KubeDSL
   module StringHelpers
-    RUBY_KEYWORDS = RubyToken::TokenDefinitions
-      .select { |definition| definition[1] == RubyToken::TkId }
-      .map { |definition| definition[2] }
-      .compact
-      .freeze
+    RUBY_KEYWORDS = %w(
+      BEGIN END alias and begin break case class def defined? do else elsif
+      end ensure false for if in module next nil not or redo rescue retry
+      return self super then true undef unless until when while yield
+    )
 
     def capitalize(str)
       str.sub(/\A(.)/) { $1.upcase }

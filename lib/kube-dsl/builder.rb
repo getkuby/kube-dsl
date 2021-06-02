@@ -194,7 +194,7 @@ module KubeDSL
             res.fields[name] = DefaultFieldRes.new(name, res, enum)
           else
             res.fields[name] = FieldRes.new(
-              name, prop['type'].first, required
+              name, Array(prop['type']).first, required
             )
           end
 

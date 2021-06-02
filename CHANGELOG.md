@@ -1,3 +1,8 @@
+## 0.5.1
+* Support Ruby 2.7
+  - Stop using the `RubyToken` class from irb, which doesn't exist anymore.
+* Fix bug causing `NoMethodError`s if the type field contains a single string and not an array.
+
 ## 0.5.0
 * Recursively validate.
 * Add README.
