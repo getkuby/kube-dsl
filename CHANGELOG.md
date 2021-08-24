@@ -1,3 +1,6 @@
+## 0.6.1
+* Fix additional naming discrepancy in autoload manifests causing "API" to become "Api."
+
 ## 0.6.0
 * Improve path and namespace handling in generator.
 

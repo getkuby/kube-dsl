@@ -132,7 +132,7 @@ module KubeDSL
           autoload_path = File.join(*path, ns, child_ns).chomp('.rb')
 
           if res.is_a?(Hash)
-            ruby_code << "  autoload :#{capitalize(child_ns)}, '#{autoload_path}'\n"
+            ruby_code << "  autoload :#{inflector.camelize(child_ns)}, '#{autoload_path}'\n"
           else
             ruby_code << "  autoload :#{res.ref.kind}, '#{autoload_path}'\n"
           end
