@@ -4,12 +4,14 @@ module KubeDSL
   class Builder
     include StringHelpers
 
-    attr_reader :schema_dir, :output_dir, :dsl_namespace
-    attr_reader :entrypoint_namespace, :inflector, :resolvers
+    attr_reader :schema_dir, :output_dir, :autoload_prefix
+    attr_reader :dsl_namespace, :entrypoint_namespace
+    attr_reader :inflector, :resolvers
 
-    def initialize(schema_dir:, output_dir:, inflector:, dsl_namespace:, entrypoint_namespace:)
+    def initialize(schema_dir:, output_dir:, autoload_prefix:, inflector:, dsl_namespace:, entrypoint_namespace:)
       @schema_dir = schema_dir
       @output_dir = output_dir
+      @autoload_prefix = autoload_prefix
       @inflector = inflector
       @dsl_namespace = dsl_namespace
       @entrypoint_namespace = entrypoint_namespace
@@ -49,16 +51,14 @@ module KubeDSL
     end
 
     def entrypoint_path
-      File.join(File.dirname(output_dir), 'entrypoint.rb')
+      File.join(output_dir, File.dirname(autoload_prefix), 'entrypoint.rb')
     end
 
     def each_autoload_file(&block)
       return to_enum(__method__) unless block
 
-      start = output_dir.split(File::SEPARATOR).first
-
       each_autoload_file_helper(
-        autoload_map[start], [start], &block
+        autoload_map[:root], [], &block
       )
     end
 
@@ -74,7 +74,7 @@ module KubeDSL
     end
 
     def parse_ref(ref_str)
-      Ref.new(ref_str, dsl_namespace, inflector, schema_dir)
+      Ref.new(ref_str, dsl_namespace, inflector, schema_dir, autoload_prefix)
     end
 
     private
@@ -107,7 +107,7 @@ module KubeDSL
           parts = res.ref.ruby_autoload_path.split(File::SEPARATOR)
           parts.reject!(&:empty?)
 
-          parts.inject(amap) do |ret, seg|
+          [:root, *parts].inject(amap) do |ret, seg|
             if seg.end_with?('.rb')
               ret[seg] = res
             else
@@ -121,8 +121,6 @@ module KubeDSL
     def each_autoload_file_helper(amap, path, &block)
       amap.each do |ns, children|
         next unless children.is_a?(Hash)
-
-        path = path.reject { |seg| seg == '.' }
 
         mod_name = [*path, ns]
           .flat_map { |seg| inflector.camelize(seg.gsub('-', '_')) }
@@ -220,7 +218,7 @@ module KubeDSL
     end
 
     def start_path
-      @entrypoint_path ||= File.join(schema_dir, 'all.json')
+      @start_path ||= File.join(schema_dir, 'all.json')
     end
 
     def resource_cache
