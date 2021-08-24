@@ -1,3 +1,6 @@
+## 0.6.0
+* Improve path and namespace handling in generator.
+
 ## 0.5.1
 * Support Ruby 2.7
   - Stop using the `RubyToken` class from irb, which doesn't exist anymore.
