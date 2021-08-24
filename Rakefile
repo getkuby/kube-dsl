@@ -40,8 +40,10 @@ task :generate do
     inflector: Dry::Inflector.new do |inflections|
       inflections.acronym('DSL')
 
-      inflections.plural('tls', 'tlses')
       inflections.singular('tls', 'tls')
+      inflections.singular('causes', 'cause')
+
+      inflections.plural('tls', 'tlses')
       inflections.plural('enum', 'enums')
       inflections.plural('one_of', 'one_ofs')
       inflections.plural('any_of', 'any_ofs')

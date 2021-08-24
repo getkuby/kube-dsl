@@ -1,6 +1,6 @@
 module KubeDSL::DSL::Meta::V1
   class StatusDetails < ::KubeDSL::DSLObject
-    array_field(:caus) { KubeDSL::DSL::Meta::V1::StatusCause.new }
+    array_field(:cause) { KubeDSL::DSL::Meta::V1::StatusCause.new }
     value_field :group
     value_field :kind
     value_field :name
