@@ -22,5 +22,5 @@ module KubeDSL
   autoload :Validations,          'kube-dsl/validations'
   autoload :ValueFields,          'kube-dsl/value_fields'
 
-  extend Entrypoint
+  # extend Entrypoint
 end

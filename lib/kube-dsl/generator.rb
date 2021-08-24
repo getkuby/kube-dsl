@@ -13,14 +13,14 @@ module KubeDSL
     end
 
     def generate_resource_files
-      builder.each_resource do |res|
-        FileUtils.mkdir_p(File.dirname(res.ref.ruby_autoload_path))
+      builder.each_resource_file do |path, res|
+        FileUtils.mkdir_p(File.dirname(path))
 
-        if File.exist?(res.ref.ruby_autoload_path)
-          puts "Skipping #{res.ref.ruby_autoload_path} because it already exists"
+        if File.exist?(path)
+          puts "Skipping #{path} because it already exists"
         else
-          puts "Writing #{res.ref.ruby_autoload_path}"
-          File.write(res.ref.ruby_autoload_path, res.to_ruby)
+          puts "Writing #{path}"
+          File.write(path, res.to_ruby)
         end
       end
     end

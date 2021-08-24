@@ -16,6 +16,7 @@ end
 
 task :generate do
   require 'dry/inflector'
+  require 'fileutils'
 
   FileUtils.rm_rf('./lib/kube-dsl/entrypoint.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl.rb')
@@ -34,6 +35,8 @@ task :generate do
     generator = KubeDSL::Generator.new(
       schema_dir: File.join('..', local_path),
       output_dir: File.join('kube-dsl', 'dsl'),
+      dsl_namespace: ['KubeDSL', 'DSL'],
+      entrypoint_namespace: ['KubeDSL'],
       inflector: Dry::Inflector.new do |inflections|
         inflections.acronym('DSL')
 

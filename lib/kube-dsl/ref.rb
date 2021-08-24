@@ -3,12 +3,11 @@ module KubeDSL
     include StringHelpers
 
     attr_reader :str, :kind, :namespace, :version, :inflector, :schema_dir
-    attr_reader :ruby_namespace_prefix, :autoload_prefix
+    attr_reader :ruby_namespace_prefix
 
-    def initialize(str, ruby_namespace_prefix, autoload_prefix, inflector, schema_dir)
+    def initialize(str, ruby_namespace_prefix, inflector, schema_dir)
       @str = str
       @ruby_namespace_prefix = ruby_namespace_prefix
-      @autoload_prefix = autoload_prefix
       @inflector = inflector
       @schema_dir = schema_dir
 
@@ -41,15 +40,18 @@ module KubeDSL
     def ruby_namespace
       @ruby_namespace ||= begin
         [*ruby_namespace_prefix].tap do |mods|
-          mods << capitalize(namespace) if namespace
-          mods << capitalize(version) if version
+          mods << namespace if namespace
+          mods << version if version
+          mods.map! do |m|
+            inflector.camelize(underscore(m))
+          end
         end
       end
     end
 
     def ruby_autoload_path
       @ruby_autoload_path ||= File.join(
-        [*autoload_prefix.split(File::SEPARATOR)].tap do |path|
+        [].tap do |path|
           path << underscore(namespace) if namespace
           path << underscore(version) if version
           path << "#{underscore(kind)}.rb"

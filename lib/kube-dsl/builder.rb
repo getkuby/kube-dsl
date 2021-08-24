@@ -4,12 +4,15 @@ module KubeDSL
   class Builder
     include StringHelpers
 
-    attr_reader :schema_dir, :output_dir, :namespace, :inflector, :resolvers
+    attr_reader :schema_dir, :output_dir, :dsl_namespace
+    attr_reader :entrypoint_namespace, :inflector, :resolvers
 
-    def initialize(schema_dir:, output_dir:, inflector:)
+    def initialize(schema_dir:, output_dir:, inflector:, dsl_namespace:, entrypoint_namespace:)
       @schema_dir = schema_dir
       @output_dir = output_dir
       @inflector = inflector
+      @dsl_namespace = dsl_namespace
+      @entrypoint_namespace = entrypoint_namespace
       @resolvers ||= {}
     end
 
@@ -19,25 +22,17 @@ module KubeDSL
       end
     end
 
-    def each_resource
+    def each_resource_file
       return to_enum(__method__) unless block_given?
 
-      resources.each do |res|
-        # "External" resources are ones that live outside the current
-        # schema, i.e. k8s resources like ObjectMeta that other
-        # k8s-compatible schemas depend on.
-        #
-        # Resources can be "empty" if they contain no properties. This
-        # usually happens for resources that are really just aliases
-        # for basic types like integer and string. The k8s' Duration
-        # object is a good example. It's just an alias for string.
-        yield res if !res.external? && !res.empty?
+      each_resource do |res|
+        yield File.join(output_dir, res.ref.ruby_autoload_path), res
       end
     end
 
     def entrypoint(&block)
       ''.tap do |ruby_code|
-        ruby_code << "module #{namespace[0..-2].join('::')}::Entrypoint\n"
+        ruby_code << "module #{entrypoint_namespace.join('::')}::Entrypoint\n"
 
         each_resource do |resource|
           ns = resource.ref.ruby_namespace.join('::')
@@ -51,15 +46,6 @@ module KubeDSL
         ruby_code.strip!
         ruby_code << "\nend\n"
       end
-    end
-
-    def namespace
-      @namespace ||= inflector.classify(
-        File
-          .split(output_dir)
-          .map { |seg| inflector.camelize(underscore(seg)) }
-          .join('/')
-      ).split('::')
     end
 
     def entrypoint_path
@@ -88,10 +74,26 @@ module KubeDSL
     end
 
     def parse_ref(ref_str)
-      Ref.new(ref_str, namespace, output_dir, inflector, schema_dir)
+      Ref.new(ref_str, dsl_namespace, inflector, schema_dir)
     end
 
     private
+
+    def each_resource
+      return to_enum(__method__) unless block_given?
+
+      resources.each do |res|
+        # "External" resources are ones that live outside the current
+        # schema, i.e. k8s resources like ObjectMeta that other
+        # k8s-compatible schemas depend on.
+        #
+        # Resources can be "empty" if they contain no properties. This
+        # usually happens for resources that are really just aliases
+        # for basic types like integer and string. The k8s' Duration
+        # object is a good example. It's just an alias for string.
+        yield res if !res.external? && !res.empty?
+      end
+    end
 
     def resources
       JSON.parse(File.read(start_path))['oneOf'].map do |entry|
@@ -120,6 +122,8 @@ module KubeDSL
       amap.each do |ns, children|
         next unless children.is_a?(Hash)
 
+        path = path.reject { |seg| seg == '.' }
+
         mod_name = [*path, ns]
           .flat_map { |seg| inflector.camelize(seg.gsub('-', '_')) }
           .join('::')
@@ -137,7 +141,7 @@ module KubeDSL
         end
 
         ruby_code << "end\n"
-        yield File.join(*path, "#{ns}.rb"), ruby_code
+        yield File.join(output_dir, *path, "#{ns}.rb"), ruby_code
         each_autoload_file_helper(children, path + [ns], &block)
       end
     end
