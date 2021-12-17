@@ -7,6 +7,7 @@ module KubeDSL::DSL::V1
     value_field :period_seconds
     value_field :success_threshold
     object_field(:tcp_socket) { KubeDSL::DSL::V1::TCPSocketAction.new }
+    value_field :termination_grace_period_seconds
     value_field :timeout_seconds
 
     validates :exec, object: { kind_of: KubeDSL::DSL::V1::ExecAction }
@@ -16,6 +17,7 @@ module KubeDSL::DSL::V1
     validates :period_seconds, field: { format: :integer }, presence: false
     validates :success_threshold, field: { format: :integer }, presence: false
     validates :tcp_socket, object: { kind_of: KubeDSL::DSL::V1::TCPSocketAction }
+    validates :termination_grace_period_seconds, field: { format: :integer }, presence: false
     validates :timeout_seconds, field: { format: :integer }, presence: false
 
     def serialize
@@ -27,6 +29,7 @@ module KubeDSL::DSL::V1
         result[:periodSeconds] = period_seconds
         result[:successThreshold] = success_threshold
         result[:tcpSocket] = tcp_socket.serialize
+        result[:terminationGracePeriodSeconds] = termination_grace_period_seconds
         result[:timeoutSeconds] = timeout_seconds
       end
     end

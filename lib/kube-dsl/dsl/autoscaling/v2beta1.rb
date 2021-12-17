@@ -1,4 +1,6 @@
 module KubeDSL::DSL::Autoscaling::V2beta1
+  autoload :ContainerResourceMetricSource, 'kube-dsl/dsl/autoscaling/v2beta1/container_resource_metric_source'
+  autoload :ContainerResourceMetricStatus, 'kube-dsl/dsl/autoscaling/v2beta1/container_resource_metric_status'
   autoload :CrossVersionObjectReference, 'kube-dsl/dsl/autoscaling/v2beta1/cross_version_object_reference'
   autoload :ExternalMetricSource, 'kube-dsl/dsl/autoscaling/v2beta1/external_metric_source'
   autoload :ExternalMetricStatus, 'kube-dsl/dsl/autoscaling/v2beta1/external_metric_status'

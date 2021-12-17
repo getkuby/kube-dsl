@@ -1,8 +1,13 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
+  autoload :ContainerResourceMetricSource, 'kube-dsl/dsl/autoscaling/v2beta2/container_resource_metric_source'
+  autoload :ContainerResourceMetricStatus, 'kube-dsl/dsl/autoscaling/v2beta2/container_resource_metric_status'
   autoload :CrossVersionObjectReference, 'kube-dsl/dsl/autoscaling/v2beta2/cross_version_object_reference'
   autoload :ExternalMetricSource, 'kube-dsl/dsl/autoscaling/v2beta2/external_metric_source'
   autoload :ExternalMetricStatus, 'kube-dsl/dsl/autoscaling/v2beta2/external_metric_status'
+  autoload :HPAScalingPolicy, 'kube-dsl/dsl/autoscaling/v2beta2/hpa_scaling_policy'
+  autoload :HPAScalingRules, 'kube-dsl/dsl/autoscaling/v2beta2/hpa_scaling_rules'
   autoload :HorizontalPodAutoscaler, 'kube-dsl/dsl/autoscaling/v2beta2/horizontal_pod_autoscaler'
+  autoload :HorizontalPodAutoscalerBehavior, 'kube-dsl/dsl/autoscaling/v2beta2/horizontal_pod_autoscaler_behavior'
   autoload :HorizontalPodAutoscalerCondition, 'kube-dsl/dsl/autoscaling/v2beta2/horizontal_pod_autoscaler_condition'
   autoload :HorizontalPodAutoscalerList, 'kube-dsl/dsl/autoscaling/v2beta2/horizontal_pod_autoscaler_list'
   autoload :HorizontalPodAutoscalerSpec, 'kube-dsl/dsl/autoscaling/v2beta2/horizontal_pod_autoscaler_spec'

@@ -1,5 +1,6 @@
 module KubeDSL::DSL::Apps::V1
   class StatefulSetStatus < ::KubeDSL::DSLObject
+    value_field :available_replicas
     value_field :collision_count
     array_field(:condition) { KubeDSL::DSL::Apps::V1::StatefulSetCondition.new }
     value_field :current_replicas
@@ -10,6 +11,7 @@ module KubeDSL::DSL::Apps::V1
     value_field :update_revision
     value_field :updated_replicas
 
+    validates :available_replicas, field: { format: :integer }, presence: false
     validates :collision_count, field: { format: :integer }, presence: false
     validates :conditions, array: { kind_of: KubeDSL::DSL::Apps::V1::StatefulSetCondition }, presence: false
     validates :current_replicas, field: { format: :integer }, presence: false
@@ -22,6 +24,7 @@ module KubeDSL::DSL::Apps::V1
 
     def serialize
       {}.tap do |result|
+        result[:availableReplicas] = available_replicas
         result[:collisionCount] = collision_count
         result[:conditions] = conditions.map(&:serialize)
         result[:currentReplicas] = current_replicas

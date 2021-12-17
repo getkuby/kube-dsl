@@ -1,11 +1,13 @@
 module KubeDSL::DSL::V1
   class ServicePort < ::KubeDSL::DSLObject
+    value_field :app_protocol
     value_field :name
     value_field :node_port
     value_field :port
     value_field :protocol
     value_field :target_port
 
+    validates :app_protocol, field: { format: :string }, presence: false
     validates :name, field: { format: :string }, presence: false
     validates :node_port, field: { format: :integer }, presence: false
     validates :port, field: { format: :integer }, presence: false
@@ -14,6 +16,7 @@ module KubeDSL::DSL::V1
 
     def serialize
       {}.tap do |result|
+        result[:appProtocol] = app_protocol
         result[:name] = name
         result[:nodePort] = node_port
         result[:port] = port

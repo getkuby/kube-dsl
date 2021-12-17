@@ -28,6 +28,7 @@ module KubeDSL::DSL::V1
     object_field(:security_context) { KubeDSL::DSL::V1::PodSecurityContext.new }
     value_field :service_account
     value_field :service_account_name
+    value_field :set_hostname_as_fqdn
     value_field :share_process_namespace
     value_field :subdomain
     value_field :termination_grace_period_seconds
@@ -63,6 +64,7 @@ module KubeDSL::DSL::V1
     validates :security_context, object: { kind_of: KubeDSL::DSL::V1::PodSecurityContext }
     validates :service_account, field: { format: :string }, presence: false
     validates :service_account_name, field: { format: :string }, presence: false
+    validates :set_hostname_as_fqdn, field: { format: :boolean }, presence: false
     validates :share_process_namespace, field: { format: :boolean }, presence: false
     validates :subdomain, field: { format: :string }, presence: false
     validates :termination_grace_period_seconds, field: { format: :integer }, presence: false
@@ -100,6 +102,7 @@ module KubeDSL::DSL::V1
         result[:securityContext] = security_context.serialize
         result[:serviceAccount] = service_account
         result[:serviceAccountName] = service_account_name
+        result[:setHostnameAsFQDN] = set_hostname_as_fqdn
         result[:shareProcessNamespace] = share_process_namespace
         result[:subdomain] = subdomain
         result[:terminationGracePeriodSeconds] = termination_grace_period_seconds

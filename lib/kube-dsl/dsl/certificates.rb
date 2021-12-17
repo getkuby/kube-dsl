@@ -1,3 +1,3 @@
 module KubeDSL::DSL::Certificates
-  autoload :V1beta1, 'kube-dsl/dsl/certificates/v1beta1'
+  autoload :V1, 'kube-dsl/dsl/certificates/v1'
 end

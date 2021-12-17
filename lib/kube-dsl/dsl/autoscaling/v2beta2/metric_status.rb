@@ -1,11 +1,13 @@
 module KubeDSL::DSL::Autoscaling::V2beta2
   class MetricStatus < ::KubeDSL::DSLObject
+    object_field(:container_resource) { KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricStatus.new }
     object_field(:external) { KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricStatus.new }
     object_field(:object) { KubeDSL::DSL::Autoscaling::V2beta2::ObjectMetricStatus.new }
     object_field(:pods) { KubeDSL::DSL::Autoscaling::V2beta2::PodsMetricStatus.new }
     object_field(:resource) { KubeDSL::DSL::Autoscaling::V2beta2::ResourceMetricStatus.new }
     value_field :type
 
+    validates :container_resource, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricStatus }
     validates :external, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricStatus }
     validates :object, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::ObjectMetricStatus }
     validates :pods, object: { kind_of: KubeDSL::DSL::Autoscaling::V2beta2::PodsMetricStatus }
@@ -14,6 +16,7 @@ module KubeDSL::DSL::Autoscaling::V2beta2
 
     def serialize
       {}.tap do |result|
+        result[:containerResource] = container_resource.serialize
         result[:external] = external.serialize
         result[:object] = object.serialize
         result[:pods] = pods.serialize

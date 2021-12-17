@@ -4,6 +4,7 @@ module KubeDSL::DSL::Meta::V1
   autoload :APIResource, 'kube-dsl/dsl/meta/v1/api_resource'
   autoload :APIResourceList, 'kube-dsl/dsl/meta/v1/api_resource_list'
   autoload :APIVersions, 'kube-dsl/dsl/meta/v1/api_versions'
+  autoload :Condition, 'kube-dsl/dsl/meta/v1/condition'
   autoload :DeleteOptions, 'kube-dsl/dsl/meta/v1/delete_options'
   autoload :GroupVersionForDiscovery, 'kube-dsl/dsl/meta/v1/group_version_for_discovery'
   autoload :LabelSelector, 'kube-dsl/dsl/meta/v1/label_selector'
