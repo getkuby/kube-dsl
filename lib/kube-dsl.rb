@@ -1,5 +1,5 @@
 module KubeDSL
-  KUBERNETES_VERSION = '1.17.4'.freeze
+  KUBERNETES_VERSION = '1.22.5'.freeze
 
   autoload :ArrayFieldRes,        'kube-dsl/array_field_res'
   autoload :Builder,              'kube-dsl/builder'
