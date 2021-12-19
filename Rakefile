@@ -24,7 +24,7 @@ task :generate do
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./vendor')
 
-  export_url = "https://github.com/instrumenta/kubernetes-json-schema/trunk/v#{KubeDSL::KUBERNETES_VERSION}-local"
+  export_url = "https://github.com/yannh/kubernetes-json-schema/trunk/v#{KubeDSL::KUBERNETES_VERSION}-local"
   local_schema_path = "vendor/kubernetes-json-schema/v#{KubeDSL::KUBERNETES_VERSION}-local"
 
   unless File.exist?(local_schema_path)
