@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class HorizontalPodAutoscalerSpec < ::KubeDSL::DSLObject
     value_field :max_replicas

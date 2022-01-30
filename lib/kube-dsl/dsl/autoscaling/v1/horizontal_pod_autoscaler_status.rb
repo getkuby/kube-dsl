@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V1
   class HorizontalPodAutoscalerStatus < ::KubeDSL::DSLObject
     value_field :current_cpu_utilization_percentage

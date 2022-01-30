@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta2
   class DaemonSetList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apps::V1beta2::DaemonSet.new }

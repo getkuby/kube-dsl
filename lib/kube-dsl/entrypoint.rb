@@ -1,3 +1,5 @@
+# typed: strict
+
 module KubeDSL::Entrypoint
   def mutating_webhook(&block)
     ::KubeDSL::DSL::Admissionregistration::V1::MutatingWebhook.new(&block)
@@ -15,7 +17,7 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations.new(&block)
   end
 
-  def service_reference(&block)
+  def admissionregistration_v1_service_reference(&block)
     ::KubeDSL::DSL::Admissionregistration::V1::ServiceReference.new(&block)
   end
 
@@ -31,7 +33,7 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhookConfigurationList.new(&block)
   end
 
-  def webhook_client_config(&block)
+  def admissionregistration_v1_webhook_client_config(&block)
     ::KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig.new(&block)
   end
 
@@ -1227,11 +1229,11 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new(&block)
   end
 
-  def service_reference(&block)
+  def apiextensions_v1_service_reference(&block)
     ::KubeDSL::DSL::Apiextensions::V1::ServiceReference.new(&block)
   end
 
-  def webhook_client_config(&block)
+  def apiextensions_v1_webhook_client_config(&block)
     ::KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig.new(&block)
   end
 
@@ -1339,7 +1341,7 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Apiregistration::V1::APIServiceStatus.new(&block)
   end
 
-  def service_reference(&block)
+  def apiregistration_v1_service_reference(&block)
     ::KubeDSL::DSL::Apiregistration::V1::ServiceReference.new(&block)
   end
 end

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1
   class RoleBindingList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Rbac::V1::RoleBinding.new }

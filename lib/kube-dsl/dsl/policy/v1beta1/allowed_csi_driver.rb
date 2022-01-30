@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Policy::V1beta1
   class AllowedCSIDriver < ::KubeDSL::DSLObject
     value_field :name

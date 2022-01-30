@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PersistentVolumeClaimVolumeSource < ::KubeDSL::DSLObject
     value_field :claim_name

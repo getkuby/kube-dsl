@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1beta1
   class TokenReviewStatus < ::KubeDSL::DSLObject
     value_field :audiences

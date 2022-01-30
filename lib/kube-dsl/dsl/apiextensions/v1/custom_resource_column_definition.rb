@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
     value_field :description

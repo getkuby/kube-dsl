@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1beta1
   class SelfSubjectRulesReview < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

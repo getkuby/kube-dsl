@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiregistration::V1
   class APIServiceList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apiregistration::V1::APIService.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class LocalObjectReference < ::KubeDSL::DSLObject
     value_field :name

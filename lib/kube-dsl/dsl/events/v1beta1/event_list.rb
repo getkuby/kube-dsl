@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Events::V1beta1
   class EventList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Events::V1beta1::Event.new }

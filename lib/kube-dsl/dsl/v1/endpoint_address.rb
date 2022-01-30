@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class EndpointAddress < ::KubeDSL::DSLObject
     value_field :hostname

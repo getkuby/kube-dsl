@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class LabelSelectorRequirement < ::KubeDSL::DSLObject
     value_field :key

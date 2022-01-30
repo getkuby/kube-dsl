@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1
   class TokenRequestSpec < ::KubeDSL::DSLObject
     value_field :audiences

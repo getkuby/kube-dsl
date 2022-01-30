@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ReplicationControllerCondition < ::KubeDSL::DSLObject
     value_field :last_transition_time

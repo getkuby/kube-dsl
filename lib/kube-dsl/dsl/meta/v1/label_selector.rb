@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class LabelSelector < ::KubeDSL::DSLObject
     array_field(:match_expression) { KubeDSL::DSL::Meta::V1::LabelSelectorRequirement.new }

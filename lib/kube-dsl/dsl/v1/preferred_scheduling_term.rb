@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PreferredSchedulingTerm < ::KubeDSL::DSLObject
     object_field(:preference) { KubeDSL::DSL::V1::NodeSelectorTerm.new }

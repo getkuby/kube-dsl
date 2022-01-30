@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class EnvFromSource < ::KubeDSL::DSLObject
     object_field(:config_map_ref) { KubeDSL::DSL::V1::ConfigMapEnvSource.new }

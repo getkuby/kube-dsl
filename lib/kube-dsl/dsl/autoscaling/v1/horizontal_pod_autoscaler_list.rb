@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V1
   class HorizontalPodAutoscalerList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscaler.new }

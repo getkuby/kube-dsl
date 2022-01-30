@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ContainerStateTerminated < ::KubeDSL::DSLObject
     value_field :container_id

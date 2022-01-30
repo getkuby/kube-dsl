@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Settings::V1alpha1
   class PodPresetList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Settings::V1alpha1::PodPreset.new }

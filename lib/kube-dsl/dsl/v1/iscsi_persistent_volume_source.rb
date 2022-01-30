@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ISCSIPersistentVolumeSource < ::KubeDSL::DSLObject
     value_field :chap_auth_discovery

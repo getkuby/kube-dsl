@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class Probe < ::KubeDSL::DSLObject
     object_field(:exec) { KubeDSL::DSL::V1::ExecAction.new }

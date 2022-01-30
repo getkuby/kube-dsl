@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1
   class ReplicaSetList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apps::V1::ReplicaSet.new }

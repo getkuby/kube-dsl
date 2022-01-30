@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V1
   class JobCondition < ::KubeDSL::DSLObject
     value_field :last_probe_time

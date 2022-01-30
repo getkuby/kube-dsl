@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1alpha1
   class AggregationRule < ::KubeDSL::DSLObject
     array_field(:cluster_role_selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }

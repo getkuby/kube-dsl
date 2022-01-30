@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodSpec < ::KubeDSL::DSLObject
     value_field :active_deadline_seconds

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class NodeConfigStatus < ::KubeDSL::DSLObject
     object_field(:active) { KubeDSL::DSL::V1::NodeConfigSource.new }

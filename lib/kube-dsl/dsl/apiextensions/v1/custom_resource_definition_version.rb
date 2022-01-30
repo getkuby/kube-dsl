@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceDefinitionVersion < ::KubeDSL::DSLObject
     array_field(:additional_printer_column) { KubeDSL::DSL::Apiextensions::V1::CustomResourceColumnDefinition.new }

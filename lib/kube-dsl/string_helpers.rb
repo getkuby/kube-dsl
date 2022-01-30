@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   module StringHelpers
     RUBY_KEYWORDS = %w(

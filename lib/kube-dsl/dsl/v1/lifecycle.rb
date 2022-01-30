@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class Lifecycle < ::KubeDSL::DSLObject
     object_field(:post_start) { KubeDSL::DSL::V1::Handler.new }

@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class Resource
     attr_reader :contents

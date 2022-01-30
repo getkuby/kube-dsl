@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ContainerPort < ::KubeDSL::DSLObject
     value_field :container_port

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceSubresources < ::KubeDSL::DSLObject
     object_field(:scale) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresourceScale.new }

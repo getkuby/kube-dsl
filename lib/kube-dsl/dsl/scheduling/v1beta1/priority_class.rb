@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Scheduling::V1beta1
   class PriorityClass < ::KubeDSL::DSLObject
     value_field :description

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class EventSeries < ::KubeDSL::DSLObject
     value_field :count

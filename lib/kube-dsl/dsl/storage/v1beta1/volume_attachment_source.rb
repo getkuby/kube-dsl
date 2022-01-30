@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class VolumeAttachmentSource < ::KubeDSL::DSLObject
     object_field(:inline_volume_spec) { KubeDSL::DSL::V1::PersistentVolumeSpec.new }

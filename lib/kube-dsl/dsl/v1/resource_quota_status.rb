@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ResourceQuotaStatus < ::KubeDSL::DSLObject
     key_value_field(:hard, format: :string)

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodTemplateList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::V1::PodTemplate.new }

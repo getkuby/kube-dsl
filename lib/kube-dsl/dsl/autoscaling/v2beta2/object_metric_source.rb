@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class ObjectMetricSource < ::KubeDSL::DSLObject
     object_field(:described_object) { KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1
   class RoleList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Rbac::V1::Role.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class GroupVersionForDiscovery < ::KubeDSL::DSLObject
     value_field :group_version

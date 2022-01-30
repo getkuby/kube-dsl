@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class VolumeNodeAffinity < ::KubeDSL::DSLObject
     object_field(:required) { KubeDSL::DSL::V1::NodeSelector.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class CSIPersistentVolumeSource < ::KubeDSL::DSLObject
     object_field(:controller_expand_secret_ref) { KubeDSL::DSL::V1::SecretReference.new }

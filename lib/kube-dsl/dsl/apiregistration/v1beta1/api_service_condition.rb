@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiregistration::V1beta1
   class APIServiceCondition < ::KubeDSL::DSLObject
     value_field :last_transition_time

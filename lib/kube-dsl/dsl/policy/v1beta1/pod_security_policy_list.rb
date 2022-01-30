@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Policy::V1beta1
   class PodSecurityPolicyList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicy.new }

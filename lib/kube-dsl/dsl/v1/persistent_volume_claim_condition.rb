@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PersistentVolumeClaimCondition < ::KubeDSL::DSLObject
     value_field :last_probe_time

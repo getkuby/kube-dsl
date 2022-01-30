@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class AttachedVolume < ::KubeDSL::DSLObject
     value_field :device_path

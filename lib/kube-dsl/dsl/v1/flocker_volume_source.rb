@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class FlockerVolumeSource < ::KubeDSL::DSLObject
     value_field :dataset_name

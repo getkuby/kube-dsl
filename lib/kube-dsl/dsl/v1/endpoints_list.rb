@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class EndpointsList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::V1::Endpoints.new }

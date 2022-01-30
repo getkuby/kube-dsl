@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class ExternalRef < Ref
     def meta

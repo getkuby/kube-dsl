@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1beta1
   class Ingress < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

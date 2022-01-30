@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class AuditSinkList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Auditregistration::V1alpha1::AuditSink.new }

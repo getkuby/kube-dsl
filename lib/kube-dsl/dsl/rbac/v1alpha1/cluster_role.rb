@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1alpha1
   class ClusterRole < ::KubeDSL::DSLObject
     object_field(:aggregation_rule) { KubeDSL::DSL::Rbac::V1alpha1::AggregationRule.new }

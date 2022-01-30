@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Scheduling::V1
   class PriorityClassList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Scheduling::V1::PriorityClass.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta1
   class DeploymentList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apps::V1beta1::Deployment.new }

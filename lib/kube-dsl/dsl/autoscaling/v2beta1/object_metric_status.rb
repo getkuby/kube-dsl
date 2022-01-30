@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class ObjectMetricStatus < ::KubeDSL::DSLObject
     value_field :average_value

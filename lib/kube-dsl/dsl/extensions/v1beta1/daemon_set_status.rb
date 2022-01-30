@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class DaemonSetStatus < ::KubeDSL::DSLObject
     value_field :collision_count

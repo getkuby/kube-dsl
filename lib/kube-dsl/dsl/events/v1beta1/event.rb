@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Events::V1beta1
   class Event < ::KubeDSL::DSLObject
     value_field :action

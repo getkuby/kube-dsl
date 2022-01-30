@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ServiceStatus < ::KubeDSL::DSLObject
     object_field(:load_balancer) { KubeDSL::DSL::V1::LoadBalancerStatus.new }

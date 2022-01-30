@@ -1,6 +1,8 @@
+# typed: true
 module KubeDSL
   class FieldRes
     include StringHelpers
+    include RbiHelpers
 
     attr_reader :name, :type, :required
 
@@ -14,6 +16,13 @@ module KubeDSL
 
     def fields_to_ruby(_inflector)
       ["value_field :#{ruby_safe_name}"]
+    end
+
+    def fields_to_rbi(inflector)
+      [
+        "sig { params(val: T.nilable(#{rbi_type_for(@type)})).returns(#{rbi_type_for(@type)}) }",
+        "def #{ruby_safe_name}(val = nil); end\n"
+      ]
     end
 
     def validations(_inflector)

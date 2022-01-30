@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class AzureDiskVolumeSource < ::KubeDSL::DSLObject
     value_field :caching_mode

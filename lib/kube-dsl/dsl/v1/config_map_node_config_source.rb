@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ConfigMapNodeConfigSource < ::KubeDSL::DSLObject
     value_field :kubelet_config_key

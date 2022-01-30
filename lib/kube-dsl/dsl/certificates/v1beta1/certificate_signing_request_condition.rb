@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestCondition < ::KubeDSL::DSLObject
     value_field :last_update_time

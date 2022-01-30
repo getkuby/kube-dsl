@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class KeyToPath < ::KubeDSL::DSLObject
     value_field :key

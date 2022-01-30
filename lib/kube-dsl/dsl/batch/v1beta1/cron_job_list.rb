@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V1beta1
   class CronJobList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Batch::V1beta1::CronJob.new }

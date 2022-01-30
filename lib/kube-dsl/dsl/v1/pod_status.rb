@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodStatus < ::KubeDSL::DSLObject
     array_field(:condition) { KubeDSL::DSL::V1::PodCondition.new }

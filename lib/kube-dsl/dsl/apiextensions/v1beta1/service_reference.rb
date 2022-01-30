@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1beta1
   class ServiceReference < ::KubeDSL::DSLObject
     value_field :name

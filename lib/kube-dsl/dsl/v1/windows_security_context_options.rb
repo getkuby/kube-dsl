@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class WindowsSecurityContextOptions < ::KubeDSL::DSLObject
     value_field :gmsa_credential_spec

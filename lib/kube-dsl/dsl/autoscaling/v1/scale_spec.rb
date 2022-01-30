@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V1
   class ScaleSpec < ::KubeDSL::DSLObject
     value_field :replicas

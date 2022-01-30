@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class Toleration < ::KubeDSL::DSLObject
     value_field :effect

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Settings::V1alpha1
   class PodPresetSpec < ::KubeDSL::DSLObject
     array_field(:env) { KubeDSL::DSL::V1::EnvVar.new }

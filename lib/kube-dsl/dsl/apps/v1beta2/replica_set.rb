@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta2
   class ReplicaSet < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

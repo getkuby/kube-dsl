@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Settings::V1alpha1
   class PodPreset < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

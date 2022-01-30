@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1
   class NonResourceRule < ::KubeDSL::DSLObject
     value_field :non_resource_ur_ls

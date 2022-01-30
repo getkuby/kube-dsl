@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ServiceAccount < ::KubeDSL::DSLObject
     value_field :automount_service_account_token

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V1
   class JobSpec < ::KubeDSL::DSLObject
     value_field :active_deadline_seconds

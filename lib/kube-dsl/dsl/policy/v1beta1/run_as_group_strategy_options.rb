@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Policy::V1beta1
   class RunAsGroupStrategyOptions < ::KubeDSL::DSLObject
     array_field(:range) { KubeDSL::DSL::Policy::V1beta1::IDRange.new }

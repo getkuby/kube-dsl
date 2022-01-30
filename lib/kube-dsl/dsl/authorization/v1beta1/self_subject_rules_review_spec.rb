@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1beta1
   class SelfSubjectRulesReviewSpec < ::KubeDSL::DSLObject
     value_field :namespace

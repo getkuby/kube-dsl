@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class CinderPersistentVolumeSource < ::KubeDSL::DSLObject
     value_field :fs_type

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class ObjectMeta < ::KubeDSL::DSLObject
     key_value_field(:annotations, format: :string)

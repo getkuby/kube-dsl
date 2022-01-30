@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Policy::V1beta1
   class PodDisruptionBudgetList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudget.new }

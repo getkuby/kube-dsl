@@ -1,3 +1,4 @@
+# typed: false
 module KubeDSL
   class DSLObject
     extend ::KubeDSL::ValueFields

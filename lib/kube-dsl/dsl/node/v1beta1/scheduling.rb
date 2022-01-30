@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1beta1
   class Scheduling < ::KubeDSL::DSLObject
     key_value_field(:node_selector, format: :string)

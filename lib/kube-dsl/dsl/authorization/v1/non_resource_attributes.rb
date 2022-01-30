@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1
   class NonResourceAttributes < ::KubeDSL::DSLObject
     value_field :path

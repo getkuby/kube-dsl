@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ContainerStateRunning < ::KubeDSL::DSLObject
     value_field :started_at

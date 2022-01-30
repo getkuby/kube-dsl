@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class GlusterfsVolumeSource < ::KubeDSL::DSLObject
     value_field :endpoints

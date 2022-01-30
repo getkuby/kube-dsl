@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1
   class TokenRequestStatus < ::KubeDSL::DSLObject
     value_field :expiration_timestamp

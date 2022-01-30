@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class PriorityLevelConfigurationSpec < ::KubeDSL::DSLObject
     object_field(:limited) { KubeDSL::DSL::Flowcontrol::V1alpha1::LimitedPriorityLevelConfiguration.new }

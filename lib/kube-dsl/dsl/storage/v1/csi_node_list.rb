@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1
   class CSINodeList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Storage::V1::CSINode.new }

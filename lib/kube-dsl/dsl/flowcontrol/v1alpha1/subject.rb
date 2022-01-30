@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class Subject < ::KubeDSL::DSLObject
     object_field(:group) { KubeDSL::DSL::Flowcontrol::V1alpha1::GroupSubject.new }

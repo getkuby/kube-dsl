@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class RBDVolumeSource < ::KubeDSL::DSLObject
     value_field :fs_type

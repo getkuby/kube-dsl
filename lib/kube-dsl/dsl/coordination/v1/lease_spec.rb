@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Coordination::V1
   class LeaseSpec < ::KubeDSL::DSLObject
     value_field :acquire_time

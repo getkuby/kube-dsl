@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class NetworkPolicyIngressRule < ::KubeDSL::DSLObject
     array_field(:from) { KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPeer.new }

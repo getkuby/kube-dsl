@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1beta1
   class RuntimeClassList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Node::V1beta1::RuntimeClass.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class EnvVarSource < ::KubeDSL::DSLObject
     object_field(:config_map_key_ref) { KubeDSL::DSL::V1::ConfigMapKeySelector.new }

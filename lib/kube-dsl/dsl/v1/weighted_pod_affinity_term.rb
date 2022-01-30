@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class WeightedPodAffinityTerm < ::KubeDSL::DSLObject
     object_field(:pod_affinity_term) { KubeDSL::DSL::V1::PodAffinityTerm.new }

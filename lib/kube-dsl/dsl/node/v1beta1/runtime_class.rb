@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1beta1
   class RuntimeClass < ::KubeDSL::DSLObject
     value_field :handler

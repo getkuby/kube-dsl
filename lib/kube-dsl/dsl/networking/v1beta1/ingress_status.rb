@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1beta1
   class IngressStatus < ::KubeDSL::DSLObject
     object_field(:load_balancer) { KubeDSL::DSL::V1::LoadBalancerStatus.new }

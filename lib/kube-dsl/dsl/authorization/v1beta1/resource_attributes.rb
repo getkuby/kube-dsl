@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1beta1
   class ResourceAttributes < ::KubeDSL::DSLObject
     value_field :group

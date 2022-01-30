@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class DaemonSetUpdateStrategy < ::KubeDSL::DSLObject
     object_field(:rolling_update) { KubeDSL::DSL::Extensions::V1beta1::RollingUpdateDaemonSet.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class MetricSpec < ::KubeDSL::DSLObject
     object_field(:external) { KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricSource.new }

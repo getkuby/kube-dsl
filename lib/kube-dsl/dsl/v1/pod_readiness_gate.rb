@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodReadinessGate < ::KubeDSL::DSLObject
     value_field :condition_type

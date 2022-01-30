@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1
   class SubjectRulesReviewStatus < ::KubeDSL::DSLObject
     value_field :evaluation_error

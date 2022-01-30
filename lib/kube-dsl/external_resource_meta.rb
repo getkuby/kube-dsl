@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class ExternalResourceMeta
     attr_reader :ref

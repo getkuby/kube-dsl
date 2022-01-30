@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class LimitRangeSpec < ::KubeDSL::DSLObject
     array_field(:limit) { KubeDSL::DSL::V1::LimitRangeItem.new }

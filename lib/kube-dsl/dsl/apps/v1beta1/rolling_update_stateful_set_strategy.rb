@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta1
   class RollingUpdateStatefulSetStrategy < ::KubeDSL::DSLObject
     value_field :partition

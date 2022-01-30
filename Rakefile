@@ -21,6 +21,8 @@ task :generate do
   FileUtils.rm_rf('./lib/kube-dsl/entrypoint.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl')
+  FileUtils.rm_rf('./sorbet/rbi/kube-dsl')
+
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
   FileUtils.mkdir_p('./vendor')
 
@@ -52,9 +54,85 @@ task :generate do
   )
 
   generator.generate_resource_files
+  generator.generate_rbi_files
   generator.generate_autoload_files
   generator.generate_entrypoint_file do |resource, ns|
     version = resource.ref.version || ''
     !version.include?('beta') && !version.include?('alpha')
+  end
+
+  json_code_files = {
+    'lib/kube-dsl/dsl/apiextensions/v1/json.rb' => 'KubeDSL::DSL::Apiextensions::V1',
+    'lib/kube-dsl/dsl/apiextensions/v1beta1/json.rb' => 'KubeDSL::DSL::Apiextensions::V1beta1'
+  }
+
+  json_code_files.each do |path, namespace|
+    puts "Writing #{path}"
+
+    File.open(path, 'w+') do |f|
+      f.write(<<~RUBY)
+        # typed: strict
+
+        module #{namespace}
+          class JSON < ::KubeDSL::DSLObject
+            def serialize
+              @value
+            end
+
+            def value(val = nil)
+              if val
+                @value = val
+              end
+
+              @value
+            end
+
+            def kind_sym
+              :JSON
+            end
+          end
+        end
+      RUBY
+    end
+  end
+
+  json_rbi_files = {
+    'sorbet/rbi/kube-dsl/dsl/apiextensions/v1/json.rbi' => 'KubeDSL::DSL::Apiextensions::V1',
+    'sorbet/rbi/kube-dsl/dsl/apiextensions/v1beta1/json.rbi' => 'KubeDSL::DSL::Apiextensions::V1beta1'
+  }
+
+  json_rbi_files.each do |path, namespace|
+    puts "Writing #{path}"
+
+    File.open(path, 'w+') do |f|
+      f.write(<<~RUBY)
+        # typed: strict
+
+        module #{namespace}
+          class JSON < ::KubeDSL::DSLObject
+            JSONType = T.type_alias do
+              T.any(
+                T::Array[T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped])],
+                T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
+              )
+            end
+
+            sig { params(block: T.nilable(T.proc.void)).void }
+            def initialize(&block)
+              @value = T.let(@value, JSONType)
+            end
+
+            sig { returns(JSONType) }
+            def serialize; end
+
+            sig { returns(Symbol) }
+            def kind_sym; end
+
+            sig { params(val: T.nilable(JSONType)).returns(JSONType) }
+            def value(val = nil); end
+          end
+        end
+      RUBY
+    end
   end
 end

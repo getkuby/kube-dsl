@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class HorizontalPodAutoscalerCondition < ::KubeDSL::DSLObject
     value_field :last_transition_time

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class StorageClass < ::KubeDSL::DSLObject
     value_field :allow_volume_expansion

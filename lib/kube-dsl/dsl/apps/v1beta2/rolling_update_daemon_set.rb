@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta2
   class RollingUpdateDaemonSet < ::KubeDSL::DSLObject
     value_field :max_unavailable

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1beta1
   class IngressBackend < ::KubeDSL::DSLObject
     value_field :service_name

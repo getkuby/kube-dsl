@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1
   class RollingUpdateDeployment < ::KubeDSL::DSLObject
     value_field :max_surge

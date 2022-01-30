@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class APIGroupList < ::KubeDSL::DSLObject
     array_field(:group) { KubeDSL::DSL::Meta::V1::APIGroup.new }

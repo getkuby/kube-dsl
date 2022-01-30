@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta2
   class DeploymentSpec < ::KubeDSL::DSLObject
     value_field :min_ready_seconds

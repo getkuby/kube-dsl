@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodAffinityTerm < ::KubeDSL::DSLObject
     object_field(:label_selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }

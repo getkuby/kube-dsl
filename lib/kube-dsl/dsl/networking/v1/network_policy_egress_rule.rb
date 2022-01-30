@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1
   class NetworkPolicyEgressRule < ::KubeDSL::DSLObject
     array_field(:port) { KubeDSL::DSL::Networking::V1::NetworkPolicyPort.new }

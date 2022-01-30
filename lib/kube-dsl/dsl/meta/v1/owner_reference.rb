@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class OwnerReference < ::KubeDSL::DSLObject
     value_field :api_version

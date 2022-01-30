@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1beta1
   class HTTPIngressRuleValue < ::KubeDSL::DSLObject
     array_field(:path) { KubeDSL::DSL::Networking::V1beta1::HTTPIngressPath.new }

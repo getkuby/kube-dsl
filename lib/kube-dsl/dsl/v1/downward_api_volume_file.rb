@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class DownwardAPIVolumeFile < ::KubeDSL::DSLObject
     object_field(:field_ref) { KubeDSL::DSL::V1::ObjectFieldSelector.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Admissionregistration::V1
   class ValidatingWebhookConfigurationList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhookConfiguration.new }

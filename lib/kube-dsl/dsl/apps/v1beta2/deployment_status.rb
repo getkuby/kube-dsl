@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta2
   class DeploymentStatus < ::KubeDSL::DSLObject
     value_field :available_replicas

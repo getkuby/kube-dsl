@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class NodeDaemonEndpoints < ::KubeDSL::DSLObject
     object_field(:kubelet_endpoint) { KubeDSL::DSL::V1::DaemonEndpoint.new }

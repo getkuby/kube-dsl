@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiregistration::V1beta1
   class APIService < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

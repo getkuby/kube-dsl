@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1
   class PolicyRule < ::KubeDSL::DSLObject
     value_field :api_groups

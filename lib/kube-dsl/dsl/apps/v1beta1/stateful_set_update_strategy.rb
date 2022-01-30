@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta1
   class StatefulSetUpdateStrategy < ::KubeDSL::DSLObject
     object_field(:rolling_update) { KubeDSL::DSL::Apps::V1beta1::RollingUpdateStatefulSetStrategy.new }

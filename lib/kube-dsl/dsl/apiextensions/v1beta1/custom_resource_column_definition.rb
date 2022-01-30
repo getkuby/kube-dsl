@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
     value_field :json_path

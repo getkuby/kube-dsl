@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ContainerImage < ::KubeDSL::DSLObject
     value_field :names

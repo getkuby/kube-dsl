@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class ExternalMetricStatus < ::KubeDSL::DSLObject
     value_field :current_average_value

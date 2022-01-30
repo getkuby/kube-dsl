@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1alpha1
   class ClusterRoleList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Rbac::V1alpha1::ClusterRole.new }

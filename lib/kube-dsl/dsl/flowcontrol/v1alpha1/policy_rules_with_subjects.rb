@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class PolicyRulesWithSubjects < ::KubeDSL::DSLObject
     array_field(:non_resource_rule) { KubeDSL::DSL::Flowcontrol::V1alpha1::NonResourcePolicyRule.new }

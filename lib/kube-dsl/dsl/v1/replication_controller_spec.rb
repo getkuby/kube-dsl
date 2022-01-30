@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ReplicationControllerSpec < ::KubeDSL::DSLObject
     value_field :min_ready_seconds

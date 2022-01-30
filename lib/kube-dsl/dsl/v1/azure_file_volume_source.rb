@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class AzureFileVolumeSource < ::KubeDSL::DSLObject
     value_field :read_only

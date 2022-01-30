@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiregistration::V1beta1
   class APIServiceStatus < ::KubeDSL::DSLObject
     array_field(:condition) { KubeDSL::DSL::Apiregistration::V1beta1::APIServiceCondition.new }

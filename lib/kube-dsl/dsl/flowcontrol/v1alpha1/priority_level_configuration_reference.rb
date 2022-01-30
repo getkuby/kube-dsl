@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class PriorityLevelConfigurationReference < ::KubeDSL::DSLObject
     value_field :name

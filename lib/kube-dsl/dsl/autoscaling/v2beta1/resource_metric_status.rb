@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class ResourceMetricStatus < ::KubeDSL::DSLObject
     value_field :current_average_utilization

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class LimitRangeItem < ::KubeDSL::DSLObject
     key_value_field(:default, format: :string)

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1
   class TokenRequest < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

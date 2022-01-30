@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class NonResourcePolicyRule < ::KubeDSL::DSLObject
     value_field :non_resource_ur_ls

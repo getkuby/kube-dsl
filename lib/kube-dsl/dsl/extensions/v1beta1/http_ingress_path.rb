@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class HTTPIngressPath < ::KubeDSL::DSLObject
     object_field(:backend) { KubeDSL::DSL::Extensions::V1beta1::IngressBackend.new }

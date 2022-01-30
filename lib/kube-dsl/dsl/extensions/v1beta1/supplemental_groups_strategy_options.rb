@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class SupplementalGroupsStrategyOptions < ::KubeDSL::DSLObject
     array_field(:range) { KubeDSL::DSL::Extensions::V1beta1::IDRange.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1
   class StatefulSetSpec < ::KubeDSL::DSLObject
     value_field :pod_management_policy

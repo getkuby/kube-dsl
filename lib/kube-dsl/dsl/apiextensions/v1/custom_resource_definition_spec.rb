@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceDefinitionSpec < ::KubeDSL::DSLObject
     object_field(:conversion) { KubeDSL::DSL::Apiextensions::V1::CustomResourceConversion.new }

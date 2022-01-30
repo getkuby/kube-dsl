@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PersistentVolumeSpec < ::KubeDSL::DSLObject
     value_field :access_modes

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class StorageClassList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Storage::V1beta1::StorageClass.new }

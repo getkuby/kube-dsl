@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class Webhook < ::KubeDSL::DSLObject
     object_field(:client_config) { KubeDSL::DSL::Auditregistration::V1alpha1::WebhookClientConfig.new }

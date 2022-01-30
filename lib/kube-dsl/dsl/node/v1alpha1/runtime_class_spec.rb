@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1alpha1
   class RuntimeClassSpec < ::KubeDSL::DSLObject
     object_field(:overhead) { KubeDSL::DSL::Node::V1alpha1::Overhead.new }

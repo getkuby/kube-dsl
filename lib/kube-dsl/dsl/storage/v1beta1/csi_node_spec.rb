@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class CSINodeSpec < ::KubeDSL::DSLObject
     array_field(:driver) { KubeDSL::DSL::Storage::V1beta1::CSINodeDriver.new }

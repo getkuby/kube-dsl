@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceValidation < ::KubeDSL::DSLObject
     object_field(:open_apiv3_schema) { KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps.new }

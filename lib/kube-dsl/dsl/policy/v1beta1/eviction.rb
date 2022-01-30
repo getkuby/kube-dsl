@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Policy::V1beta1
   class Eviction < ::KubeDSL::DSLObject
     object_field(:delete_options) { KubeDSL::DSL::Meta::V1::DeleteOptions.new }

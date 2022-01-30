@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class AuditSink < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

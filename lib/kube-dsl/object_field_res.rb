@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class ObjectFieldRes
     include StringHelpers
@@ -11,7 +12,14 @@ module KubeDSL
 
     def fields_to_ruby(_inflector)
       [
-        "object_field(:#{ruby_safe_name}) { #{res.ref.ruby_namespace.join('::')}::#{res.ref.kind}.new }"
+        "object_field(:#{ruby_safe_name}) { #{ruby_type}.new }"
+      ]
+    end
+
+    def fields_to_rbi(_inflector)
+      [
+        "sig { returns(#{ruby_type}) }",
+        "def #{ruby_safe_name}; end\n"
       ]
     end
 
@@ -27,6 +35,10 @@ module KubeDSL
     end
 
     private
+
+    def ruby_type
+      @ruby_type ||= "#{res.ref.ruby_namespace.join('::')}::#{res.ref.kind}"
+    end
 
     def ruby_safe_name
       @ruby_safe_name ||= unkeywordify(underscore(name))

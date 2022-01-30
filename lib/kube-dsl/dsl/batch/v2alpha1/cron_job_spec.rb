@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V2alpha1
   class CronJobSpec < ::KubeDSL::DSLObject
     value_field :concurrency_policy

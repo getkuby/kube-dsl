@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceConversion < ::KubeDSL::DSLObject
     value_field :strategy

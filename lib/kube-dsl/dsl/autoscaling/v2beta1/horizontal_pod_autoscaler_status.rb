@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class HorizontalPodAutoscalerStatus < ::KubeDSL::DSLObject
     array_field(:condition) { KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerCondition.new }

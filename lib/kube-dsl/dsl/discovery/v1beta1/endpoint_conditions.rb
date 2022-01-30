@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Discovery::V1beta1
   class EndpointConditions < ::KubeDSL::DSLObject
     value_field :ready

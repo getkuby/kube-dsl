@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class KeyValueFieldRes
     include StringHelpers
@@ -16,6 +17,13 @@ module KubeDSL
     def fields_to_ruby(_inflector)
       [
         "key_value_field(:#{underscore(name)}, format: :#{type})"
+      ]
+    end
+
+    def fields_to_rbi(_inflector)
+      [
+        "sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }",
+        "def #{underscore(name)}(&block); end\n"
       ]
     end
 

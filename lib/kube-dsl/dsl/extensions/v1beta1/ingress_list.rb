@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class IngressList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Extensions::V1beta1::Ingress.new }

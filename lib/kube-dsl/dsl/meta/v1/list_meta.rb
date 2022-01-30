@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class ListMeta < ::KubeDSL::DSLObject
     value_field :continue

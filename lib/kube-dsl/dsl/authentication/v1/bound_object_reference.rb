@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1
   class BoundObjectReference < ::KubeDSL::DSLObject
     value_field :api_version

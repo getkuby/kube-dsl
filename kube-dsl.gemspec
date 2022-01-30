@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.description = s.summary = 'A Ruby DSL for defining Kubernetes resources.'
 
   s.add_dependency 'dry-inflector', '~> 0.2'
+  s.add_dependency 'sorbet-runtime-stub', '~> 0.2'
 
   s.require_path = 'lib'
   s.files = Dir['{lib,spec}/**/*', 'Gemfile', 'LICENSE', 'CHANGELOG.md', 'README.md', 'Rakefile', 'kube-dsl.gemspec']

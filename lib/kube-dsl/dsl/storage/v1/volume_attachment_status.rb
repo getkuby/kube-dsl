@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1
   class VolumeAttachmentStatus < ::KubeDSL::DSLObject
     object_field(:attach_error) { KubeDSL::DSL::Storage::V1::VolumeError.new }

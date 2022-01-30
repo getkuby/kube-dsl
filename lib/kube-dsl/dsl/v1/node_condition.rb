@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class NodeCondition < ::KubeDSL::DSLObject
     value_field :last_heartbeat_time

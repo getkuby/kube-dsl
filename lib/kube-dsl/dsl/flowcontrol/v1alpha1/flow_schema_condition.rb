@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class FlowSchemaCondition < ::KubeDSL::DSLObject
     value_field :last_transition_time

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class MetricValueStatus < ::KubeDSL::DSLObject
     value_field :average_utilization

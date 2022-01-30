@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1
   class NetworkPolicyList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Networking::V1::NetworkPolicy.new }

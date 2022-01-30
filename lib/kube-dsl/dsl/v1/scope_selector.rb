@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ScopeSelector < ::KubeDSL::DSLObject
     array_field(:match_expression) { KubeDSL::DSL::V1::ScopedResourceSelectorRequirement.new }

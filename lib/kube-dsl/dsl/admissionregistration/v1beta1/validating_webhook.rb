@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Admissionregistration::V1beta1
   class ValidatingWebhook < ::KubeDSL::DSLObject
     value_field :admission_review_versions

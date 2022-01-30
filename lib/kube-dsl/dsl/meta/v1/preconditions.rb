@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class Preconditions < ::KubeDSL::DSLObject
     value_field :resource_version

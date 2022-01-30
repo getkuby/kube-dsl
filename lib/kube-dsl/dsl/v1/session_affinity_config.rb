@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class SessionAffinityConfig < ::KubeDSL::DSLObject
     object_field(:client_ip) { KubeDSL::DSL::V1::ClientIPConfig.new }

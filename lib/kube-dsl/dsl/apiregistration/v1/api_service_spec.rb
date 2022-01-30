@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiregistration::V1
   class APIServiceSpec < ::KubeDSL::DSLObject
     value_field :ca_bundle

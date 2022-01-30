@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class NodeStatus < ::KubeDSL::DSLObject
     array_field(:address) { KubeDSL::DSL::V1::NodeAddress.new }

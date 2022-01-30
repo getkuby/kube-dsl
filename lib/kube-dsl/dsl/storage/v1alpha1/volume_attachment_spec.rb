@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1alpha1
   class VolumeAttachmentSpec < ::KubeDSL::DSLObject
     value_field :attacher

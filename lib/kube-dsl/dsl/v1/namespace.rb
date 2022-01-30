@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class Namespace < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

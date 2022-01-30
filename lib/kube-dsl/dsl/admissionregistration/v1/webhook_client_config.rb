@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Admissionregistration::V1
   class WebhookClientConfig < ::KubeDSL::DSLObject
     value_field :ca_bundle

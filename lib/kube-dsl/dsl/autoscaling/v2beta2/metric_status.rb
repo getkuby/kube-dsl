@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class MetricStatus < ::KubeDSL::DSLObject
     object_field(:external) { KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricStatus.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class FlowSchemaSpec < ::KubeDSL::DSLObject
     object_field(:distinguisher_method) { KubeDSL::DSL::Flowcontrol::V1alpha1::FlowDistinguisherMethod.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta2
   class ResourceMetricSource < ::KubeDSL::DSLObject
     value_field :name

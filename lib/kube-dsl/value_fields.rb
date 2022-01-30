@@ -1,3 +1,4 @@
+# typed: false
 require 'securerandom'
 
 module KubeDSL
@@ -43,7 +44,7 @@ module KubeDSL
       def key_value_field(field, format:)
         __fields__[:key_value] << field
 
-        define_method(field) do |*args, &block|
+        define_method(field) do |&block|
           ivar = :"@#{field}"
           val = instance_variable_get(ivar)
 

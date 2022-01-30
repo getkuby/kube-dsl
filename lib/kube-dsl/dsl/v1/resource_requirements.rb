@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ResourceRequirements < ::KubeDSL::DSLObject
     key_value_field(:limits, format: :string)

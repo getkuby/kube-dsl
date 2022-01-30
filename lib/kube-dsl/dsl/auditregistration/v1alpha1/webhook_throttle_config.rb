@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class WebhookThrottleConfig < ::KubeDSL::DSLObject
     value_field :burst

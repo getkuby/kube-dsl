@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1
   class StatefulSetList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apps::V1::StatefulSet.new }

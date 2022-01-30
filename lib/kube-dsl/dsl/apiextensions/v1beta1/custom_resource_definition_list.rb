@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1beta1
   class CustomResourceDefinitionList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinition.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ConfigMap < ::KubeDSL::DSLObject
     key_value_field(:binary_data, format: :byte)

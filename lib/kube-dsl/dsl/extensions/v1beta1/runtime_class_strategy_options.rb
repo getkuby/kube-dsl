@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class RuntimeClassStrategyOptions < ::KubeDSL::DSLObject
     value_field :allowed_runtime_class_names

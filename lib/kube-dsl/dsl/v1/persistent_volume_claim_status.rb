@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PersistentVolumeClaimStatus < ::KubeDSL::DSLObject
     value_field :access_modes

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1alpha1
   class Overhead < ::KubeDSL::DSLObject
     key_value_field(:pod_fixed, format: :string)

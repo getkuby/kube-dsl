@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1alpha1
   class VolumeAttachmentList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Storage::V1alpha1::VolumeAttachment.new }

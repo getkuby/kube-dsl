@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1beta1
   class IngressSpec < ::KubeDSL::DSLObject
     object_field(:backend) { KubeDSL::DSL::Networking::V1beta1::IngressBackend.new }

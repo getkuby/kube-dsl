@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Discovery::V1beta1
   class EndpointPort < ::KubeDSL::DSLObject
     value_field :app_protocol

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Auditregistration::V1alpha1
   class AuditSinkSpec < ::KubeDSL::DSLObject
     object_field(:policy) { KubeDSL::DSL::Auditregistration::V1alpha1::Policy.new }

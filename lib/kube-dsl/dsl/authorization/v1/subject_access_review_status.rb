@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1
   class SubjectAccessReviewStatus < ::KubeDSL::DSLObject
     value_field :allowed

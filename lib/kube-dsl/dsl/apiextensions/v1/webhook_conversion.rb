@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class WebhookConversion < ::KubeDSL::DSLObject
     object_field(:client_config) { KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig.new }

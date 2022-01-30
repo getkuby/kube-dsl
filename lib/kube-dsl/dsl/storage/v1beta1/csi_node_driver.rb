@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class CSINodeDriver < ::KubeDSL::DSLObject
     object_field(:allocatable) { KubeDSL::DSL::Storage::V1beta1::VolumeNodeResources.new }

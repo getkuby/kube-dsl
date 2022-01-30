@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ResourceFieldSelector < ::KubeDSL::DSLObject
     value_field :container_name

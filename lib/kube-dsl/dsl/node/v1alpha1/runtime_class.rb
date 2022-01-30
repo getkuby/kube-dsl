@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Node::V1alpha1
   class RuntimeClass < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class Affinity < ::KubeDSL::DSLObject
     object_field(:node_affinity) { KubeDSL::DSL::V1::NodeAffinity.new }

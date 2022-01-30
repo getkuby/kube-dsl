@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ObjectFieldSelector < ::KubeDSL::DSLObject
     value_field :api_version

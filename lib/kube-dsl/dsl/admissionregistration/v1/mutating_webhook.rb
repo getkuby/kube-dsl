@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Admissionregistration::V1
   class MutatingWebhook < ::KubeDSL::DSLObject
     value_field :admission_review_versions

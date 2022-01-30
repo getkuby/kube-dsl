@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1beta1
   class SubjectAccessReviewSpec < ::KubeDSL::DSLObject
     key_value_field(:extra, format: :string)

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestSpec < ::KubeDSL::DSLObject
     key_value_field(:extra, format: :string)

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authorization::V1beta1
   class ResourceRule < ::KubeDSL::DSLObject
     value_field :api_groups

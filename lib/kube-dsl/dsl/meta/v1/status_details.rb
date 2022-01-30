@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Meta::V1
   class StatusDetails < ::KubeDSL::DSLObject
     array_field(:cause) { KubeDSL::DSL::Meta::V1::StatusCause.new }

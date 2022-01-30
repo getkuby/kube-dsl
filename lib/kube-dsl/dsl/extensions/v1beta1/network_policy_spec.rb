@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class NetworkPolicySpec < ::KubeDSL::DSLObject
     array_field(:egress) { KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyEgressRule.new }

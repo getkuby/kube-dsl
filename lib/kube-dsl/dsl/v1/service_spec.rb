@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ServiceSpec < ::KubeDSL::DSLObject
     value_field :cluster_ip

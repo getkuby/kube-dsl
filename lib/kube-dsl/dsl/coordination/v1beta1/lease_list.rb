@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Coordination::V1beta1
   class LeaseList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Coordination::V1beta1::Lease.new }

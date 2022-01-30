@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V1
   class JobList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Batch::V1::Job.new }

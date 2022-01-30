@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V2alpha1
   class CronJobStatus < ::KubeDSL::DSLObject
     array_field(:active) { KubeDSL::DSL::V1::ObjectReference.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1beta1
   class CSIDriverSpec < ::KubeDSL::DSLObject
     value_field :attach_required

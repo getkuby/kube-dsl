@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class TCPSocketAction < ::KubeDSL::DSLObject
     value_field :host

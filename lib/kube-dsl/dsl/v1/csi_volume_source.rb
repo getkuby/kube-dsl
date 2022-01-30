@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class CSIVolumeSource < ::KubeDSL::DSLObject
     value_field :driver

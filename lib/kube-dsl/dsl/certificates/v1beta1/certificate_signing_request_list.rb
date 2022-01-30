@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequest.new }

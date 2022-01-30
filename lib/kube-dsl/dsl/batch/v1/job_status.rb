@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Batch::V1
   class JobStatus < ::KubeDSL::DSLObject
     value_field :active

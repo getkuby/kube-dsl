@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class AllowedFlexVolume < ::KubeDSL::DSLObject
     value_field :driver

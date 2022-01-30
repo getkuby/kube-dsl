@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class LimitResponse < ::KubeDSL::DSLObject
     object_field(:queuing) { KubeDSL::DSL::Flowcontrol::V1alpha1::QueuingConfiguration.new }

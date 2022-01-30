@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PodSecurityContext < ::KubeDSL::DSLObject
     value_field :fs_group

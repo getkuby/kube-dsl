@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Discovery::V1beta1
   class EndpointSliceList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Discovery::V1beta1::EndpointSlice.new }

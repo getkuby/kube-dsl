@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Certificates::V1beta1
   class CertificateSigningRequestStatus < ::KubeDSL::DSLObject
     value_field :certificate

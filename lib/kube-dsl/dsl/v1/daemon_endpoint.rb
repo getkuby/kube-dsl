@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class DaemonEndpoint < ::KubeDSL::DSLObject
     value_field :port

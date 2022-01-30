@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class ScaleStatus < ::KubeDSL::DSLObject
     value_field :replicas

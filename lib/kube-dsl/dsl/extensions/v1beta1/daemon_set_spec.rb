@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class DaemonSetSpec < ::KubeDSL::DSLObject
     value_field :min_ready_seconds

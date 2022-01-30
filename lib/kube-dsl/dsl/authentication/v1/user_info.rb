@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Authentication::V1
   class UserInfo < ::KubeDSL::DSLObject
     key_value_field(:extra, format: :string)

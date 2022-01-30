@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class VolumeProjection < ::KubeDSL::DSLObject
     object_field(:config_map) { KubeDSL::DSL::V1::ConfigMapProjection.new }

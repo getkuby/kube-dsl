@@ -1,3 +1,4 @@
+# typed: false
 require 'json'
 
 module KubeDSL
@@ -16,6 +17,7 @@ module KubeDSL
       @dsl_namespace = dsl_namespace
       @entrypoint_namespace = entrypoint_namespace
       @resolvers ||= {}
+      @resources = nil
     end
 
     def register_resolver(*prefixes, &resolver)
@@ -33,25 +35,56 @@ module KubeDSL
     end
 
     def entrypoint(&block)
-      ''.tap do |ruby_code|
-        ruby_code << "module #{entrypoint_namespace.join('::')}::Entrypoint\n"
+      kinds = each_resource.map do |resource|
+        ns = resource.ref.ruby_namespace.join('::')
+        next if block && !block.call(resource, ns)
 
-        each_resource do |resource|
-          ns = resource.ref.ruby_namespace.join('::')
-          next if block && !block.call(resource, ns)
+        resource.ref.kind
+      end
 
-          ruby_code << "  def #{underscore(resource.ref.kind)}(&block)\n"
-          ruby_code << "    ::#{ns}::#{resource.ref.kind}.new(&block)\n"
-          ruby_code << "  end\n\n"
+      ambiguous_kinds = kinds.compact.tally.each_with_object([]) do |(kind, count), memo|
+        memo << kind if count > 1
+      end
+
+      ruby_code = "# typed: strict\n\nmodule #{entrypoint_namespace.join('::')}::Entrypoint\n"
+      rbi_code = ruby_code.dup
+
+      each_resource do |resource|
+        ns = resource.ref.ruby_namespace.join('::')
+        next if block && !block.call(resource, ns)
+
+        method_name = if ambiguous_kinds.include?(resource.ref.kind)
+          underscore([resource.ref.namespace, resource.ref.version, resource.ref.kind].join('_'))
+        else
+          underscore(resource.ref.kind)
         end
 
-        ruby_code.strip!
-        ruby_code << "\nend\n"
+        ruby_code << "  def #{method_name}(&block)\n"
+        ruby_code << "    ::#{ns}::#{resource.ref.kind}.new(&block)\n"
+        ruby_code << "  end\n\n"
+
+        rbi_code << "  sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
+        rbi_code << "  def #{method_name}(&block); end\n\n"
       end
+
+      ruby_code.strip!
+      ruby_code << "\nend\n"
+
+      rbi_code.strip!
+      rbi_code << "\nend\n"
+
+      return [ruby_code, rbi_code]
     end
 
     def entrypoint_path
-      File.join(output_dir, File.dirname(autoload_prefix), 'entrypoint.rb')
+      @entrypoint_path ||= File.join(output_dir, File.dirname(autoload_prefix), 'entrypoint.rb')
+    end
+
+    def entrypoint_rbi_path
+      @rbi_path ||= begin
+        rbi_path = File.join('sorbet', 'rbi', *entrypoint_path.split(File::SEPARATOR)[1..-1])
+        "#{rbi_path.chomp('.rb')}.rbi"
+      end
     end
 
     def each_autoload_file(&block)
@@ -82,7 +115,9 @@ module KubeDSL
     def each_resource
       return to_enum(__method__) unless block_given?
 
-      resources.each do |res|
+      load_resources unless @resources
+
+      @resources.each do |res|
         # "External" resources are ones that live outside the current
         # schema, i.e. k8s resources like ObjectMeta that other
         # k8s-compatible schemas depend on.
@@ -95,9 +130,11 @@ module KubeDSL
       end
     end
 
-    def resources
+    def load_resources
+      @resources = []
+
       JSON.parse(File.read(start_path))['oneOf'].map do |entry|
-        resource_from_ref(resolve_ref(entry['$ref']))
+        @resources << resource_from_ref(resolve_ref(entry['$ref']))
       end
     end
 
@@ -185,9 +222,17 @@ module KubeDSL
             )
           end
 
-        when 'object' # this means key/value pairs
-          type = prop.dig('additionalProperties', 'format') || 'string'
-          res.fields[name] = KeyValueFieldRes.new(name, res, type, required)
+        when 'object'
+          if prop.include?('properties')
+            child_ref = InlineRef.new(name, prop, res.ref)
+            child_res = resource_from_ref(child_ref)
+            @resources << child_res
+            res.fields[name] = ObjectFieldRes.new(name, child_res)
+          else
+            # no sub-properties this means key/value pairs
+            type = prop.dig('additionalProperties', 'format') || 'string'
+            res.fields[name] = KeyValueFieldRes.new(name, res, type, required)
+          end
 
         when 'string', 'integer', 'number', 'boolean', 'date-time'
           enum = prop['enum']

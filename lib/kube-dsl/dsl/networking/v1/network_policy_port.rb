@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1
   class NetworkPolicyPort < ::KubeDSL::DSLObject
     value_field :port

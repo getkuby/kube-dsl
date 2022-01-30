@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Networking::V1
   class NetworkPolicyPeer < ::KubeDSL::DSLObject
     object_field(:ip_block) { KubeDSL::DSL::Networking::V1::IPBlock.new }

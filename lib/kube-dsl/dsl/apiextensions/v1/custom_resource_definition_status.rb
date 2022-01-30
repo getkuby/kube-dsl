@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apiextensions::V1
   class CustomResourceDefinitionStatus < ::KubeDSL::DSLObject
     object_field(:accepted_names) { KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames.new }

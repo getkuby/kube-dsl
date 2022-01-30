@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class ContainerState < ::KubeDSL::DSLObject
     object_field(:running) { KubeDSL::DSL::V1::ContainerStateRunning.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Rbac::V1beta1
   class Subject < ::KubeDSL::DSLObject
     value_field :api_group

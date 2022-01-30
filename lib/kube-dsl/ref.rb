@@ -1,3 +1,4 @@
+# typed: false
 module KubeDSL
   class Ref
     include StringHelpers
@@ -24,6 +25,10 @@ module KubeDSL
         @namespace = ns
         @version = v
       end
+    end
+
+    def inline?
+      false
     end
 
     def meta

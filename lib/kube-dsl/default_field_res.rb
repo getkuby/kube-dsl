@@ -1,3 +1,4 @@
+# typed: true
 require 'json'
 
 module KubeDSL
@@ -13,6 +14,10 @@ module KubeDSL
     end
 
     def fields_to_ruby(_inflector)
+      []
+    end
+
+    def fields_to_rbi(_inflector)
       []
     end
 

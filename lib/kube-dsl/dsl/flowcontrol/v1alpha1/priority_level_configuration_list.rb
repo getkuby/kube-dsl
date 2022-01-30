@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Flowcontrol::V1alpha1
   class PriorityLevelConfigurationList < ::KubeDSL::DSLObject
     array_field(:item) { KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfiguration.new }

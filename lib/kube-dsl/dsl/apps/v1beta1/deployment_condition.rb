@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Apps::V1beta1
   class DeploymentCondition < ::KubeDSL::DSLObject
     value_field :last_transition_time

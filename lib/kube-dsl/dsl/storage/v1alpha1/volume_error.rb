@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Storage::V1alpha1
   class VolumeError < ::KubeDSL::DSLObject
     value_field :message

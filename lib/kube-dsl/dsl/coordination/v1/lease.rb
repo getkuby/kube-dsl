@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Coordination::V1
   class Lease < ::KubeDSL::DSLObject
     object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }

@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Extensions::V1beta1
   class DeploymentRollback < ::KubeDSL::DSLObject
     value_field :name

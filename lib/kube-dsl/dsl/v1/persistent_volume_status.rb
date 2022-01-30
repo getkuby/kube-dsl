@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class PersistentVolumeStatus < ::KubeDSL::DSLObject
     value_field :message

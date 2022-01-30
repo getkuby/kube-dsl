@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::Autoscaling::V2beta1
   class PodsMetricStatus < ::KubeDSL::DSLObject
     value_field :current_average_value

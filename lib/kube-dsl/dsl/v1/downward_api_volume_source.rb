@@ -1,3 +1,5 @@
+# typed: true
+
 module KubeDSL::DSL::V1
   class DownwardAPIVolumeSource < ::KubeDSL::DSLObject
     value_field :default_mode
