@@ -15,6 +15,9 @@ module KubeDSL::DSL::V1
     sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
     def label_selector; end
 
+    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+    def namespace_selector; end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def namespaces(val = nil); end
 

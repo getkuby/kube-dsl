@@ -15,5 +15,11 @@ module KubeDSL::DSL::Discovery::V1beta1
     sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
     def ready(val = nil); end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def serving(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def terminating(val = nil); end
+
   end
 end

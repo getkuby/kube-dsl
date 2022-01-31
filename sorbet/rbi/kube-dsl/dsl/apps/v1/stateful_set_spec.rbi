@@ -12,6 +12,9 @@ module KubeDSL::DSL::Apps::V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def min_ready_seconds(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def pod_management_policy(val = nil); end
 

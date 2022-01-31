@@ -116,7 +116,7 @@ module KubeDSL::Entrypoint
   def bound_object_reference(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Authentication::V1::TokenRequest) }
-  def token_request(&block); end
+  def authentication_v1_token_request(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Authentication::V1::TokenRequestSpec) }
   def token_request_spec(&block); end
@@ -199,6 +199,18 @@ module KubeDSL::Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
   def scale_status(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJob) }
+  def cron_job(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobList) }
+  def cron_job_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobSpec) }
+  def cron_job_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobStatus) }
+  def cron_job_status(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::Job) }
   def job(&block); end
 
@@ -213,6 +225,27 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::JobStatus) }
   def job_status(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::JobTemplateSpec) }
+  def job_template_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
+  def uncounted_terminated_pods(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequest) }
+  def certificate_signing_request(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition) }
+  def certificate_signing_request_condition(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestList) }
+  def certificate_signing_request_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestSpec) }
+  def certificate_signing_request_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus) }
+  def certificate_signing_request_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Coordination::V1::Lease) }
   def lease(&block); end
@@ -341,7 +374,7 @@ module KubeDSL::Entrypoint
   def endpoint_address(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EndpointPort) }
-  def endpoint_port(&block); end
+  def v1_endpoint_port(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EndpointSubset) }
   def endpoint_subset(&block); end
@@ -364,14 +397,17 @@ module KubeDSL::Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EphemeralContainer) }
   def ephemeral_container(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EphemeralVolumeSource) }
+  def ephemeral_volume_source(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Event) }
-  def event(&block); end
+  def v1_event(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventList) }
-  def event_list(&block); end
+  def v1_event_list(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventSeries) }
-  def event_series(&block); end
+  def v1_event_series(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventSource) }
   def event_source(&block); end
@@ -538,6 +574,9 @@ module KubeDSL::Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimStatus) }
   def persistent_volume_claim_status(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimTemplate) }
+  def persistent_volume_claim_template(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimVolumeSource) }
   def persistent_volume_claim_volume_source(&block); end
 
@@ -600,6 +639,9 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodTemplateSpec) }
   def pod_template_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PortStatus) }
+  def port_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PortworxVolumeSource) }
   def portworx_volume_source(&block); end
@@ -669,6 +711,9 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::ScopedResourceSelectorRequirement) }
   def scoped_resource_selector_requirement(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::SeccompProfile) }
+  def seccomp_profile(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Secret) }
   def secret(&block); end
@@ -775,8 +820,80 @@ module KubeDSL::Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::WindowsSecurityContextOptions) }
   def windows_security_context_options(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::Endpoint) }
+  def endpoint(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointConditions) }
+  def endpoint_conditions(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointHints) }
+  def endpoint_hints(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointPort) }
+  def discovery_v1_endpoint_port(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointSlice) }
+  def endpoint_slice(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointSliceList) }
+  def endpoint_slice_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::ForZone) }
+  def for_zone(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::Event) }
+  def events_v1_event(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::EventList) }
+  def events_v1_event_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::EventSeries) }
+  def events_v1_event_series(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::HTTPIngressPath) }
+  def http_ingress_path(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
+  def http_ingress_rule_value(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IPBlock) }
   def ip_block(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::Ingress) }
+  def ingress(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressBackend) }
+  def ingress_backend(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClass) }
+  def ingress_class(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassList) }
+  def ingress_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
+  def ingress_class_parameters_reference(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassSpec) }
+  def ingress_class_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressList) }
+  def ingress_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressRule) }
+  def ingress_rule(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressServiceBackend) }
+  def ingress_service_backend(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressSpec) }
+  def ingress_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressStatus) }
+  def ingress_status(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressTLS) }
+  def ingress_tls(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::NetworkPolicy) }
   def network_policy(&block); end
@@ -798,6 +915,36 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::NetworkPolicySpec) }
   def network_policy_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
+  def service_backend_port(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::Overhead) }
+  def overhead(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::RuntimeClass) }
+  def runtime_class(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::RuntimeClassList) }
+  def runtime_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::Scheduling) }
+  def scheduling(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::Eviction) }
+  def eviction(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudget) }
+  def pod_disruption_budget(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetList) }
+  def pod_disruption_budget_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetSpec) }
+  def pod_disruption_budget_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus) }
+  def pod_disruption_budget_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Rbac::V1::AggregationRule) }
   def aggregation_rule(&block); end
@@ -841,6 +988,15 @@ module KubeDSL::Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Scheduling::V1::PriorityClassList) }
   def priority_class_list(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriver) }
+  def csi_driver(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriverList) }
+  def csi_driver_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriverSpec) }
+  def csi_driver_spec(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSINode) }
   def csi_node(&block); end
 
@@ -858,6 +1014,9 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::StorageClassList) }
   def storage_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::TokenRequest) }
+  def storage_v1_token_request(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::VolumeAttachment) }
   def volume_attachment(&block); end
@@ -945,6 +1104,9 @@ module KubeDSL::Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::APIVersions) }
   def api_versions(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::Condition) }
+  def condition(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::DeleteOptions) }
   def delete_options(&block); end

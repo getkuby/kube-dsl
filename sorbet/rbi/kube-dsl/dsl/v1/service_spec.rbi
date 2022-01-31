@@ -12,8 +12,14 @@ module KubeDSL::DSL::V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def allocate_load_balancer_node_ports(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def cluster_ip(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def cluster_i_ps(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def external_i_ps(val = nil); end
@@ -28,7 +34,16 @@ module KubeDSL::DSL::V1
     def health_check_node_port(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def ip_family(val = nil); end
+    def internal_traffic_policy(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def ip_families(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def ip_family_policy(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def load_balancer_class(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def load_balancer_ip(val = nil); end
@@ -55,9 +70,6 @@ module KubeDSL::DSL::V1
 
     sig { returns(KubeDSL::DSL::V1::SessionAffinityConfig) }
     def session_affinity_config; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def topology_keys(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def type(val = nil); end

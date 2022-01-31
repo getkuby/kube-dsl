@@ -13,6 +13,9 @@ module KubeDSL::DSL::Apps::V1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def max_surge(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def max_unavailable(val = nil); end
 
   end

@@ -18,5 +18,13 @@ module KubeDSL::DSL::V1
     sig { params(val: T.nilable(String)).returns(String) }
     def ip(val = nil); end
 
+    sig {
+      params(
+        elem_name: T.nilable(Symbol),
+        block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PortStatus))
+      ).returns(T::Array[KubeDSL::DSL::V1::PortStatus])
+    }
+    def ports(elem_name = nil, &block); end
+
   end
 end

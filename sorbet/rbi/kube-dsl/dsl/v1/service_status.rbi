@@ -12,6 +12,14 @@ module KubeDSL::DSL::V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig {
+      params(
+        elem_name: T.nilable(Symbol),
+        block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))
+      ).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition])
+    }
+    def conditions(elem_name = nil, &block); end
+
     sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
     def load_balancer; end
 

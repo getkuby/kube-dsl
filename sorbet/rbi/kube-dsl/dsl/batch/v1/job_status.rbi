@@ -16,6 +16,9 @@ module KubeDSL::DSL::Batch::V1
     def active(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def completed_indexes(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def completion_time(val = nil); end
 
     sig {
@@ -34,6 +37,9 @@ module KubeDSL::DSL::Batch::V1
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def succeeded(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
+    def uncounted_terminated_pods; end
 
   end
 end

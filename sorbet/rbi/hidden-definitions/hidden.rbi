@@ -2712,6 +2712,38 @@ end
 class CodeRay::TokensProxy
 end
 
+module Commander
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class Commander::HelpFormatter::Base
+  def initialize(runner); end
+
+  def render(); end
+
+  def render_command(command); end
+end
+
+class Commander::HelpFormatter::Base
+end
+
+class Commander::HelpFormatter::Terminal
+  def template(name); end
+end
+
+class Commander::HelpFormatter::Terminal
+end
+
+class Commander::HelpFormatter::TerminalCompact
+end
+
+class Commander::HelpFormatter::TerminalCompact
+end
+
+module Commander::UI::AskForClass
+  DEPRECATED_CONSTANTS = ::T.let(nil, ::T.untyped)
+end
+
 class DRb::DRbArray
   def _dump(lv); end
 end
@@ -2911,6 +2943,14 @@ DRbIdConv = DRb::DRbIdConv
 DRbObject = DRb::DRbObject
 
 DRbUndumped = DRb::DRbUndumped
+
+class Date
+  def infinite?(); end
+end
+
+class Date::Infinity
+  def initialize(d=T.unsafe(nil)); end
+end
 
 class Delegator
   RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
@@ -4101,6 +4141,184 @@ class Hash
   def self.try_convert(_); end
 end
 
+class HighLine
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+module HighLine::BuiltinStyles
+  BASIC_COLORS = ::T.let(nil, ::T.untyped)
+  BLACK = ::T.let(nil, ::T.untyped)
+  BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  BLINK = ::T.let(nil, ::T.untyped)
+  BLINK_STYLE = ::T.let(nil, ::T.untyped)
+  BLUE = ::T.let(nil, ::T.untyped)
+  BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  BOLD = ::T.let(nil, ::T.untyped)
+  BOLD_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_BLACK = ::T.let(nil, ::T.untyped)
+  BRIGHT_BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_BLUE = ::T.let(nil, ::T.untyped)
+  BRIGHT_BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_CYAN = ::T.let(nil, ::T.untyped)
+  BRIGHT_CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_GRAY = ::T.let(nil, ::T.untyped)
+  BRIGHT_GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_GREEN = ::T.let(nil, ::T.untyped)
+  BRIGHT_GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_GREY = ::T.let(nil, ::T.untyped)
+  BRIGHT_GREY_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_MAGENTA = ::T.let(nil, ::T.untyped)
+  BRIGHT_MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_NONE = ::T.let(nil, ::T.untyped)
+  BRIGHT_NONE_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_RED = ::T.let(nil, ::T.untyped)
+  BRIGHT_RED_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_WHITE = ::T.let(nil, ::T.untyped)
+  BRIGHT_WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  BRIGHT_YELLOW = ::T.let(nil, ::T.untyped)
+  BRIGHT_YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+  CLEAR = ::T.let(nil, ::T.untyped)
+  CLEAR_STYLE = ::T.let(nil, ::T.untyped)
+  COLORS = ::T.let(nil, ::T.untyped)
+  COLOR_LIST = ::T.let(nil, ::T.untyped)
+  CONCEALED = ::T.let(nil, ::T.untyped)
+  CONCEALED_STYLE = ::T.let(nil, ::T.untyped)
+  CYAN = ::T.let(nil, ::T.untyped)
+  CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  DARK = ::T.let(nil, ::T.untyped)
+  DARK_STYLE = ::T.let(nil, ::T.untyped)
+  ERASE_CHAR = ::T.let(nil, ::T.untyped)
+  ERASE_CHAR_STYLE = ::T.let(nil, ::T.untyped)
+  ERASE_LINE = ::T.let(nil, ::T.untyped)
+  ERASE_LINE_STYLE = ::T.let(nil, ::T.untyped)
+  GRAY = ::T.let(nil, ::T.untyped)
+  GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  GREEN = ::T.let(nil, ::T.untyped)
+  GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  GREY = ::T.let(nil, ::T.untyped)
+  GREY_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_BLACK = ::T.let(nil, ::T.untyped)
+  LIGHT_BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_BLUE = ::T.let(nil, ::T.untyped)
+  LIGHT_BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_CYAN = ::T.let(nil, ::T.untyped)
+  LIGHT_CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_GRAY = ::T.let(nil, ::T.untyped)
+  LIGHT_GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_GREEN = ::T.let(nil, ::T.untyped)
+  LIGHT_GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_GREY = ::T.let(nil, ::T.untyped)
+  LIGHT_GREY_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_MAGENTA = ::T.let(nil, ::T.untyped)
+  LIGHT_MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_NONE = ::T.let(nil, ::T.untyped)
+  LIGHT_NONE_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_RED = ::T.let(nil, ::T.untyped)
+  LIGHT_RED_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_WHITE = ::T.let(nil, ::T.untyped)
+  LIGHT_WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  LIGHT_YELLOW = ::T.let(nil, ::T.untyped)
+  LIGHT_YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+  MAGENTA = ::T.let(nil, ::T.untyped)
+  MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  NONE = ::T.let(nil, ::T.untyped)
+  NONE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BLACK = ::T.let(nil, ::T.untyped)
+  ON_BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BLUE = ::T.let(nil, ::T.untyped)
+  ON_BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_BLACK = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_BLUE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_CYAN = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GRAY = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GREEN = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GREY = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_GREY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_MAGENTA = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_NONE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_NONE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_RED = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_RED_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_WHITE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_YELLOW = ::T.let(nil, ::T.untyped)
+  ON_BRIGHT_YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+  ON_CYAN = ::T.let(nil, ::T.untyped)
+  ON_CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_GRAY = ::T.let(nil, ::T.untyped)
+  ON_GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_GREEN = ::T.let(nil, ::T.untyped)
+  ON_GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_GREY = ::T.let(nil, ::T.untyped)
+  ON_GREY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_BLACK = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_BLACK_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_BLUE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_BLUE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_CYAN = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_CYAN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GRAY = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GRAY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GREEN = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GREEN_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GREY = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_GREY_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_MAGENTA = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_NONE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_NONE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_RED = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_RED_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_WHITE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_YELLOW = ::T.let(nil, ::T.untyped)
+  ON_LIGHT_YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+  ON_MAGENTA = ::T.let(nil, ::T.untyped)
+  ON_MAGENTA_STYLE = ::T.let(nil, ::T.untyped)
+  ON_NONE = ::T.let(nil, ::T.untyped)
+  ON_NONE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_RED = ::T.let(nil, ::T.untyped)
+  ON_RED_STYLE = ::T.let(nil, ::T.untyped)
+  ON_WHITE = ::T.let(nil, ::T.untyped)
+  ON_WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  ON_YELLOW = ::T.let(nil, ::T.untyped)
+  ON_YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+  RED = ::T.let(nil, ::T.untyped)
+  RED_STYLE = ::T.let(nil, ::T.untyped)
+  RESET = ::T.let(nil, ::T.untyped)
+  RESET_STYLE = ::T.let(nil, ::T.untyped)
+  REVERSE = ::T.let(nil, ::T.untyped)
+  REVERSE_STYLE = ::T.let(nil, ::T.untyped)
+  STYLES = ::T.let(nil, ::T.untyped)
+  STYLE_LIST = ::T.let(nil, ::T.untyped)
+  UNDERLINE = ::T.let(nil, ::T.untyped)
+  UNDERLINE_STYLE = ::T.let(nil, ::T.untyped)
+  UNDERSCORE = ::T.let(nil, ::T.untyped)
+  UNDERSCORE_STYLE = ::T.let(nil, ::T.untyped)
+  WHITE = ::T.let(nil, ::T.untyped)
+  WHITE_STYLE = ::T.let(nil, ::T.untyped)
+  YELLOW = ::T.let(nil, ::T.untyped)
+  YELLOW_STYLE = ::T.let(nil, ::T.untyped)
+end
+
+module HighLine::BuiltinStyles::ClassMethods
+  RGB_COLOR_PATTERN = ::T.let(nil, ::T.untyped)
+end
+
+class HighLine::SampleColorScheme
+  SAMPLE_SCHEME = ::T.let(nil, ::T.untyped)
+end
+
+module HighLine::StringExtensions
+  STYLE_METHOD_NAME_PATTERN = ::T.let(nil, ::T.untyped)
+end
+
 class IO
   def beep(); end
 
@@ -4556,30 +4774,6 @@ class KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhookConfigurationLis
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhook
-  def rule(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhookConfiguration
-  def webhook(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhookConfigurationList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhook
-  def rule(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhookConfiguration
-  def webhook(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhookConfigurationList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
 class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionList
   def item(elem_name=T.unsafe(nil), &block); end
 end
@@ -4614,40 +4808,6 @@ class KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps
   def one_oves(); end
 end
 
-class KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionSpec
-  def additional_printer_column(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionVersion
-  def additional_printer_column(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps
-  def all_of(elem_name=T.unsafe(nil), &block); end
-
-  def all_oves(); end
-
-  def any_of(elem_name=T.unsafe(nil), &block); end
-
-  def any_oves(); end
-
-  def ena(); end
-
-  def enum(elem_name=T.unsafe(nil), &block); end
-
-  def one_of(elem_name=T.unsafe(nil), &block); end
-
-  def one_oves(); end
-end
-
 class KubeDSL::DSL::Apiregistration::V1::APIServiceList
   def item(elem_name=T.unsafe(nil), &block); end
 end
@@ -4656,12 +4816,14 @@ class KubeDSL::DSL::Apiregistration::V1::APIServiceStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Apiregistration::V1beta1::APIServiceList
+class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Apiregistration::V1beta1::APIServiceStatus
+class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+
+  def storage_version(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Apps::V1::ControllerRevisionList
@@ -4704,81 +4866,7 @@ class KubeDSL::DSL::Apps::V1::StatefulSetStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Apps::V1beta1::ControllerRevisionList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta1::DeploymentList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta1::DeploymentStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta1::StatefulSetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta1::StatefulSetSpec
-  def volume_claim_template(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta1::StatefulSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::ControllerRevisionList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::DaemonSetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::DaemonSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::DeploymentList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::DeploymentStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::ReplicaSetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::ReplicaSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::StatefulSetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::StatefulSetSpec
-  def volume_claim_template(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Apps::V1beta2::StatefulSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Auditregistration::V1alpha1::AuditSinkList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
 class KubeDSL::DSL::Authorization::V1::SubjectRulesReviewStatus
-  def non_resource_rule(elem_name=T.unsafe(nil), &block); end
-
-  def resource_rule(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Authorization::V1beta1::SubjectRulesReviewStatus
   def non_resource_rule(elem_name=T.unsafe(nil), &block); end
 
   def resource_rule(elem_name=T.unsafe(nil), &block); end
@@ -4802,6 +4890,10 @@ class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerStatus
   def current_metric(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingRules
+  def policy(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerList
   def item(elem_name=T.unsafe(nil), &block); end
 end
@@ -4814,6 +4906,14 @@ class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 
   def current_metric(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Batch::V1::CronJobList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Batch::V1::CronJobStatus
+  def active(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Batch::V1::JobList
@@ -4832,19 +4932,11 @@ class KubeDSL::DSL::Batch::V1beta1::CronJobStatus
   def active(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Batch::V2alpha1::CronJobList
+class KubeDSL::DSL::Certificates::V1::CertificateSigningRequestList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Batch::V2alpha1::CronJobStatus
-  def active(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestStatus
+class KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
@@ -4852,8 +4944,22 @@ class KubeDSL::DSL::Coordination::V1::LeaseList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Coordination::V1beta1::LeaseList
+class KubeDSL::DSL::Discovery::V1::EndpointHints
+  def for_zone(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Discovery::V1::EndpointSlice
+  def endpoint(elem_name=T.unsafe(nil), &block); end
+
+  def port(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Discovery::V1::EndpointSliceList
   def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Discovery::V1beta1::EndpointHints
+  def for_zone(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Discovery::V1beta1::EndpointSlice
@@ -4866,113 +4972,27 @@ class KubeDSL::DSL::Discovery::V1beta1::EndpointSliceList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Events::V1::EventList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::Events::V1beta1::EventList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Extensions::V1beta1::DaemonSetList
+class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Extensions::V1beta1::DaemonSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::DeploymentList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::DeploymentStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::FSGroupStrategyOptions
-  def range(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::HTTPIngressRuleValue
-  def path(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::IngressList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::IngressSpec
-  def rule(elem_name=T.unsafe(nil), &block); end
-
-  def tls(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyEgressRule
-  def port(elem_name=T.unsafe(nil), &block); end
-
-  def to(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyIngressRule
-  def from(elem_name=T.unsafe(nil), &block); end
-
-  def port(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::NetworkPolicySpec
-  def egress(elem_name=T.unsafe(nil), &block); end
-
-  def ingress(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::PodSecurityPolicyList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::PodSecurityPolicySpec
-  def allowed_csi_driver(elem_name=T.unsafe(nil), &block); end
-
-  def allowed_flex_volume(elem_name=T.unsafe(nil), &block); end
-
-  def allowed_host_path(elem_name=T.unsafe(nil), &block); end
-
-  def host_port(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::ReplicaSetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::ReplicaSetStatus
-  def condition(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::RunAsGroupStrategyOptions
-  def range(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::RunAsUserStrategyOptions
-  def range(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Extensions::V1beta1::SupplementalGroupsStrategyOptions
-  def range(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaSpec
+class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaSpec
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaStatus
+class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects
+class KubeDSL::DSL::Flowcontrol::V1beta1::PolicyRulesWithSubjects
   def non_resource_rule(elem_name=T.unsafe(nil), &block); end
 
   def resource_rule(elem_name=T.unsafe(nil), &block); end
@@ -4980,11 +5000,11 @@ class KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationList
+class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationStatus
+class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
@@ -5020,6 +5040,24 @@ class KubeDSL::DSL::Meta::V1::StatusDetails
   def cause(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue
+  def path(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressClassList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressSpec
+  def rule(elem_name=T.unsafe(nil), &block); end
+
+  def tls(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::Networking::V1::NetworkPolicyEgressRule
   def port(elem_name=T.unsafe(nil), &block); end
 
@@ -5042,20 +5080,6 @@ class KubeDSL::DSL::Networking::V1::NetworkPolicySpec
   def ingress(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Networking::V1beta1::HTTPIngressRuleValue
-  def path(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Networking::V1beta1::IngressList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Networking::V1beta1::IngressSpec
-  def rule(elem_name=T.unsafe(nil), &block); end
-
-  def tls(elem_name=T.unsafe(nil), &block); end
-end
-
 class KubeDSL::DSL::Node::V1alpha1::RuntimeClassList
   def item(elem_name=T.unsafe(nil), &block); end
 end
@@ -5072,12 +5096,24 @@ class KubeDSL::DSL::Node::V1beta1::Scheduling
   def toleration(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Policy::V1::PodDisruptionBudgetList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus
+  def condition(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions
   def range(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetList
   def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetStatus
+  def condition(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicyList
@@ -5178,42 +5214,6 @@ class KubeDSL::DSL::Rbac::V1alpha1::RoleList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Rbac::V1beta1::AggregationRule
-  def cluster_role_selector(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::ClusterRole
-  def rule(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::ClusterRoleBinding
-  def subject(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::ClusterRoleBindingList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::ClusterRoleList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::Role
-  def rule(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::RoleBinding
-  def subject(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::RoleBindingList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Rbac::V1beta1::RoleList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
 class KubeDSL::DSL::Scheduling::V1::PriorityClassList
   def item(elem_name=T.unsafe(nil), &block); end
 end
@@ -5222,22 +5222,12 @@ class KubeDSL::DSL::Scheduling::V1alpha1::PriorityClassList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Scheduling::V1beta1::PriorityClassList
+class KubeDSL::DSL::Storage::V1::CSIDriverList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Settings::V1alpha1::PodPresetList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Settings::V1alpha1::PodPresetSpec
-  def env(elem_name=T.unsafe(nil), &block); end
-
-  def env_from(elem_name=T.unsafe(nil), &block); end
-
-  def volume(elem_name=T.unsafe(nil), &block); end
-
-  def volume_mount(elem_name=T.unsafe(nil), &block); end
+class KubeDSL::DSL::Storage::V1::CSIDriverSpec
+  def token_request(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Storage::V1::CSINodeList
@@ -5260,31 +5250,15 @@ class KubeDSL::DSL::Storage::V1::VolumeAttachmentList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Storage::V1alpha1::CSIStorageCapacityList
+  def item(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
-class KubeDSL::DSL::Storage::V1beta1::CSIDriverList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Storage::V1beta1::CSINodeList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Storage::V1beta1::CSINodeSpec
-  def driver(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Storage::V1beta1::StorageClass
-  def allowed_topology(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Storage::V1beta1::StorageClassList
-  def item(elem_name=T.unsafe(nil), &block); end
-end
-
-class KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentList
+class KubeDSL::DSL::Storage::V1beta1::CSIStorageCapacityList
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
@@ -5370,6 +5344,10 @@ end
 
 class KubeDSL::DSL::V1::LimitRangeSpec
   def limit(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::V1::LoadBalancerIngress
+  def port(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::V1::LoadBalancerStatus
@@ -5536,6 +5514,10 @@ class KubeDSL::DSL::V1::ServiceSpec
   def port(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::ServiceStatus
+  def condition(elem_name=T.unsafe(nil), &block); end
+end
+
 class KubeDSL::DSL::V1::TopologySelectorTerm
   def match_label_expression(elem_name=T.unsafe(nil), &block); end
 end
@@ -5658,6 +5640,193 @@ class OptionParser::ParseError
   def additional(); end
 
   def additional=(additional); end
+end
+
+class Parlour::ConflictResolver
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Conversion::Converter
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module Parlour::Debugging::Tree
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module Parlour::Debugging
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Generator
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Options
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::ParseError
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Plugin
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::RbiGenerator::Parameter
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::RbiGenerator::StructProp
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::RbsGenerator::Block
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::RbsGenerator::MethodSignature
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::RbsGenerator::Parameter
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module Parlour::TypeLoader
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::TypeParser::NodePath
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::TypeParser
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::TypedObject
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Types::Proc::Parameter
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Parlour::Types::Type
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+ParseError = Racc::ParseError
+
+module Parser
+  MESSAGES = ::T.let(nil, ::T.untyped)
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Context
+  FLAGS = ::T.let(nil, ::T.untyped)
+end
+
+Parser::CurrentRuby = Parser::Ruby27
+
+class Parser::Diagnostic
+  LEVELS = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Lexer
+  ESCAPES = ::T.let(nil, ::T.untyped)
+  KEYWORDS = ::T.let(nil, ::T.untyped)
+  KEYWORDS_BEGIN = ::T.let(nil, ::T.untyped)
+  LEX_STATES = ::T.let(nil, ::T.untyped)
+  PUNCTUATION = ::T.let(nil, ::T.untyped)
+  PUNCTUATION_BEGIN = ::T.let(nil, ::T.untyped)
+  REGEXP_META_CHARACTERS = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Lexer::Dedenter
+  TAB_WIDTH = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Lexer::Literal
+  DELIMITERS = ::T.let(nil, ::T.untyped)
+  TYPES = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::MaxNumparamStack
+  ORDINARY_PARAMS = ::T.let(nil, ::T.untyped)
+end
+
+module Parser::Meta
+  NODE_TYPES = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Rewriter
+  DEPRECATION_WARNING = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Ruby24
+  Racc_arg = ::T.let(nil, ::T.untyped)
+  Racc_debug_parser = ::T.let(nil, ::T.untyped)
+  Racc_token_to_s_table = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Ruby27
+  Racc_arg = ::T.let(nil, ::T.untyped)
+  Racc_debug_parser = ::T.let(nil, ::T.untyped)
+  Racc_token_to_s_table = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Source::Buffer
+  ENCODING_RE = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Source::Comment::Associator
+  MAGIC_COMMENT_RE = ::T.let(nil, ::T.untyped)
+  POSTFIX_TYPES = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Source::Rewriter
+  DEPRECATION_WARNING = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Source::TreeRewriter
+  ACTIONS = ::T.let(nil, ::T.untyped)
+  DEPRECATION_WARNING = ::T.let(nil, ::T.untyped)
+  POLICY_TO_LEVEL = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::StaticEnvironment
+  ANONYMOUS_BLOCKARG = ::T.let(nil, ::T.untyped)
+  FORWARD_ARGS = ::T.let(nil, ::T.untyped)
 end
 
 class Pathname
@@ -6599,6 +6768,19 @@ end
 
 module RSpec::Version
   STRING = ::T.let(nil, ::T.untyped)
+end
+
+module Racc
+  Copyright = ::T.let(nil, ::T.untyped)
+  Racc_No_Extentions = ::T.let(nil, ::T.untyped)
+  VERSION = ::T.let(nil, ::T.untyped)
+  Version = ::T.let(nil, ::T.untyped)
+end
+
+class Racc::CparseParams
+end
+
+class Racc::CparseParams
 end
 
 class Racc::Parser
@@ -8376,10 +8558,6 @@ class String
   def shellescape(); end
 
   def shellsplit(); end
-end
-
-class String
-  extend ::JSON::Ext::Generator::GeneratorMethods::String::Extend
 end
 
 class StringIO

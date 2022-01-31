@@ -28,6 +28,9 @@ module KubeDSL::DSL::Meta::V1
     def operation(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def subresource(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def time(val = nil); end
 
   end

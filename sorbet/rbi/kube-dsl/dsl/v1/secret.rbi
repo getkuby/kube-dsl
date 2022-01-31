@@ -15,6 +15,9 @@ module KubeDSL::DSL::V1
     sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
     def data(&block); end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def immutable(val = nil); end
+
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 

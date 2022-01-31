@@ -11,6 +11,7 @@ module KubeDSL::DSL::V1
     object_field(:csi) { KubeDSL::DSL::V1::CSIVolumeSource.new }
     object_field(:downward_api) { KubeDSL::DSL::V1::DownwardAPIVolumeSource.new }
     object_field(:empty_dir) { KubeDSL::DSL::V1::EmptyDirVolumeSource.new }
+    object_field(:ephemeral) { KubeDSL::DSL::V1::EphemeralVolumeSource.new }
     object_field(:fc) { KubeDSL::DSL::V1::FCVolumeSource.new }
     object_field(:flex_volume) { KubeDSL::DSL::V1::FlexVolumeSource.new }
     object_field(:flocker) { KubeDSL::DSL::V1::FlockerVolumeSource.new }
@@ -41,6 +42,7 @@ module KubeDSL::DSL::V1
     validates :csi, object: { kind_of: KubeDSL::DSL::V1::CSIVolumeSource }
     validates :downward_api, object: { kind_of: KubeDSL::DSL::V1::DownwardAPIVolumeSource }
     validates :empty_dir, object: { kind_of: KubeDSL::DSL::V1::EmptyDirVolumeSource }
+    validates :ephemeral, object: { kind_of: KubeDSL::DSL::V1::EphemeralVolumeSource }
     validates :fc, object: { kind_of: KubeDSL::DSL::V1::FCVolumeSource }
     validates :flex_volume, object: { kind_of: KubeDSL::DSL::V1::FlexVolumeSource }
     validates :flocker, object: { kind_of: KubeDSL::DSL::V1::FlockerVolumeSource }
@@ -73,6 +75,7 @@ module KubeDSL::DSL::V1
         result[:csi] = csi.serialize
         result[:downwardAPI] = downward_api.serialize
         result[:emptyDir] = empty_dir.serialize
+        result[:ephemeral] = ephemeral.serialize
         result[:fc] = fc.serialize
         result[:flexVolume] = flex_volume.serialize
         result[:flocker] = flocker.serialize

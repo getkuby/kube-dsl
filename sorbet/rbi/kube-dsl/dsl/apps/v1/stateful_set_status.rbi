@@ -13,6 +13,9 @@ module KubeDSL::DSL::Apps::V1
     def kind_sym; end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def available_replicas(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
     def collision_count(val = nil); end
 
     sig {

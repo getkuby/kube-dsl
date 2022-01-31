@@ -13,6 +13,9 @@ module KubeDSL::DSL::V1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def app_protocol(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def name(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }

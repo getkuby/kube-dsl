@@ -39,6 +39,9 @@ module KubeDSL::DSL::V1
     sig { returns(KubeDSL::DSL::V1::EmptyDirVolumeSource) }
     def empty_dir; end
 
+    sig { returns(KubeDSL::DSL::V1::EphemeralVolumeSource) }
+    def ephemeral; end
+
     sig { returns(KubeDSL::DSL::V1::FCVolumeSource) }
     def fc; end
 

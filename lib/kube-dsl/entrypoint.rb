@@ -153,7 +153,7 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Authentication::V1::BoundObjectReference.new(&block)
   end
 
-  def token_request(&block)
+  def authentication_v1_token_request(&block)
     ::KubeDSL::DSL::Authentication::V1::TokenRequest.new(&block)
   end
 
@@ -265,6 +265,22 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Autoscaling::V1::ScaleStatus.new(&block)
   end
 
+  def cron_job(&block)
+    ::KubeDSL::DSL::Batch::V1::CronJob.new(&block)
+  end
+
+  def cron_job_list(&block)
+    ::KubeDSL::DSL::Batch::V1::CronJobList.new(&block)
+  end
+
+  def cron_job_spec(&block)
+    ::KubeDSL::DSL::Batch::V1::CronJobSpec.new(&block)
+  end
+
+  def cron_job_status(&block)
+    ::KubeDSL::DSL::Batch::V1::CronJobStatus.new(&block)
+  end
+
   def job(&block)
     ::KubeDSL::DSL::Batch::V1::Job.new(&block)
   end
@@ -283,6 +299,34 @@ module KubeDSL::Entrypoint
 
   def job_status(&block)
     ::KubeDSL::DSL::Batch::V1::JobStatus.new(&block)
+  end
+
+  def job_template_spec(&block)
+    ::KubeDSL::DSL::Batch::V1::JobTemplateSpec.new(&block)
+  end
+
+  def uncounted_terminated_pods(&block)
+    ::KubeDSL::DSL::Batch::V1::UncountedTerminatedPods.new(&block)
+  end
+
+  def certificate_signing_request(&block)
+    ::KubeDSL::DSL::Certificates::V1::CertificateSigningRequest.new(&block)
+  end
+
+  def certificate_signing_request_condition(&block)
+    ::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition.new(&block)
+  end
+
+  def certificate_signing_request_list(&block)
+    ::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestList.new(&block)
+  end
+
+  def certificate_signing_request_spec(&block)
+    ::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestSpec.new(&block)
+  end
+
+  def certificate_signing_request_status(&block)
+    ::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus.new(&block)
   end
 
   def lease(&block)
@@ -453,7 +497,7 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::V1::EndpointAddress.new(&block)
   end
 
-  def endpoint_port(&block)
+  def v1_endpoint_port(&block)
     ::KubeDSL::DSL::V1::EndpointPort.new(&block)
   end
 
@@ -485,15 +529,19 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::V1::EphemeralContainer.new(&block)
   end
 
-  def event(&block)
+  def ephemeral_volume_source(&block)
+    ::KubeDSL::DSL::V1::EphemeralVolumeSource.new(&block)
+  end
+
+  def v1_event(&block)
     ::KubeDSL::DSL::V1::Event.new(&block)
   end
 
-  def event_list(&block)
+  def v1_event_list(&block)
     ::KubeDSL::DSL::V1::EventList.new(&block)
   end
 
-  def event_series(&block)
+  def v1_event_series(&block)
     ::KubeDSL::DSL::V1::EventSeries.new(&block)
   end
 
@@ -717,6 +765,10 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::V1::PersistentVolumeClaimStatus.new(&block)
   end
 
+  def persistent_volume_claim_template(&block)
+    ::KubeDSL::DSL::V1::PersistentVolumeClaimTemplate.new(&block)
+  end
+
   def persistent_volume_claim_volume_source(&block)
     ::KubeDSL::DSL::V1::PersistentVolumeClaimVolumeSource.new(&block)
   end
@@ -799,6 +851,10 @@ module KubeDSL::Entrypoint
 
   def pod_template_spec(&block)
     ::KubeDSL::DSL::V1::PodTemplateSpec.new(&block)
+  end
+
+  def port_status(&block)
+    ::KubeDSL::DSL::V1::PortStatus.new(&block)
   end
 
   def portworx_volume_source(&block)
@@ -891,6 +947,10 @@ module KubeDSL::Entrypoint
 
   def scoped_resource_selector_requirement(&block)
     ::KubeDSL::DSL::V1::ScopedResourceSelectorRequirement.new(&block)
+  end
+
+  def seccomp_profile(&block)
+    ::KubeDSL::DSL::V1::SeccompProfile.new(&block)
   end
 
   def secret(&block)
@@ -1033,8 +1093,104 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::V1::WindowsSecurityContextOptions.new(&block)
   end
 
+  def endpoint(&block)
+    ::KubeDSL::DSL::Discovery::V1::Endpoint.new(&block)
+  end
+
+  def endpoint_conditions(&block)
+    ::KubeDSL::DSL::Discovery::V1::EndpointConditions.new(&block)
+  end
+
+  def endpoint_hints(&block)
+    ::KubeDSL::DSL::Discovery::V1::EndpointHints.new(&block)
+  end
+
+  def discovery_v1_endpoint_port(&block)
+    ::KubeDSL::DSL::Discovery::V1::EndpointPort.new(&block)
+  end
+
+  def endpoint_slice(&block)
+    ::KubeDSL::DSL::Discovery::V1::EndpointSlice.new(&block)
+  end
+
+  def endpoint_slice_list(&block)
+    ::KubeDSL::DSL::Discovery::V1::EndpointSliceList.new(&block)
+  end
+
+  def for_zone(&block)
+    ::KubeDSL::DSL::Discovery::V1::ForZone.new(&block)
+  end
+
+  def events_v1_event(&block)
+    ::KubeDSL::DSL::Events::V1::Event.new(&block)
+  end
+
+  def events_v1_event_list(&block)
+    ::KubeDSL::DSL::Events::V1::EventList.new(&block)
+  end
+
+  def events_v1_event_series(&block)
+    ::KubeDSL::DSL::Events::V1::EventSeries.new(&block)
+  end
+
+  def http_ingress_path(&block)
+    ::KubeDSL::DSL::Networking::V1::HTTPIngressPath.new(&block)
+  end
+
+  def http_ingress_rule_value(&block)
+    ::KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue.new(&block)
+  end
+
   def ip_block(&block)
     ::KubeDSL::DSL::Networking::V1::IPBlock.new(&block)
+  end
+
+  def ingress(&block)
+    ::KubeDSL::DSL::Networking::V1::Ingress.new(&block)
+  end
+
+  def ingress_backend(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressBackend.new(&block)
+  end
+
+  def ingress_class(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressClass.new(&block)
+  end
+
+  def ingress_class_list(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressClassList.new(&block)
+  end
+
+  def ingress_class_parameters_reference(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressClassParametersReference.new(&block)
+  end
+
+  def ingress_class_spec(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressClassSpec.new(&block)
+  end
+
+  def ingress_list(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressList.new(&block)
+  end
+
+  def ingress_rule(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressRule.new(&block)
+  end
+
+  def ingress_service_backend(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressServiceBackend.new(&block)
+  end
+
+  def ingress_spec(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressSpec.new(&block)
+  end
+
+  def ingress_status(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressStatus.new(&block)
+  end
+
+  def ingress_tls(&block)
+    ::KubeDSL::DSL::Networking::V1::IngressTLS.new(&block)
   end
 
   def network_policy(&block)
@@ -1063,6 +1219,46 @@ module KubeDSL::Entrypoint
 
   def network_policy_spec(&block)
     ::KubeDSL::DSL::Networking::V1::NetworkPolicySpec.new(&block)
+  end
+
+  def service_backend_port(&block)
+    ::KubeDSL::DSL::Networking::V1::ServiceBackendPort.new(&block)
+  end
+
+  def overhead(&block)
+    ::KubeDSL::DSL::Node::V1::Overhead.new(&block)
+  end
+
+  def runtime_class(&block)
+    ::KubeDSL::DSL::Node::V1::RuntimeClass.new(&block)
+  end
+
+  def runtime_class_list(&block)
+    ::KubeDSL::DSL::Node::V1::RuntimeClassList.new(&block)
+  end
+
+  def scheduling(&block)
+    ::KubeDSL::DSL::Node::V1::Scheduling.new(&block)
+  end
+
+  def eviction(&block)
+    ::KubeDSL::DSL::Policy::V1::Eviction.new(&block)
+  end
+
+  def pod_disruption_budget(&block)
+    ::KubeDSL::DSL::Policy::V1::PodDisruptionBudget.new(&block)
+  end
+
+  def pod_disruption_budget_list(&block)
+    ::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetList.new(&block)
+  end
+
+  def pod_disruption_budget_spec(&block)
+    ::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetSpec.new(&block)
+  end
+
+  def pod_disruption_budget_status(&block)
+    ::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus.new(&block)
   end
 
   def aggregation_rule(&block)
@@ -1121,6 +1317,18 @@ module KubeDSL::Entrypoint
     ::KubeDSL::DSL::Scheduling::V1::PriorityClassList.new(&block)
   end
 
+  def csi_driver(&block)
+    ::KubeDSL::DSL::Storage::V1::CSIDriver.new(&block)
+  end
+
+  def csi_driver_list(&block)
+    ::KubeDSL::DSL::Storage::V1::CSIDriverList.new(&block)
+  end
+
+  def csi_driver_spec(&block)
+    ::KubeDSL::DSL::Storage::V1::CSIDriverSpec.new(&block)
+  end
+
   def csi_node(&block)
     ::KubeDSL::DSL::Storage::V1::CSINode.new(&block)
   end
@@ -1143,6 +1351,10 @@ module KubeDSL::Entrypoint
 
   def storage_class_list(&block)
     ::KubeDSL::DSL::Storage::V1::StorageClassList.new(&block)
+  end
+
+  def storage_v1_token_request(&block)
+    ::KubeDSL::DSL::Storage::V1::TokenRequest.new(&block)
   end
 
   def volume_attachment(&block)
@@ -1259,6 +1471,10 @@ module KubeDSL::Entrypoint
 
   def api_versions(&block)
     ::KubeDSL::DSL::Meta::V1::APIVersions.new(&block)
+  end
+
+  def condition(&block)
+    ::KubeDSL::DSL::Meta::V1::Condition.new(&block)
   end
 
   def delete_options(&block)

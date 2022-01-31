@@ -11,6 +11,7 @@ module KubeDSL::DSL::V1
     value_field :run_as_non_root
     value_field :run_as_user
     object_field(:se_linux_options) { KubeDSL::DSL::V1::SELinuxOptions.new }
+    object_field(:seccomp_profile) { KubeDSL::DSL::V1::SeccompProfile.new }
     object_field(:windows_options) { KubeDSL::DSL::V1::WindowsSecurityContextOptions.new }
 
     validates :allow_privilege_escalation, field: { format: :boolean }, presence: false
@@ -22,6 +23,7 @@ module KubeDSL::DSL::V1
     validates :run_as_non_root, field: { format: :boolean }, presence: false
     validates :run_as_user, field: { format: :integer }, presence: false
     validates :se_linux_options, object: { kind_of: KubeDSL::DSL::V1::SELinuxOptions }
+    validates :seccomp_profile, object: { kind_of: KubeDSL::DSL::V1::SeccompProfile }
     validates :windows_options, object: { kind_of: KubeDSL::DSL::V1::WindowsSecurityContextOptions }
 
     def serialize
@@ -35,6 +37,7 @@ module KubeDSL::DSL::V1
         result[:runAsNonRoot] = run_as_non_root
         result[:runAsUser] = run_as_user
         result[:seLinuxOptions] = se_linux_options.serialize
+        result[:seccompProfile] = seccomp_profile.serialize
         result[:windowsOptions] = windows_options.serialize
       end
     end

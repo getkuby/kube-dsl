@@ -54,7 +54,7 @@ module KubeDSL
         next if block && !block.call(resource, ns)
 
         method_name = if ambiguous_kinds.include?(resource.ref.kind)
-          underscore([resource.ref.namespace, resource.ref.version, resource.ref.kind].join('_'))
+          underscore([resource.ref.namespace, resource.ref.version, resource.ref.kind].compact.join('_'))
         else
           underscore(resource.ref.kind)
         end

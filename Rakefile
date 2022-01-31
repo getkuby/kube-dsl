@@ -62,8 +62,7 @@ task :generate do
   end
 
   json_code_files = {
-    'lib/kube-dsl/dsl/apiextensions/v1/json.rb' => 'KubeDSL::DSL::Apiextensions::V1',
-    'lib/kube-dsl/dsl/apiextensions/v1beta1/json.rb' => 'KubeDSL::DSL::Apiextensions::V1beta1'
+    'lib/kube-dsl/dsl/apiextensions/v1/json.rb' => 'KubeDSL::DSL::Apiextensions::V1'
   }
 
   json_code_files.each do |path, namespace|
@@ -97,8 +96,7 @@ task :generate do
   end
 
   json_rbi_files = {
-    'sorbet/rbi/kube-dsl/dsl/apiextensions/v1/json.rbi' => 'KubeDSL::DSL::Apiextensions::V1',
-    'sorbet/rbi/kube-dsl/dsl/apiextensions/v1beta1/json.rbi' => 'KubeDSL::DSL::Apiextensions::V1beta1'
+    'sorbet/rbi/kube-dsl/dsl/apiextensions/v1/json.rbi' => 'KubeDSL::DSL::Apiextensions::V1'
   }
 
   json_rbi_files.each do |path, namespace|

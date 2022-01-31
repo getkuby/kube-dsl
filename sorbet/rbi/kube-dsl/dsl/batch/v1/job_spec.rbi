@@ -18,6 +18,9 @@ module KubeDSL::DSL::Batch::V1
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def backoff_limit(val = nil); end
 
+    sig { params(val: T.nilable(String)).returns(String) }
+    def completion_mode(val = nil); end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def completions(val = nil); end
 
@@ -29,6 +32,9 @@ module KubeDSL::DSL::Batch::V1
 
     sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
     def selector; end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def suspend(val = nil); end
 
     sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
     def template; end

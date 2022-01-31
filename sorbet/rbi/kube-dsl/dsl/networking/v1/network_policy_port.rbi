@@ -12,6 +12,9 @@ module KubeDSL::DSL::Networking::V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def end_port(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def port(val = nil); end
 

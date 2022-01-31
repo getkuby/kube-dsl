@@ -18,6 +18,9 @@ module KubeDSL::DSL::V1
     sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
     def data_source; end
 
+    sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
+    def data_source_ref; end
+
     sig { returns(KubeDSL::DSL::V1::ResourceRequirements) }
     def resources; end
 

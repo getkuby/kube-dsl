@@ -115,7 +115,7 @@ module Entrypoint
   def bound_object_reference(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Authentication::V1::TokenRequest) }
-  def token_request(&block); end
+  def authentication_v1_token_request(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Authentication::V1::TokenRequestSpec) }
   def token_request_spec(&block); end
@@ -198,6 +198,18 @@ module Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
   def scale_status(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJob) }
+  def cron_job(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobList) }
+  def cron_job_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobSpec) }
+  def cron_job_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJobStatus) }
+  def cron_job_status(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::Job) }
   def job(&block); end
 
@@ -212,6 +224,27 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::JobStatus) }
   def job_status(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::JobTemplateSpec) }
+  def job_template_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
+  def uncounted_terminated_pods(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequest) }
+  def certificate_signing_request(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition) }
+  def certificate_signing_request_condition(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestList) }
+  def certificate_signing_request_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestSpec) }
+  def certificate_signing_request_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus) }
+  def certificate_signing_request_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Coordination::V1::Lease) }
   def lease(&block); end
@@ -340,7 +373,7 @@ module Entrypoint
   def endpoint_address(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EndpointPort) }
-  def endpoint_port(&block); end
+  def v1_endpoint_port(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EndpointSubset) }
   def endpoint_subset(&block); end
@@ -363,14 +396,17 @@ module Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EphemeralContainer) }
   def ephemeral_container(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EphemeralVolumeSource) }
+  def ephemeral_volume_source(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Event) }
-  def event(&block); end
+  def v1_event(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventList) }
-  def event_list(&block); end
+  def v1_event_list(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventSeries) }
-  def event_series(&block); end
+  def v1_event_series(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::EventSource) }
   def event_source(&block); end
@@ -537,6 +573,9 @@ module Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimStatus) }
   def persistent_volume_claim_status(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimTemplate) }
+  def persistent_volume_claim_template(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PersistentVolumeClaimVolumeSource) }
   def persistent_volume_claim_volume_source(&block); end
 
@@ -599,6 +638,9 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodTemplateSpec) }
   def pod_template_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PortStatus) }
+  def port_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PortworxVolumeSource) }
   def portworx_volume_source(&block); end
@@ -668,6 +710,9 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::ScopedResourceSelectorRequirement) }
   def scoped_resource_selector_requirement(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::SeccompProfile) }
+  def seccomp_profile(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Secret) }
   def secret(&block); end
@@ -774,8 +819,80 @@ module Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::WindowsSecurityContextOptions) }
   def windows_security_context_options(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::Endpoint) }
+  def endpoint(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointConditions) }
+  def endpoint_conditions(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointHints) }
+  def endpoint_hints(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointPort) }
+  def discovery_v1_endpoint_port(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointSlice) }
+  def endpoint_slice(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::EndpointSliceList) }
+  def endpoint_slice_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Discovery::V1::ForZone) }
+  def for_zone(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::Event) }
+  def events_v1_event(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::EventList) }
+  def events_v1_event_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Events::V1::EventSeries) }
+  def events_v1_event_series(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::HTTPIngressPath) }
+  def http_ingress_path(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
+  def http_ingress_rule_value(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IPBlock) }
   def ip_block(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::Ingress) }
+  def ingress(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressBackend) }
+  def ingress_backend(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClass) }
+  def ingress_class(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassList) }
+  def ingress_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
+  def ingress_class_parameters_reference(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressClassSpec) }
+  def ingress_class_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressList) }
+  def ingress_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressRule) }
+  def ingress_rule(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressServiceBackend) }
+  def ingress_service_backend(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressSpec) }
+  def ingress_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressStatus) }
+  def ingress_status(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::IngressTLS) }
+  def ingress_tls(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::NetworkPolicy) }
   def network_policy(&block); end
@@ -797,6 +914,36 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::NetworkPolicySpec) }
   def network_policy_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
+  def service_backend_port(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::Overhead) }
+  def overhead(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::RuntimeClass) }
+  def runtime_class(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::RuntimeClassList) }
+  def runtime_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Node::V1::Scheduling) }
+  def scheduling(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::Eviction) }
+  def eviction(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudget) }
+  def pod_disruption_budget(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetList) }
+  def pod_disruption_budget_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetSpec) }
+  def pod_disruption_budget_spec(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus) }
+  def pod_disruption_budget_status(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Rbac::V1::AggregationRule) }
   def aggregation_rule(&block); end
@@ -840,6 +987,15 @@ module Entrypoint
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Scheduling::V1::PriorityClassList) }
   def priority_class_list(&block); end
 
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriver) }
+  def csi_driver(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriverList) }
+  def csi_driver_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSIDriverSpec) }
+  def csi_driver_spec(&block); end
+
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::CSINode) }
   def csi_node(&block); end
 
@@ -857,6 +1013,9 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::StorageClassList) }
   def storage_class_list(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::TokenRequest) }
+  def storage_v1_token_request(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Storage::V1::VolumeAttachment) }
   def volume_attachment(&block); end
@@ -944,6 +1103,9 @@ module Entrypoint
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::APIVersions) }
   def api_versions(&block); end
+
+  sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::Condition) }
+  def condition(&block); end
 
   sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Meta::V1::DeleteOptions) }
   def delete_options(&block); end
@@ -1243,203 +1405,6 @@ module V1
   end
 end
 
-module V1beta1
-  class MutatingWebhook < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def admission_review_versions(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Admissionregistration::V1beta1::WebhookClientConfig) }
-    def client_config; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def failure_policy(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def match_policy(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def namespace_selector; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def object_selector; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reinvocation_policy(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::RuleWithOperations))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::RuleWithOperations]) }
-    def rules(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def side_effects(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def timeout_seconds(val = nil); end
-  end
-
-  class MutatingWebhookConfiguration < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhook))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhook]) }
-    def webhooks(elem_name = nil, &block); end
-  end
-
-  class MutatingWebhookConfigurationList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhookConfiguration))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::MutatingWebhookConfiguration]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class RuleWithOperations < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_groups(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_versions(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def operations(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resources(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def scope(val = nil); end
-  end
-
-  class ServiceReference < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def port(val = nil); end
-  end
-
-  class ValidatingWebhook < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def admission_review_versions(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Admissionregistration::V1beta1::WebhookClientConfig) }
-    def client_config; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def failure_policy(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def match_policy(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def namespace_selector; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def object_selector; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::RuleWithOperations))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::RuleWithOperations]) }
-    def rules(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def side_effects(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def timeout_seconds(val = nil); end
-  end
-
-  class ValidatingWebhookConfiguration < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhook))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhook]) }
-    def webhooks(elem_name = nil, &block); end
-  end
-
-  class ValidatingWebhookConfigurationList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhookConfiguration))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1beta1::ValidatingWebhookConfiguration]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class WebhookClientConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def ca_bundle(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Admissionregistration::V1beta1::ServiceReference) }
-    def service; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def url(val = nil); end
-  end
-end
-
 module V1
   class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
@@ -1613,6 +1578,12 @@ module V1
 
     sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceColumnDefinition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::CustomResourceColumnDefinition]) }
     def additional_printer_columns(elem_name = nil, &block); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def deprecated(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def deprecation_warning(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def name(val = nil); end
@@ -1888,455 +1859,6 @@ module V1
   end
 end
 
-module V1beta1
-  class CustomResourceColumnDefinition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def json_path(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def description(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def format(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def priority(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class CustomResourceConversion < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def conversion_review_versions(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def strategy(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::WebhookClientConfig) }
-    def webhook_client_config; end
-  end
-
-  class CustomResourceDefinition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionStatus) }
-    def status; end
-  end
-
-  class CustomResourceDefinitionCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class CustomResourceDefinitionList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinition]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class CustomResourceDefinitionNames < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def categories(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def kind(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def list_kind(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def plural(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def short_names(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def singular(val = nil); end
-  end
-
-  class CustomResourceDefinitionSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceColumnDefinition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceColumnDefinition]) }
-    def additional_printer_columns(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceConversion) }
-    def conversion; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def group(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionNames) }
-    def names; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def preserve_unknown_fields(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def scope(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresources) }
-    def subresources; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceValidation) }
-    def validation; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def version(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionVersion))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionVersion]) }
-    def versions(elem_name = nil, &block); end
-  end
-
-  class CustomResourceDefinitionStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionNames) }
-    def accepted_names; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionCondition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceDefinitionCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def stored_versions(val = nil); end
-  end
-
-  class CustomResourceDefinitionVersion < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceColumnDefinition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceColumnDefinition]) }
-    def additional_printer_columns(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceValidation) }
-    def schema; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def served(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def storage(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresources) }
-    def subresources; end
-  end
-
-  class CustomResourceSubresourceScale < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def label_selector_path(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def spec_replicas_path(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status_replicas_path(val = nil); end
-  end
-
-  class CustomResourceSubresources < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::CustomResourceSubresourceScale) }
-    def scale; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-  end
-
-  class CustomResourceValidation < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps) }
-    def open_apiv3_schema; end
-  end
-
-  class ExternalDocumentation < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def description(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def url(val = nil); end
-  end
-
-  class JSON < ::KubeDSL::DSLObject
-    JSONType = T.type_alias { T.any(
-        T::Array[T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped])],
-        T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
-      ) }
-
-    sig { params(block: T.nilable(T.proc.void)).void }
-    def initialize(&block); end
-
-    sig { returns(JSONType) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(JSONType)).returns(JSONType) }
-    def value(val = nil); end
-  end
-
-  class JSONSchemaProps < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def additional_items(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def additional_properties(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps]) }
-    def all_ofs(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps]) }
-    def any_ofs(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def default(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def definitions(&block); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def dependencies(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def description(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::JSON))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::JSON]) }
-    def enums(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def example(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def exclusive_maximum(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def exclusive_minimum(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::ExternalDocumentation) }
-    def external_docs; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def format(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def id(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def items(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def max_items(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def max_length(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def max_properties(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def maximum(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_items(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_length(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_properties(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def minimum(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def multiple_of(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps) }
-    def not_field; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def nullable(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1beta1::JSONSchemaProps]) }
-    def one_ofs(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def pattern(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def pattern_properties(&block); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def properties(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def required(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def title(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def unique_items(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def x_kubernetes_embedded_resource(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def x_kubernetes_int_or_string(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def x_kubernetes_list_map_keys(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def x_kubernetes_list_type(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def x_kubernetes_map_type(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def x_kubernetes_preserve_unknown_fields(val = nil); end
-  end
-
-  class ServiceReference < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def port(val = nil); end
-  end
-
-  class WebhookClientConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def ca_bundle(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiextensions::V1beta1::ServiceReference) }
-    def service; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def url(val = nil); end
-  end
-end
-
 module V1
   class APIService < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
@@ -2450,8 +1972,25 @@ module V1
   end
 end
 
-module V1beta1
-  class APIService < ::KubeDSL::DSLObject
+module V1alpha1
+  class ServerStorageVersion < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def api_server_id(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def decodable_versions(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def encoding_version(val = nil); end
+  end
+
+  class StorageVersion < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -2461,14 +2000,14 @@ module V1beta1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Apiregistration::V1beta1::APIServiceSpec) }
-    def spec; end
+    sig { params(val: T.nilable(String)).returns(String) }
+    def spec(val = nil); end
 
-    sig { returns(KubeDSL::DSL::Apiregistration::V1beta1::APIServiceStatus) }
+    sig { returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus) }
     def status; end
   end
 
-  class APIServiceCondition < ::KubeDSL::DSLObject
+  class StorageVersionCondition < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -2481,6 +2020,9 @@ module V1beta1
     sig { params(val: T.nilable(String)).returns(String) }
     def message(val = nil); end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def observed_generation(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def reason(val = nil); end
 
@@ -2491,21 +2033,21 @@ module V1beta1
     def type(val = nil); end
   end
 
-  class APIServiceList < ::KubeDSL::DSLObject
+  class StorageVersionList < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiregistration::V1beta1::APIService))).returns(T::Array[KubeDSL::DSL::Apiregistration::V1beta1::APIService]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersion))).returns(T::Array[KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersion]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
   end
 
-  class APIServiceSpec < ::KubeDSL::DSLObject
+  class StorageVersionStatus < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -2513,53 +2055,13 @@ module V1beta1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def ca_bundle(val = nil); end
+    def common_encoding_version(val = nil); end
 
-    sig { params(val: T.nilable(String)).returns(String) }
-    def group(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def group_priority_minimum(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def insecure_skip_tls_verify(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apiregistration::V1beta1::ServiceReference) }
-    def service; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def version(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def version_priority(val = nil); end
-  end
-
-  class APIServiceStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiregistration::V1beta1::APIServiceCondition))).returns(T::Array[KubeDSL::DSL::Apiregistration::V1beta1::APIServiceCondition]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionCondition))).returns(T::Array[KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionCondition]) }
     def conditions(elem_name = nil, &block); end
-  end
 
-  class ServiceReference < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def port(val = nil); end
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::ServerStorageVersion))).returns(T::Array[KubeDSL::DSL::Apiserverinternal::V1alpha1::ServerStorageVersion]) }
+    def storage_versions(elem_name = nil, &block); end
   end
 end
 
@@ -2967,6 +2469,9 @@ module V1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def max_surge(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def max_unavailable(val = nil); end
   end
 
@@ -3056,6 +2561,9 @@ module V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def min_ready_seconds(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def pod_management_policy(val = nil); end
 
@@ -3087,6 +2595,9 @@ module V1
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def available_replicas(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def collision_count(val = nil); end
@@ -3128,1146 +2639,6 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def type(val = nil); end
-  end
-end
-
-module V1beta1
-  class ControllerRevision < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def data(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision(val = nil); end
-  end
-
-  class ControllerRevisionList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta1::ControllerRevision))).returns(T::Array[KubeDSL::DSL::Apps::V1beta1::ControllerRevision]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class Deployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::DeploymentSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::DeploymentStatus) }
-    def status; end
-  end
-
-  class DeploymentCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_update_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class DeploymentList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta1::Deployment))).returns(T::Array[KubeDSL::DSL::Apps::V1beta1::Deployment]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DeploymentRollback < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::RollbackConfig) }
-    def rollback_to; end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def updated_annotations(&block); end
-  end
-
-  class DeploymentSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def paused(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def progress_deadline_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::RollbackConfig) }
-    def rollback_to; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::DeploymentStrategy) }
-    def strategy; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-  end
-
-  class DeploymentStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def available_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta1::DeploymentCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta1::DeploymentCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def unavailable_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_replicas(val = nil); end
-  end
-
-  class DeploymentStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::RollingUpdateDeployment) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class RollbackConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision(val = nil); end
-  end
-
-  class RollingUpdateDeployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_surge(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_unavailable(val = nil); end
-  end
-
-  class RollingUpdateStatefulSetStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def partition(val = nil); end
-  end
-
-  class Scale < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::ScaleSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::ScaleStatus) }
-    def status; end
-  end
-
-  class ScaleSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-  end
-
-  class ScaleStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def selector(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def target_selector(val = nil); end
-  end
-
-  class StatefulSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::StatefulSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::StatefulSetStatus) }
-    def status; end
-  end
-
-  class StatefulSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class StatefulSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta1::StatefulSet))).returns(T::Array[KubeDSL::DSL::Apps::V1beta1::StatefulSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class StatefulSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def pod_management_policy(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::StatefulSetUpdateStrategy) }
-    def update_strategy; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PersistentVolumeClaim))).returns(T::Array[KubeDSL::DSL::V1::PersistentVolumeClaim]) }
-    def volume_claim_templates(elem_name = nil, &block); end
-  end
-
-  class StatefulSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta1::StatefulSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta1::StatefulSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def current_replicas(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def current_revision(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def update_revision(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_replicas(val = nil); end
-  end
-
-  class StatefulSetUpdateStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta1::RollingUpdateStatefulSetStrategy) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-end
-
-module V1beta2
-  class ControllerRevision < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def data(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision(val = nil); end
-  end
-
-  class ControllerRevisionList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::ControllerRevision))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::ControllerRevision]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DaemonSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DaemonSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DaemonSetStatus) }
-    def status; end
-  end
-
-  class DaemonSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class DaemonSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::DaemonSet))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::DaemonSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DaemonSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DaemonSetUpdateStrategy) }
-    def update_strategy; end
-  end
-
-  class DaemonSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::DaemonSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::DaemonSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def current_number_scheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def desired_number_scheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_available(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_misscheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_ready(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_unavailable(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_number_scheduled(val = nil); end
-  end
-
-  class DaemonSetUpdateStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::RollingUpdateDaemonSet) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class Deployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DeploymentSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DeploymentStatus) }
-    def status; end
-  end
-
-  class DeploymentCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_update_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class DeploymentList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::Deployment))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::Deployment]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DeploymentSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def paused(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def progress_deadline_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::DeploymentStrategy) }
-    def strategy; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-  end
-
-  class DeploymentStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def available_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::DeploymentCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::DeploymentCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def unavailable_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_replicas(val = nil); end
-  end
-
-  class DeploymentStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::RollingUpdateDeployment) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class ReplicaSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::ReplicaSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::ReplicaSetStatus) }
-    def status; end
-  end
-
-  class ReplicaSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class ReplicaSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::ReplicaSet))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::ReplicaSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class ReplicaSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-  end
-
-  class ReplicaSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def available_replicas(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::ReplicaSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::ReplicaSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def fully_labeled_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-  end
-
-  class RollingUpdateDaemonSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_unavailable(val = nil); end
-  end
-
-  class RollingUpdateDeployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_surge(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_unavailable(val = nil); end
-  end
-
-  class RollingUpdateStatefulSetStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def partition(val = nil); end
-  end
-
-  class Scale < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::ScaleSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::ScaleStatus) }
-    def status; end
-  end
-
-  class ScaleSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-  end
-
-  class ScaleStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def selector(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def target_selector(val = nil); end
-  end
-
-  class StatefulSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::StatefulSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::StatefulSetStatus) }
-    def status; end
-  end
-
-  class StatefulSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class StatefulSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::StatefulSet))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::StatefulSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class StatefulSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def pod_management_policy(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::StatefulSetUpdateStrategy) }
-    def update_strategy; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PersistentVolumeClaim))).returns(T::Array[KubeDSL::DSL::V1::PersistentVolumeClaim]) }
-    def volume_claim_templates(elem_name = nil, &block); end
-  end
-
-  class StatefulSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1beta2::StatefulSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1beta2::StatefulSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def current_replicas(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def current_revision(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def update_revision(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_replicas(val = nil); end
-  end
-
-  class StatefulSetUpdateStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Apps::V1beta2::RollingUpdateStatefulSetStrategy) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-end
-
-module V1alpha1
-  class AuditSink < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::AuditSinkSpec) }
-    def spec; end
-  end
-
-  class AuditSinkList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Auditregistration::V1alpha1::AuditSink))).returns(T::Array[KubeDSL::DSL::Auditregistration::V1alpha1::AuditSink]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class AuditSinkSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::Policy) }
-    def policy; end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::Webhook) }
-    def webhook; end
-  end
-
-  class Policy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def level(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def stages(val = nil); end
-  end
-
-  class ServiceReference < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def port(val = nil); end
-  end
-
-  class Webhook < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::WebhookClientConfig) }
-    def client_config; end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::WebhookThrottleConfig) }
-    def throttle; end
-  end
-
-  class WebhookClientConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def ca_bundle(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Auditregistration::V1alpha1::ServiceReference) }
-    def service; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def url(val = nil); end
-  end
-
-  class WebhookThrottleConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def burst(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def qps(val = nil); end
   end
 end
 
@@ -4388,79 +2759,6 @@ module V1
     def error(val = nil); end
 
     sig { returns(KubeDSL::DSL::Authentication::V1::UserInfo) }
-    def user; end
-  end
-
-  class UserInfo < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def extra(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def groups(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def uid(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def username(val = nil); end
-  end
-end
-
-module V1beta1
-  class TokenReview < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Authentication::V1beta1::TokenReviewSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Authentication::V1beta1::TokenReviewStatus) }
-    def status; end
-  end
-
-  class TokenReviewSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def audiences(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def token(val = nil); end
-  end
-
-  class TokenReviewStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def audiences(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def authenticated(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def error(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Authentication::V1beta1::UserInfo) }
     def user; end
   end
 
@@ -4723,244 +3021,6 @@ module V1
   end
 end
 
-module V1beta1
-  class LocalSubjectAccessReview < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectAccessReviewSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectAccessReviewStatus) }
-    def status; end
-  end
-
-  class NonResourceAttributes < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def verb(val = nil); end
-  end
-
-  class NonResourceRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def non_resource_ur_ls(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def verbs(val = nil); end
-  end
-
-  class ResourceAttributes < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def group(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resource(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def subresource(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def verb(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def version(val = nil); end
-  end
-
-  class ResourceRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_groups(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resource_names(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resources(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def verbs(val = nil); end
-  end
-
-  class SelfSubjectAccessReview < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SelfSubjectAccessReviewSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectAccessReviewStatus) }
-    def status; end
-  end
-
-  class SelfSubjectAccessReviewSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::NonResourceAttributes) }
-    def non_resource_attributes; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::ResourceAttributes) }
-    def resource_attributes; end
-  end
-
-  class SelfSubjectRulesReview < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SelfSubjectRulesReviewSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectRulesReviewStatus) }
-    def status; end
-  end
-
-  class SelfSubjectRulesReviewSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-  end
-
-  class SubjectAccessReview < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectAccessReviewSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::SubjectAccessReviewStatus) }
-    def status; end
-  end
-
-  class SubjectAccessReviewSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def extra(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def group(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::NonResourceAttributes) }
-    def non_resource_attributes; end
-
-    sig { returns(KubeDSL::DSL::Authorization::V1beta1::ResourceAttributes) }
-    def resource_attributes; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def uid(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def user(val = nil); end
-  end
-
-  class SubjectAccessReviewStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def allowed(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def denied(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def evaluation_error(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-  end
-
-  class SubjectRulesReviewStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def evaluation_error(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def incomplete(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Authorization::V1beta1::NonResourceRule))).returns(T::Array[KubeDSL::DSL::Authorization::V1beta1::NonResourceRule]) }
-    def non_resource_rules(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Authorization::V1beta1::ResourceRule))).returns(T::Array[KubeDSL::DSL::Authorization::V1beta1::ResourceRule]) }
-    def resource_rules(elem_name = nil, &block); end
-  end
-end
-
 module V1
   class CrossVersionObjectReference < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
@@ -5097,6 +3157,46 @@ module V1
 end
 
 module V2beta1
+  class ContainerResourceMetricSource < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def container(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def target_average_utilization(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def target_average_value(val = nil); end
+  end
+
+  class ContainerResourceMetricStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def container(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def current_average_utilization(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def current_average_value(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+  end
+
   class CrossVersionObjectReference < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -5261,6 +3361,9 @@ module V2beta1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ContainerResourceMetricSource) }
+    def container_resource; end
+
     sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricSource) }
     def external; end
 
@@ -5283,6 +3386,9 @@ module V2beta1
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ContainerResourceMetricStatus) }
+    def container_resource; end
 
     sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricStatus) }
     def external; end
@@ -5416,6 +3522,40 @@ module V2beta1
 end
 
 module V2beta2
+  class ContainerResourceMetricSource < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def container(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
+    def target; end
+  end
+
+  class ContainerResourceMetricStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def container(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricValueStatus) }
+    def current; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+  end
+
   class CrossVersionObjectReference < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -5478,6 +3618,20 @@ module V2beta2
     def status; end
   end
 
+  class HorizontalPodAutoscalerBehavior < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingRules) }
+    def scale_down; end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingRules) }
+    def scale_up; end
+  end
+
   class HorizontalPodAutoscalerCondition < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -5522,6 +3676,9 @@ module V2beta2
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
+    def behavior; end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def max_replicas(val = nil); end
 
@@ -5561,6 +3718,40 @@ module V2beta2
     def observed_generation(val = nil); end
   end
 
+  class HPAScalingPolicy < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def period_seconds(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def type(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def value(val = nil); end
+  end
+
+  class HPAScalingRules < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingPolicy))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingPolicy]) }
+    def policies(elem_name = nil, &block); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def select_policy(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def stabilization_window_seconds(val = nil); end
+  end
+
   class MetricIdentifier < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -5581,6 +3772,9 @@ module V2beta2
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricSource) }
+    def container_resource; end
 
     sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricSource) }
     def external; end
@@ -5604,6 +3798,9 @@ module V2beta2
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricStatus) }
+    def container_resource; end
 
     sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricStatus) }
     def external; end
@@ -5750,6 +3947,83 @@ module V2beta2
 end
 
 module V1
+  class CronJob < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::CronJobSpec) }
+    def spec; end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::CronJobStatus) }
+    def status; end
+  end
+
+  class CronJobList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Batch::V1::CronJob))).returns(T::Array[KubeDSL::DSL::Batch::V1::CronJob]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
+  class CronJobSpec < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def concurrency_policy(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def failed_jobs_history_limit(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::JobTemplateSpec) }
+    def job_template; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def schedule(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def starting_deadline_seconds(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def successful_jobs_history_limit(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def suspend(val = nil); end
+  end
+
+  class CronJobStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ObjectReference))).returns(T::Array[KubeDSL::DSL::V1::ObjectReference]) }
+    def actives(elem_name = nil, &block); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_schedule_time(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_successful_time(val = nil); end
+  end
+
   class Job < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -5820,6 +4094,9 @@ module V1
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def backoff_limit(val = nil); end
 
+    sig { params(val: T.nilable(String)).returns(String) }
+    def completion_mode(val = nil); end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def completions(val = nil); end
 
@@ -5831,6 +4108,9 @@ module V1
 
     sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
     def selector; end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def suspend(val = nil); end
 
     sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
     def template; end
@@ -5850,6 +4130,9 @@ module V1
     def active(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def completed_indexes(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def completion_time(val = nil); end
 
     sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Batch::V1::JobCondition))).returns(T::Array[KubeDSL::DSL::Batch::V1::JobCondition]) }
@@ -5862,6 +4145,37 @@ module V1
     def start_time(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def succeeded(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
+    def uncounted_terminated_pods; end
+  end
+
+  class JobTemplateSpec < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Batch::V1::JobSpec) }
+    def spec; end
+  end
+
+  class UncountedTerminatedPods < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def failed(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def succeeded(val = nil); end
   end
 end
@@ -5939,6 +4253,9 @@ module V1beta1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def last_schedule_time(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_successful_time(val = nil); end
   end
 
   class JobTemplateSpec < ::KubeDSL::DSLObject
@@ -5956,97 +4273,7 @@ module V1beta1
   end
 end
 
-module V2alpha1
-  class CronJob < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Batch::V2alpha1::CronJobSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Batch::V2alpha1::CronJobStatus) }
-    def status; end
-  end
-
-  class CronJobList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Batch::V2alpha1::CronJob))).returns(T::Array[KubeDSL::DSL::Batch::V2alpha1::CronJob]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class CronJobSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def concurrency_policy(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def failed_jobs_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Batch::V2alpha1::JobTemplateSpec) }
-    def job_template; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def schedule(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def starting_deadline_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def successful_jobs_history_limit(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def suspend(val = nil); end
-  end
-
-  class CronJobStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ObjectReference))).returns(T::Array[KubeDSL::DSL::V1::ObjectReference]) }
-    def actives(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_schedule_time(val = nil); end
-  end
-
-  class JobTemplateSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Batch::V1::JobSpec) }
-    def spec; end
-  end
-end
-
-module V1beta1
+module V1
   class CertificateSigningRequest < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -6057,10 +4284,10 @@ module V1beta1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestSpec) }
+    sig { returns(KubeDSL::DSL::Certificates::V1::CertificateSigningRequestSpec) }
     def spec; end
 
-    sig { returns(KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestStatus) }
+    sig { returns(KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus) }
     def status; end
   end
 
@@ -6072,6 +4299,9 @@ module V1beta1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def last_transition_time(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def last_update_time(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
@@ -6079,6 +4309,9 @@ module V1beta1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def reason(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def status(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def type(val = nil); end
@@ -6091,7 +4324,7 @@ module V1beta1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequest))).returns(T::Array[KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequest]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Certificates::V1::CertificateSigningRequest))).returns(T::Array[KubeDSL::DSL::Certificates::V1::CertificateSigningRequest]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
@@ -6105,6 +4338,9 @@ module V1beta1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def expiration_seconds(val = nil); end
+
     sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
     def extra(&block); end
 
@@ -6113,6 +4349,9 @@ module V1beta1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def request(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def signer_name(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def uid(val = nil); end
@@ -6134,7 +4373,7 @@ module V1beta1
     sig { params(val: T.nilable(String)).returns(String) }
     def certificate(val = nil); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestCondition))).returns(T::Array[KubeDSL::DSL::Certificates::V1beta1::CertificateSigningRequestCondition]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition))).returns(T::Array[KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition]) }
     def conditions(elem_name = nil, &block); end
   end
 end
@@ -6192,36 +4431,122 @@ module V1
   end
 end
 
-module V1beta1
-  class Lease < ::KubeDSL::DSLObject
+module V1
+  class Endpoint < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def addresses(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Discovery::V1::EndpointConditions) }
+    def conditions; end
+
+    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+    def deprecated_topology(&block); end
+
+    sig { returns(KubeDSL::DSL::Discovery::V1::EndpointHints) }
+    def hints; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def hostname(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def node_name(val = nil); end
+
+    sig { returns(KubeDSL::DSL::V1::ObjectReference) }
+    def target_ref; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def zone(val = nil); end
+  end
+
+  class EndpointConditions < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def ready(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def serving(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def terminating(val = nil); end
+  end
+
+  class EndpointHints < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1::ForZone))).returns(T::Array[KubeDSL::DSL::Discovery::V1::ForZone]) }
+    def for_zones(elem_name = nil, &block); end
+  end
+
+  class EndpointPort < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def app_protocol(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def port(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def protocol(val = nil); end
+  end
+
+  class EndpointSlice < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def address_type(val = nil); end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1::Endpoint))).returns(T::Array[KubeDSL::DSL::Discovery::V1::Endpoint]) }
+    def endpoints(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Coordination::V1beta1::LeaseSpec) }
-    def spec; end
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1::EndpointPort))).returns(T::Array[KubeDSL::DSL::Discovery::V1::EndpointPort]) }
+    def ports(elem_name = nil, &block); end
   end
 
-  class LeaseList < ::KubeDSL::DSLObject
+  class EndpointSliceList < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Coordination::V1beta1::Lease))).returns(T::Array[KubeDSL::DSL::Coordination::V1beta1::Lease]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1::EndpointSlice))).returns(T::Array[KubeDSL::DSL::Discovery::V1::EndpointSlice]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
   end
 
-  class LeaseSpec < ::KubeDSL::DSLObject
+  class ForZone < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -6229,19 +4554,7 @@ module V1beta1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def acquire_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def holder_identity(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def lease_duration_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def lease_transitions(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def renew_time(val = nil); end
+    def name(val = nil); end
   end
 end
 
@@ -6259,8 +4572,14 @@ module V1beta1
     sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointConditions) }
     def conditions; end
 
+    sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointHints) }
+    def hints; end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def hostname(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def node_name(val = nil); end
 
     sig { returns(KubeDSL::DSL::V1::ObjectReference) }
     def target_ref; end
@@ -6278,6 +4597,23 @@ module V1beta1
 
     sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
     def ready(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def serving(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def terminating(val = nil); end
+  end
+
+  class EndpointHints < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1beta1::ForZone))).returns(T::Array[KubeDSL::DSL::Discovery::V1beta1::ForZone]) }
+    def for_zones(elem_name = nil, &block); end
   end
 
   class EndpointPort < ::KubeDSL::DSLObject
@@ -6332,6 +4668,100 @@ module V1beta1
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
+  end
+
+  class ForZone < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+  end
+end
+
+module V1
+  class Event < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def action(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def deprecated_count(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def deprecated_first_timestamp(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def deprecated_last_timestamp(val = nil); end
+
+    sig { returns(KubeDSL::DSL::V1::EventSource) }
+    def deprecated_source; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def event_time(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def note(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def reason(val = nil); end
+
+    sig { returns(KubeDSL::DSL::V1::ObjectReference) }
+    def regarding; end
+
+    sig { returns(KubeDSL::DSL::V1::ObjectReference) }
+    def related; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def reporting_controller(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def reporting_instance(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Events::V1::EventSeries) }
+    def series; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def type(val = nil); end
+  end
+
+  class EventList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Events::V1::Event))).returns(T::Array[KubeDSL::DSL::Events::V1::Event]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
+  class EventSeries < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def count(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_observed_time(val = nil); end
   end
 end
 
@@ -6415,986 +4845,10 @@ module V1beta1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def last_observed_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def state(val = nil); end
   end
 end
 
 module V1beta1
-  class AllowedCSIDriver < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-  end
-
-  class AllowedFlexVolume < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def driver(val = nil); end
-  end
-
-  class AllowedHostPath < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path_prefix(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def read_only(val = nil); end
-  end
-
-  class DaemonSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DaemonSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DaemonSetStatus) }
-    def status; end
-  end
-
-  class DaemonSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class DaemonSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::DaemonSet))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::DaemonSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DaemonSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def template_generation(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DaemonSetUpdateStrategy) }
-    def update_strategy; end
-  end
-
-  class DaemonSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::DaemonSetCondition))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::DaemonSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def current_number_scheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def desired_number_scheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_available(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_misscheduled(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_ready(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def number_unavailable(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_number_scheduled(val = nil); end
-  end
-
-  class DaemonSetUpdateStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RollingUpdateDaemonSet) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class Deployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DeploymentSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DeploymentStatus) }
-    def status; end
-  end
-
-  class DeploymentCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_update_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class DeploymentList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::Deployment))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::Deployment]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class DeploymentRollback < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RollbackConfig) }
-    def rollback_to; end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def updated_annotations(&block); end
-  end
-
-  class DeploymentSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def paused(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def progress_deadline_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision_history_limit(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RollbackConfig) }
-    def rollback_to; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::DeploymentStrategy) }
-    def strategy; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-  end
-
-  class DeploymentStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def available_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def collision_count(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::DeploymentCondition))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::DeploymentCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def unavailable_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def updated_replicas(val = nil); end
-  end
-
-  class DeploymentStrategy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RollingUpdateDeployment) }
-    def rolling_update; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class FSGroupStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IDRange]) }
-    def ranges(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def rule(val = nil); end
-  end
-
-  class HostPortRange < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def max(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min(val = nil); end
-  end
-
-  class HTTPIngressPath < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::IngressBackend) }
-    def backend; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
-  end
-
-  class HTTPIngressRuleValue < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::HTTPIngressPath))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::HTTPIngressPath]) }
-    def paths(elem_name = nil, &block); end
-  end
-
-  class IDRange < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def max(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min(val = nil); end
-  end
-
-  class Ingress < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::IngressSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::IngressStatus) }
-    def status; end
-  end
-
-  class IngressBackend < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_port(val = nil); end
-  end
-
-  class IngressList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::Ingress))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::Ingress]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class IngressRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def host(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::HTTPIngressRuleValue) }
-    def http; end
-  end
-
-  class IngressSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::IngressBackend) }
-    def backend; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IngressRule))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IngressRule]) }
-    def rules(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IngressTLS))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IngressTLS]) }
-    def tlses(elem_name = nil, &block); end
-  end
-
-  class IngressStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
-    def load_balancer; end
-  end
-
-  class IngressTLS < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def hosts(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def secret_name(val = nil); end
-  end
-
-  class IPBlock < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def cidr(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def except(val = nil); end
-  end
-
-  class NetworkPolicy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicySpec) }
-    def spec; end
-  end
-
-  class NetworkPolicyEgressRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPort))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPort]) }
-    def ports(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPeer))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPeer]) }
-    def tos(elem_name = nil, &block); end
-  end
-
-  class NetworkPolicyIngressRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPeer))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPeer]) }
-    def froms(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPort))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyPort]) }
-    def ports(elem_name = nil, &block); end
-  end
-
-  class NetworkPolicyList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicy))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicy]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class NetworkPolicyPeer < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::IPBlock) }
-    def ip_block; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def namespace_selector; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def pod_selector; end
-  end
-
-  class NetworkPolicyPort < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def port(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def protocol(val = nil); end
-  end
-
-  class NetworkPolicySpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyEgressRule))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyEgressRule]) }
-    def egresses(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyIngressRule))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::NetworkPolicyIngressRule]) }
-    def ingresses(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def pod_selector; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def policy_types(val = nil); end
-  end
-
-  class PodSecurityPolicy < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::PodSecurityPolicySpec) }
-    def spec; end
-  end
-
-  class PodSecurityPolicyList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::PodSecurityPolicy))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::PodSecurityPolicy]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class PodSecurityPolicySpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def allow_privilege_escalation(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::AllowedCSIDriver))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::AllowedCSIDriver]) }
-    def allowed_csi_drivers(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def allowed_capabilities(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::AllowedFlexVolume))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::AllowedFlexVolume]) }
-    def allowed_flex_volumes(elem_name = nil, &block); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::AllowedHostPath))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::AllowedHostPath]) }
-    def allowed_host_paths(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def allowed_proc_mount_types(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def allowed_unsafe_sysctls(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def default_add_capabilities(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def default_allow_privilege_escalation(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def forbidden_sysctls(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::FSGroupStrategyOptions) }
-    def fs_group; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def host_ipc(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def host_network(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def host_pid(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::HostPortRange))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::HostPortRange]) }
-    def host_ports(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def privileged(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def read_only_root_filesystem(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def required_drop_capabilities(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RunAsGroupStrategyOptions) }
-    def run_as_group; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RunAsUserStrategyOptions) }
-    def run_as_user; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::RuntimeClassStrategyOptions) }
-    def runtime_class; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::SELinuxStrategyOptions) }
-    def se_linux; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::SupplementalGroupsStrategyOptions) }
-    def supplemental_groups; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def volumes(val = nil); end
-  end
-
-  class ReplicaSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::ReplicaSetSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::ReplicaSetStatus) }
-    def status; end
-  end
-
-  class ReplicaSetCondition < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def last_transition_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reason(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def status(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def type(val = nil); end
-  end
-
-  class ReplicaSetList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::ReplicaSet))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::ReplicaSet]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class ReplicaSetSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def min_ready_seconds(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
-
-    sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-    def template; end
-  end
-
-  class ReplicaSetStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def available_replicas(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::ReplicaSetCondition))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::ReplicaSetCondition]) }
-    def conditions(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def fully_labeled_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def observed_generation(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def ready_replicas(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-  end
-
-  class RollbackConfig < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def revision(val = nil); end
-  end
-
-  class RollingUpdateDaemonSet < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_unavailable(val = nil); end
-  end
-
-  class RollingUpdateDeployment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_surge(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def max_unavailable(val = nil); end
-  end
-
-  class RunAsGroupStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IDRange]) }
-    def ranges(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def rule(val = nil); end
-  end
-
-  class RunAsUserStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IDRange]) }
-    def ranges(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def rule(val = nil); end
-  end
-
-  class RuntimeClassStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def allowed_runtime_class_names(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def default_runtime_class_name(val = nil); end
-  end
-
-  class Scale < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::ScaleSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Extensions::V1beta1::ScaleStatus) }
-    def status; end
-  end
-
-  class ScaleSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-  end
-
-  class ScaleStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def replicas(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def selector(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def target_selector(val = nil); end
-  end
-
-  class SELinuxStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def rule(val = nil); end
-
-    sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
-    def se_linux_options; end
-  end
-
-  class SupplementalGroupsStrategyOptions < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Extensions::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Extensions::V1beta1::IDRange]) }
-    def ranges(elem_name = nil, &block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def rule(val = nil); end
-  end
-end
-
-module V1alpha1
   class FlowDistinguisherMethod < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -7416,10 +4870,10 @@ module V1alpha1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaSpec) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaSpec) }
     def spec; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaStatus) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaStatus) }
     def status; end
   end
 
@@ -7453,7 +4907,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchema))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchema]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchema))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchema]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
@@ -7467,16 +4921,16 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::FlowDistinguisherMethod) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowDistinguisherMethod) }
     def distinguisher_method; end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def matching_precedence(val = nil); end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationReference) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference) }
     def priority_level_configuration; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::PolicyRulesWithSubjects]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::PolicyRulesWithSubjects))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::PolicyRulesWithSubjects]) }
     def rules(elem_name = nil, &block); end
   end
 
@@ -7487,7 +4941,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::FlowSchemaCondition]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaCondition]) }
     def conditions(elem_name = nil, &block); end
   end
 
@@ -7509,7 +4963,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::QueuingConfiguration) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::QueuingConfiguration) }
     def queuing; end
 
     sig { params(val: T.nilable(String)).returns(String) }
@@ -7526,7 +4980,7 @@ module V1alpha1
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def assured_concurrency_shares(val = nil); end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::LimitResponse) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::LimitResponse) }
     def limit_response; end
   end
 
@@ -7551,13 +5005,13 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::NonResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::NonResourcePolicyRule]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::NonResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::NonResourcePolicyRule]) }
     def non_resource_rules(elem_name = nil, &block); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::ResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::ResourcePolicyRule]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::ResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::ResourcePolicyRule]) }
     def resource_rules(elem_name = nil, &block); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::Subject))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::Subject]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::Subject))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::Subject]) }
     def subjects(elem_name = nil, &block); end
   end
 
@@ -7571,10 +5025,10 @@ module V1alpha1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationSpec) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationSpec) }
     def spec; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationStatus) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationStatus) }
     def status; end
   end
 
@@ -7608,7 +5062,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfiguration))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfiguration]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfiguration))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfiguration]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
@@ -7633,7 +5087,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::LimitedPriorityLevelConfiguration) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::LimitedPriorityLevelConfiguration) }
     def limited; end
 
     sig { params(val: T.nilable(String)).returns(String) }
@@ -7647,7 +5101,7 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1alpha1::PriorityLevelConfigurationCondition]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationCondition]) }
     def conditions(elem_name = nil, &block); end
   end
 
@@ -7712,16 +5166,16 @@ module V1alpha1
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::GroupSubject) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::GroupSubject) }
     def group; end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def kind(val = nil); end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::ServiceAccountSubject) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject) }
     def service_account; end
 
-    sig { returns(KubeDSL::DSL::Flowcontrol::V1alpha1::UserSubject) }
+    sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::UserSubject) }
     def user; end
   end
 
@@ -7833,6 +5287,32 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def versions(val = nil); end
+  end
+
+  class Condition < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_transition_time(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def message(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def observed_generation(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def reason(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def status(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def type(val = nil); end
   end
 
   class DeleteOptions < ::KubeDSL::DSLObject
@@ -7947,6 +5427,9 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def operation(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def subresource(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def time(val = nil); end
@@ -8147,6 +5630,217 @@ module V1
 end
 
 module V1
+  class HTTPIngressPath < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressBackend) }
+    def backend; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def path(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def path_type(val = nil); end
+  end
+
+  class HTTPIngressRuleValue < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::HTTPIngressPath))).returns(T::Array[KubeDSL::DSL::Networking::V1::HTTPIngressPath]) }
+    def paths(elem_name = nil, &block); end
+  end
+
+  class Ingress < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressSpec) }
+    def spec; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressStatus) }
+    def status; end
+  end
+
+  class IngressBackend < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
+    def resource; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressServiceBackend) }
+    def service; end
+  end
+
+  class IngressClass < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressClassSpec) }
+    def spec; end
+  end
+
+  class IngressClassList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::IngressClass))).returns(T::Array[KubeDSL::DSL::Networking::V1::IngressClass]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
+  class IngressClassParametersReference < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def api_group(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def kind(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def namespace(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def scope(val = nil); end
+  end
+
+  class IngressClassSpec < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def controller(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
+    def parameters; end
+  end
+
+  class IngressList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::Ingress))).returns(T::Array[KubeDSL::DSL::Networking::V1::Ingress]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
+  class IngressRule < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def host(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
+    def http; end
+  end
+
+  class IngressServiceBackend < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def name(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
+    def port; end
+  end
+
+  class IngressSpec < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Networking::V1::IngressBackend) }
+    def default_backend; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def ingress_class_name(val = nil); end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::IngressRule))).returns(T::Array[KubeDSL::DSL::Networking::V1::IngressRule]) }
+    def rules(elem_name = nil, &block); end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::IngressTLS))).returns(T::Array[KubeDSL::DSL::Networking::V1::IngressTLS]) }
+    def tlses(elem_name = nil, &block); end
+  end
+
+  class IngressStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
+    def load_balancer; end
+  end
+
+  class IngressTLS < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def hosts(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def secret_name(val = nil); end
+  end
+
   class IPBlock < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -8241,6 +5935,9 @@ module V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def end_port(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def port(val = nil); end
 
@@ -8267,35 +5964,24 @@ module V1
     sig { params(val: T.nilable(String)).returns(String) }
     def policy_types(val = nil); end
   end
-end
 
-module V1beta1
-  class HTTPIngressPath < ::KubeDSL::DSLObject
+  class ServiceBackendPort < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Networking::V1beta1::IngressBackend) }
-    def backend; end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def path(val = nil); end
+    def name(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def number(val = nil); end
   end
+end
 
-  class HTTPIngressRuleValue < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1beta1::HTTPIngressPath))).returns(T::Array[KubeDSL::DSL::Networking::V1beta1::HTTPIngressPath]) }
-    def paths(elem_name = nil, &block); end
-  end
-
-  class Ingress < ::KubeDSL::DSLObject
+module V1
+  class Overhead < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -8305,95 +5991,62 @@ module V1beta1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Networking::V1beta1::IngressSpec) }
+    sig { returns(KubeDSL::DSL::V1::NodeSpec) }
     def spec; end
 
-    sig { returns(KubeDSL::DSL::Networking::V1beta1::IngressStatus) }
+    sig { returns(KubeDSL::DSL::V1::NodeStatus) }
     def status; end
   end
 
-  class IngressBackend < ::KubeDSL::DSLObject
+  class RuntimeClass < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def service_port(val = nil); end
-  end
-
-  class IngressList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1beta1::Ingress))).returns(T::Array[KubeDSL::DSL::Networking::V1beta1::Ingress]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
+
+    sig { returns(KubeDSL::DSL::V1::NodeSpec) }
+    def spec; end
+
+    sig { returns(KubeDSL::DSL::V1::NodeStatus) }
+    def status; end
   end
 
-  class IngressRule < ::KubeDSL::DSLObject
+  class RuntimeClassList < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(val: T.nilable(String)).returns(String) }
-    def host(val = nil); end
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
 
-    sig { returns(KubeDSL::DSL::Networking::V1beta1::HTTPIngressRuleValue) }
-    def http; end
+    sig { returns(KubeDSL::DSL::V1::NodeSpec) }
+    def spec; end
+
+    sig { returns(KubeDSL::DSL::V1::NodeStatus) }
+    def status; end
   end
 
-  class IngressSpec < ::KubeDSL::DSLObject
+  class Scheduling < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { returns(KubeDSL::DSL::Networking::V1beta1::IngressBackend) }
-    def backend; end
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1beta1::IngressRule))).returns(T::Array[KubeDSL::DSL::Networking::V1beta1::IngressRule]) }
-    def rules(elem_name = nil, &block); end
+    sig { returns(KubeDSL::DSL::V1::NodeSpec) }
+    def spec; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1beta1::IngressTLS))).returns(T::Array[KubeDSL::DSL::Networking::V1beta1::IngressTLS]) }
-    def tlses(elem_name = nil, &block); end
-  end
-
-  class IngressStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
-    def load_balancer; end
-  end
-
-  class IngressTLS < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def hosts(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def secret_name(val = nil); end
+    sig { returns(KubeDSL::DSL::V1::NodeStatus) }
+    def status; end
   end
 end
 
@@ -8530,6 +6183,99 @@ module V1beta1
   end
 end
 
+module V1
+  class Eviction < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::DeleteOptions) }
+    def delete_options; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+  end
+
+  class PodDisruptionBudget < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Policy::V1::PodDisruptionBudgetSpec) }
+    def spec; end
+
+    sig { returns(KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus) }
+    def status; end
+  end
+
+  class PodDisruptionBudgetList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1::PodDisruptionBudget))).returns(T::Array[KubeDSL::DSL::Policy::V1::PodDisruptionBudget]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
+  class PodDisruptionBudgetSpec < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def max_unavailable(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def min_available(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+    def selector; end
+  end
+
+  class PodDisruptionBudgetStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition]) }
+    def conditions(elem_name = nil, &block); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def current_healthy(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def desired_healthy(val = nil); end
+
+    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+    def disrupted_pods(&block); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def disruptions_allowed(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def expected_pods(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def observed_generation(val = nil); end
+  end
+end
+
 module V1beta1
   class AllowedCSIDriver < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
@@ -8565,20 +6311,6 @@ module V1beta1
 
     sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
     def read_only(val = nil); end
-  end
-
-  class Eviction < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::DeleteOptions) }
-    def delete_options; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
   end
 
   class FSGroupStrategyOptions < ::KubeDSL::DSLObject
@@ -8677,6 +6409,9 @@ module V1beta1
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition]) }
+    def conditions(elem_name = nil, &block); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def current_healthy(val = nil); end
@@ -9264,200 +6999,6 @@ module V1alpha1
   end
 end
 
-module V1beta1
-  class AggregationRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::LabelSelector))).returns(T::Array[KubeDSL::DSL::Meta::V1::LabelSelector]) }
-    def cluster_role_selectors(elem_name = nil, &block); end
-  end
-
-  class ClusterRole < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Rbac::V1beta1::AggregationRule) }
-    def aggregation_rule; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::PolicyRule))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::PolicyRule]) }
-    def rules(elem_name = nil, &block); end
-  end
-
-  class ClusterRoleBinding < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Rbac::V1beta1::RoleRef) }
-    def role_ref; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::Subject))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::Subject]) }
-    def subjects(elem_name = nil, &block); end
-  end
-
-  class ClusterRoleBindingList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::ClusterRoleBinding))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::ClusterRoleBinding]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class ClusterRoleList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::ClusterRole))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::ClusterRole]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class PolicyRule < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_groups(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def non_resource_ur_ls(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resource_names(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def resources(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def verbs(val = nil); end
-  end
-
-  class Role < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::PolicyRule))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::PolicyRule]) }
-    def rules(elem_name = nil, &block); end
-  end
-
-  class RoleBinding < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Rbac::V1beta1::RoleRef) }
-    def role_ref; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::Subject))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::Subject]) }
-    def subjects(elem_name = nil, &block); end
-  end
-
-  class RoleBindingList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::RoleBinding))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::RoleBinding]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class RoleList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1beta1::Role))).returns(T::Array[KubeDSL::DSL::Rbac::V1beta1::Role]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class RoleRef < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_group(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def kind(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-  end
-
-  class Subject < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def api_group(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def kind(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def namespace(val = nil); end
-  end
-end
-
 module V1
   class PriorityClass < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
@@ -9536,47 +7077,8 @@ module V1alpha1
   end
 end
 
-module V1beta1
-  class PriorityClass < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def description(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def global_default(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def preemption_policy(val = nil); end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def value(val = nil); end
-  end
-
-  class PriorityClassList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Scheduling::V1beta1::PriorityClass))).returns(T::Array[KubeDSL::DSL::Scheduling::V1beta1::PriorityClass]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-end
-
-module V1alpha1
-  class PodPreset < ::KubeDSL::DSLObject
+module V1
+  class CSIDriver < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
@@ -9586,49 +7088,53 @@ module V1alpha1
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Settings::V1alpha1::PodPresetSpec) }
+    sig { returns(KubeDSL::DSL::Storage::V1::CSIDriverSpec) }
     def spec; end
   end
 
-  class PodPresetList < ::KubeDSL::DSLObject
+  class CSIDriverList < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Settings::V1alpha1::PodPreset))).returns(T::Array[KubeDSL::DSL::Settings::V1alpha1::PodPreset]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1::CSIDriver))).returns(T::Array[KubeDSL::DSL::Storage::V1::CSIDriver]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
   end
 
-  class PodPresetSpec < ::KubeDSL::DSLObject
+  class CSIDriverSpec < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvVar))).returns(T::Array[KubeDSL::DSL::V1::EnvVar]) }
-    def envs(elem_name = nil, &block); end
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def attach_required(val = nil); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvFromSource))).returns(T::Array[KubeDSL::DSL::V1::EnvFromSource]) }
-    def env_froms(elem_name = nil, &block); end
+    sig { params(val: T.nilable(String)).returns(String) }
+    def fs_group_policy(val = nil); end
 
-    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-    def selector; end
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def pod_info_on_mount(val = nil); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeMount))).returns(T::Array[KubeDSL::DSL::V1::VolumeMount]) }
-    def volume_mounts(elem_name = nil, &block); end
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def requires_republish(val = nil); end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Volume))).returns(T::Array[KubeDSL::DSL::V1::Volume]) }
-    def volumes(elem_name = nil, &block); end
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def storage_capacity(val = nil); end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1::TokenRequest))).returns(T::Array[KubeDSL::DSL::Storage::V1::TokenRequest]) }
+    def token_requests(elem_name = nil, &block); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def volume_lifecycle_modes(val = nil); end
   end
-end
 
-module V1
   class CSINode < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -9732,6 +7238,20 @@ module V1
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
+  end
+
+  class TokenRequest < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def audience(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def expiration_seconds(val = nil); end
   end
 
   class VolumeAttachment < ::KubeDSL::DSLObject
@@ -9843,6 +7363,43 @@ module V1
 end
 
 module V1alpha1
+  class CSIStorageCapacity < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def capacity(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def maximum_volume_size(val = nil); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+    def node_topology; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def storage_class_name(val = nil); end
+  end
+
+  class CSIStorageCapacityList < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1alpha1::CSIStorageCapacity))).returns(T::Array[KubeDSL::DSL::Storage::V1alpha1::CSIStorageCapacity]) }
+    def items(elem_name = nil, &block); end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+    def metadata; end
+  end
+
   class VolumeAttachment < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -9941,261 +7498,41 @@ module V1alpha1
 end
 
 module V1beta1
-  class CSIDriver < ::KubeDSL::DSLObject
+  class CSIStorageCapacity < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def capacity(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def maximum_volume_size(val = nil); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
 
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::CSIDriverSpec) }
-    def spec; end
+    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+    def node_topology; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def storage_class_name(val = nil); end
   end
 
-  class CSIDriverList < ::KubeDSL::DSLObject
+  class CSIStorageCapacityList < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
 
     sig { returns(Symbol) }
     def kind_sym; end
 
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::CSIDriver))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::CSIDriver]) }
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::CSIStorageCapacity))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::CSIStorageCapacity]) }
     def items(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
     def metadata; end
-  end
-
-  class CSIDriverSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def attach_required(val = nil); end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def pod_info_on_mount(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def volume_lifecycle_modes(val = nil); end
-  end
-
-  class CSINode < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::CSINodeSpec) }
-    def spec; end
-  end
-
-  class CSINodeDriver < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeNodeResources) }
-    def allocatable; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def name(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def node_id(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def topology_keys(val = nil); end
-  end
-
-  class CSINodeList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::CSINode))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::CSINode]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class CSINodeSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::CSINodeDriver))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::CSINodeDriver]) }
-    def drivers(elem_name = nil, &block); end
-  end
-
-  class StorageClass < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def allow_volume_expansion(val = nil); end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::TopologySelectorTerm))).returns(T::Array[KubeDSL::DSL::V1::TopologySelectorTerm]) }
-    def allowed_topologies(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def mount_options(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def parameters(&block); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def provisioner(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def reclaim_policy(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def volume_binding_mode(val = nil); end
-  end
-
-  class StorageClassList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::StorageClass))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::StorageClass]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class VolumeAttachment < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-    def metadata; end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentSpec) }
-    def spec; end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentStatus) }
-    def status; end
-  end
-
-  class VolumeAttachmentList < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1beta1::VolumeAttachment))).returns(T::Array[KubeDSL::DSL::Storage::V1beta1::VolumeAttachment]) }
-    def items(elem_name = nil, &block); end
-
-    sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-    def metadata; end
-  end
-
-  class VolumeAttachmentSource < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::V1::PersistentVolumeSpec) }
-    def inline_volume_spec; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def persistent_volume_name(val = nil); end
-  end
-
-  class VolumeAttachmentSpec < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def attacher(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def node_name(val = nil); end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeAttachmentSource) }
-    def source; end
-  end
-
-  class VolumeAttachmentStatus < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeError) }
-    def attach_error; end
-
-    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-    def attached(val = nil); end
-
-    sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-    def attachment_metadata(&block); end
-
-    sig { returns(KubeDSL::DSL::Storage::V1beta1::VolumeError) }
-    def detach_error; end
-  end
-
-  class VolumeError < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def message(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def time(val = nil); end
-  end
-
-  class VolumeNodeResources < ::KubeDSL::DSLObject
-    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-    def serialize; end
-
-    sig { returns(Symbol) }
-    def kind_sym; end
-
-    sig { params(val: T.nilable(Integer)).returns(Integer) }
-    def count(val = nil); end
   end
 end
 
@@ -10505,6 +7842,9 @@ module V1
 
     sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
     def data(&block); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def immutable(val = nil); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
@@ -10988,6 +8328,9 @@ module V1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def app_protocol(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def name(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
@@ -11173,6 +8516,17 @@ module V1
     def working_dir(val = nil); end
   end
 
+  class EphemeralVolumeSource < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::V1::PersistentVolumeClaimTemplate) }
+    def volume_claim_template; end
+  end
+
   class Event < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -11252,9 +8606,6 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def last_observed_time(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
-    def state(val = nil); end
   end
 
   class EventSource < ::KubeDSL::DSLObject
@@ -11711,6 +9062,9 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def ip(val = nil); end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PortStatus))).returns(T::Array[KubeDSL::DSL::V1::PortStatus]) }
+    def ports(elem_name = nil, &block); end
   end
 
   class LoadBalancerStatus < ::KubeDSL::DSLObject
@@ -12252,6 +9606,9 @@ module V1
     sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
     def data_source; end
 
+    sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
+    def data_source_ref; end
+
     sig { returns(KubeDSL::DSL::V1::ResourceRequirements) }
     def resources; end
 
@@ -12286,6 +9643,20 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def phase(val = nil); end
+  end
+
+  class PersistentVolumeClaimTemplate < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+    def metadata; end
+
+    sig { returns(KubeDSL::DSL::V1::PersistentVolumeClaimSpec) }
+    def spec; end
   end
 
   class PersistentVolumeClaimVolumeSource < ::KubeDSL::DSLObject
@@ -12486,6 +9857,9 @@ module V1
     sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
     def label_selector; end
 
+    sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+    def namespace_selector; end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def namespaces(val = nil); end
 
@@ -12610,6 +9984,9 @@ module V1
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def fs_group(val = nil); end
 
+    sig { params(val: T.nilable(String)).returns(String) }
+    def fs_group_change_policy(val = nil); end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def run_as_group(val = nil); end
 
@@ -12621,6 +9998,9 @@ module V1
 
     sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
     def se_linux_options; end
+
+    sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
+    def seccomp_profile; end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def supplemental_groups(val = nil); end
@@ -12722,6 +10102,9 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def service_account_name(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def set_hostname_as_fqdn(val = nil); end
 
     sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
     def share_process_namespace(val = nil); end
@@ -12831,6 +10214,23 @@ module V1
     def spec; end
   end
 
+  class PortStatus < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def error(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def port(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def protocol(val = nil); end
+  end
+
   class PortworxVolumeSource < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -12889,6 +10289,9 @@ module V1
 
     sig { returns(KubeDSL::DSL::V1::TCPSocketAction) }
     def tcp_socket; end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def termination_grace_period_seconds(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def timeout_seconds(val = nil); end
@@ -13315,6 +10718,20 @@ module V1
     def user(val = nil); end
   end
 
+  class SeccompProfile < ::KubeDSL::DSLObject
+    sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+    def serialize; end
+
+    sig { returns(Symbol) }
+    def kind_sym; end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def localhost_profile(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def type(val = nil); end
+  end
+
   class Secret < ::KubeDSL::DSLObject
     sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
     def serialize; end
@@ -13324,6 +10741,9 @@ module V1
 
     sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
     def data(&block); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def immutable(val = nil); end
 
     sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
     def metadata; end
@@ -13465,6 +10885,9 @@ module V1
     sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
     def se_linux_options; end
 
+    sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
+    def seccomp_profile; end
+
     sig { returns(KubeDSL::DSL::V1::WindowsSecurityContextOptions) }
     def windows_options; end
   end
@@ -13559,6 +10982,9 @@ module V1
     def kind_sym; end
 
     sig { params(val: T.nilable(String)).returns(String) }
+    def app_protocol(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
     def name(val = nil); end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
@@ -13581,8 +11007,14 @@ module V1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def allocate_load_balancer_node_ports(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def cluster_ip(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def cluster_i_ps(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def external_i_ps(val = nil); end
@@ -13597,7 +11029,16 @@ module V1
     def health_check_node_port(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def ip_family(val = nil); end
+    def internal_traffic_policy(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def ip_families(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def ip_family_policy(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def load_balancer_class(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def load_balancer_ip(val = nil); end
@@ -13621,9 +11062,6 @@ module V1
     def session_affinity_config; end
 
     sig { params(val: T.nilable(String)).returns(String) }
-    def topology_keys(val = nil); end
-
-    sig { params(val: T.nilable(String)).returns(String) }
     def type(val = nil); end
   end
 
@@ -13633,6 +11071,9 @@ module V1
 
     sig { returns(Symbol) }
     def kind_sym; end
+
+    sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition]) }
+    def conditions(elem_name = nil, &block); end
 
     sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
     def load_balancer; end
@@ -13862,6 +11303,9 @@ module V1
     sig { returns(KubeDSL::DSL::V1::EmptyDirVolumeSource) }
     def empty_dir; end
 
+    sig { returns(KubeDSL::DSL::V1::EphemeralVolumeSource) }
+    def ephemeral; end
+
     sig { returns(KubeDSL::DSL::V1::FCVolumeSource) }
     def fc; end
 
@@ -14040,6 +11484,9 @@ module V1
 
     sig { params(val: T.nilable(String)).returns(String) }
     def gmsa_credential_spec_name(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def host_process(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def run_as_user_name(val = nil); end

@@ -18,6 +18,9 @@ module KubeDSL::DSL::V1
     sig { params(val: T.nilable(String)).returns(String) }
     def gmsa_credential_spec_name(val = nil); end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def host_process(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def run_as_user_name(val = nil); end
 

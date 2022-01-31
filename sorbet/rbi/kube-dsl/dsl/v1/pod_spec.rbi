@@ -127,6 +127,9 @@ module KubeDSL::DSL::V1
     def service_account_name(val = nil); end
 
     sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def set_hostname_as_fqdn(val = nil); end
+
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
     def share_process_namespace(val = nil); end
 
     sig { params(val: T.nilable(String)).returns(String) }

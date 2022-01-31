@@ -4,6 +4,7 @@ module KubeDSL::DSL::V1
   class PersistentVolumeClaimSpec < ::KubeDSL::DSLObject
     value_field :access_modes
     object_field(:data_source) { KubeDSL::DSL::V1::TypedLocalObjectReference.new }
+    object_field(:data_source_ref) { KubeDSL::DSL::V1::TypedLocalObjectReference.new }
     object_field(:resources) { KubeDSL::DSL::V1::ResourceRequirements.new }
     object_field(:selector) { KubeDSL::DSL::Meta::V1::LabelSelector.new }
     value_field :storage_class_name
@@ -12,6 +13,7 @@ module KubeDSL::DSL::V1
 
     validates :access_modes, field: { format: :string }, presence: false
     validates :data_source, object: { kind_of: KubeDSL::DSL::V1::TypedLocalObjectReference }
+    validates :data_source_ref, object: { kind_of: KubeDSL::DSL::V1::TypedLocalObjectReference }
     validates :resources, object: { kind_of: KubeDSL::DSL::V1::ResourceRequirements }
     validates :selector, object: { kind_of: KubeDSL::DSL::Meta::V1::LabelSelector }
     validates :storage_class_name, field: { format: :string }, presence: false
@@ -22,6 +24,7 @@ module KubeDSL::DSL::V1
       {}.tap do |result|
         result[:accessModes] = access_modes
         result[:dataSource] = data_source.serialize
+        result[:dataSourceRef] = data_source_ref.serialize
         result[:resources] = resources.serialize
         result[:selector] = selector.serialize
         result[:storageClassName] = storage_class_name

@@ -12,6 +12,14 @@ module KubeDSL::DSL::Policy::V1beta1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig {
+      params(
+        elem_name: T.nilable(Symbol),
+        block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))
+      ).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition])
+    }
+    def conditions(elem_name = nil, &block); end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def current_healthy(val = nil); end
 

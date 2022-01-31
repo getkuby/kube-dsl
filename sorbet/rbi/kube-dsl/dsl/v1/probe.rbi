@@ -34,6 +34,9 @@ module KubeDSL::DSL::V1
     def tcp_socket; end
 
     sig { params(val: T.nilable(Integer)).returns(Integer) }
+    def termination_grace_period_seconds(val = nil); end
+
+    sig { params(val: T.nilable(Integer)).returns(Integer) }
     def timeout_seconds(val = nil); end
 
   end

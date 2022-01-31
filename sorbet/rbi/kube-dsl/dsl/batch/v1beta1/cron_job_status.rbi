@@ -23,5 +23,8 @@ module KubeDSL::DSL::Batch::V1beta1
     sig { params(val: T.nilable(String)).returns(String) }
     def last_schedule_time(val = nil); end
 
+    sig { params(val: T.nilable(String)).returns(String) }
+    def last_successful_time(val = nil); end
+
   end
 end

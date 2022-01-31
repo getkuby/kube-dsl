@@ -15,6 +15,9 @@ module KubeDSL::DSL::V1
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def fs_group(val = nil); end
 
+    sig { params(val: T.nilable(String)).returns(String) }
+    def fs_group_change_policy(val = nil); end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def run_as_group(val = nil); end
 
@@ -26,6 +29,9 @@ module KubeDSL::DSL::V1
 
     sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
     def se_linux_options; end
+
+    sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
+    def seccomp_profile; end
 
     sig { params(val: T.nilable(String)).returns(String) }
     def supplemental_groups(val = nil); end

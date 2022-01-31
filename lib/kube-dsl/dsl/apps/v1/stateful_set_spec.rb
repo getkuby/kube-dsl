@@ -2,6 +2,7 @@
 
 module KubeDSL::DSL::Apps::V1
   class StatefulSetSpec < ::KubeDSL::DSLObject
+    value_field :min_ready_seconds
     value_field :pod_management_policy
     value_field :replicas
     value_field :revision_history_limit
@@ -11,6 +12,7 @@ module KubeDSL::DSL::Apps::V1
     object_field(:update_strategy) { KubeDSL::DSL::Apps::V1::StatefulSetUpdateStrategy.new }
     array_field(:volume_claim_template) { KubeDSL::DSL::V1::PersistentVolumeClaim.new }
 
+    validates :min_ready_seconds, field: { format: :integer }, presence: false
     validates :pod_management_policy, field: { format: :string }, presence: false
     validates :replicas, field: { format: :integer }, presence: false
     validates :revision_history_limit, field: { format: :integer }, presence: false
@@ -22,6 +24,7 @@ module KubeDSL::DSL::Apps::V1
 
     def serialize
       {}.tap do |result|
+        result[:minReadySeconds] = min_ready_seconds
         result[:podManagementPolicy] = pod_management_policy
         result[:replicas] = replicas
         result[:revisionHistoryLimit] = revision_history_limit

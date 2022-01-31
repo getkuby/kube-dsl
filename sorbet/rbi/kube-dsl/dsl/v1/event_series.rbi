@@ -18,8 +18,5 @@ module KubeDSL::DSL::V1
     sig { params(val: T.nilable(String)).returns(String) }
     def last_observed_time(val = nil); end
 
-    sig { params(val: T.nilable(String)).returns(String) }
-    def state(val = nil); end
-
   end
 end

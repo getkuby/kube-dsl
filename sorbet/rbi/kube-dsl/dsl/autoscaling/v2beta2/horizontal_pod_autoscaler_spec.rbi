@@ -12,6 +12,9 @@ module KubeDSL::DSL::Autoscaling::V2beta2
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
+    def behavior; end
+
     sig { params(val: T.nilable(Integer)).returns(Integer) }
     def max_replicas(val = nil); end
 

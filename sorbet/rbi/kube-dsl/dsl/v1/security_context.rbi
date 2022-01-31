@@ -39,6 +39,9 @@ module KubeDSL::DSL::V1
     sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
     def se_linux_options; end
 
+    sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
+    def seccomp_profile; end
+
     sig { returns(KubeDSL::DSL::V1::WindowsSecurityContextOptions) }
     def windows_options; end
 

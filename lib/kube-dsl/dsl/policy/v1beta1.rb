@@ -2,7 +2,6 @@ module KubeDSL::DSL::Policy::V1beta1
   autoload :AllowedCSIDriver, 'kube-dsl/dsl/policy/v1beta1/allowed_csi_driver'
   autoload :AllowedFlexVolume, 'kube-dsl/dsl/policy/v1beta1/allowed_flex_volume'
   autoload :AllowedHostPath, 'kube-dsl/dsl/policy/v1beta1/allowed_host_path'
-  autoload :Eviction, 'kube-dsl/dsl/policy/v1beta1/eviction'
   autoload :FSGroupStrategyOptions, 'kube-dsl/dsl/policy/v1beta1/fs_group_strategy_options'
   autoload :HostPortRange, 'kube-dsl/dsl/policy/v1beta1/host_port_range'
   autoload :IDRange, 'kube-dsl/dsl/policy/v1beta1/id_range'

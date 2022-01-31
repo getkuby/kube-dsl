@@ -20,6 +20,12 @@ module KubeDSL::DSL::Apiextensions::V1
     }
     def additional_printer_columns(elem_name = nil, &block); end
 
+    sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+    def deprecated(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def deprecation_warning(val = nil); end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def name(val = nil); end
 

@@ -12,6 +12,9 @@ module KubeDSL::DSL::Autoscaling::V2beta1
     sig { returns(Symbol) }
     def kind_sym; end
 
+    sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ContainerResourceMetricStatus) }
+    def container_resource; end
+
     sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricStatus) }
     def external; end
 

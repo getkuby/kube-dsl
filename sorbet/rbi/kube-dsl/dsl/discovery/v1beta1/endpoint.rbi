@@ -18,8 +18,14 @@ module KubeDSL::DSL::Discovery::V1beta1
     sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointConditions) }
     def conditions; end
 
+    sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointHints) }
+    def hints; end
+
     sig { params(val: T.nilable(String)).returns(String) }
     def hostname(val = nil); end
+
+    sig { params(val: T.nilable(String)).returns(String) }
+    def node_name(val = nil); end
 
     sig { returns(KubeDSL::DSL::V1::ObjectReference) }
     def target_ref; end
