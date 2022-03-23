@@ -100,7 +100,7 @@ module KubeDSL::DSL::Apiextensions::V1
         result[:example] = example
         result[:exclusiveMaximum] = exclusive_maximum
         result[:exclusiveMinimum] = exclusive_minimum
-        result[:externalDocs] = external_docs.serialize
+        #result[:externalDocs] = external_docs.serialize
         result[:format] = format
         result[:id] = id
         result[:items] = items
@@ -113,7 +113,7 @@ module KubeDSL::DSL::Apiextensions::V1
         result[:minProperties] = min_properties
         result[:minimum] = minimum
         result[:multipleOf] = multiple_of
-        result[:not] = not_field.serialize
+        # result[:not] = not_field.serialize
         result[:nullable] = nullable
         result[:oneOf] = one_ofs.map(&:serialize)
         result[:pattern] = pattern
