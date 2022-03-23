@@ -4,13 +4,13 @@ module KubeDSL::DSL::Apiextensions::V1
   class JSONSchemaProps < ::KubeDSL::DSLObject
     value_field :additional_items
     value_field :additional_properties
-    array_field(:all_of) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
-    array_field(:any_of) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
+    array_field(:all_ofs) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
+    array_field(:any_ofs) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
     value_field :default
     key_value_field(:definitions, format: :string)
     key_value_field(:dependencies, format: :string)
     value_field :description
-    array_field(:enum) { KubeDSL::DSL::Apiextensions::V1::JSON.new }
+    array_field(:enums) { KubeDSL::DSL::Apiextensions::V1::JSON.new }
     value_field :example
     value_field :exclusive_maximum
     value_field :exclusive_minimum
@@ -29,7 +29,7 @@ module KubeDSL::DSL::Apiextensions::V1
     value_field :multiple_of
     object_field(:not_field) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
     value_field :nullable
-    array_field(:one_of) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
+    array_field(:one_ofs) { KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps.new }
     value_field :pattern
     key_value_field(:pattern_properties, format: :string)
     key_value_field(:properties, format: :string)
