@@ -93,6 +93,18 @@ task :generate do
         end
       RUBY
     end
+
+    autoload_file = "#{File.dirname(path)}.rb"
+    autoload_contents = File.read(autoload_file)
+    autoload_lines = autoload_contents.strip.split("\n")
+    autoloads = autoload_lines[1..-2]
+    autoload_path = path.sub(/\Alib\//, '').chomp('.rb')
+    autoloads << "  autoload :JSON, '#{autoload_path}'"
+    autoloads.sort!
+    autoload_lines[1..-2] = autoloads
+
+    puts "Writing #{autoload_file}"
+    File.write(autoload_file, autoload_lines.join("\n"))
   end
 
   json_rbi_files = {

@@ -12,6 +12,7 @@ module KubeDSL::DSL::Apiextensions::V1
   autoload :CustomResourceSubresources, 'kube-dsl/dsl/apiextensions/v1/custom_resource_subresources'
   autoload :CustomResourceValidation, 'kube-dsl/dsl/apiextensions/v1/custom_resource_validation'
   autoload :ExternalDocumentation, 'kube-dsl/dsl/apiextensions/v1/external_documentation'
+  autoload :JSON, 'kube-dsl/dsl/apiextensions/v1/json'
   autoload :JSONSchemaProps, 'kube-dsl/dsl/apiextensions/v1/json_schema_props'
   autoload :ServiceReference, 'kube-dsl/dsl/apiextensions/v1/service_reference'
   autoload :WebhookClientConfig, 'kube-dsl/dsl/apiextensions/v1/webhook_client_config'
