@@ -37,6 +37,148 @@ module KubeDSL
     def cleanup(obj); end
   end
 
+  class ValidationError < StandardError
+  end
+
+  module Validations
+    class ValidationErrors
+      sig { returns(T.untyped) }
+      attr_reader :messages
+
+      sig { returns(T.untyped) }
+      def initialize; end
+
+      sig { params(field_name: T.untyped, msg: T.untyped).returns(T.untyped) }
+      def add(field_name, msg); end
+
+      sig { returns(T.untyped) }
+      def empty?; end
+    end
+
+    class PresenceValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :presence
+
+      sig { params(field_name: T.untyped, presence: T.untyped).returns(T.untyped) }
+      def initialize(field_name, presence); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+
+      sig { params(obj: T.untyped).returns(T.untyped) }
+      def obj_empty?(obj); end
+    end
+
+    class ArrayValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :kind_of
+
+      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      def initialize(field_name, opts); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+    end
+
+    class FormatValidator
+      sig { returns(T.untyped) }
+      attr_reader :format
+
+      sig { params(format: T.untyped).returns(T.untyped) }
+      def initialize(format); end
+
+      sig { params(obj: T.untyped).returns(T.untyped) }
+      def valid?(obj); end
+
+      sig { returns(T.untyped) }
+      def klasses; end
+    end
+
+    class FieldValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :format_validator
+
+      sig { params(field_name: T.untyped, options: T.untyped).returns(T.untyped) }
+      def initialize(field_name, options = {}); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+    end
+
+    class ObjectValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :kind_of
+
+      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      def initialize(field_name, opts); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+    end
+
+    class KeyValueValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :format_validator
+
+      sig { params(field_name: T.untyped, options: T.untyped).returns(T.untyped) }
+      def initialize(field_name, options = {}); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+    end
+
+    class InclusionValidator
+      sig { returns(T.untyped) }
+      attr_reader :field_name
+
+      sig { returns(T.untyped) }
+      attr_reader :list
+
+      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      def initialize(field_name, opts); end
+
+      sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(obj, errors, nesting); end
+    end
+
+    module ClassMethods
+      sig { params(field_name: T.untyped, options: T.untyped).returns(T.untyped) }
+      def validates(field_name, options); end
+
+      sig { returns(T.untyped) }
+      def validators; end
+    end
+
+    module InstanceMethods
+      sig { params(errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
+      def validate(errors = nil, nesting = []); end
+
+      sig { returns(T.untyped) }
+      def validate!; end
+
+      sig { returns(T.untyped) }
+      def valid?; end
+    end
+
+    sig { params(base: T.untyped).returns(T.untyped) }
+    def self.extended(base); end
+  end
+
   module ValueFields
     class ClassMismatchError < StandardError
     end
