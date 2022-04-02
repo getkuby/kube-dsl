@@ -7,3 +7,4 @@ parser:
   - ./sorbet/rbi/kube-dsl
   - ./lib/kube-dsl/dsl_object.rb
   - ./lib/kube-dsl/resource.rb
+  - ./lib/kube-dsl/value_fields.rb
