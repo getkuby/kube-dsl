@@ -9,3 +9,4 @@ parser:
   - ./lib/kube-dsl/resource.rb
   - ./lib/kube-dsl/value_fields.rb
   - ./lib/kube-dsl/validations.rb
+  - ./lib/kube-dsl/key_value_fields.rb

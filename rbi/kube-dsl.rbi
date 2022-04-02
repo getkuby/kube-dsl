@@ -15,6 +15,40 @@ module KubeDSL
     def serialize; end
   end
 
+  class KeyValueFields
+    extend T::Sig
+
+    sig { returns(Symbol) }
+    attr_reader :format
+
+    sig { returns(T::Hash[Symbol, String]) }
+    attr_reader :kv_pairs
+
+    sig { params(format: Symbol).void }
+    def initialize(format: :string); end
+
+    sig { params(key: Symbol, value: String).void }
+    def add(key, value); end
+
+    sig { params(key: Symbol).void }
+    def remove(key); end
+
+    sig { params(key: Symbol).returns(T.nilable(String)) }
+    def get(key); end
+
+    sig { params(key: Symbol, value: String).void }
+    def set(key, value); end
+
+    sig { returns(T::Hash[Symbol, String]) }
+    def serialize; end
+
+    sig { params(other: KeyValueFields).void }
+    def merge!(other); end
+
+    sig { params(data: String).returns(String) }
+    def serialize_value(data); end
+  end
+
   class Resource
     extend T::Sig
 
