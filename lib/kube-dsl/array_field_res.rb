@@ -29,7 +29,7 @@ module KubeDSL
         "    block: T.nilable(T.proc.returns(#{rbi_type_for(ruby_type)}))",
         "  ).returns(T::Array[#{rbi_type_for(ruby_type)}])",
         '}',
-        "def #{plural_name(inflector)}(elem_name = nil, &block); end\n"
+        "def #{plural_name(inflector)}(elem_name = nil, &block); end"
       ]
     end
 

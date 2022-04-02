@@ -1,4 +1,5 @@
-# typed: true
+# typed: false
+
 module KubeDSL
   class ResourceMeta
     include StringHelpers
@@ -20,93 +21,117 @@ module KubeDSL
     end
 
     def to_ruby
-      ''.tap do |str|
-        str << "# typed: true\n\n"
-        str << "module #{ref.ruby_namespace.join('::')}\n"
-        str << "  class #{ref.kind} < ::KubeDSL::DSLObject\n"
-        str << fields_to_ruby
-        str << "\n"
-        str << validations
-        str << "\n"
-        str << serialize_method
-        str << "\n"
-        str << "    def kind_sym\n"
-        str << "      :#{underscore(ref.kind)}\n"
-        str << "    end\n"
-        str << "  end\n"
-        str << "end\n"
-      end
+      level = ref.ruby_namespace.size - 1
+
+      lines = [
+        "# typed: true",
+        '',
+        *ref.ruby_namespace.flat_map.with_index do |mod, idx|
+          indent("module #{mod}", idx)
+        end,
+        *indent("class #{ref.kind} < ::KubeDSL::DSLObject", level + 1),
+        *fields_to_ruby(level + 2),
+        *validations(level + 2),
+        *serialize_method(level + 2),
+        *indent(
+          'def kind_sym',
+          "  :#{underscore(ref.kind)}",
+          'end', level + 2
+        ),
+        *indent('end', level + 1),  # class
+        *level.downto(0).flat_map do |idx|
+          indent('end', idx)
+        end
+      ]
+
+      lines.join("\n")
     end
 
     def to_rbi
-      ''.tap do |str|
-        str << "# typed: strict\n\n"
-        str << "module #{ref.ruby_namespace.join('::')}\n"
-        str << "  class #{ref.kind} < ::KubeDSL::DSLObject\n"
-        str << "    sig {\n"
-        str << "      returns(\n"
-        str << "        T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]\n"
-        str << "      )\n"
-        str << "    }\n"
-        str << "    def serialize; end\n\n"
-        str << "    sig { returns(Symbol) }\n"
-        str << "    def kind_sym; end\n\n"
-        str << fields_to_rbi
-        str << "  end\n"
-        str << "end\n"
-      end
+      level = ref.ruby_namespace.size - 1
+
+      lines = [
+        "# typed: strict",
+        '',
+        *ref.ruby_namespace.flat_map.with_index do |mod, idx|
+          indent("module #{mod}", idx)
+        end,
+        *indent("class #{ref.kind} < ::KubeDSL::DSLObject", level + 1),
+        *indent(
+          'sig {',
+          '  returns(',
+          '    T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]',
+          '  )',
+          '}',
+          'def serialize; end', level + 2
+        ),
+        '',
+        *indent(
+          'sig { returns(Symbol) }',
+          'def kind_sym; end', level + 2
+        ),
+        '',
+        *fields_to_rbi(level + 2),
+        *indent('end', level + 1),  # class
+        *level.downto(0).flat_map do |idx|
+          indent('end', idx)
+        end
+      ]
+
+      lines.join("\n")
     end
 
     private
 
-    def indent(lines, level)
+    def indent(*lines, level)
       lines.map do |line|
         "#{'  ' * level}#{line}"
       end
     end
 
-    def fields_to_ruby
+    def fields_to_ruby(level)
       lines = fields.flat_map do |name, field|
-        indent(field.fields_to_ruby(inflector), 2)
+        indent(*field.fields_to_ruby(inflector), level)
       end
 
-      result = lines.join("\n")
-      result << "\n" unless result.empty?
-      result
+      lines << '' unless lines.empty?
+      lines
     end
 
-    def fields_to_rbi
+    def fields_to_rbi(level)
       lines = fields.flat_map do |name, field|
-        indent(field.fields_to_rbi(inflector), 2)
+        [
+          *indent(*field.fields_to_rbi(inflector), level),
+          ''
+        ]
       end
 
-      result = lines.join("\n")
-      result << "\n" unless result.empty?
-      result
+      lines.pop if lines.last == ''
+      lines
     end
 
-    def validations
+    def validations(level)
       lines = fields.flat_map do |name, field|
-        indent(field.validations(inflector), 2)
+        indent(*field.validations(inflector), level)
       end
 
-      result = lines.join("\n")
-      result << "\n" unless result.empty?
-      result
+      lines << '' unless lines.empty?
+      lines
     end
 
-    def serialize_method
-      ''.tap do |str|
-        str << "    def serialize\n"
-        str << "      {}.tap do |result|\n"
+    def serialize_method(level)
+      lines = indent(
+        "def serialize",
+        "  {}.tap do |result|",
+        *fields.map do |name, field|
+          "    result[:#{quote_sym(name)}] = #{field.serialize_call(inflector)}"
+        end,
+        "  end",
+        "end", level
+      )
 
-        fields.each do |name, field|
-          str << "        result[:#{quote_sym(name)}] = #{field.serialize_call(inflector)}\n"
-        end
-
-        str << "      end\n"
-        str << "    end\n"
-      end
+      lines << '' unless lines.empty?
+      lines
     end
 
     def quote_sym(sym_str)

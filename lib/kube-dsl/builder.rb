@@ -46,8 +46,13 @@ module KubeDSL
         memo << kind if count > 1
       end
 
-      ruby_code = "# typed: strict\n\nmodule #{entrypoint_namespace.join('::')}::Entrypoint\n"
+      mod_lines = [*entrypoint_namespace, 'Entrypoint'].map.with_index do |ep_mod, idx|
+        "#{'  ' * idx}module #{ep_mod}"
+      end
+
+      ruby_code = "# typed: strict\n\n#{mod_lines.join("\n")}\n"
       rbi_code = ruby_code.dup
+      indent = '  ' * mod_lines.size
 
       each_resource do |resource|
         ns = resource.ref.ruby_namespace.join('::')
@@ -59,21 +64,23 @@ module KubeDSL
           underscore(resource.ref.kind)
         end
 
-        ruby_code << "  def #{method_name}(&block)\n"
-        ruby_code << "    ::#{ns}::#{resource.ref.kind}.new(&block)\n"
-        ruby_code << "  end\n\n"
+        ruby_code << "#{indent}def #{method_name}(&block)\n"
+        ruby_code << "#{indent}  ::#{ns}::#{resource.ref.kind}.new(&block)\n"
+        ruby_code << "#{indent}end\n\n"
 
-        rbi_code << "  sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
-        rbi_code << "  def #{method_name}(&block); end\n\n"
+        rbi_code << "#{indent}sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
+        rbi_code << "#{indent}def #{method_name}(&block); end\n\n"
       end
 
       ruby_code.strip!
-      ruby_code << "\nend\n"
-
       rbi_code.strip!
-      rbi_code << "\nend\n"
 
-      return [ruby_code, rbi_code]
+      (mod_lines.size - 1).downto(0) do |idx|
+        ruby_code << "\n#{'  ' * idx}end"
+        rbi_code << "\n#{'  ' * idx}end"
+      end
+
+      return ["#{ruby_code}\n", "#{rbi_code}\n"]
     end
 
     def entrypoint_path

@@ -1,24 +1,30 @@
 # typed: true
 
-module KubeDSL::DSL::Node::V1alpha1
-  class RuntimeClass < ::KubeDSL::DSLObject
-    object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
-    object_field(:spec) { KubeDSL::DSL::Node::V1alpha1::RuntimeClassSpec.new }
+module KubeDSL
+  module DSL
+    module Node
+      module V1alpha1
+        class RuntimeClass < ::KubeDSL::DSLObject
+          object_field(:metadata) { KubeDSL::DSL::Meta::V1::ObjectMeta.new }
+          object_field(:spec) { KubeDSL::DSL::Node::V1alpha1::RuntimeClassSpec.new }
 
-    validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
-    validates :spec, object: { kind_of: KubeDSL::DSL::Node::V1alpha1::RuntimeClassSpec }
+          validates :metadata, object: { kind_of: KubeDSL::DSL::Meta::V1::ObjectMeta }
+          validates :spec, object: { kind_of: KubeDSL::DSL::Node::V1alpha1::RuntimeClassSpec }
 
-    def serialize
-      {}.tap do |result|
-        result[:apiVersion] = "node.k8s.io/v1alpha1"
-        result[:kind] = "RuntimeClass"
-        result[:metadata] = metadata.serialize
-        result[:spec] = spec.serialize
+          def serialize
+            {}.tap do |result|
+              result[:apiVersion] = "node.k8s.io/v1alpha1"
+              result[:kind] = "RuntimeClass"
+              result[:metadata] = metadata.serialize
+              result[:spec] = spec.serialize
+            end
+          end
+
+          def kind_sym
+            :runtime_class
+          end
+        end
       end
-    end
-
-    def kind_sym
-      :runtime_class
     end
   end
 end

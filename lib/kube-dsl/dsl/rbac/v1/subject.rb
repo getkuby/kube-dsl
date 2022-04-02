@@ -1,28 +1,34 @@
 # typed: true
 
-module KubeDSL::DSL::Rbac::V1
-  class Subject < ::KubeDSL::DSLObject
-    value_field :api_group
-    value_field :kind
-    value_field :name
-    value_field :namespace
+module KubeDSL
+  module DSL
+    module Rbac
+      module V1
+        class Subject < ::KubeDSL::DSLObject
+          value_field :api_group
+          value_field :kind
+          value_field :name
+          value_field :namespace
 
-    validates :api_group, field: { format: :string }, presence: false
-    validates :kind, field: { format: :string }, presence: false
-    validates :name, field: { format: :string }, presence: false
-    validates :namespace, field: { format: :string }, presence: false
+          validates :api_group, field: { format: :string }, presence: false
+          validates :kind, field: { format: :string }, presence: false
+          validates :name, field: { format: :string }, presence: false
+          validates :namespace, field: { format: :string }, presence: false
 
-    def serialize
-      {}.tap do |result|
-        result[:apiGroup] = api_group
-        result[:kind] = kind
-        result[:name] = name
-        result[:namespace] = namespace
+          def serialize
+            {}.tap do |result|
+              result[:apiGroup] = api_group
+              result[:kind] = kind
+              result[:name] = name
+              result[:namespace] = namespace
+            end
+          end
+
+          def kind_sym
+            :subject
+          end
+        end
       end
-    end
-
-    def kind_sym
-      :subject
     end
   end
 end

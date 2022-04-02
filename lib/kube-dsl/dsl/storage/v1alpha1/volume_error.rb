@@ -1,22 +1,28 @@
 # typed: true
 
-module KubeDSL::DSL::Storage::V1alpha1
-  class VolumeError < ::KubeDSL::DSLObject
-    value_field :message
-    value_field :time
+module KubeDSL
+  module DSL
+    module Storage
+      module V1alpha1
+        class VolumeError < ::KubeDSL::DSLObject
+          value_field :message
+          value_field :time
 
-    validates :message, field: { format: :string }, presence: false
-    validates :time, field: { format: :string }, presence: false
+          validates :message, field: { format: :string }, presence: false
+          validates :time, field: { format: :string }, presence: false
 
-    def serialize
-      {}.tap do |result|
-        result[:message] = message
-        result[:time] = time
+          def serialize
+            {}.tap do |result|
+              result[:message] = message
+              result[:time] = time
+            end
+          end
+
+          def kind_sym
+            :volume_error
+          end
+        end
       end
-    end
-
-    def kind_sym
-      :volume_error
     end
   end
 end
