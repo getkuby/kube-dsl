@@ -1,5 +1,42 @@
 # typed: strong
 module KubeDSL
+  class DSLObject
+    extend T::Sig
+    extend ::KubeDSL::ValueFields
+    extend ::KubeDSL::Validations
+
+    sig { params(block: T.nilable(T.proc.void)).void }
+    def initialize(&block); end
+
+    sig { returns(::KubeDSL::Resource) }
+    def to_resource; end
+
+    sig { returns(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])) }
+    def serialize; end
+  end
+
+  class Resource
+    extend T::Sig
+
+    sig { returns(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])) }
+    attr_reader :contents
+
+    sig { params(contents: T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).void }
+    def initialize(contents); end
+
+    sig { returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
+    def serialize; end
+
+    sig { returns(String) }
+    def to_yaml; end
+
+    sig { returns(Resource) }
+    def to_resource; end
+
+    sig { params(obj: T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
+    def cleanup(obj); end
+  end
+
   module Entrypoint
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Admissionregistration::V1::MutatingWebhook) }
     def mutating_webhook(&block); end

@@ -1,26 +1,38 @@
-# typed: true
+# typed: strict
+
 module KubeDSL
   class Resource
+    extend T::Sig
+
+    sig { returns(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])) }
     attr_reader :contents
 
+    sig { params(contents: T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).void }
     def initialize(contents)
       @contents = contents
     end
 
+    sig { returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
     def serialize
       cleanup(contents)
     end
 
+    sig { returns(String) }
     def to_yaml
       YAML.dump(serialize)
     end
 
+    sig { returns(Resource) }
     def to_resource
       self
     end
 
     private
 
+    sig {
+      params(obj: T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))
+        .returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])))
+    }
     def cleanup(obj)
       case obj
         when Array
