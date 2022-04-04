@@ -8,6 +8,7 @@ module KubeDSL
   autoload :DSL,                  'kube-dsl/dsl'
   autoload :DSLObject,            'kube-dsl/dsl_object'
   autoload :Entrypoint,           'kube-dsl/entrypoint'
+  autoload :EntrypointBuilder,    'kube-dsl/entrypoint_builder'
   autoload :ExternalRef,          'kube-dsl/external_ref'
   autoload :ExternalResourceMeta, 'kube-dsl/external_resource_meta'
   autoload :FieldRes,             'kube-dsl/field_res'

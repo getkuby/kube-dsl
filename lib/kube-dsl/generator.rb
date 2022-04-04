@@ -1,4 +1,5 @@
 # typed: false
+
 module KubeDSL
   class Generator
     attr_reader :builder
@@ -7,13 +8,13 @@ module KubeDSL
       @builder = Builder.new(*args, **kwargs)
     end
 
-    def generate
-      generate_resource_files
+    def generate(include_rbi: true)
+      generate_resource_files(include_rbi: include_rbi)
       generate_autoload_files
-      generate_entrypoint_file
+      generate_entrypoint_file(include_rbi: include_rbi)
     end
 
-    def generate_resource_files
+    def generate_resource_files(include_rbi: true)
       builder.each_resource_file do |path, res|
         FileUtils.mkdir_p(File.dirname(path))
 
@@ -23,11 +24,9 @@ module KubeDSL
           puts "Writing #{path}"
           File.write(path, res.to_ruby)
         end
-      end
-    end
 
-    def generate_rbi_files
-      builder.each_resource_file do |path, res|
+        next unless include_rbi
+
         rbi_path = File.join('sorbet', 'rbi', *path.split(File::SEPARATOR)[1..-1])
         rbi_path = "#{rbi_path.chomp('.rb')}.rbi"
         FileUtils.mkdir_p(File.dirname(rbi_path))
@@ -52,17 +51,23 @@ module KubeDSL
       end
     end
 
-    def generate_entrypoint_file(&block)
-      if File.exist?(builder.entrypoint_path)
-        puts "Skipping #{builder.entrypoint_path} because it already exists"
+    def generate_entrypoint_file(include_rbi: true, &block)
+      entrypoint_builder = builder.entrypoint(&block)
+
+      if File.exist?(entrypoint_builder.path)
+        puts "Skipping #{entrypoint_builder.path} because it already exists"
       else
-        entrypoint_ruby, entrypoint_rbi = builder.entrypoint(&block)
+        entrypoint_ruby = entrypoint_builder.entrypoint
 
-        puts "Writing #{builder.entrypoint_path}"
-        File.write(builder.entrypoint_path, entrypoint_ruby)
+        puts "Writing #{entrypoint_builder.path}"
+        File.write(entrypoint_builder.path, entrypoint_ruby)
 
-        puts "Writing #{builder.entrypoint_rbi_path}"
-        File.write(builder.entrypoint_rbi_path, entrypoint_rbi)
+        if include_rbi
+          entrypoint_rbi = entrypoint_builder.entrypoint_rbi
+
+          puts "Writing #{entrypoint_builder.rbi_path}"
+          File.write(entrypoint_builder.rbi_path, entrypoint_rbi)
+        end
       end
     end
   end

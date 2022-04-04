@@ -1,10 +1,9 @@
 # typed: false
+
 require 'json'
 
 module KubeDSL
   class Builder
-    include StringHelpers
-
     attr_reader :schema_dir, :output_dir, :autoload_prefix
     attr_reader :dsl_namespace, :entrypoint_namespace
     attr_reader :inflector, :resolvers
@@ -35,63 +34,7 @@ module KubeDSL
     end
 
     def entrypoint(&block)
-      kinds = each_resource.map do |resource|
-        ns = resource.ref.ruby_namespace.join('::')
-        next if block && !block.call(resource, ns)
-
-        resource.ref.kind
-      end
-
-      ambiguous_kinds = kinds.compact.tally.each_with_object([]) do |(kind, count), memo|
-        memo << kind if count > 1
-      end
-
-      mod_lines = [*entrypoint_namespace, 'Entrypoint'].map.with_index do |ep_mod, idx|
-        "#{'  ' * idx}module #{ep_mod}"
-      end
-
-      ruby_code = "# typed: strict\n\n#{mod_lines.join("\n")}\n"
-      rbi_code = ruby_code.dup
-      indent = '  ' * mod_lines.size
-
-      each_resource do |resource|
-        ns = resource.ref.ruby_namespace.join('::')
-        next if block && !block.call(resource, ns)
-
-        method_name = if ambiguous_kinds.include?(resource.ref.kind)
-          underscore([resource.ref.namespace, resource.ref.version, resource.ref.kind].compact.join('_'))
-        else
-          underscore(resource.ref.kind)
-        end
-
-        ruby_code << "#{indent}def #{method_name}(&block)\n"
-        ruby_code << "#{indent}  ::#{ns}::#{resource.ref.kind}.new(&block)\n"
-        ruby_code << "#{indent}end\n\n"
-
-        rbi_code << "#{indent}sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
-        rbi_code << "#{indent}def #{method_name}(&block); end\n\n"
-      end
-
-      ruby_code.strip!
-      rbi_code.strip!
-
-      (mod_lines.size - 1).downto(0) do |idx|
-        ruby_code << "\n#{'  ' * idx}end"
-        rbi_code << "\n#{'  ' * idx}end"
-      end
-
-      return ["#{ruby_code}\n", "#{rbi_code}\n"]
-    end
-
-    def entrypoint_path
-      @entrypoint_path ||= File.join(output_dir, File.dirname(autoload_prefix), 'entrypoint.rb')
-    end
-
-    def entrypoint_rbi_path
-      @rbi_path ||= begin
-        rbi_path = File.join('sorbet', 'rbi', *entrypoint_path.split(File::SEPARATOR)[1..-1])
-        "#{rbi_path.chomp('.rb')}.rbi"
-      end
+      EntrypointBuilder.new(self, &block)
     end
 
     def each_autoload_file(&block)
@@ -117,8 +60,6 @@ module KubeDSL
       Ref.new(ref_str, dsl_namespace, inflector, schema_dir, autoload_prefix)
     end
 
-    private
-
     def each_resource
       return to_enum(__method__) unless block_given?
 
@@ -136,6 +77,8 @@ module KubeDSL
         yield res if !res.external? && !res.empty?
       end
     end
+
+    private
 
     def load_resources
       @resources = []
@@ -251,6 +194,9 @@ module KubeDSL
               name, Array(prop['type']).first, required
             )
           end
+
+        when NilClass
+          # do nothing
 
         else
           ref = resolve_ref(prop['$ref'])
