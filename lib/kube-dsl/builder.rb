@@ -166,6 +166,11 @@ module KubeDSL
             res.fields[name] = ArrayFieldRes.new(
               name, required, resource_from_ref(ref)
             )
+          elsif prop.dig('items', 'properties')
+            child_ref = InlineRef.new(name, prop['items'], res.ref)
+            child_res = resource_from_ref(child_ref)
+            @resources << child_res
+            res.fields[name] = ArrayFieldRes.new(name, required, child_res)
           else
             res.fields[name] = FieldRes.new(
               name, (prop.dig('items', 'types') || ['string']).first, required
@@ -195,10 +200,9 @@ module KubeDSL
             )
           end
 
-        when NilClass
-          # do nothing
-
         else
+          return unless prop.include?('$ref')
+
           ref = resolve_ref(prop['$ref'])
 
           if ref.object?

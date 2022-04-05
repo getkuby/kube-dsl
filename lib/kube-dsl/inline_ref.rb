@@ -34,6 +34,8 @@ module KubeDSL
           result.prepend(capitalize(current_ref.name))
           current_ref = current_ref.parent_ref
         end
+
+        result.prepend(current_ref.kind)
       end
     end
 
