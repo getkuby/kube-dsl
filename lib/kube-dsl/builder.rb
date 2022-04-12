@@ -6,7 +6,7 @@ module KubeDSL
   class Builder
     attr_reader :schema_dir, :output_dir, :autoload_prefix
     attr_reader :dsl_namespace, :entrypoint_namespace
-    attr_reader :inflector, :resolvers
+    attr_reader :inflector, :resolvers, :serialize_handlers
 
     def initialize(schema_dir:, output_dir:, autoload_prefix:, inflector:, dsl_namespace:, entrypoint_namespace:)
       @schema_dir = schema_dir
@@ -15,7 +15,8 @@ module KubeDSL
       @inflector = inflector
       @dsl_namespace = dsl_namespace
       @entrypoint_namespace = entrypoint_namespace
-      @resolvers ||= {}
+      @resolvers = {}
+      @serialize_handlers = []
       @resources = nil
     end
 
@@ -23,6 +24,12 @@ module KubeDSL
       prefixes.each do |prefix|
         @resolvers[prefix] = resolver
       end
+    end
+
+    def register_serialize_handler(namespace, version, kind, field, &block)
+      @serialize_handlers << SerializeHandler.new(
+        namespace, version, kind, field, &block
+      )
     end
 
     def each_resource_file
@@ -57,7 +64,7 @@ module KubeDSL
     end
 
     def parse_ref(ref_str)
-      Ref.new(ref_str, dsl_namespace, inflector, schema_dir, autoload_prefix)
+      Ref.new(ref_str, dsl_namespace, inflector, schema_dir, autoload_prefix, serialize_handlers)
     end
 
     def each_resource
@@ -167,7 +174,7 @@ module KubeDSL
               name, required, resource_from_ref(ref)
             )
           elsif prop.dig('items', 'properties')
-            child_ref = InlineRef.new(name, prop['items'], res.ref)
+            child_ref = InlineRef.new(name, prop['items'], res.ref, serialize_handlers)
             child_res = resource_from_ref(child_ref)
             @resources << child_res
             res.fields[name] = ArrayFieldRes.new(name, required, child_res)
@@ -179,7 +186,7 @@ module KubeDSL
 
         when 'object'
           if prop.include?('properties')
-            child_ref = InlineRef.new(name, prop, res.ref)
+            child_ref = InlineRef.new(name, prop, res.ref, serialize_handlers)
             child_res = resource_from_ref(child_ref)
             @resources << child_res
             res.fields[name] = ObjectFieldRes.new(name, child_res)

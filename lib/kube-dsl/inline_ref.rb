@@ -1,12 +1,13 @@
 # typed: false
 module KubeDSL
   class InlineRef
-    attr_reader :name, :document, :parent_ref
+    attr_reader :name, :document, :parent_ref, :serialize_handlers
 
-    def initialize(name, document, parent_ref)
+    def initialize(name, document, parent_ref, serialize_handlers)
       @name = name
       @document = document
       @parent_ref = parent_ref
+      @serialize_handlers = serialize_handlers
     end
 
     def method_missing(method_name, *args, **kwargs, &block)
@@ -22,7 +23,7 @@ module KubeDSL
     end
 
     def meta
-      @meta ||= ResourceMeta.new(self, inflector)
+      @meta ||= ResourceMeta.new(self, inflector, serialize_handlers)
     end
 
     def kind

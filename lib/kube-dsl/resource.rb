@@ -46,6 +46,18 @@ module KubeDSL
           end
 
           cleaned.empty? ? nil : cleaned
+        when AllowBlank
+          cln = cleanup(obj.value)
+          return cln if cln
+
+          case obj.value
+            when Array
+              []
+            when Hash
+              {}
+            else
+              nil
+          end
         else
           obj
       end

@@ -25,11 +25,11 @@ module KubeDSL
         end
       end
 
-      def object_field(field, &field_block)
+      def object_field(field, allow_empty: false, &field_block)
         __fields__[:object] << field
+        ivar = :"@#{field}"
 
         define_method(field) do |*args, &block|
-          ivar = :"@#{field}"
           val = instance_variable_get(ivar)
 
           unless val
@@ -39,6 +39,10 @@ module KubeDSL
 
           val.instance_exec(&block) if block
           val
+        end
+
+        define_method("#{field}_present?") do
+          instance_variable_defined?(ivar)
         end
       end
 

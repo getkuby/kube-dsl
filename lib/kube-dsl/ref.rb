@@ -4,14 +4,15 @@ module KubeDSL
     include StringHelpers
 
     attr_reader :str, :kind, :namespace, :version, :inflector, :schema_dir
-    attr_reader :ruby_namespace_prefix, :autoload_prefix
+    attr_reader :ruby_namespace_prefix, :autoload_prefix, :serialize_handlers
 
-    def initialize(str, ruby_namespace_prefix, inflector, schema_dir, autoload_prefix)
+    def initialize(str, ruby_namespace_prefix, inflector, schema_dir, autoload_prefix, serialize_handlers)
       @str = str
       @ruby_namespace_prefix = ruby_namespace_prefix
       @inflector = inflector
       @schema_dir = schema_dir
       @autoload_prefix = autoload_prefix
+      @serialize_handlers = serialize_handlers
 
       ns, v, k = str.split('.').last(3)
 
@@ -32,7 +33,7 @@ module KubeDSL
     end
 
     def meta
-      @meta ||= ResourceMeta.new(self, inflector)
+      @meta ||= ResourceMeta.new(self, inflector, serialize_handlers)
     end
 
     def document

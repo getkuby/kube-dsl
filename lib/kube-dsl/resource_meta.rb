@@ -4,11 +4,12 @@ module KubeDSL
   class ResourceMeta
     include StringHelpers
 
-    attr_reader :ref ,:inflector, :fields
+    attr_reader :ref, :inflector, :serialize_handlers, :fields
 
-    def initialize(ref, inflector)
+    def initialize(ref, inflector, serialize_handlers)
       @ref = ref
       @inflector = inflector
+      @serialize_handlers = serialize_handlers
       @fields = {}
     end
 
@@ -124,7 +125,7 @@ module KubeDSL
         "def serialize",
         "  {}.tap do |result|",
         *fields.map do |name, field|
-          "    result[:#{quote_sym(name)}] = #{field.serialize_call(inflector)}"
+          "    result[:#{quote_sym(name)}] = #{serialize_call_for(field)}"
         end,
         "  end",
         "end", level
@@ -132,6 +133,14 @@ module KubeDSL
 
       lines << '' unless lines.empty?
       lines
+    end
+
+    def serialize_call_for(field)
+      if handler = serialize_handlers.find { |h| h.matches?(ref, field.name) }
+        handler.handle(field, inflector)
+      else
+        field.serialize_call(inflector)
+      end
     end
 
     def quote_sym(sym_str)

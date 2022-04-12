@@ -2,6 +2,7 @@
 module KubeDSL
   KUBERNETES_VERSION = '1.22.5'.freeze
 
+  autoload :AllowBlank,           'kube-dsl/allow_blank'
   autoload :ArrayFieldRes,        'kube-dsl/array_field_res'
   autoload :Builder,              'kube-dsl/builder'
   autoload :DefaultFieldRes,      'kube-dsl/default_field_res'
@@ -22,6 +23,7 @@ module KubeDSL
   autoload :Ref,                  'kube-dsl/ref'
   autoload :Resource,             'kube-dsl/resource'
   autoload :ResourceMeta,         'kube-dsl/resource_meta'
+  autoload :SerializeHandler,     'kube-dsl/serialize_handler'
   autoload :StringHelpers,        'kube-dsl/string_helpers'
   autoload :Validations,          'kube-dsl/validations'
   autoload :ValueFields,          'kube-dsl/value_fields'
