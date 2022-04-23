@@ -18,7 +18,7 @@ module KubeDSL
 
     def fields_to_rbi(_inflector)
       [
-        "sig { returns(#{ruby_type}) }",
+        "T::Sig::WithoutRuntime.sig { returns(#{ruby_type}) }",
         "def #{ruby_safe_name}; end"
       ]
     end

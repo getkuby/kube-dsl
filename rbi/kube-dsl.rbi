@@ -67,7 +67,7 @@ module KubeDSL
     sig { returns(Resource) }
     def to_resource; end
 
-    sig { params(obj: T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
+    sig { params(obj: T.any(String, AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
     def cleanup(obj); end
   end
 
@@ -224,8 +224,8 @@ module KubeDSL
       sig { params(field: T.untyped, default: T.untyped).returns(T.untyped) }
       def value_field(field, default: nil); end
 
-      sig { params(field: T.untyped, field_block: T.untyped).returns(T.untyped) }
-      def object_field(field, &field_block); end
+      sig { params(field: T.untyped, allow_empty: T.untyped, field_block: T.untyped).returns(T.untyped) }
+      def object_field(field, allow_empty: false, &field_block); end
 
       sig { params(field: T.untyped, format: T.untyped).returns(T.untyped) }
       def key_value_field(field, format:); end

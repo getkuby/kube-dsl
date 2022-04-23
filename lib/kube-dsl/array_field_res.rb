@@ -23,7 +23,7 @@ module KubeDSL
 
     def fields_to_rbi(inflector)
       [
-        'sig {',
+        'T::Sig::WithoutRuntime.sig {',
         '  params(',
         '    elem_name: T.nilable(Symbol),',
         "    block: T.nilable(T.proc.returns(#{rbi_type_for(ruby_type)}))",

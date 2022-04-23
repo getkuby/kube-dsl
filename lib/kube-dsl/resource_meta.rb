@@ -59,7 +59,7 @@ module KubeDSL
         end,
         *indent("class #{ref.kind} < ::KubeDSL::DSLObject", level + 1),
         *indent(
-          'sig {',
+          'T::Sig::WithoutRuntime.sig {',
           '  returns(',
           '    T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]',
           '  )',
@@ -68,7 +68,7 @@ module KubeDSL
         ),
         '',
         *indent(
-          'sig { returns(Symbol) }',
+          'T::Sig::WithoutRuntime.sig { returns(Symbol) }',
           'def kind_sym; end', level + 2
         ),
         '',

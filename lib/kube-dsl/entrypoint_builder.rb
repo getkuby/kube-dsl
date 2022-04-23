@@ -43,7 +43,7 @@ module KubeDSL
 
         method_name = method_name_for(resource)
 
-        rbi_code << "#{indent}sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
+        rbi_code << "#{indent}T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::#{ns}::#{resource.ref.kind}) }\n"
         rbi_code << "#{indent}def #{method_name}(&block); end\n\n"
       end
 
