@@ -179,8 +179,16 @@ module KubeDSL
             @resources << child_res
             res.fields[name] = ArrayFieldRes.new(name, required, child_res)
           else
+            types = if result = prop.dig('items', 'type')
+              Array(result)
+            elsif result = prop.dig('items', 'types')
+              Array(result)
+            else
+              ['string']
+            end
+
             res.fields[name] = FieldRes.new(
-              name, (prop.dig('items', 'types') || ['string']).first, required
+              name, types.first, required
             )
           end
 
