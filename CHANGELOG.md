@@ -1,10 +1,12 @@
-## Next
+## 0.7.0
 * Upgrade to v1.22 of the Kubernetes schema.
 * Add Sorbet type signatures to all DSL objects.
 * Add the missing `Apiextensions::V1::JSON` class (thanks Sorbet).
 * Handle so-called "inline" refs in schema definitions.
   - The JSON schema format can contain refs that point to other files, which is what the `Ref` class handles.
   - However, schemas can also contain objects described entirely within other objects. Both objects live in the same file. The `InlineRef` class was created to represent objects defined inside the same file as their parent.
+* Allow certain special fields to be blank.
+  - Necessary to fully support cert-manager.
 
 ## 0.6.1
 * Fix additional naming discrepancy in autoload manifests causing "API" to become "Api."
