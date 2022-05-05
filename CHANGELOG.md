@@ -1,3 +1,6 @@
+## 0.7.1
+* Remove dependency on the defunct sorbet-runtime-stub gem.
+
 ## 0.7.0
 * Upgrade to v1.22 of the Kubernetes schema.
 * Add Sorbet type signatures to all DSL objects.
