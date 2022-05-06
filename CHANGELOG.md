@@ -1,3 +1,7 @@
+## 0.7.3
+* Add feature to limit the length of filenames to 100 characters.
+  - Rubygems has a hard limit on the number of characters allowed in a filename, which I assume is actually a requirement of whatever archive format it uses.
+
 ## 0.7.2
 * Use tapioca for type annotations.
 * Fix a couple of type annotations.

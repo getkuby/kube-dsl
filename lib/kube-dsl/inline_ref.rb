@@ -49,9 +49,18 @@ module KubeDSL
         [autoload_prefix].tap do |path|
           path << underscore(namespace) if namespace
           path << underscore(version) if version
-          path << "#{underscore(kind)}.rb"
+          path << shorten("#{underscore(kind)}.rb")
         end
       )
+    end
+
+    def shorten(filename)
+      return filename if filename.size <= 100
+
+      digest = Digest::MD5.hexdigest(filename)[0...8]
+      extname = File.extname(filename)
+
+      "#{filename.chomp(extname)[0...(100 - extname.size - digest.size - 1)]}_#{digest}#{extname}"
     end
   end
 end
