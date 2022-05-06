@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class PodSecurityContext < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -31,9 +35,15 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
         def se_linux_options; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def se_linux_options_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
         def seccomp_profile; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def seccomp_profile_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def supplemental_groups(val = nil); end
@@ -48,6 +58,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::WindowsSecurityContextOptions) }
         def windows_options; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def windows_options_present?; end
       end
     end
   end

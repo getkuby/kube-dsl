@@ -5,6 +5,10 @@ module KubeDSL
     module Node
       module V1alpha1
         class RuntimeClassSpec < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -17,12 +21,18 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Node::V1alpha1::Overhead) }
           def overhead; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def overhead_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def runtime_handler(val = nil); end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Node::V1alpha1::Scheduling) }
           def scheduling; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def scheduling_present?; end
         end
       end
     end

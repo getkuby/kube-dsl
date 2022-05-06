@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Autoscaling::V1
   autoload :CrossVersionObjectReference, 'kube-dsl/dsl/autoscaling/v1/cross_version_object_reference'
   autoload :HorizontalPodAutoscaler, 'kube-dsl/dsl/autoscaling/v1/horizontal_pod_autoscaler'

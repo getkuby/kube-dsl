@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Storage
   autoload :V1, 'kube-dsl/dsl/storage/v1'
   autoload :V1alpha1, 'kube-dsl/dsl/storage/v1alpha1'

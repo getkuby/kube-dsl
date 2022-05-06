@@ -5,6 +5,10 @@ module KubeDSL
     module Batch
       module V1
         class JobStatus < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -43,6 +47,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
           def uncounted_terminated_pods; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def uncounted_terminated_pods_present?; end
         end
       end
     end

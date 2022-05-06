@@ -5,6 +5,10 @@ module KubeDSL
     module Networking
       module V1
         class NetworkPolicyPeer < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -17,12 +21,21 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::IPBlock) }
           def ip_block; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def ip_block_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def namespace_selector; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def namespace_selector_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def pod_selector; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def pod_selector_present?; end
         end
       end
     end

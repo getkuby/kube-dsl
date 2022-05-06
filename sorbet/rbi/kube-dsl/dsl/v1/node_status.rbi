@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class NodeStatus < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -38,9 +42,15 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeConfigStatus) }
         def config; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def config_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeDaemonEndpoints) }
         def daemon_endpoints; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def daemon_endpoints_present?; end
 
         T::Sig::WithoutRuntime.sig {
           params(
@@ -52,6 +62,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSystemInfo) }
         def node_info; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def node_info_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def phase(val = nil); end

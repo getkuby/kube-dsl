@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Certificates::V1
   autoload :CertificateSigningRequest, 'kube-dsl/dsl/certificates/v1/certificate_signing_request'
   autoload :CertificateSigningRequestCondition, 'kube-dsl/dsl/certificates/v1/certificate_signing_request_condition'

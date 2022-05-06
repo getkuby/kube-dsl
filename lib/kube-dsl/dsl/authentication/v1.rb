@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Authentication::V1
   autoload :BoundObjectReference, 'kube-dsl/dsl/authentication/v1/bound_object_reference'
   autoload :TokenRequest, 'kube-dsl/dsl/authentication/v1/token_request'

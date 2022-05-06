@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class PodSpec < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -19,6 +23,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Affinity) }
         def affinity; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def affinity_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def automount_service_account_token(val = nil); end
@@ -33,6 +40,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodDNSConfig) }
         def dns_config; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def dns_config_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def dns_policy(val = nil); end
@@ -121,6 +131,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodSecurityContext) }
         def security_context; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def security_context_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def service_account(val = nil); end

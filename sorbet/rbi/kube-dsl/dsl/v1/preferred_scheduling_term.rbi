@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class PreferredSchedulingTerm < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -16,6 +20,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSelectorTerm) }
         def preference; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def preference_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def weight(val = nil); end

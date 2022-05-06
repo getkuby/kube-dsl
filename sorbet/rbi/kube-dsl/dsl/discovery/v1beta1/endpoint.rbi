@@ -5,6 +5,10 @@ module KubeDSL
     module Discovery
       module V1beta1
         class Endpoint < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -20,9 +24,15 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointConditions) }
           def conditions; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def conditions_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Discovery::V1beta1::EndpointHints) }
           def hints; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def hints_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def hostname(val = nil); end
@@ -32,6 +42,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ObjectReference) }
           def target_ref; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def target_ref_present?; end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
           def topology(&block); end

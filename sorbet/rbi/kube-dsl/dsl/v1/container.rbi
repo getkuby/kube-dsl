@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class Container < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -44,9 +48,15 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Lifecycle) }
         def lifecycle; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def lifecycle_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
         def liveness_probe; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def liveness_probe_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def name(val = nil); end
@@ -61,15 +71,27 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
         def readiness_probe; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def readiness_probe_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ResourceRequirements) }
         def resources; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def resources_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SecurityContext) }
         def security_context; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def security_context_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
         def startup_probe; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def startup_probe_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def stdin(val = nil); end

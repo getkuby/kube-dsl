@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Apps::V1
   autoload :ControllerRevision, 'kube-dsl/dsl/apps/v1/controller_revision'
   autoload :ControllerRevisionList, 'kube-dsl/dsl/apps/v1/controller_revision_list'

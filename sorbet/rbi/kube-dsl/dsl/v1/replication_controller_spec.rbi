@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class ReplicationControllerSpec < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -25,6 +29,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
         def template; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def template_present?; end
       end
     end
   end

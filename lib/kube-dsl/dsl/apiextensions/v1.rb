@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Apiextensions::V1
   autoload :CustomResourceColumnDefinition, 'kube-dsl/dsl/apiextensions/v1/custom_resource_column_definition'
   autoload :CustomResourceConversion, 'kube-dsl/dsl/apiextensions/v1/custom_resource_conversion'

@@ -5,6 +5,10 @@ module KubeDSL
     module Admissionregistration
       module V1
         class MutatingWebhook < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -20,6 +24,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
           def client_config; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def client_config_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def failure_policy(val = nil); end
@@ -32,9 +39,15 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def namespace_selector; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def namespace_selector_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def object_selector; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def object_selector_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def reinvocation_policy(val = nil); end

@@ -5,6 +5,10 @@ module KubeDSL
     module Batch
       module V1beta1
         class CronJobSpec < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -23,6 +27,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec) }
           def job_template; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def job_template_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def schedule(val = nil); end

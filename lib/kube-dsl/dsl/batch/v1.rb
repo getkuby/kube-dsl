@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Batch::V1
   autoload :CronJob, 'kube-dsl/dsl/batch/v1/cron_job'
   autoload :CronJobList, 'kube-dsl/dsl/batch/v1/cron_job_list'

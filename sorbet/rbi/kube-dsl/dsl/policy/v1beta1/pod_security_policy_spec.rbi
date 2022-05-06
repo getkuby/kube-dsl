@@ -5,6 +5,10 @@ module KubeDSL
     module Policy
       module V1beta1
         class PodSecurityPolicySpec < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -62,6 +66,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions) }
           def fs_group; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def fs_group_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def host_ipc(val = nil); end
@@ -91,18 +98,33 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions) }
           def run_as_group; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def run_as_group_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RunAsUserStrategyOptions) }
           def run_as_user; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def run_as_user_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RuntimeClassStrategyOptions) }
           def runtime_class; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def runtime_class_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions) }
           def se_linux; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def se_linux_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions) }
           def supplemental_groups; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def supplemental_groups_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def volumes(val = nil); end

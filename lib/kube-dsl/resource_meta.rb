@@ -58,6 +58,10 @@ module KubeDSL
           indent("module #{mod}", idx)
         end,
         *indent("class #{ref.kind} < ::KubeDSL::DSLObject", level + 1),
+        *indent("extend KubeDSL::ValueFields::ClassMethods", level + 2),
+        *indent("extend KubeDSL::Validations::ClassMethods", level + 2),
+        *indent("include KubeDSL::ValueFields::InstanceMethods", level + 2),
+        '',
         *indent(
           'T::Sig::WithoutRuntime.sig {',
           '  returns(',

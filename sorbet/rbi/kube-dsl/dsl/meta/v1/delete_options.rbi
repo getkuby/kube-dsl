@@ -5,6 +5,10 @@ module KubeDSL
     module Meta
       module V1
         class DeleteOptions < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -30,6 +34,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::Preconditions) }
           def preconditions; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def preconditions_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def propagation_policy(val = nil); end

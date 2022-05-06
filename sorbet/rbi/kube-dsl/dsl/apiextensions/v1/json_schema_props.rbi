@@ -5,6 +5,10 @@ module KubeDSL
     module Apiextensions
       module V1
         class JSONSchemaProps < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -68,6 +72,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
           def external_docs; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def external_docs_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def format(val = nil); end
@@ -107,6 +114,9 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
           def not_field; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def not_field_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def nullable(val = nil); end

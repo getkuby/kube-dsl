@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class EnvVar < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -22,6 +26,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::EnvVarSource) }
         def value_from; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def value_from_present?; end
       end
     end
   end

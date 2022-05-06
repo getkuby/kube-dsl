@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class Affinity < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -16,12 +20,21 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeAffinity) }
         def node_affinity; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def node_affinity_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodAffinity) }
         def pod_affinity; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def pod_affinity_present?; end
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodAntiAffinity) }
         def pod_anti_affinity; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def pod_anti_affinity_present?; end
       end
     end
   end

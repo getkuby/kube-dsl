@@ -5,6 +5,10 @@ module KubeDSL
     module Apps
       module V1
         class StatefulSetSpec < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -29,15 +33,24 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def selector; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def selector_present?; end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def service_name(val = nil); end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
           def template; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def template_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apps::V1::StatefulSetUpdateStrategy) }
           def update_strategy; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def update_strategy_present?; end
 
           T::Sig::WithoutRuntime.sig {
             params(

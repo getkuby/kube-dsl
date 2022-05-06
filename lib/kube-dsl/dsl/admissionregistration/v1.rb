@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Admissionregistration::V1
   autoload :MutatingWebhook, 'kube-dsl/dsl/admissionregistration/v1/mutating_webhook'
   autoload :MutatingWebhookConfiguration, 'kube-dsl/dsl/admissionregistration/v1/mutating_webhook_configuration'

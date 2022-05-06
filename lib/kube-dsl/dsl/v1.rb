@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::V1
   autoload :AWSElasticBlockStoreVolumeSource, 'kube-dsl/dsl/v1/aws_elastic_block_store_volume_source'
   autoload :Affinity, 'kube-dsl/dsl/v1/affinity'

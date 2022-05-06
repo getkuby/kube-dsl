@@ -5,6 +5,10 @@ module KubeDSL
     module Autoscaling
       module V2beta2
         class PodsMetricSource < ::KubeDSL::DSLObject
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+          include KubeDSL::ValueFields::InstanceMethods
+
           T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -17,9 +21,15 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier) }
           def metric; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def metric_present?; end
 
           T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
           def target; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def target_present?; end
         end
       end
     end

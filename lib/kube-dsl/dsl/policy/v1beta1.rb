@@ -1,4 +1,3 @@
-# typed: strict
 module KubeDSL::DSL::Policy::V1beta1
   autoload :AllowedCSIDriver, 'kube-dsl/dsl/policy/v1beta1/allowed_csi_driver'
   autoload :AllowedFlexVolume, 'kube-dsl/dsl/policy/v1beta1/allowed_flex_volume'

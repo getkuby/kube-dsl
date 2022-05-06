@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class ContainerStatus < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -25,6 +29,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ContainerState) }
         def last_state; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def last_state_present?; end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def name(val = nil); end
@@ -40,6 +47,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ContainerState) }
         def state; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def state_present?; end
       end
     end
   end

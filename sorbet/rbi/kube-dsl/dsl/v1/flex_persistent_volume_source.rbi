@@ -4,6 +4,10 @@ module KubeDSL
   module DSL
     module V1
       class FlexPersistentVolumeSource < ::KubeDSL::DSLObject
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+        include KubeDSL::ValueFields::InstanceMethods
+
         T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
@@ -28,6 +32,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SecretReference) }
         def secret_ref; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def secret_ref_present?; end
       end
     end
   end
