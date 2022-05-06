@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Rbac::V1
   autoload :AggregationRule, 'kube-dsl/dsl/rbac/v1/aggregation_rule'
   autoload :ClusterRole, 'kube-dsl/dsl/rbac/v1/cluster_role'

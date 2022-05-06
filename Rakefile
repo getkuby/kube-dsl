@@ -54,7 +54,6 @@ task :generate do
   )
 
   generator.generate_resource_files
-  generator.generate_rbi_files
   generator.generate_autoload_files
   generator.generate_entrypoint_file do |resource, ns|
     version = resource.ref.version || ''

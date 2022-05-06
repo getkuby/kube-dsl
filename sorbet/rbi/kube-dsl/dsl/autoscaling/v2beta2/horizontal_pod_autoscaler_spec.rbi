@@ -5,23 +5,23 @@ module KubeDSL
     module Autoscaling
       module V2beta2
         class HorizontalPodAutoscalerSpec < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
           def behavior; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def max_replicas(val = nil); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricSpec))
@@ -29,10 +29,10 @@ module KubeDSL
           }
           def metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_replicas(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
           def scale_target_ref; end
         end
       end

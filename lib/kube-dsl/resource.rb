@@ -22,7 +22,7 @@ module KubeDSL
       YAML.dump(serialize)
     end
 
-    T::Sig::WithoutRuntime.sig { returns(Resource) }
+    T::Sig::WithoutRuntime.sig { returns(KubeDSL::Resource) }
     def to_resource
       self
     end

@@ -64,7 +64,7 @@ module KubeDSL
     sig { returns(String) }
     def to_yaml; end
 
-    sig { returns(Resource) }
+    sig { returns(KubeDSL::Resource) }
     def to_resource; end
 
     sig { params(obj: T.any(String, AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
@@ -79,7 +79,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :messages
 
-      sig { returns(T.untyped) }
+      sig { void }
       def initialize; end
 
       sig { params(field_name: T.untyped, msg: T.untyped).returns(T.untyped) }
@@ -96,7 +96,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :presence
 
-      sig { params(field_name: T.untyped, presence: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, presence: T.untyped).void }
       def initialize(field_name, presence); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -113,7 +113,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :kind_of
 
-      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, opts: T.untyped).void }
       def initialize(field_name, opts); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -124,7 +124,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :format
 
-      sig { params(format: T.untyped).returns(T.untyped) }
+      sig { params(format: T.untyped).void }
       def initialize(format); end
 
       sig { params(obj: T.untyped).returns(T.untyped) }
@@ -141,7 +141,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :format_validator
 
-      sig { params(field_name: T.untyped, options: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, options: T.untyped).void }
       def initialize(field_name, options = {}); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -155,7 +155,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :kind_of
 
-      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, opts: T.untyped).void }
       def initialize(field_name, opts); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -169,7 +169,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :format_validator
 
-      sig { params(field_name: T.untyped, options: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, options: T.untyped).void }
       def initialize(field_name, options = {}); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -183,7 +183,7 @@ module KubeDSL
       sig { returns(T.untyped) }
       attr_reader :list
 
-      sig { params(field_name: T.untyped, opts: T.untyped).returns(T.untyped) }
+      sig { params(field_name: T.untyped, opts: T.untyped).void }
       def initialize(field_name, opts); end
 
       sig { params(obj: T.untyped, errors: T.untyped, nesting: T.untyped).returns(T.untyped) }
@@ -10297,7 +10297,7 @@ module KubeDSL
         sig { returns(KubeDSL::DSL::V1::SeccompProfile) }
         def seccomp_profile; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(Integer)).returns(Integer) }
         def supplemental_groups(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Sysctl))).returns(T::Array[KubeDSL::DSL::V1::Sysctl]) }

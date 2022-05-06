@@ -4,26 +4,26 @@ module KubeDSL
   module DSL
     module V1
       class PodSpec < ::KubeDSL::DSLObject
-        sig {
+        T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
           )
         }
         def serialize; end
 
-        sig { returns(Symbol) }
+        T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def active_deadline_seconds(val = nil); end
 
-        sig { returns(KubeDSL::DSL::V1::Affinity) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Affinity) }
         def affinity; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def automount_service_account_token(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Container))
@@ -31,16 +31,16 @@ module KubeDSL
         }
         def containers(elem_name = nil, &block); end
 
-        sig { returns(KubeDSL::DSL::V1::PodDNSConfig) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodDNSConfig) }
         def dns_config; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def dns_policy(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def enable_service_links(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EphemeralContainer))
@@ -48,7 +48,7 @@ module KubeDSL
         }
         def ephemeral_containers(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::HostAlias))
@@ -56,19 +56,19 @@ module KubeDSL
         }
         def host_aliases(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def host_ipc(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def host_network(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def host_pid(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def hostname(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::LocalObjectReference))
@@ -76,7 +76,7 @@ module KubeDSL
         }
         def image_pull_secrets(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Container))
@@ -84,25 +84,25 @@ module KubeDSL
         }
         def init_containers(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def node_name(val = nil); end
 
-        sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def node_selector(&block); end
 
-        sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def overhead(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def preemption_policy(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def priority(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def priority_class_name(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodReadinessGate))
@@ -110,37 +110,37 @@ module KubeDSL
         }
         def readiness_gates(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def restart_policy(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def runtime_class_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def scheduler_name(val = nil); end
 
-        sig { returns(KubeDSL::DSL::V1::PodSecurityContext) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodSecurityContext) }
         def security_context; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def service_account(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def service_account_name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def set_hostname_as_fqdn(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def share_process_namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def subdomain(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def termination_grace_period_seconds(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Toleration))
@@ -148,7 +148,7 @@ module KubeDSL
         }
         def tolerations(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::TopologySpreadConstraint))
@@ -156,7 +156,7 @@ module KubeDSL
         }
         def topology_spread_constraints(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Volume))

@@ -5,17 +5,17 @@ module KubeDSL
     module Apiextensions
       module V1
         class CustomResourceValidation < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
           def open_apiv3_schema; end
         end
       end

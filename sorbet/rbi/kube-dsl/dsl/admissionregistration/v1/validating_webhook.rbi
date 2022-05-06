@@ -5,38 +5,38 @@ module KubeDSL
     module Admissionregistration
       module V1
         class ValidatingWebhook < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def admission_review_versions(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
           def client_config; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def failure_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def match_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def name(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def namespace_selector; end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def object_selector; end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations))
@@ -44,10 +44,10 @@ module KubeDSL
           }
           def rules(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def side_effects(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def timeout_seconds(val = nil); end
         end
       end

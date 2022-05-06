@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Flowcontrol::V1beta1
   autoload :FlowDistinguisherMethod, 'kube-dsl/dsl/flowcontrol/v1beta1/flow_distinguisher_method'
   autoload :FlowSchema, 'kube-dsl/dsl/flowcontrol/v1beta1/flow_schema'

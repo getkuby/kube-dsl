@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Meta::V1
   autoload :APIGroup, 'kube-dsl/dsl/meta/v1/api_group'
   autoload :APIGroupList, 'kube-dsl/dsl/meta/v1/api_group_list'

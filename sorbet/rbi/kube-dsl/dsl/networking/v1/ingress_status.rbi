@@ -5,17 +5,17 @@ module KubeDSL
     module Networking
       module V1
         class IngressStatus < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
           def load_balancer; end
         end
       end

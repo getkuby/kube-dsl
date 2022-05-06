@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Authorization::V1
   autoload :LocalSubjectAccessReview, 'kube-dsl/dsl/authorization/v1/local_subject_access_review'
   autoload :NonResourceAttributes, 'kube-dsl/dsl/authorization/v1/non_resource_attributes'

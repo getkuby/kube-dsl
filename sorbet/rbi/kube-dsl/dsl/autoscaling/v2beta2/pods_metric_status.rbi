@@ -5,20 +5,20 @@ module KubeDSL
     module Autoscaling
       module V2beta2
         class PodsMetricStatus < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricValueStatus) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricValueStatus) }
           def current; end
 
-          sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier) }
           def metric; end
         end
       end

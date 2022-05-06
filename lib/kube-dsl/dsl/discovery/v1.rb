@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Discovery::V1
   autoload :Endpoint, 'kube-dsl/dsl/discovery/v1/endpoint'
   autoload :EndpointConditions, 'kube-dsl/dsl/discovery/v1/endpoint_conditions'

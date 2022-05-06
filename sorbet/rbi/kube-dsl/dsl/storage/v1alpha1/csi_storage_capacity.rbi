@@ -5,31 +5,31 @@ module KubeDSL
     module Storage
       module V1alpha1
         class CSIStorageCapacity < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def capacity(val = nil); end
 
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def maximum_volume_size(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
           def metadata; end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def node_topology; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def storage_class_name(val = nil); end
         end
       end

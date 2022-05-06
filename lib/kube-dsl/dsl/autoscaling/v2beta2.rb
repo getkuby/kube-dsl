@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Autoscaling::V2beta2
   autoload :ContainerResourceMetricSource, 'kube-dsl/dsl/autoscaling/v2beta2/container_resource_metric_source'
   autoload :ContainerResourceMetricStatus, 'kube-dsl/dsl/autoscaling/v2beta2/container_resource_metric_status'

@@ -4,17 +4,17 @@ module KubeDSL
   module DSL
     module V1
       class PodStatus < ::KubeDSL::DSLObject
-        sig {
+        T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
           )
         }
         def serialize; end
 
-        sig { returns(Symbol) }
+        T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodCondition))
@@ -22,7 +22,7 @@ module KubeDSL
         }
         def conditions(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerStatus))
@@ -30,7 +30,7 @@ module KubeDSL
         }
         def container_statuses(elem_name = nil, &block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerStatus))
@@ -38,10 +38,10 @@ module KubeDSL
         }
         def ephemeral_container_statuses(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def host_ip(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerStatus))
@@ -49,19 +49,19 @@ module KubeDSL
         }
         def init_container_statuses(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def nominated_node_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def phase(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def pod_ip(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodIP))
@@ -69,13 +69,13 @@ module KubeDSL
         }
         def pod_ips(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def qos_class(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def start_time(val = nil); end
       end
     end

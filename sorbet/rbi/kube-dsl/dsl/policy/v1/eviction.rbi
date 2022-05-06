@@ -5,22 +5,22 @@ module KubeDSL
     module Policy
       module V1
         class Eviction < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
 
-          sig { returns(KubeDSL::DSL::Meta::V1::DeleteOptions) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::DeleteOptions) }
           def delete_options; end
 
 
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
           def metadata; end
         end
       end

@@ -5,20 +5,20 @@ module KubeDSL
     module Networking
       module V1
         class IngressRule < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def host(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
           def http; end
         end
       end

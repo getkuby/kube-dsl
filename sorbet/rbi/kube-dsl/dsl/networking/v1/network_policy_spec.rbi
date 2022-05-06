@@ -5,17 +5,17 @@ module KubeDSL
     module Networking
       module V1
         class NetworkPolicySpec < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::NetworkPolicyEgressRule))
@@ -23,7 +23,7 @@ module KubeDSL
           }
           def egresses(elem_name = nil, &block); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::NetworkPolicyIngressRule))
@@ -31,10 +31,10 @@ module KubeDSL
           }
           def ingresses(elem_name = nil, &block); end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def pod_selector; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def policy_types(val = nil); end
         end
       end

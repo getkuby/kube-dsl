@@ -1,4 +1,4 @@
-# typed: true
+# typed: strict
 
 module KubeDSL
   module DSL
@@ -22,7 +22,7 @@ module KubeDSL
         validates :run_as_user, field: { format: :integer }, presence: false
         validates :se_linux_options, object: { kind_of: KubeDSL::DSL::V1::SELinuxOptions }
         validates :seccomp_profile, object: { kind_of: KubeDSL::DSL::V1::SeccompProfile }
-        validates :supplemental_groups, field: { format: :string }, presence: false
+        validates :supplemental_groups, field: { format: :integer }, presence: false
         validates :sysctlses, array: { kind_of: KubeDSL::DSL::V1::Sysctl }, presence: false
         validates :windows_options, object: { kind_of: KubeDSL::DSL::V1::WindowsSecurityContextOptions }
 

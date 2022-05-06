@@ -9,8 +9,8 @@ end
 
 group :development do
   # lock to a specific version to prevent breaking CI when new versions come out
-  gem 'sorbet', '= 0.5.6433'
-  gem 'parlour', '~> 6.0'
+  gem 'sorbet'
+  gem 'parlour', github: 'camertron/parlour', branch: 'initialize_void' # '~> 7.0'
 end
 
 group :test do

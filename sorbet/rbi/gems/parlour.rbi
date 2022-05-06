@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/parlour/all/parlour.rbi
 #
-# parlour-6.0.1
+# parlour-98abd08f691d
 
 module Parlour
 end
@@ -20,12 +20,15 @@ module Parlour::Debugging
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
 end
-module Parlour::Debugging::Tree
-  def self.begin(*args, &blk); end
-  def self.end(*args, &blk); end
-  def self.here(*args, &blk); end
-  def self.line_prefix; end
-  def self.text_prefix; end
+class Parlour::Debugging::Tree
+  def begin(*args, &blk); end
+  def colour(*args, &blk); end
+  def end(*args, &blk); end
+  def here(*args, &blk); end
+  def indent!(offset); end
+  def initialize(*args, &blk); end
+  def line_prefix; end
+  def text_prefix; end
   extend T::Private::Methods::MethodHooks
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
@@ -258,10 +261,14 @@ class Parlour::TypedObject
   def add_comments(*args, &blk); end
   def comments(*args, &blk); end
   def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
+  def describe_tree(*args, &blk); end
   def generate_comments(*args, &blk); end
   def generated_by(*args, &blk); end
   def initialize(*args, &blk); end
+  def inspect(*args, &blk); end
   def name(*args, &blk); end
+  def to_s(*args, &blk); end
   extend T::Helpers
   extend T::InterfaceWrapper::Helpers
   extend T::Private::Abstract::Hooks
@@ -278,6 +285,20 @@ class Parlour::Generator
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
 end
+module Parlour::Mixin
+end
+module Parlour::Mixin::Searchable
+  def children(*args, &blk); end
+  def find(*args, &blk); end
+  def find_all(*args, &blk); end
+  def searchable_child_matches(*args, &blk); end
+  extend T::Generic
+  extend T::InterfaceWrapper::Helpers
+  extend T::Private::Abstract::Hooks
+  extend T::Private::Methods::MethodHooks
+  extend T::Private::Methods::SingletonMethodHooks
+  extend T::Sig
+end
 class Parlour::RbiGenerator < Parlour::Generator
   def initialize(**hash); end
   def rbi(*args, &blk); end
@@ -288,6 +309,7 @@ end
 class Parlour::RbiGenerator::Parameter
   def ==(*args, &blk); end
   def default(*args, &blk); end
+  def describe_in_method(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def initialize(*args, &blk); end
   def kind(*args, &blk); end
@@ -301,7 +323,6 @@ class Parlour::RbiGenerator::Parameter
   extend T::Sig
 end
 class Parlour::RbiGenerator::RbiObject < Parlour::TypedObject
-  def describe(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def generator(*args, &blk); end
@@ -315,7 +336,7 @@ class Parlour::RbiGenerator::RbiObject < Parlour::TypedObject
 end
 class Parlour::RbiGenerator::TypeAlias < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -329,7 +350,7 @@ class Parlour::RbiGenerator::Method < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
   def abstract(*args, &blk); end
   def class_method(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def final(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_definition(*args, &blk); end
@@ -351,6 +372,7 @@ end
 class Parlour::RbiGenerator::Attribute < Parlour::RbiGenerator::Method
   def ==(*args, &blk); end
   def class_attribute(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_definition(*args, &blk); end
   def initialize(*args, &blk); end
@@ -363,7 +385,7 @@ class Parlour::RbiGenerator::Arbitrary < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
   def code(*args, &blk); end
   def code=(arg0); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -374,7 +396,7 @@ class Parlour::RbiGenerator::Arbitrary < Parlour::RbiGenerator::RbiObject
 end
 class Parlour::RbiGenerator::Include < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -385,7 +407,7 @@ class Parlour::RbiGenerator::Include < Parlour::RbiGenerator::RbiObject
 end
 class Parlour::RbiGenerator::Extend < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -396,7 +418,7 @@ class Parlour::RbiGenerator::Extend < Parlour::RbiGenerator::RbiObject
 end
 class Parlour::RbiGenerator::Constant < Parlour::RbiGenerator::RbiObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def eigen_constant; end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
@@ -429,7 +451,7 @@ class Parlour::RbiGenerator::Namespace < Parlour::RbiGenerator::RbiObject
   def create_module(*args, &blk); end
   def create_struct_class(*args, &blk); end
   def create_type_alias(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def extends(*args, &blk); end
   def final(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
@@ -443,13 +465,15 @@ class Parlour::RbiGenerator::Namespace < Parlour::RbiGenerator::RbiObject
   def path(*args, &blk); end
   def sealed(*args, &blk); end
   def type_aliases(*args, &blk); end
+  extend T::Generic
   extend T::Private::Methods::MethodHooks
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
+  include Parlour::Mixin::Searchable
 end
 class Parlour::RbiGenerator::ModuleNamespace < Parlour::RbiGenerator::Namespace
   def abstract(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -462,7 +486,7 @@ class Parlour::RbiGenerator::ModuleNamespace < Parlour::RbiGenerator::Namespace
 end
 class Parlour::RbiGenerator::ClassNamespace < Parlour::RbiGenerator::Namespace
   def abstract(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_rbi(*args, &blk); end
   def initialize(*args, &blk); end
@@ -474,6 +498,7 @@ class Parlour::RbiGenerator::ClassNamespace < Parlour::RbiGenerator::Namespace
   extend T::Sig
 end
 class Parlour::RbiGenerator::EnumClassNamespace < Parlour::RbiGenerator::ClassNamespace
+  def describe_attrs(*args, &blk); end
   def enums(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_body(*args, &blk); end
@@ -506,6 +531,7 @@ class Parlour::RbiGenerator::StructProp
   extend T::Sig
 end
 class Parlour::RbiGenerator::StructClassNamespace < Parlour::RbiGenerator::ClassNamespace
+  def describe_attrs(*args, &blk); end
   def generalize_from_rbi!(*args, &blk); end
   def generate_body(*args, &blk); end
   def initialize(*args, &blk); end
@@ -532,7 +558,6 @@ class Parlour::RbsGenerator < Parlour::Generator
   extend T::Private::Methods::SingletonMethodHooks
 end
 class Parlour::RbsGenerator::RbsObject < Parlour::TypedObject
-  def describe(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def generator(*args, &blk); end
   def initialize(*args, &blk); end
@@ -545,7 +570,7 @@ class Parlour::RbsGenerator::RbsObject < Parlour::TypedObject
 end
 class Parlour::RbsGenerator::TypeAlias < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -575,7 +600,7 @@ class Parlour::RbsGenerator::Namespace < Parlour::RbsGenerator::RbsObject
   def create_method(*args, &blk); end
   def create_module(*args, &blk); end
   def create_type_alias(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def extends(*args, &blk); end
   def generate_body(*args, &blk); end
   def generate_rbs(*args, &blk); end
@@ -586,14 +611,16 @@ class Parlour::RbsGenerator::Namespace < Parlour::RbsGenerator::RbsObject
   def move_next_comments(*args, &blk); end
   def path(*args, &blk); end
   def type_aliases(*args, &blk); end
+  extend T::Generic
   extend T::Private::Methods::MethodHooks
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
+  include Parlour::Mixin::Searchable
 end
 class Parlour::RbsGenerator::Method < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
   def class_method(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -607,7 +634,7 @@ class Parlour::RbsGenerator::Arbitrary < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
   def code(*args, &blk); end
   def code=(arg0); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -617,6 +644,7 @@ class Parlour::RbsGenerator::Arbitrary < Parlour::RbsGenerator::RbsObject
 end
 class Parlour::RbsGenerator::Attribute < Parlour::RbsGenerator::Method
   def ==(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def kind(*args, &blk); end
@@ -636,7 +664,7 @@ class Parlour::RbsGenerator::Block
   extend T::Sig
 end
 class Parlour::RbsGenerator::ClassNamespace < Parlour::RbsGenerator::Namespace
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -648,7 +676,7 @@ class Parlour::RbsGenerator::ClassNamespace < Parlour::RbsGenerator::Namespace
 end
 class Parlour::RbsGenerator::Constant < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -659,7 +687,7 @@ class Parlour::RbsGenerator::Constant < Parlour::RbsGenerator::RbsObject
 end
 class Parlour::RbsGenerator::Extend < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -670,7 +698,7 @@ class Parlour::RbsGenerator::Extend < Parlour::RbsGenerator::RbsObject
 end
 class Parlour::RbsGenerator::Include < Parlour::RbsGenerator::RbsObject
   def ==(*args, &blk); end
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def merge_into_self(*args, &blk); end
@@ -682,6 +710,7 @@ end
 class Parlour::RbsGenerator::MethodSignature
   def ==(*args, &blk); end
   def block(*args, &blk); end
+  def describe_in_method(*args, &blk); end
   def generate_rbs(*args, &blk); end
   def initialize(*args, &blk); end
   def parameters(*args, &blk); end
@@ -692,14 +721,14 @@ class Parlour::RbsGenerator::MethodSignature
   extend T::Sig
 end
 class Parlour::RbsGenerator::ModuleNamespace < Parlour::RbsGenerator::Namespace
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   extend T::Private::Methods::MethodHooks
   extend T::Private::Methods::SingletonMethodHooks
   extend T::Sig
 end
 class Parlour::RbsGenerator::InterfaceNamespace < Parlour::RbsGenerator::Namespace
-  def describe(*args, &blk); end
+  def describe_attrs(*args, &blk); end
   def generate_rbs(*args, &blk); end
   extend T::Private::Methods::MethodHooks
   extend T::Private::Methods::SingletonMethodHooks
@@ -751,6 +780,7 @@ end
 class Parlour::ConflictResolver
   def all_eql?(*args, &blk); end
   def deduplicate_mixins_of_name(*args, &blk); end
+  def initialize; end
   def merge_strategy(*args, &blk); end
   def resolve_conflicts(*args, &blk); end
   extend T::Private::Methods::MethodHooks

@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Networking::V1
   autoload :HTTPIngressPath, 'kube-dsl/dsl/networking/v1/http_ingress_path'
   autoload :HTTPIngressRuleValue, 'kube-dsl/dsl/networking/v1/http_ingress_rule_value'

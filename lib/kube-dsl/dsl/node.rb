@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Node
   autoload :V1, 'kube-dsl/dsl/node/v1'
   autoload :V1alpha1, 'kube-dsl/dsl/node/v1alpha1'

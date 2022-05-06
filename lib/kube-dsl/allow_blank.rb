@@ -1,3 +1,4 @@
+# typed: true
 module KubeDSL
   class AllowBlank
     attr_reader :value

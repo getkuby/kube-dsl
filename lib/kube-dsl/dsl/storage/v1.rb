@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Storage::V1
   autoload :CSIDriver, 'kube-dsl/dsl/storage/v1/csi_driver'
   autoload :CSIDriverList, 'kube-dsl/dsl/storage/v1/csi_driver_list'

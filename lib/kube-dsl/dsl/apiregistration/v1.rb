@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL::Apiregistration::V1
   autoload :APIService, 'kube-dsl/dsl/apiregistration/v1/api_service'
   autoload :APIServiceCondition, 'kube-dsl/dsl/apiregistration/v1/api_service_condition'

@@ -5,23 +5,23 @@ module KubeDSL
     module Apiextensions
       module V1
         class JSONSchemaProps < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def additional_items(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def additional_properties(val = nil); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))
@@ -29,7 +29,7 @@ module KubeDSL
           }
           def all_ofs(elem_name = nil, &block); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))
@@ -37,19 +37,19 @@ module KubeDSL
           }
           def any_ofs(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def default(val = nil); end
 
-          sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
           def definitions(&block); end
 
-          sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
           def dependencies(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def description(val = nil); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSON))
@@ -57,61 +57,61 @@ module KubeDSL
           }
           def enums(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def example(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def exclusive_maximum(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def exclusive_minimum(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
           def external_docs; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def format(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def id(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def max_items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def max_length(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def max_properties(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def maximum(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_length(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_properties(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def minimum(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def multiple_of(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
           def not_field; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def nullable(val = nil); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))
@@ -119,43 +119,43 @@ module KubeDSL
           }
           def one_ofs(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def pattern(val = nil); end
 
-          sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
           def pattern_properties(&block); end
 
-          sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
           def properties(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def required(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def title(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def unique_items(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def x_kubernetes_embedded_resource(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def x_kubernetes_int_or_string(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def x_kubernetes_list_map_keys(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def x_kubernetes_list_type(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def x_kubernetes_map_type(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def x_kubernetes_preserve_unknown_fields(val = nil); end
         end
       end

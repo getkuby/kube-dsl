@@ -5,17 +5,17 @@ module KubeDSL
     module Flowcontrol
       module V1beta1
         class PolicyRulesWithSubjects < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::NonResourcePolicyRule))
@@ -23,7 +23,7 @@ module KubeDSL
           }
           def non_resource_rules(elem_name = nil, &block); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::ResourcePolicyRule))
@@ -31,7 +31,7 @@ module KubeDSL
           }
           def resource_rules(elem_name = nil, &block); end
 
-          sig {
+          T::Sig::WithoutRuntime.sig {
             params(
               elem_name: T.nilable(Symbol),
               block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta1::Subject))

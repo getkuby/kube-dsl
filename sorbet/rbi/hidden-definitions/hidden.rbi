@@ -19,7 +19,7 @@ class Array
 end
 
 class Array
-  def self.try_convert(_); end
+  def self.try_convert(arg); end
 end
 
 BasicObject::BasicObject = BasicObject
@@ -31,7 +31,7 @@ class BigDecimal
 end
 
 class BigDecimal
-  def self.interpret_loosely(_); end
+  def self.interpret_loosely(arg); end
 end
 
 class Binding
@@ -40,15 +40,112 @@ class Binding
   def irb(); end
 end
 
+class Bundler::APIResponseInvalidDependenciesError
+  def status_code(); end
+end
+
+class Bundler::APIResponseInvalidDependenciesError
+end
+
+class Bundler::CurrentRuby
+  def jruby_30?(); end
+
+  def jruby_3?(); end
+
+  def maglev_30?(); end
+
+  def maglev_3?(); end
+
+  def mingw_30?(); end
+
+  def mingw_3?(); end
+
+  def mri_30?(); end
+
+  def mri_3?(); end
+
+  def mswin64_30?(); end
+
+  def mswin64_3?(); end
+
+  def mswin_30?(); end
+
+  def mswin_3?(); end
+
+  def on_30?(); end
+
+  def on_3?(); end
+
+  def rbx_30?(); end
+
+  def rbx_3?(); end
+
+  def ruby_30?(); end
+
+  def ruby_3?(); end
+
+  def truffleruby_30?(); end
+
+  def truffleruby_3?(); end
+
+  def x64_mingw_30?(); end
+
+  def x64_mingw_3?(); end
+end
+
+class Bundler::Definition
+  def dependencies_for(groups); end
+
+  def locked_dependencies(); end
+
+  def most_specific_locked_platform(); end
+
+  def requested_dependencies(); end
+
+  def resolve_only_locally!(); end
+end
+
+class Bundler::Definition
+  def self.no_lock(); end
+
+  def self.no_lock=(no_lock); end
+end
+
+class Bundler::DepProxy
+  def clone(); end
+end
+
+class Bundler::DepProxy
+  def self.get_proxy(dep, platform); end
+end
+
 class Bundler::Dependency
   def branch(); end
 
   def expanded_platforms(); end
 
   def git(); end
+
+  def github(); end
+
+  def ref(); end
 end
 
 Bundler::Deprecate = Gem::Deprecate
+
+module Bundler::Digest
+  SHA1_MASK = ::T.let(nil, ::T.untyped)
+  SHA1_WORDS = ::T.let(nil, ::T.untyped)
+end
+
+module Bundler::Digest
+  def self.sha1(string); end
+end
+
+class Bundler::Dsl
+  def check_primary_source_safety(); end
+  GITHUB_PULL_REQUEST_URL = ::T.let(nil, ::T.untyped)
+end
 
 class Bundler::Env
 end
@@ -59,6 +156,16 @@ class Bundler::Env
   def self.report(options=T.unsafe(nil)); end
 
   def self.write(io); end
+end
+
+class Bundler::EnvironmentPreserver
+  def replace_with_backup(); end
+end
+
+class Bundler::EnvironmentPreserver
+  def self.env_to_hash(env); end
+
+  def self.from_env(); end
 end
 
 class Bundler::Fetcher
@@ -121,8 +228,6 @@ end
 class Bundler::Fetcher::CompactIndex
   def available?(*args, &blk); end
 
-  def fetch_spec(*args, &blk); end
-
   def specs(*args, &blk); end
 
   def specs_for_names(gem_names); end
@@ -141,7 +246,7 @@ class Bundler::Fetcher::CompactIndex::ClientFetcher
 end
 
 class Bundler::Fetcher::CompactIndex::ClientFetcher
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -181,8 +286,6 @@ class Bundler::Fetcher::Downloader
 end
 
 class Bundler::Fetcher::Index
-  def fetch_spec(spec); end
-
   def specs(_gem_names); end
 end
 
@@ -242,6 +345,8 @@ class Bundler::GemHelper
 
   def base(); end
 
+  def build_checksum(built_gem_path=T.unsafe(nil)); end
+
   def build_gem(); end
 
   def built_gem_path(); end
@@ -249,6 +354,10 @@ class Bundler::GemHelper
   def clean?(); end
 
   def committed?(); end
+
+  def current_branch(); end
+
+  def default_remote(); end
 
   def gem_command(); end
 
@@ -272,8 +381,6 @@ class Bundler::GemHelper
 
   def name(); end
 
-  def perform_git_push(options=T.unsafe(nil)); end
-
   def rubygem_push(path); end
 
   def sh(cmd, &block); end
@@ -283,6 +390,8 @@ class Bundler::GemHelper
   def sh_with_status(cmd, &block); end
 
   def spec_path(); end
+
+  def tag_prefix=(tag_prefix); end
 
   def tag_version(); end
 
@@ -299,6 +408,20 @@ class Bundler::GemHelper
   def self.instance(); end
 
   def self.instance=(instance); end
+
+  def self.tag_prefix=(prefix); end
+end
+
+class Bundler::GemHelpers::PlatformMatch
+  def self.specificity_score(spec_platform, user_platform); end
+end
+
+module Bundler::GemHelpers
+  def self.local_platform(); end
+
+  def self.same_deps(spec, exemplary_spec); end
+
+  def self.same_specificity(platform, spec, exemplary_spec); end
 end
 
 class Bundler::GemVersionPromoter
@@ -383,42 +506,30 @@ class Bundler::Injector
   def self.remove(gems, options=T.unsafe(nil)); end
 end
 
-class Bundler::Installer
-  def generate_bundler_executable_stubs(spec, options=T.unsafe(nil)); end
+class Bundler::LazySpecification
+  def eql?(other); end
 
-  def generate_standalone_bundler_executable_stubs(spec); end
-
-  def initialize(root, definition); end
-
-  def post_install_messages(); end
-
-  def run(options); end
+  def platform_string(); end
 end
 
-class Bundler::Installer
-  def self.ambiguous_gems(); end
-
-  def self.ambiguous_gems=(ambiguous_gems); end
-
-  def self.install(root, definition, options=T.unsafe(nil)); end
+class Bundler::LockfileParser
+  def self.bundled_with(); end
 end
 
-class Bundler::Molinillo::DependencyGraph
-  include ::Enumerable
+module Bundler::Molinillo::SpecificationProvider
+  def dependencies_equal?(dependencies, other_dependencies); end
 end
 
-class Bundler::Molinillo::DependencyGraph::Log
-  extend ::Enumerable
-end
+class Bundler::PermissionError
+  def parent_folder(); end
 
-class Bundler::Molinillo::DependencyGraph::Vertex
-  def _recursive_predecessors(vertices=T.unsafe(nil)); end
-
-  def _recursive_successors(vertices=T.unsafe(nil)); end
+  def permission_type(); end
 end
 
 module Bundler::Plugin::API::Source
   def ==(other); end
+
+  def add_dependency_names(names); end
 
   def app_cache_dirname(); end
 
@@ -436,7 +547,7 @@ module Bundler::Plugin::API::Source
 
   def dependency_names=(dependency_names); end
 
-  def double_check_for(*_); end
+  def double_check_for(*arg); end
 
   def eql?(other); end
 
@@ -445,6 +556,8 @@ module Bundler::Plugin::API::Source
   def gem_install_dir(); end
 
   def hash(); end
+
+  def identifier(); end
 
   def include?(other); end
 
@@ -455,6 +568,8 @@ module Bundler::Plugin::API::Source
   def install_path(); end
 
   def installed?(); end
+
+  def local!(); end
 
   def name(); end
 
@@ -467,6 +582,8 @@ module Bundler::Plugin::API::Source
   def remote!(); end
 
   def root(); end
+
+  def spec_names(); end
 
   def specs(); end
 
@@ -497,6 +614,8 @@ class Bundler::Plugin::Index
   def installed_plugins(); end
 
   def plugin_commands(plugin); end
+
+  def unregister_plugin(name); end
 end
 
 class Bundler::Plugin::Index::CommandConflict
@@ -535,6 +654,12 @@ end
 class Bundler::Plugin::Installer
 end
 
+class Bundler::Plugin::PluginInstallError
+end
+
+class Bundler::Plugin::PluginInstallError
+end
+
 class Bundler::Plugin::SourceList
 end
 
@@ -543,6 +668,10 @@ end
 
 module Bundler::Plugin
   def self.list(); end
+
+  def self.save_plugin(name, spec, optional_plugin=T.unsafe(nil)); end
+
+  def self.uninstall(names, options); end
 end
 
 class Bundler::ProcessLock
@@ -550,6 +679,29 @@ end
 
 class Bundler::ProcessLock
   def self.lock(bundle_path=T.unsafe(nil)); end
+end
+
+class Bundler::RemoteSpecification
+  def required_rubygems_version(); end
+end
+
+class Bundler::Resolver
+  include ::Bundler::GemHelpers
+  def results_for(dependency, base); end
+
+  def source_for(name); end
+end
+
+class Bundler::Resolver::SpecGroup
+  def activated_platforms(); end
+
+  def activated_platforms=(activated_platforms); end
+
+  def sorted_activated_platforms(); end
+end
+
+class Bundler::Resolver::SpecGroup
+  def self.create_for(specs, all_platforms, specific_platform); end
 end
 
 class Bundler::Retry
@@ -580,13 +732,9 @@ class Bundler::Retry
   def self.default_retries(); end
 end
 
-class Bundler::RubyGemsGemInstaller
-end
-
-class Bundler::RubyGemsGemInstaller
-end
-
 class Bundler::RubygemsIntegration
+  def add_default_gems_to(specs); end
+
   def add_to_load_path(paths); end
 
   def all_specs(); end
@@ -597,9 +745,13 @@ class Bundler::RubygemsIntegration
 
   def default_stubs(); end
 
+  def find_bundler(version); end
+
   def find_name(name); end
 
   def gem_remote_fetcher(); end
+
+  def load_env_plugins(); end
 
   def plain_specs(); end
 
@@ -607,7 +759,23 @@ class Bundler::RubygemsIntegration
 
   def stub_rubygems(specs); end
 
-  def use_gemdeps(gemfile); end
+  def supports_bundler_trampolining?(); end
+end
+
+class Bundler::SelfManager
+  def install_locked_bundler_and_restart_with_it_if_needed(); end
+
+  def restart_with_locked_bundler_if_needed(); end
+
+  def update_bundler_and_restart_with_it_if_needed(target); end
+end
+
+class Bundler::SelfManager
+end
+
+class Bundler::Settings
+  def processor_count(); end
+  STRING_KEYS = ::T.let(nil, ::T.untyped)
 end
 
 class Bundler::Settings::Mirror
@@ -669,12 +837,148 @@ class Bundler::Settings::Validator
   def self.validate!(key, value, settings); end
 end
 
+class Bundler::Settings
+  def self.key_for(key); end
+end
+
+class Bundler::Source
+  def add_dependency_names(names); end
+
+  def cached!(); end
+
+  def identifier(); end
+
+  def local!(); end
+
+  def local_only!(); end
+
+  def remote!(); end
+
+  def spec_names(); end
+end
+
 class Bundler::Source::Git
   def glob(); end
+
+  def local?(); end
+end
+
+class Bundler::Source::Rubygems
+  def default_cache_path_for(dir); end
+
+  def dependency_api_available?(); end
+
+  def multiple_remotes?(); end
+
+  def no_remotes?(); end
+
+  def remote_names(); end
+end
+
+class Bundler::Source::RubygemsAggregate
+  def identifier(); end
+
+  def initialize(sources, source_map); end
+
+  def source_map(); end
+
+  def sources(); end
+
+  def specs(); end
+end
+
+class Bundler::Source::RubygemsAggregate
+end
+
+class Bundler::SourceList
+  def add_global_rubygems_remote(uri); end
+
+  def aggregate_global_source?(); end
+
+  def expired_sources?(replacement_sources); end
+
+  def global_path_source(); end
+
+  def implicit_global_source?(); end
+
+  def local_only!(); end
+
+  def lock_other_sources(); end
+
+  def lock_rubygems_sources(); end
+
+  def merged_gem_lockfile_sections!(replacement_source); end
+
+  def merged_gem_lockfile_sections?(); end
+
+  def non_default_explicit_sources(); end
+
+  def non_global_rubygems_sources(); end
+end
+
+class Bundler::SourceMap
+  def all_requirements(); end
+
+  def dependencies(); end
+
+  def direct_requirements(); end
+
+  def initialize(sources, dependencies); end
+
+  def pinned_spec_names(skip=T.unsafe(nil)); end
+
+  def sources(); end
+end
+
+class Bundler::SourceMap
 end
 
 class Bundler::SpecSet
   include ::Enumerable
+  include ::Bundler::TSort
+  def missing_specs(); end
+end
+
+class Bundler::StubSpecification
+  def extensions(); end
+
+  def gem_build_complete_path(); end
+
+  def manually_installed?(); end
+end
+
+module Bundler::TSort
+  def each_strongly_connected_component(&block); end
+
+  def each_strongly_connected_component_from(node, id_map=T.unsafe(nil), stack=T.unsafe(nil), &block); end
+
+  def strongly_connected_components(); end
+
+  def tsort(); end
+
+  def tsort_each(&block); end
+
+  def tsort_each_child(node); end
+
+  def tsort_each_node(); end
+end
+
+class Bundler::TSort::Cyclic
+end
+
+class Bundler::TSort::Cyclic
+end
+
+module Bundler::TSort
+  def self.each_strongly_connected_component(each_node, each_child); end
+
+  def self.each_strongly_connected_component_from(node, each_child, id_map=T.unsafe(nil), stack=T.unsafe(nil)); end
+
+  def self.strongly_connected_components(each_node, each_child); end
+
+  def self.tsort(each_node, each_child); end
+
+  def self.tsort_each(each_node, each_child); end
 end
 
 class Bundler::Thor
@@ -975,11 +1279,11 @@ module Bundler::Thor::Base::ClassMethods
 
   def arguments(); end
 
-  def attr_accessor(*_); end
+  def attr_accessor(*arg); end
 
-  def attr_reader(*_); end
+  def attr_reader(*arg); end
 
-  def attr_writer(*_); end
+  def attr_writer(*arg); end
 
   def baseclass(); end
 
@@ -1137,6 +1441,8 @@ class Bundler::Thor::CoreExt::HashWithIndifferentAccess
 
   def delete(key); end
 
+  def except(*keys); end
+
   def fetch(key, *args); end
 
   def initialize(hash=T.unsafe(nil)); end
@@ -1209,9 +1515,9 @@ class Bundler::Thor::Group
 
   def self.invoke_from_option(*names, &block); end
 
-  def self.printable_commands(*_); end
+  def self.printable_commands(*arg); end
 
-  def self.printable_tasks(*_); end
+  def self.printable_tasks(*arg); end
 
   def self.remove_invocation(*names); end
 
@@ -1390,6 +1696,8 @@ class Bundler::Thor::Options
   def switch?(arg); end
 
   def switch_option(arg); end
+
+  def unshift(arg, is_value: T.unsafe(nil)); end
   EQ_RE = ::T.let(nil, ::T.untyped)
   LONG_RE = ::T.let(nil, ::T.untyped)
   OPTS_END = ::T.let(nil, ::T.untyped)
@@ -1447,6 +1755,8 @@ module Bundler::Thor::Shell
   def print_wrapped(*args, &block); end
 
   def say(*args, &block); end
+
+  def say_error(*args, &block); end
 
   def say_status(*args, &block); end
 
@@ -1527,9 +1837,11 @@ class Bundler::Thor::Shell::Basic
 
   def say(message=T.unsafe(nil), color=T.unsafe(nil), force_new_line=T.unsafe(nil)); end
 
+  def say_error(message=T.unsafe(nil), color=T.unsafe(nil), force_new_line=T.unsafe(nil)); end
+
   def say_status(status, message, log_status=T.unsafe(nil)); end
 
-  def set_color(string, *_); end
+  def set_color(string, *arg); end
 
   def show_diff(destination, content); end
 
@@ -1552,6 +1864,8 @@ end
 
 class Bundler::Thor::Shell::Color
   def are_colors_disabled?(); end
+
+  def are_colors_supported?(); end
 
   def diff_lcs_loaded?(); end
 
@@ -1800,7 +2114,7 @@ class Bundler::UI::Shell
 
   def debug?(); end
 
-  def error(msg, newline=T.unsafe(nil)); end
+  def error(msg, newline=T.unsafe(nil), color=T.unsafe(nil)); end
 
   def info(msg, newline=T.unsafe(nil)); end
 
@@ -1822,7 +2136,7 @@ class Bundler::UI::Shell
 
   def unprinted_warnings(); end
 
-  def warn(msg, newline=T.unsafe(nil)); end
+  def warn(msg, newline=T.unsafe(nil), color=T.unsafe(nil)); end
 
   def yes?(msg); end
   LEVELS = ::T.let(nil, ::T.untyped)
@@ -1869,19 +2183,6 @@ class Bundler::URI::Error
 end
 
 class Bundler::URI::Error
-end
-
-module Bundler::URI::Escape
-  def decode(*arg); end
-
-  def encode(*arg); end
-
-  def escape(*arg); end
-
-  def unescape(*arg); end
-end
-
-module Bundler::URI::Escape
 end
 
 class Bundler::URI::FTP
@@ -2250,7 +2551,6 @@ module Bundler::URI::Util
 end
 
 module Bundler::URI
-  extend ::Bundler::URI::Escape
   def self.decode_www_form(str, enc=T.unsafe(nil), separator: T.unsafe(nil), use__charset_: T.unsafe(nil), isindex: T.unsafe(nil)); end
 
   def self.decode_www_form_component(str, enc=T.unsafe(nil)); end
@@ -2260,6 +2560,8 @@ module Bundler::URI
   def self.encode_www_form_component(str, enc=T.unsafe(nil)); end
 
   def self.extract(str, schemes=T.unsafe(nil), &block); end
+
+  def self.for(scheme, *arguments, default: T.unsafe(nil)); end
 
   def self.get_encoding(label); end
 
@@ -2284,7 +2586,7 @@ class Bundler::VersionRanges::NEq
 end
 
 class Bundler::VersionRanges::NEq
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -2319,13 +2621,13 @@ class Bundler::VersionRanges::ReqR::Endpoint
 end
 
 class Bundler::VersionRanges::ReqR::Endpoint
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
 
 class Bundler::VersionRanges::ReqR
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -2339,9 +2641,19 @@ module Bundler::VersionRanges
 end
 
 module Bundler
+  def self.configure_gem_home_and_path(path=T.unsafe(nil)); end
+
+  def self.most_specific_locked_platform?(platform); end
+
   def self.original_exec(*args); end
 
   def self.original_system(*args); end
+
+  def self.preferred_gemfile_name(); end
+
+  def self.reset_settings_and_root!(); end
+
+  def self.self_manager(); end
 
   def self.unbundled_env(); end
 
@@ -2510,7 +2822,7 @@ class CodeRay::Duo
 end
 
 class CodeRay::Duo
-  def self.[](*_); end
+  def self.[](*arg); end
 end
 
 class CodeRay::Encoders::Encoder
@@ -2671,9 +2983,9 @@ class CodeRay::Tokens
 
   def split_into_parts(*sizes); end
 
-  def text_token(*_); end
+  def text_token(*arg); end
 
-  def tokens(*_); end
+  def tokens(*arg); end
 end
 
 class CodeRay::Tokens
@@ -3026,7 +3338,7 @@ end
 class DidYouMean::NullChecker
   def corrections(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class DidYouMean::ParseDimensions
@@ -3098,7 +3410,7 @@ module Dir::Tmpname
 end
 
 class Dir
-  def self.exists?(_); end
+  def self.exists?(arg); end
 end
 
 class Dry::Inflector
@@ -3119,24 +3431,24 @@ class ERB::Compiler::Scanner
 end
 
 class Encoding
-  def _dump(*_); end
+  def _dump(*arg); end
   CESU_8 = ::T.let(nil, ::T.untyped)
 end
 
 class Encoding::Converter
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Encoding
-  def self._load(_); end
+  def self._load(arg); end
 end
 
 module Enumerable
-  def sum(*_); end
+  def sum(*arg); end
 end
 
 class Enumerator
-  def +(_); end
+  def +(arg); end
 
   def each_with_index(); end
 end
@@ -3150,7 +3462,7 @@ class Enumerator::ArithmeticSequence
 
   def exclude_end?(); end
 
-  def last(*_); end
+  def last(*arg); end
 
   def step(); end
 end
@@ -3165,9 +3477,9 @@ class Enumerator::Chain
 end
 
 class Enumerator::Generator
-  def each(*_, &blk); end
+  def each(*arg, &blk); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Enumerator::Lazy
@@ -3186,7 +3498,7 @@ class Enumerator::Yielder
 end
 
 class Enumerator
-  def self.produce(*_); end
+  def self.produce(*arg); end
 end
 
 class Errno::EAUTH
@@ -3358,7 +3670,7 @@ end
 
 class Etc::Group
   extend ::Enumerable
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.each(&blk); end
 
@@ -3397,7 +3709,7 @@ end
 
 class Etc::Passwd
   extend ::Enumerable
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.each(&blk); end
 
@@ -3415,13 +3727,13 @@ class FalseClass
 end
 
 class Fiber
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class File
-  def self.absolute_path?(_); end
+  def self.absolute_path?(arg); end
 
-  def self.exists?(_); end
+  def self.exists?(arg); end
 end
 
 FileList = Rake::FileList
@@ -3533,184 +3845,33 @@ class Gem::Ext::ExtConfBuilder
   def self.get_relative_path(path); end
 end
 
-class Gem::Package
-  def gem(); end
+Gem::Installer::ExtensionBuildError = Gem::Ext::BuildError
+
+class Gem::Installer::FakePackage
+  def copy_to(path); end
+
+  def data_mode(); end
+
+  def data_mode=(data_mode); end
+
+  def dir_mode(); end
+
+  def dir_mode=(dir_mode); end
+
+  def extract_files(destination_dir, pattern=T.unsafe(nil)); end
+
+  def initialize(spec); end
+
+  def prog_mode(); end
+
+  def prog_mode=(prog_mode); end
+
+  def spec(); end
+
+  def spec=(spec); end
 end
 
-class Gem::Package::DigestIO
-  def digests(); end
-
-  def initialize(io, digests); end
-
-  def write(data); end
-end
-
-class Gem::Package::DigestIO
-  def self.wrap(io, digests); end
-end
-
-class Gem::Package::FileSource
-  def initialize(path); end
-
-  def path(); end
-
-  def present?(); end
-
-  def start(); end
-
-  def with_read_io(&block); end
-
-  def with_write_io(&block); end
-end
-
-class Gem::Package::FileSource
-end
-
-class Gem::Package::IOSource
-  def initialize(io); end
-
-  def io(); end
-
-  def path(); end
-
-  def present?(); end
-
-  def start(); end
-
-  def with_read_io(); end
-
-  def with_write_io(); end
-end
-
-class Gem::Package::IOSource
-end
-
-class Gem::Package::Old
-  def extract_files(destination_dir); end
-
-  def file_list(io); end
-
-  def read_until_dashes(io); end
-
-  def skip_ruby(io); end
-end
-
-class Gem::Package::Old
-end
-
-class Gem::Package::Source
-end
-
-class Gem::Package::Source
-end
-
-class Gem::Package::TarHeader
-  def ==(other); end
-
-  def checksum(); end
-
-  def devmajor(); end
-
-  def devminor(); end
-
-  def empty?(); end
-
-  def gid(); end
-
-  def gname(); end
-
-  def initialize(vals); end
-
-  def linkname(); end
-
-  def magic(); end
-
-  def mode(); end
-
-  def mtime(); end
-
-  def name(); end
-
-  def prefix(); end
-
-  def size(); end
-
-  def typeflag(); end
-
-  def uid(); end
-
-  def uname(); end
-
-  def update_checksum(); end
-
-  def version(); end
-  EMPTY_HEADER = ::T.let(nil, ::T.untyped)
-  FIELDS = ::T.let(nil, ::T.untyped)
-  PACK_FORMAT = ::T.let(nil, ::T.untyped)
-  UNPACK_FORMAT = ::T.let(nil, ::T.untyped)
-end
-
-class Gem::Package::TarHeader
-  def self.from(stream); end
-
-  def self.oct_or_256based(str); end
-
-  def self.strict_oct(str); end
-end
-
-class Gem::Package::TarReader::Entry
-  def bytes_read(); end
-
-  def check_closed(); end
-
-  def close(); end
-
-  def closed?(); end
-
-  def directory?(); end
-
-  def eof?(); end
-
-  def file?(); end
-
-  def full_name(); end
-
-  def getc(); end
-
-  def header(); end
-
-  def initialize(header, io); end
-
-  def length(); end
-
-  def pos(); end
-
-  def read(len=T.unsafe(nil)); end
-
-  def readpartial(maxlen=T.unsafe(nil), outbuf=T.unsafe(nil)); end
-
-  def rewind(); end
-
-  def size(); end
-
-  def symlink?(); end
-end
-
-class Gem::Package::TarReader::Entry
-end
-
-class Gem::Package::TarReader
-  def self.new(io); end
-end
-
-class Gem::Package::TarWriter
-  def self.new(io); end
-end
-
-class Gem::Package
-  def self.new(gem, security_policy=T.unsafe(nil)); end
-
-  def self.raw_spec(path, security_policy=T.unsafe(nil)); end
+class Gem::Installer::FakePackage
 end
 
 class Gem::PathSupport
@@ -3723,28 +3884,39 @@ class Gem::PathSupport
   def spec_cache_dir(); end
 end
 
-class Gem::RemoteFetcher::FetchError
-  include ::Gem::UriParsing
-  def initialize(message, uri); end
+class Gem::Platform
+  def self.match_gem?(platform, gem_name); end
 
-  def uri(); end
-
-  def uri=(uri); end
-end
-
-class Gem::RemoteFetcher::FetchError
-end
-
-class Gem::RemoteFetcher::UnknownHostError
-end
-
-class Gem::RemoteFetcher::UnknownHostError
+  def self.match_spec?(spec); end
 end
 
 class Gem::Request
   extend ::Gem::UserInteraction
   extend ::Gem::DefaultUserInteraction
   extend ::Gem::Text
+end
+
+class Gem::Requirement
+  include ::Gem::Requirement::OrderIndependentComparison
+  include ::Gem::Requirement::CorrectHashForLambdaOperator
+end
+
+module Gem::Requirement::CorrectHashForLambdaOperator
+  def hash(); end
+end
+
+module Gem::Requirement::CorrectHashForLambdaOperator
+end
+
+module Gem::Requirement::OrderIndependentComparison
+  def ==(other); end
+
+  def _requirements_sorted?(); end
+
+  def _with_sorted_requirements(); end
+end
+
+module Gem::Requirement::OrderIndependentComparison
 end
 
 class Gem::Resolver::CurrentSet
@@ -3794,209 +3966,6 @@ end
 class Gem::RuntimeRequirementNotMetError
 end
 
-class Gem::Security::Exception
-end
-
-class Gem::Security::Exception
-end
-
-class Gem::Security::KEY_ALGORITHM
-  def d(); end
-
-  def dmp1(); end
-
-  def dmq1(); end
-
-  def e(); end
-
-  def export(*_); end
-
-  def initialize(*_); end
-
-  def iqmp(); end
-
-  def n(); end
-
-  def p(); end
-
-  def params(); end
-
-  def private?(); end
-
-  def private_decrypt(*_); end
-
-  def private_encrypt(*_); end
-
-  def public?(); end
-
-  def public_decrypt(*_); end
-
-  def public_encrypt(*_); end
-
-  def public_key(); end
-
-  def q(); end
-
-  def set_crt_params(_, _1, _2); end
-
-  def set_factors(_, _1); end
-
-  def set_key(_, _1, _2); end
-
-  def sign_pss(*_); end
-
-  def to_der(); end
-
-  def to_pem(*_); end
-
-  def to_s(*_); end
-
-  def to_text(); end
-
-  def verify_pss(*_); end
-  NO_PADDING = ::T.let(nil, ::T.untyped)
-  PKCS1_OAEP_PADDING = ::T.let(nil, ::T.untyped)
-  PKCS1_PADDING = ::T.let(nil, ::T.untyped)
-  SSLV23_PADDING = ::T.let(nil, ::T.untyped)
-end
-
-class Gem::Security::KEY_ALGORITHM
-  def self.generate(*_); end
-end
-
-class Gem::Security::Policy
-  include ::Gem::UserInteraction
-  include ::Gem::DefaultUserInteraction
-  include ::Gem::Text
-  def check_cert(signer, issuer, time); end
-
-  def check_chain(chain, time); end
-
-  def check_data(public_key, digest, signature, data); end
-
-  def check_key(signer, key); end
-
-  def check_root(chain, time); end
-
-  def check_trust(chain, digester, trust_dir); end
-
-  def initialize(name, policy=T.unsafe(nil), opt=T.unsafe(nil)); end
-
-  def name(); end
-
-  def only_signed(); end
-
-  def only_signed=(only_signed); end
-
-  def only_trusted(); end
-
-  def only_trusted=(only_trusted); end
-
-  def subject(certificate); end
-
-  def verify(chain, key=T.unsafe(nil), digests=T.unsafe(nil), signatures=T.unsafe(nil), full_name=T.unsafe(nil)); end
-
-  def verify_chain(); end
-
-  def verify_chain=(verify_chain); end
-
-  def verify_data(); end
-
-  def verify_data=(verify_data); end
-
-  def verify_root(); end
-
-  def verify_root=(verify_root); end
-
-  def verify_signatures(spec, digests, signatures); end
-
-  def verify_signer(); end
-
-  def verify_signer=(verify_signer); end
-end
-
-class Gem::Security::Policy
-end
-
-class Gem::Security::Signer
-  include ::Gem::UserInteraction
-  include ::Gem::DefaultUserInteraction
-  include ::Gem::Text
-  def cert_chain(); end
-
-  def cert_chain=(cert_chain); end
-
-  def digest_algorithm(); end
-
-  def digest_name(); end
-
-  def extract_name(cert); end
-
-  def initialize(key, cert_chain, passphrase=T.unsafe(nil), options=T.unsafe(nil)); end
-
-  def key(); end
-
-  def key=(key); end
-
-  def load_cert_chain(); end
-
-  def options(); end
-
-  def re_sign_key(expiration_length: T.unsafe(nil)); end
-
-  def sign(data); end
-end
-
-class Gem::Security::Signer
-  def self.re_sign_cert(expired_cert, expired_cert_path, private_key); end
-end
-
-class Gem::Security::TrustDir
-  def cert_path(certificate); end
-
-  def dir(); end
-
-  def each_certificate(); end
-
-  def initialize(dir, permissions=T.unsafe(nil)); end
-
-  def issuer_of(certificate); end
-
-  def load_certificate(certificate_file); end
-
-  def name_path(name); end
-
-  def trust_cert(certificate); end
-
-  def verify(); end
-end
-
-module Gem::Security
-  def self.alt_name_or_x509_entry(certificate, x509_entry); end
-
-  def self.create_cert(subject, key, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
-
-  def self.create_cert_email(email, key, age=T.unsafe(nil), extensions=T.unsafe(nil)); end
-
-  def self.create_cert_self_signed(subject, key, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
-
-  def self.create_key(length=T.unsafe(nil), algorithm=T.unsafe(nil)); end
-
-  def self.email_to_name(email_address); end
-
-  def self.re_sign(expired_certificate, private_key, age=T.unsafe(nil), extensions=T.unsafe(nil)); end
-
-  def self.reset(); end
-
-  def self.sign(certificate, signing_key, signing_cert, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
-
-  def self.trust_dir(); end
-
-  def self.trusted_certificates(&block); end
-
-  def self.write(pemmable, path, permissions=T.unsafe(nil), passphrase=T.unsafe(nil), cipher=T.unsafe(nil)); end
-end
-
 class Gem::SpecFetcher
   include ::Gem::UserInteraction
   include ::Gem::DefaultUserInteraction
@@ -4033,6 +4002,8 @@ end
 class Gem::Specification
   include ::Bundler::MatchPlatform
   include ::Bundler::GemHelpers
+  def deleted_gem?(); end
+
   def removed_method_calls(); end
 
   def to_ruby(); end
@@ -4130,15 +4101,13 @@ end
 
 class Hash
   include ::JSON::Ext::Generator::GeneratorMethods::Hash
-  def deconstruct_keys(_); end
+  def deconstruct_keys(arg); end
 end
 
 class Hash
-  def self.ruby2_keywords_hash(_); end
+  def self.ruby2_keywords_hash(arg); end
 
-  def self.ruby2_keywords_hash?(_); end
-
-  def self.try_convert(_); end
+  def self.ruby2_keywords_hash?(arg); end
 end
 
 class HighLine
@@ -4338,29 +4307,29 @@ class IO
 
   def cursor=(cursor); end
 
-  def cursor_down(_); end
+  def cursor_down(arg); end
 
-  def cursor_left(_); end
+  def cursor_left(arg); end
 
-  def cursor_right(_); end
+  def cursor_right(arg); end
 
-  def cursor_up(_); end
+  def cursor_up(arg); end
 
   def echo=(echo); end
 
   def echo?(); end
 
-  def erase_line(_); end
+  def erase_line(arg); end
 
-  def erase_screen(_); end
+  def erase_screen(arg); end
 
-  def getch(*_); end
+  def getch(*arg); end
 
-  def getpass(*_); end
+  def getpass(*arg); end
 
-  def goto(_, _1); end
+  def goto(arg, arg1); end
 
-  def goto_column(_); end
+  def goto_column(arg); end
 
   def iflush(); end
 
@@ -4368,7 +4337,7 @@ class IO
 
   def noecho(); end
 
-  def nonblock(*_); end
+  def nonblock(*arg); end
 
   def nonblock=(nonblock); end
 
@@ -4378,27 +4347,27 @@ class IO
 
   def oflush(); end
 
-  def pathconf(_); end
+  def pathconf(arg); end
 
   def pressed?(); end
 
-  def raw(*_); end
+  def raw(*arg); end
 
-  def raw!(*_); end
+  def raw!(*arg); end
 
   def ready?(); end
 
-  def scroll_backward(_); end
+  def scroll_backward(arg); end
 
-  def scroll_forward(_); end
+  def scroll_forward(arg); end
 
   def set_encoding_by_bom(); end
 
-  def wait(*_); end
+  def wait(*arg); end
 
-  def wait_readable(*_); end
+  def wait_readable(*arg); end
 
-  def wait_writable(*_); end
+  def wait_writable(*arg); end
 
   def winsize(); end
 
@@ -4408,9 +4377,9 @@ end
 class IO::ConsoleMode
   def echo=(echo); end
 
-  def raw(*_); end
+  def raw(*arg); end
 
-  def raw!(*_); end
+  def raw!(*arg); end
 end
 
 class IO::ConsoleMode
@@ -4421,7 +4390,7 @@ IO::EWOULDBLOCKWaitReadable = IO::EAGAINWaitReadable
 IO::EWOULDBLOCKWaitWritable = IO::EAGAINWaitWritable
 
 class IO
-  def self.console(*_); end
+  def self.console(*arg); end
 
   def self.console_size(); end
 
@@ -4467,7 +4436,7 @@ module IRB::Color
 end
 
 class IRB::Context
-  def __exit__(*_); end
+  def __exit__(*arg); end
 
   def __inspect__(); end
 
@@ -4528,7 +4497,7 @@ class IRB::DefaultEncodings
 end
 
 class IRB::DefaultEncodings
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -4717,11 +4686,11 @@ class Integer
 end
 
 class JSON::Ext::Generator::State
-  def self.from_state(_); end
+  def self.from_state(arg); end
 end
 
 class JSON::Ext::Parser
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 JSON::Parser = JSON::Ext::Parser
@@ -4751,43 +4720,99 @@ class KeyError
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::MutatingWebhook
+  def client_config_present?(); end
+
+  def namespace_selector_present?(); end
+
+  def object_selector_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::MutatingWebhookConfiguration
+  def metadata_present?(); end
+
   def webhook(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::MutatingWebhookConfigurationList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhook
+  def client_config_present?(); end
+
+  def namespace_selector_present?(); end
+
+  def object_selector_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhookConfiguration
+  def metadata_present?(); end
+
   def webhook(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Admissionregistration::V1::ValidatingWebhookConfigurationList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig
+  def service_present?(); end
+end
+
+class KubeDSL::DSL::Apiextensions::V1::CustomResourceConversion
+  def webhook_present?(); end
+end
+
+class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinition
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionSpec
+  def conversion_present?(); end
+
+  def names_present?(); end
+
   def version(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionStatus
+  def accepted_names_present?(); end
+
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionVersion
   def additional_printer_column(elem_name=T.unsafe(nil), &block); end
+
+  def schema_present?(); end
+
+  def subresources_present?(); end
+end
+
+class KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources
+  def scale_present?(); end
+end
+
+class KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation
+  def open_apiv3_schema_present?(); end
 end
 
 class KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps
@@ -4803,21 +4828,55 @@ class KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps
 
   def enum(elem_name=T.unsafe(nil), &block); end
 
+  def external_docs_present?(); end
+
+  def not_field_present?(); end
+
   def one_of(elem_name=T.unsafe(nil), &block); end
 
   def one_oves(); end
 end
 
+class KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig
+  def service_present?(); end
+end
+
+class KubeDSL::DSL::Apiextensions::V1::WebhookConversion
+  def client_config_present?(); end
+end
+
+class KubeDSL::DSL::Apiregistration::V1::APIService
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Apiregistration::V1::APIServiceList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Apiregistration::V1::APIServiceSpec
+  def service_present?(); end
 end
 
 class KubeDSL::DSL::Apiregistration::V1::APIServiceStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersion
+  def metadata_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus
@@ -4826,44 +4885,198 @@ class KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus
   def storage_version(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Apps::V1::ControllerRevision
+  def metadata_present?(); end
+end
+
 class KubeDSL::DSL::Apps::V1::ControllerRevisionList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::DaemonSet
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Apps::V1::DaemonSetList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::DaemonSetSpec
+  def selector_present?(); end
+
+  def template_present?(); end
+
+  def update_strategy_present?(); end
 end
 
 class KubeDSL::DSL::Apps::V1::DaemonSetStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Apps::V1::DaemonSetUpdateStrategy
+  def rolling_update_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::Deployment
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Apps::V1::DeploymentList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::DeploymentSpec
+  def selector_present?(); end
+
+  def strategy_present?(); end
+
+  def template_present?(); end
 end
 
 class KubeDSL::DSL::Apps::V1::DeploymentStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Apps::V1::DeploymentStrategy
+  def rolling_update_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::ReplicaSet
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Apps::V1::ReplicaSetList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Apps::V1::ReplicaSetSpec
+  def selector_present?(); end
+
+  def template_present?(); end
 end
 
 class KubeDSL::DSL::Apps::V1::ReplicaSetStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Apps::V1::StatefulSet
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Apps::V1::StatefulSetList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Apps::V1::StatefulSetSpec
+  def selector_present?(); end
+
+  def template_present?(); end
+
+  def update_strategy_present?(); end
+
   def volume_claim_template(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Apps::V1::StatefulSetStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Apps::V1::StatefulSetUpdateStrategy
+  def rolling_update_present?(); end
+end
+
+class KubeDSL::DSL::Authentication::V1::TokenRequest
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authentication::V1::TokenRequestSpec
+  def bound_object_ref_present?(); end
+end
+
+class KubeDSL::DSL::Authentication::V1::TokenReview
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authentication::V1::TokenReviewStatus
+  def user_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::LocalSubjectAccessReview
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::SelfSubjectAccessReview
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::SelfSubjectAccessReviewSpec
+  def non_resource_attributes_present?(); end
+
+  def resource_attributes_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::SelfSubjectRulesReview
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::SubjectAccessReview
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Authorization::V1::SubjectAccessReviewSpec
+  def non_resource_attributes_present?(); end
+
+  def resource_attributes_present?(); end
 end
 
 class KubeDSL::DSL::Authorization::V1::SubjectRulesReviewStatus
@@ -4872,16 +5085,58 @@ class KubeDSL::DSL::Authorization::V1::SubjectRulesReviewStatus
   def resource_rule(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscaler
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerSpec
+  def scale_target_ref_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V1::Scale
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricSource
+  def metric_selector_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::ExternalMetricStatus
+  def metric_selector_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscaler
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerSpec
   def metric(elem_name=T.unsafe(nil), &block); end
+
+  def scale_target_ref_present?(); end
 end
 
 class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerStatus
@@ -4890,16 +5145,100 @@ class KubeDSL::DSL::Autoscaling::V2beta1::HorizontalPodAutoscalerStatus
   def current_metric(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Autoscaling::V2beta1::MetricSpec
+  def container_resource_present?(); end
+
+  def external_present?(); end
+
+  def object_present?(); end
+
+  def pods_present?(); end
+
+  def resource_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::MetricStatus
+  def container_resource_present?(); end
+
+  def external_present?(); end
+
+  def object_present?(); end
+
+  def pods_present?(); end
+
+  def resource_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::ObjectMetricSource
+  def selector_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::ObjectMetricStatus
+  def selector_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::PodsMetricSource
+  def selector_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta1::PodsMetricStatus
+  def selector_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricSource
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ContainerResourceMetricStatus
+  def current_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricSource
+  def metric_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ExternalMetricStatus
+  def current_present?(); end
+
+  def metric_present?(); end
+end
+
 class KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingRules
   def policy(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscaler
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior
+  def scale_down_present?(); end
+
+  def scale_up_present?(); end
+end
+
 class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerSpec
+  def behavior_present?(); end
+
   def metric(elem_name=T.unsafe(nil), &block); end
+
+  def scale_target_ref_present?(); end
 end
 
 class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerStatus
@@ -4908,40 +5247,188 @@ class KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerStatus
   def current_metric(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier
+  def selector_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::MetricSpec
+  def container_resource_present?(); end
+
+  def external_present?(); end
+
+  def object_present?(); end
+
+  def pods_present?(); end
+
+  def resource_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::MetricStatus
+  def container_resource_present?(); end
+
+  def external_present?(); end
+
+  def object_present?(); end
+
+  def pods_present?(); end
+
+  def resource_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ObjectMetricSource
+  def described_object_present?(); end
+
+  def metric_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ObjectMetricStatus
+  def current_present?(); end
+
+  def described_object_present?(); end
+
+  def metric_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::PodsMetricSource
+  def metric_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::PodsMetricStatus
+  def current_present?(); end
+
+  def metric_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ResourceMetricSource
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::Autoscaling::V2beta2::ResourceMetricStatus
+  def current_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1::CronJob
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Batch::V1::CronJobList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1::CronJobSpec
+  def job_template_present?(); end
 end
 
 class KubeDSL::DSL::Batch::V1::CronJobStatus
   def active(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Batch::V1::Job
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Batch::V1::JobList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1::JobSpec
+  def selector_present?(); end
+
+  def template_present?(); end
 end
 
 class KubeDSL::DSL::Batch::V1::JobStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+
+  def uncounted_terminated_pods_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1::JobTemplateSpec
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1beta1::CronJob
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Batch::V1beta1::CronJobList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Batch::V1beta1::CronJobSpec
+  def job_template_present?(); end
 end
 
 class KubeDSL::DSL::Batch::V1beta1::CronJobStatus
   def active(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
+class KubeDSL::DSL::Certificates::V1::CertificateSigningRequest
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Certificates::V1::CertificateSigningRequestList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Certificates::V1::CertificateSigningRequestStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Coordination::V1::Lease
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
 class KubeDSL::DSL::Coordination::V1::LeaseList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Discovery::V1::Endpoint
+  def conditions_present?(); end
+
+  def hints_present?(); end
+
+  def target_ref_present?(); end
 end
 
 class KubeDSL::DSL::Discovery::V1::EndpointHints
@@ -4951,11 +5438,23 @@ end
 class KubeDSL::DSL::Discovery::V1::EndpointSlice
   def endpoint(elem_name=T.unsafe(nil), &block); end
 
+  def metadata_present?(); end
+
   def port(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Discovery::V1::EndpointSliceList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Discovery::V1beta1::Endpoint
+  def conditions_present?(); end
+
+  def hints_present?(); end
+
+  def target_ref_present?(); end
 end
 
 class KubeDSL::DSL::Discovery::V1beta1::EndpointHints
@@ -4965,31 +5464,85 @@ end
 class KubeDSL::DSL::Discovery::V1beta1::EndpointSlice
   def endpoint(elem_name=T.unsafe(nil), &block); end
 
+  def metadata_present?(); end
+
   def port(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Discovery::V1beta1::EndpointSliceList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Events::V1::Event
+  def deprecated_source_present?(); end
+
+  def metadata_present?(); end
+
+  def regarding_present?(); end
+
+  def related_present?(); end
+
+  def series_present?(); end
 end
 
 class KubeDSL::DSL::Events::V1::EventList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Events::V1beta1::Event
+  def deprecated_source_present?(); end
+
+  def metadata_present?(); end
+
+  def regarding_present?(); end
+
+  def related_present?(); end
+
+  def series_present?(); end
 end
 
 class KubeDSL::DSL::Events::V1beta1::EventList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchema
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaSpec
+  def distinguisher_method_present?(); end
+
+  def priority_level_configuration_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Flowcontrol::V1beta1::FlowSchemaStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Flowcontrol::V1beta1::LimitResponse
+  def queuing_present?(); end
+end
+
+class KubeDSL::DSL::Flowcontrol::V1beta1::LimitedPriorityLevelConfiguration
+  def limit_response_present?(); end
 end
 
 class KubeDSL::DSL::Flowcontrol::V1beta1::PolicyRulesWithSubjects
@@ -5000,15 +5553,39 @@ class KubeDSL::DSL::Flowcontrol::V1beta1::PolicyRulesWithSubjects
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfiguration
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationSpec
+  def limited_present?(); end
 end
 
 class KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Flowcontrol::V1beta1::Subject
+  def group_present?(); end
+
+  def service_account_present?(); end
+
+  def user_present?(); end
+end
+
 class KubeDSL::DSL::Meta::V1::APIGroup
+  def preferred_version_present?(); end
+
   def server_address_by_client_cidr(elem_name=T.unsafe(nil), &block); end
 
   def version(elem_name=T.unsafe(nil), &block); end
@@ -5026,6 +5603,10 @@ class KubeDSL::DSL::Meta::V1::APIVersions
   def server_address_by_client_cidr(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Meta::V1::DeleteOptions
+  def preconditions_present?(); end
+end
+
 class KubeDSL::DSL::Meta::V1::LabelSelector
   def match_expression(elem_name=T.unsafe(nil), &block); end
 end
@@ -5036,26 +5617,84 @@ class KubeDSL::DSL::Meta::V1::ObjectMeta
   def owner_reference(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Meta::V1::Status
+  def details_present?(); end
+
+  def metadata_present?(); end
+end
+
 class KubeDSL::DSL::Meta::V1::StatusDetails
   def cause(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Networking::V1::HTTPIngressPath
+  def backend_present?(); end
 end
 
 class KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue
   def path(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Networking::V1::Ingress
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressBackend
+  def resource_present?(); end
+
+  def service_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressClass
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
 class KubeDSL::DSL::Networking::V1::IngressClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressClassSpec
+  def parameters_present?(); end
 end
 
 class KubeDSL::DSL::Networking::V1::IngressList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressRule
+  def http_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressServiceBackend
+  def port_present?(); end
 end
 
 class KubeDSL::DSL::Networking::V1::IngressSpec
+  def default_backend_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 
   def tls(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Networking::V1::IngressStatus
+  def load_balancer_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::NetworkPolicy
+  def metadata_present?(); end
+
+  def spec_present?(); end
 end
 
 class KubeDSL::DSL::Networking::V1::NetworkPolicyEgressRule
@@ -5072,32 +5711,120 @@ end
 
 class KubeDSL::DSL::Networking::V1::NetworkPolicyList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Networking::V1::NetworkPolicyPeer
+  def ip_block_present?(); end
+
+  def namespace_selector_present?(); end
+
+  def pod_selector_present?(); end
 end
 
 class KubeDSL::DSL::Networking::V1::NetworkPolicySpec
   def egress(elem_name=T.unsafe(nil), &block); end
 
   def ingress(elem_name=T.unsafe(nil), &block); end
+
+  def pod_selector_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1::Overhead
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1::RuntimeClass
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1::RuntimeClassList
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1::Scheduling
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1alpha1::RuntimeClass
+  def metadata_present?(); end
+
+  def spec_present?(); end
 end
 
 class KubeDSL::DSL::Node::V1alpha1::RuntimeClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Node::V1alpha1::RuntimeClassSpec
+  def overhead_present?(); end
+
+  def scheduling_present?(); end
 end
 
 class KubeDSL::DSL::Node::V1alpha1::Scheduling
   def toleration(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Node::V1beta1::RuntimeClass
+  def metadata_present?(); end
+
+  def overhead_present?(); end
+
+  def scheduling_present?(); end
+end
+
 class KubeDSL::DSL::Node::V1beta1::RuntimeClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Node::V1beta1::Scheduling
   def toleration(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Policy::V1::Eviction
+  def delete_options_present?(); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Policy::V1::PodDisruptionBudget
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Policy::V1::PodDisruptionBudgetList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Policy::V1::PodDisruptionBudgetSpec
+  def selector_present?(); end
 end
 
 class KubeDSL::DSL::Policy::V1::PodDisruptionBudgetStatus
@@ -5108,16 +5835,38 @@ class KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions
   def range(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudget
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetSpec
+  def selector_present?(); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::PodDisruptionBudgetStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicy
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
 class KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicyList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicySpec
@@ -5127,7 +5876,19 @@ class KubeDSL::DSL::Policy::V1beta1::PodSecurityPolicySpec
 
   def allowed_host_path(elem_name=T.unsafe(nil), &block); end
 
+  def fs_group_present?(); end
+
   def host_port(elem_name=T.unsafe(nil), &block); end
+
+  def run_as_group_present?(); end
+
+  def run_as_user_present?(); end
+
+  def runtime_class_present?(); end
+
+  def se_linux_present?(); end
+
+  def supplemental_groups_present?(); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions
@@ -5136,6 +5897,10 @@ end
 
 class KubeDSL::DSL::Policy::V1beta1::RunAsUserStrategyOptions
   def range(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions
+  def se_linux_options_present?(); end
 end
 
 class KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions
@@ -5147,35 +5912,57 @@ class KubeDSL::DSL::Rbac::V1::AggregationRule
 end
 
 class KubeDSL::DSL::Rbac::V1::ClusterRole
+  def aggregation_rule_present?(); end
+
+  def metadata_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1::ClusterRoleBinding
+  def metadata_present?(); end
+
+  def role_ref_present?(); end
+
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1::ClusterRoleBindingList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1::ClusterRoleList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1::Role
+  def metadata_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1::RoleBinding
+  def metadata_present?(); end
+
+  def role_ref_present?(); end
+
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1::RoleBindingList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1::RoleList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::AggregationRule
@@ -5183,55 +5970,109 @@ class KubeDSL::DSL::Rbac::V1alpha1::AggregationRule
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::ClusterRole
+  def aggregation_rule_present?(); end
+
+  def metadata_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::ClusterRoleBinding
+  def metadata_present?(); end
+
+  def role_ref_present?(); end
+
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::ClusterRoleBindingList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::ClusterRoleList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::Role
+  def metadata_present?(); end
+
   def rule(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::RoleBinding
+  def metadata_present?(); end
+
+  def role_ref_present?(); end
+
   def subject(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::RoleBindingList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Rbac::V1alpha1::RoleList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Scheduling::V1::PriorityClass
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Scheduling::V1::PriorityClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Scheduling::V1alpha1::PriorityClass
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Scheduling::V1alpha1::PriorityClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::CSIDriver
+  def metadata_present?(); end
+
+  def spec_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1::CSIDriverList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1::CSIDriverSpec
   def token_request(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::Storage::V1::CSINode
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::CSINodeDriver
+  def allocatable_present?(); end
+end
+
 class KubeDSL::DSL::Storage::V1::CSINodeList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1::CSINodeSpec
@@ -5240,38 +6081,160 @@ end
 
 class KubeDSL::DSL::Storage::V1::StorageClass
   def allowed_topology(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1::StorageClassList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::VolumeAttachment
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1::VolumeAttachmentList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::VolumeAttachmentSource
+  def inline_volume_spec_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::VolumeAttachmentSpec
+  def source_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1::VolumeAttachmentStatus
+  def attach_error_present?(); end
+
+  def detach_error_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1alpha1::CSIStorageCapacity
+  def metadata_present?(); end
+
+  def node_topology_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1alpha1::CSIStorageCapacityList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachment
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentSource
+  def inline_volume_spec_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentSpec
+  def source_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentStatus
+  def attach_error_present?(); end
+
+  def detach_error_present?(); end
+end
+
+class KubeDSL::DSL::Storage::V1beta1::CSIStorageCapacity
+  def metadata_present?(); end
+
+  def node_topology_present?(); end
 end
 
 class KubeDSL::DSL::Storage::V1beta1::CSIStorageCapacityList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::Affinity
+  def node_affinity_present?(); end
+
+  def pod_affinity_present?(); end
+
+  def pod_anti_affinity_present?(); end
+end
+
+class KubeDSL::DSL::V1::Binding
+  def metadata_present?(); end
+
+  def target_present?(); end
+end
+
+class KubeDSL::DSL::V1::CSIPersistentVolumeSource
+  def controller_expand_secret_ref_present?(); end
+
+  def controller_publish_secret_ref_present?(); end
+
+  def node_publish_secret_ref_present?(); end
+
+  def node_stage_secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::CSIVolumeSource
+  def node_publish_secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::CephFSPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::CephFSVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::CinderPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::CinderVolumeSource
+  def secret_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::ComponentStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::ComponentStatusList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::ConfigMap
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::ConfigMapList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::ConfigMapProjection
@@ -5287,19 +6250,55 @@ class KubeDSL::DSL::V1::Container
 
   def env_from(elem_name=T.unsafe(nil), &block); end
 
+  def lifecycle_present?(); end
+
+  def liveness_probe_present?(); end
+
   def port(elem_name=T.unsafe(nil), &block); end
+
+  def readiness_probe_present?(); end
+
+  def resources_present?(); end
+
+  def security_context_present?(); end
+
+  def startup_probe_present?(); end
 
   def volume_device(elem_name=T.unsafe(nil), &block); end
 
   def volume_mount(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::ContainerState
+  def running_present?(); end
+
+  def terminated_present?(); end
+
+  def waiting_present?(); end
+end
+
+class KubeDSL::DSL::V1::ContainerStatus
+  def last_state_present?(); end
+
+  def state_present?(); end
+end
+
 class KubeDSL::DSL::V1::DownwardAPIProjection
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::DownwardAPIVolumeFile
+  def field_ref_present?(); end
+
+  def resource_field_ref_present?(); end
+end
+
 class KubeDSL::DSL::V1::DownwardAPIVolumeSource
   def item(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::V1::EndpointAddress
+  def target_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::EndpointSubset
@@ -5311,11 +6310,35 @@ class KubeDSL::DSL::V1::EndpointSubset
 end
 
 class KubeDSL::DSL::V1::Endpoints
+  def metadata_present?(); end
+
   def subset(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::V1::EndpointsList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::EnvFromSource
+  def config_map_ref_present?(); end
+
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::EnvVar
+  def value_from_present?(); end
+end
+
+class KubeDSL::DSL::V1::EnvVarSource
+  def config_map_key_ref_present?(); end
+
+  def field_ref_present?(); end
+
+  def resource_field_ref_present?(); end
+
+  def secret_key_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::EphemeralContainer
@@ -5323,23 +6346,91 @@ class KubeDSL::DSL::V1::EphemeralContainer
 
   def env_from(elem_name=T.unsafe(nil), &block); end
 
+  def lifecycle_present?(); end
+
+  def liveness_probe_present?(); end
+
   def port(elem_name=T.unsafe(nil), &block); end
+
+  def readiness_probe_present?(); end
+
+  def resources_present?(); end
+
+  def security_context_present?(); end
+
+  def startup_probe_present?(); end
 
   def volume_device(elem_name=T.unsafe(nil), &block); end
 
   def volume_mount(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::EphemeralVolumeSource
+  def volume_claim_template_present?(); end
+end
+
+class KubeDSL::DSL::V1::Event
+  def involved_object_present?(); end
+
+  def metadata_present?(); end
+
+  def related_present?(); end
+
+  def series_present?(); end
+
+  def source_present?(); end
+end
+
 class KubeDSL::DSL::V1::EventList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::FlexPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::FlexVolumeSource
+  def secret_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::HTTPGetAction
   def http_header(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::Handler
+  def exec_present?(); end
+
+  def http_get_present?(); end
+
+  def tcp_socket_present?(); end
+end
+
+class KubeDSL::DSL::V1::ISCSIPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::ISCSIVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::Lifecycle
+  def post_start_present?(); end
+
+  def pre_stop_present?(); end
+end
+
+class KubeDSL::DSL::V1::LimitRange
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
 class KubeDSL::DSL::V1::LimitRangeList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::LimitRangeSpec
@@ -5354,20 +6445,58 @@ class KubeDSL::DSL::V1::LoadBalancerStatus
   def ingress(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::Namespace
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::NamespaceList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::NamespaceStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::Node
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::NodeAffinity
   def preferred_during_scheduling_ignored_during_execution(elem_name=T.unsafe(nil), &block); end
+
+  def required_during_scheduling_ignored_during_execution_present?(); end
+end
+
+class KubeDSL::DSL::V1::NodeConfigSource
+  def config_map_present?(); end
+end
+
+class KubeDSL::DSL::V1::NodeConfigStatus
+  def active_present?(); end
+
+  def assigned_present?(); end
+
+  def last_known_good_present?(); end
+end
+
+class KubeDSL::DSL::V1::NodeDaemonEndpoints
+  def kubelet_endpoint_present?(); end
 end
 
 class KubeDSL::DSL::V1::NodeList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::NodeSelector
@@ -5381,6 +6510,8 @@ class KubeDSL::DSL::V1::NodeSelectorTerm
 end
 
 class KubeDSL::DSL::V1::NodeSpec
+  def config_source_present?(); end
+
   def taint(elem_name=T.unsafe(nil), &block); end
 end
 
@@ -5389,27 +6520,133 @@ class KubeDSL::DSL::V1::NodeStatus
 
   def condition(elem_name=T.unsafe(nil), &block); end
 
+  def config_present?(); end
+
+  def daemon_endpoints_present?(); end
+
   def image(elem_name=T.unsafe(nil), &block); end
+
+  def node_info_present?(); end
 
   def volumes_attached(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::PersistentVolume
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
+class KubeDSL::DSL::V1::PersistentVolumeClaim
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::PersistentVolumeClaimList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::PersistentVolumeClaimSpec
+  def data_source_present?(); end
+
+  def data_source_ref_present?(); end
+
+  def resources_present?(); end
+
+  def selector_present?(); end
 end
 
 class KubeDSL::DSL::V1::PersistentVolumeClaimStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::PersistentVolumeClaimTemplate
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
 class KubeDSL::DSL::V1::PersistentVolumeList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::PersistentVolumeSpec
+  def aws_elastic_block_store_present?(); end
+
+  def azure_disk_present?(); end
+
+  def azure_file_present?(); end
+
+  def cephfs_present?(); end
+
+  def cinder_present?(); end
+
+  def claim_ref_present?(); end
+
+  def csi_present?(); end
+
+  def fc_present?(); end
+
+  def flex_volume_present?(); end
+
+  def flocker_present?(); end
+
+  def gce_persistent_disk_present?(); end
+
+  def glusterfs_present?(); end
+
+  def host_path_present?(); end
+
+  def iscsi_present?(); end
+
+  def local_present?(); end
+
+  def nfs_present?(); end
+
+  def node_affinity_present?(); end
+
+  def photon_persistent_disk_present?(); end
+
+  def portworx_volume_present?(); end
+
+  def quobyte_present?(); end
+
+  def rbd_present?(); end
+
+  def scale_io_present?(); end
+
+  def storageos_present?(); end
+
+  def vsphere_volume_present?(); end
+end
+
+class KubeDSL::DSL::V1::Pod
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
 end
 
 class KubeDSL::DSL::V1::PodAffinity
   def preferred_during_scheduling_ignored_during_execution(elem_name=T.unsafe(nil), &block); end
 
   def required_during_scheduling_ignored_during_execution(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::V1::PodAffinityTerm
+  def label_selector_present?(); end
+
+  def namespace_selector_present?(); end
 end
 
 class KubeDSL::DSL::V1::PodAntiAffinity
@@ -5424,14 +6661,26 @@ end
 
 class KubeDSL::DSL::V1::PodList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::PodSecurityContext
+  def se_linux_options_present?(); end
+
+  def seccomp_profile_present?(); end
+
   def sysctls(elem_name=T.unsafe(nil), &block); end
+
+  def windows_options_present?(); end
 end
 
 class KubeDSL::DSL::V1::PodSpec
+  def affinity_present?(); end
+
   def container(elem_name=T.unsafe(nil), &block); end
+
+  def dns_config_present?(); end
 
   def ephemeral_container(elem_name=T.unsafe(nil), &block); end
 
@@ -5442,6 +6691,8 @@ class KubeDSL::DSL::V1::PodSpec
   def init_container(elem_name=T.unsafe(nil), &block); end
 
   def readiness_gate(elem_name=T.unsafe(nil), &block); end
+
+  def security_context_present?(); end
 
   def toleration(elem_name=T.unsafe(nil), &block); end
 
@@ -5460,32 +6711,108 @@ class KubeDSL::DSL::V1::PodStatus
   def init_container_status(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::PodTemplate
+  def metadata_present?(); end
+
+  def template_present?(); end
+end
+
 class KubeDSL::DSL::V1::PodTemplateList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::PodTemplateSpec
+  def metadata_present?(); end
+
+  def spec_present?(); end
+end
+
+class KubeDSL::DSL::V1::PreferredSchedulingTerm
+  def preference_present?(); end
+end
+
+class KubeDSL::DSL::V1::Probe
+  def exec_present?(); end
+
+  def http_get_present?(); end
+
+  def tcp_socket_present?(); end
 end
 
 class KubeDSL::DSL::V1::ProjectedVolumeSource
   def source(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::RBDPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::RBDVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::ReplicationController
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::ReplicationControllerList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::ReplicationControllerSpec
+  def template_present?(); end
 end
 
 class KubeDSL::DSL::V1::ReplicationControllerStatus
   def condition(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::ResourceQuota
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::ResourceQuotaList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
+end
+
+class KubeDSL::DSL::V1::ResourceQuotaSpec
+  def scope_selector_present?(); end
+end
+
+class KubeDSL::DSL::V1::ScaleIOPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::ScaleIOVolumeSource
+  def secret_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::ScopeSelector
   def match_expression(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::Secret
+  def metadata_present?(); end
+end
+
 class KubeDSL::DSL::V1::SecretList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::SecretProjection
@@ -5496,30 +6823,152 @@ class KubeDSL::DSL::V1::SecretVolumeSource
   def item(elem_name=T.unsafe(nil), &block); end
 end
 
+class KubeDSL::DSL::V1::SecurityContext
+  def capabilities_present?(); end
+
+  def se_linux_options_present?(); end
+
+  def seccomp_profile_present?(); end
+
+  def windows_options_present?(); end
+end
+
+class KubeDSL::DSL::V1::Service
+  def metadata_present?(); end
+
+  def spec_present?(); end
+
+  def status_present?(); end
+end
+
 class KubeDSL::DSL::V1::ServiceAccount
   def image_pull_secret(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 
   def secret(elem_name=T.unsafe(nil), &block); end
 end
 
 class KubeDSL::DSL::V1::ServiceAccountList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::ServiceList
   def item(elem_name=T.unsafe(nil), &block); end
+
+  def metadata_present?(); end
 end
 
 class KubeDSL::DSL::V1::ServiceSpec
   def port(elem_name=T.unsafe(nil), &block); end
+
+  def session_affinity_config_present?(); end
 end
 
 class KubeDSL::DSL::V1::ServiceStatus
   def condition(elem_name=T.unsafe(nil), &block); end
+
+  def load_balancer_present?(); end
+end
+
+class KubeDSL::DSL::V1::SessionAffinityConfig
+  def client_ip_present?(); end
+end
+
+class KubeDSL::DSL::V1::StorageOSPersistentVolumeSource
+  def secret_ref_present?(); end
+end
+
+class KubeDSL::DSL::V1::StorageOSVolumeSource
+  def secret_ref_present?(); end
 end
 
 class KubeDSL::DSL::V1::TopologySelectorTerm
   def match_label_expression(elem_name=T.unsafe(nil), &block); end
+end
+
+class KubeDSL::DSL::V1::TopologySpreadConstraint
+  def label_selector_present?(); end
+end
+
+class KubeDSL::DSL::V1::Volume
+  def aws_elastic_block_store_present?(); end
+
+  def azure_disk_present?(); end
+
+  def azure_file_present?(); end
+
+  def cephfs_present?(); end
+
+  def cinder_present?(); end
+
+  def config_map_present?(); end
+
+  def csi_present?(); end
+
+  def downward_api_present?(); end
+
+  def empty_dir_present?(); end
+
+  def ephemeral_present?(); end
+
+  def fc_present?(); end
+
+  def flex_volume_present?(); end
+
+  def flocker_present?(); end
+
+  def gce_persistent_disk_present?(); end
+
+  def git_repo_present?(); end
+
+  def glusterfs_present?(); end
+
+  def host_path_present?(); end
+
+  def iscsi_present?(); end
+
+  def nfs_present?(); end
+
+  def persistent_volume_claim_present?(); end
+
+  def photon_persistent_disk_present?(); end
+
+  def portworx_volume_present?(); end
+
+  def projected_present?(); end
+
+  def quobyte_present?(); end
+
+  def rbd_present?(); end
+
+  def scale_io_present?(); end
+
+  def secret_present?(); end
+
+  def storageos_present?(); end
+
+  def vsphere_volume_present?(); end
+end
+
+class KubeDSL::DSL::V1::VolumeNodeAffinity
+  def required_present?(); end
+end
+
+class KubeDSL::DSL::V1::VolumeProjection
+  def config_map_present?(); end
+
+  def downward_api_present?(); end
+
+  def secret_present?(); end
+
+  def service_account_token_present?(); end
+end
+
+class KubeDSL::DSL::V1::WeightedPodAffinityTerm
+  def pod_affinity_term_present?(); end
 end
 
 class KubeDSL::DSLObject
@@ -5572,7 +7021,7 @@ class Monitor
 
   def try_mon_enter(); end
 
-  def wait_for_cond(_, _1); end
+  def wait_for_cond(arg, arg1); end
 end
 
 module MonitorMixin
@@ -5640,109 +7089,6 @@ class OptionParser::ParseError
   def additional(); end
 
   def additional=(additional); end
-end
-
-class Parlour::ConflictResolver
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Conversion::Converter
-  extend ::T::Private::Abstract::Hooks
-  extend ::T::InterfaceWrapper::Helpers
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-module Parlour::Debugging::Tree
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-module Parlour::Debugging
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Generator
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Options
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::ParseError
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Plugin
-  extend ::T::Private::Abstract::Hooks
-  extend ::T::InterfaceWrapper::Helpers
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::RbiGenerator::Parameter
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::RbiGenerator::StructProp
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::RbsGenerator::Block
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::RbsGenerator::MethodSignature
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::RbsGenerator::Parameter
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-module Parlour::TypeLoader
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::TypeParser::NodePath
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::TypeParser
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::TypedObject
-  extend ::T::Private::Abstract::Hooks
-  extend ::T::InterfaceWrapper::Helpers
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Types::Proc::Parameter
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Parlour::Types::Type
-  extend ::T::Private::Abstract::Hooks
-  extend ::T::InterfaceWrapper::Helpers
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 ParseError = Racc::ParseError
@@ -5829,18 +7175,10 @@ class Parser::StaticEnvironment
   FORWARD_ARGS = ::T.let(nil, ::T.untyped)
 end
 
-class Pathname
-  def fnmatch?(*_); end
-
-  def glob(*_); end
-
-  def make_symlink(_); end
-end
-
 class Proc
-  def <<(_); end
+  def <<(arg); end
 
-  def >>(_); end
+  def >>(arg); end
 
   def clone(); end
 end
@@ -6336,7 +7674,7 @@ class RDoc::Parser::RipperStateLex::Token
 end
 
 class RDoc::Parser::RipperStateLex::Token
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -6494,6 +7832,10 @@ class RSpec::CallerFilter
   IGNORE_REGEX = ::T.let(nil, ::T.untyped)
   LIB_REGEX = ::T.let(nil, ::T.untyped)
   RSPEC_LIBS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Bisect::Channel
+  MARSHAL_DUMP_ENCODING = ::T.let(nil, ::T.untyped)
 end
 
 class RSpec::Core::Configuration
@@ -6878,11 +8220,11 @@ end
 RakeFileUtils = Rake::FileUtilsExt
 
 class Random
-  def self.bytes(_); end
+  def self.bytes(arg); end
 end
 
 class Range
-  def %(_); end
+  def %(arg); end
 
   def entries(); end
 
@@ -7243,7 +8585,7 @@ class Reline::CursorPos
 end
 
 class Reline::CursorPos
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7403,7 +8745,7 @@ class Reline::KillRing::RingPoint
 end
 
 class Reline::KillRing::RingPoint
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7706,7 +9048,7 @@ class Ripper
 
   def filename(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 
   def lineno(); end
 
@@ -7781,7 +9123,7 @@ class Ripper::Lexer::Elem
 end
 
 class Ripper::Lexer::Elem
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7811,7 +9153,7 @@ class Ripper::Lexer::State
 end
 
 class Ripper::Lexer::State
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -8197,15 +9539,6 @@ class Ripper::SexpBuilder
   def on_zsuper(*args); end
 end
 
-class Ripper::SexpBuilder
-end
-
-class Ripper::SexpBuilderPP
-end
-
-class Ripper::SexpBuilderPP
-end
-
 class Ripper::TokenPattern
   def initialize(pattern); end
 
@@ -8243,13 +9576,13 @@ class Ripper::TokenPattern::MatchError
 end
 
 class Ripper::TokenPattern
-  def self.compile(*_); end
+  def self.compile(*arg); end
 end
 
 class Ripper
-  def self.dedent_string(_, _1); end
+  def self.dedent_string(arg, arg1); end
 
-  def self.lex_state_name(_); end
+  def self.lex_state_name(arg); end
 
   def self.token_match(src, pattern); end
 end
@@ -8309,7 +9642,7 @@ end
 module RubyVM::MJIT
   def self.enabled?(); end
 
-  def self.pause(*_); end
+  def self.pause(*arg); end
 
   def self.resume(); end
 end
@@ -8320,10 +9653,6 @@ class Set
   def ==(other); end
 
   def ===(o); end
-
-  def compare_by_identity(); end
-
-  def compare_by_identity?(); end
 
   def divide(&func); end
 
@@ -8545,14 +9874,6 @@ module Socket::Constants
   TCP_NOPUSH = ::T.let(nil, ::T.untyped)
 end
 
-class SortedSet
-  def initialize(*args, &block); end
-end
-
-class SortedSet
-  def self.setup(); end
-end
-
 class String
   include ::JSON::Ext::Generator::GeneratorMethods::String
   def shellescape(); end
@@ -8570,7 +9891,7 @@ class StringScanner
 
   def fixed_anchor?(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
   Id = ::T.let(nil, ::T.untyped)
   Version = ::T.let(nil, ::T.untyped)
 end
@@ -8578,9 +9899,9 @@ end
 class Struct
   def deconstruct(); end
 
-  def deconstruct_keys(_); end
+  def deconstruct_keys(arg); end
 
-  def filter(*_); end
+  def filter(*arg); end
 end
 
 class Struct::CompletionJourneyData
@@ -8602,7 +9923,7 @@ class Struct::CompletionJourneyData
 end
 
 class Struct::CompletionJourneyData
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -8624,7 +9945,7 @@ class Struct::Key
 end
 
 class Struct::Key
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -8640,7 +9961,7 @@ class Struct::MenuInfo
 end
 
 class Struct::MenuInfo
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -8651,8 +9972,6 @@ Struct::Tms = Process::Tms
 
 class Tempfile
   def _close(); end
-
-  def inspect(); end
   RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 

@@ -1,3 +1,4 @@
+# typed: strict
 module KubeDSL::DSL
   autoload :Admissionregistration, 'kube-dsl/dsl/admissionregistration'
   autoload :Apiserverinternal, 'kube-dsl/dsl/apiserverinternal'

@@ -4,17 +4,17 @@ module KubeDSL
   module DSL
     module V1
       class NodeStatus < ::KubeDSL::DSLObject
-        sig {
+        T::Sig::WithoutRuntime.sig {
           returns(
             T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
           )
         }
         def serialize; end
 
-        sig { returns(Symbol) }
+        T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::NodeAddress))
@@ -22,13 +22,13 @@ module KubeDSL
         }
         def addresses(elem_name = nil, &block); end
 
-        sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def allocatable(&block); end
 
-        sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def capacity(&block); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::NodeCondition))
@@ -36,13 +36,13 @@ module KubeDSL
         }
         def conditions(elem_name = nil, &block); end
 
-        sig { returns(KubeDSL::DSL::V1::NodeConfigStatus) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeConfigStatus) }
         def config; end
 
-        sig { returns(KubeDSL::DSL::V1::NodeDaemonEndpoints) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeDaemonEndpoints) }
         def daemon_endpoints; end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerImage))
@@ -50,13 +50,13 @@ module KubeDSL
         }
         def images(elem_name = nil, &block); end
 
-        sig { returns(KubeDSL::DSL::V1::NodeSystemInfo) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSystemInfo) }
         def node_info; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def phase(val = nil); end
 
-        sig {
+        T::Sig::WithoutRuntime.sig {
           params(
             elem_name: T.nilable(Symbol),
             block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::AttachedVolume))
@@ -64,7 +64,7 @@ module KubeDSL
         }
         def volumes_attacheds(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def volumes_in_use(val = nil); end
       end
     end

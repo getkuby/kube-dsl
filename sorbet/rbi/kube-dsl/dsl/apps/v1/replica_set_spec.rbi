@@ -5,26 +5,26 @@ module KubeDSL
     module Apps
       module V1
         class ReplicaSetSpec < ::KubeDSL::DSLObject
-          sig {
+          T::Sig::WithoutRuntime.sig {
             returns(
               T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]
             )
           }
           def serialize; end
 
-          sig { returns(Symbol) }
+          T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_ready_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def replicas(val = nil); end
 
-          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
           def selector; end
 
-          sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
           def template; end
         end
       end
