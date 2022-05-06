@@ -1,3 +1,7 @@
+## 0.7.2
+* Use tapioca for type annotations.
+* Fix a couple of type annotations.
+
 ## 0.7.1
 * Remove dependency on the defunct sorbet-runtime-stub gem.
 
