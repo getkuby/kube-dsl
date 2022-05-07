@@ -1,11 +1,11 @@
 require 'bundler'
 require 'rspec/core/rake_task'
-require 'rubygems/package_task'
+require 'curdle'
+
+Curdle::Tasks.install
 
 require 'kube-dsl'
 require 'pry-byebug'
-
-Bundler::GemHelper.install_tasks
 
 task default: :spec
 

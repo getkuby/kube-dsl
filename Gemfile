@@ -12,6 +12,7 @@ group :development do
   gem 'sorbet'
   gem 'tapioca', '~> 0.7'
   gem 'parlour', github: 'camertron/parlour', branch: 'initialize_void' # '~> 7.0'
+  gem 'curdle', '~> 1.2'
 end
 
 group :test do

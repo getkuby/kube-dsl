@@ -1,3 +1,6 @@
+## 0.7.4
+* Strip type annotations during gem build using Curdle.
+
 ## 0.7.3
 * Add feature to limit the length of filenames to 100 characters.
   - Rubygems has a hard limit on the number of characters allowed in a filename, which I assume is actually a requirement of whatever archive format it uses.
