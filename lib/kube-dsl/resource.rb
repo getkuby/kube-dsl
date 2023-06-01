@@ -30,7 +30,7 @@ module KubeDSL
     private
 
     T::Sig::WithoutRuntime.sig {
-      params(obj: T.any(String, AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))
+      params(obj: T.any(String, KubeDSL::AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))
         .returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])))
     }
     def cleanup(obj)

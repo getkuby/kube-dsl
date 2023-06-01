@@ -45,7 +45,7 @@ module KubeDSL
       end
     end
 
-    T::Sig::WithoutRuntime.sig { params(other: KeyValueFields).void }
+    T::Sig::WithoutRuntime.sig { params(other: KubeDSL::KeyValueFields).void }
     def merge!(other)
       @kv_pairs.merge!(other.instance_variable_get(:@kv_pairs))
     end

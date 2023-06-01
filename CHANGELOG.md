@@ -1,3 +1,7 @@
+## 0.7.5
+
+* Fix RBIs for new version of Sorbet.
+
 ## 0.7.4
 * Strip type annotations during gem build using Curdle.
 

@@ -42,7 +42,7 @@ module KubeDSL
     sig { returns(T::Hash[Symbol, String]) }
     def serialize; end
 
-    sig { params(other: KeyValueFields).void }
+    sig { params(other: KubeDSL::KeyValueFields).void }
     def merge!(other); end
 
     sig { params(data: String).returns(String) }
@@ -67,7 +67,7 @@ module KubeDSL
     sig { returns(KubeDSL::Resource) }
     def to_resource; end
 
-    sig { params(obj: T.any(String, AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
+    sig { params(obj: T.any(String, KubeDSL::AllowBlank, T::Array[T.untyped], T::Hash[T.untyped, T.untyped])).returns(T.nilable(T.any(String, T::Array[T.untyped], T::Hash[T.untyped, T.untyped]))) }
     def cleanup(obj); end
   end
 
