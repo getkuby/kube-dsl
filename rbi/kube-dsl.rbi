@@ -352,6 +352,9 @@ module KubeDSL
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetList) }
     def stateful_set_list(&block); end
 
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy) }
+    def stateful_set_persistent_volume_claim_retention_policy(&block); end
+
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetSpec) }
     def stateful_set_spec(&block); end
 
@@ -425,19 +428,19 @@ module KubeDSL
     def subject_rules_review_status(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference) }
-    def cross_version_object_reference(&block); end
+    def autoscaling_v1_cross_version_object_reference(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscaler) }
-    def horizontal_pod_autoscaler(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerList) }
-    def horizontal_pod_autoscaler_list(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_list(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerSpec) }
-    def horizontal_pod_autoscaler_spec(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_spec(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerStatus) }
-    def horizontal_pod_autoscaler_status(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_status(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::Scale) }
     def scale(&block); end
@@ -447,6 +450,78 @@ module KubeDSL
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
     def scale_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricSource) }
+    def container_resource_metric_source(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricStatus) }
+    def container_resource_metric_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
+    def autoscaling_v2_cross_version_object_reference(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ExternalMetricSource) }
+    def external_metric_source(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ExternalMetricStatus) }
+    def external_metric_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy) }
+    def hpa_scaling_policy(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+    def hpa_scaling_rules(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscaler) }
+    def autoscaling_v2_horizontal_pod_autoscaler(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerBehavior) }
+    def horizontal_pod_autoscaler_behavior(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerCondition) }
+    def horizontal_pod_autoscaler_condition(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerList) }
+    def autoscaling_v2_horizontal_pod_autoscaler_list(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerSpec) }
+    def autoscaling_v2_horizontal_pod_autoscaler_spec(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerStatus) }
+    def autoscaling_v2_horizontal_pod_autoscaler_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+    def metric_identifier(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricSpec) }
+    def metric_spec(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricStatus) }
+    def metric_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+    def metric_target(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+    def metric_value_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ObjectMetricSource) }
+    def object_metric_source(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ObjectMetricStatus) }
+    def object_metric_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::PodsMetricSource) }
+    def pods_metric_source(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::PodsMetricStatus) }
+    def pods_metric_status(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ResourceMetricSource) }
+    def resource_metric_source(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ResourceMetricStatus) }
+    def resource_metric_status(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJob) }
     def cron_job(&block); end
@@ -679,6 +754,9 @@ module KubeDSL
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GCEPersistentDiskVolumeSource) }
     def gce_persistent_disk_volume_source(&block); end
 
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GRPCAction) }
+    def grpc_action(&block); end
+
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GitRepoVolumeSource) }
     def git_repo_volume_source(&block); end
 
@@ -693,9 +771,6 @@ module KubeDSL
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::HTTPHeader) }
     def http_header(&block); end
-
-    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Handler) }
-    def handler(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::HostAlias) }
     def host_alias(&block); end
@@ -714,6 +789,9 @@ module KubeDSL
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Lifecycle) }
     def lifecycle(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::LifecycleHandler) }
+    def lifecycle_handler(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::LimitRange) }
     def limit_range(&block); end
@@ -867,6 +945,9 @@ module KubeDSL
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodList) }
     def pod_list(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodOS) }
+    def pod_os(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodReadinessGate) }
     def pod_readiness_gate(&block); end
@@ -1332,6 +1413,9 @@ module KubeDSL
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::ServiceReference) }
     def apiextensions_v1_service_reference(&block); end
+
+    sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::ValidationRule) }
+    def validation_rule(&block); end
 
     sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig) }
     def apiextensions_v1_webhook_client_config(&block); end
@@ -2232,6 +2316,9 @@ module KubeDSL
 
           sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def x_kubernetes_preserve_unknown_fields(val = nil); end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::ValidationRule))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::ValidationRule]) }
+          def x_kubernetes_validations(elem_name = nil, &block); end
         end
 
         class ServiceReference < ::KubeDSL::DSLObject
@@ -2256,6 +2343,24 @@ module KubeDSL
 
           sig { params(val: T.nilable(Integer)).returns(Integer) }
           def port(val = nil); end
+        end
+
+        class ValidationRule < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def message(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def rule(val = nil); end
         end
 
         class WebhookClientConfig < ::KubeDSL::DSLObject
@@ -3257,6 +3362,24 @@ module KubeDSL
           def metadata_present?; end
         end
 
+        class StatefulSetPersistentVolumeClaimRetentionPolicy < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def when_deleted(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def when_scaled(val = nil); end
+        end
+
         class StatefulSetSpec < ::KubeDSL::DSLObject
           include KubeDSL::ValueFields::InstanceMethods
           extend KubeDSL::ValueFields::ClassMethods
@@ -3270,6 +3393,12 @@ module KubeDSL
 
           sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_ready_seconds(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy) }
+          def persistent_volume_claim_retention_policy; end
+
+          sig { returns(T::Boolean) }
+          def persistent_volume_claim_retention_policy_present?; end
 
           sig { params(val: T.nilable(String)).returns(String) }
           def pod_management_policy(val = nil); end
@@ -4098,6 +4227,638 @@ module KubeDSL
 
           sig { params(val: T.nilable(String)).returns(String) }
           def selector(val = nil); end
+        end
+      end
+
+      module V2
+        class ContainerResourceMetricSource < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def container(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target; end
+
+          sig { returns(T::Boolean) }
+          def target_present?; end
+        end
+
+        class ContainerResourceMetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def container(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current; end
+
+          sig { returns(T::Boolean) }
+          def current_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+        end
+
+        class CrossVersionObjectReference < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def api_version(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def kind(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+        end
+
+        class ExternalMetricSource < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target; end
+
+          sig { returns(T::Boolean) }
+          def target_present?; end
+        end
+
+        class ExternalMetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current; end
+
+          sig { returns(T::Boolean) }
+          def current_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+        end
+
+        class HorizontalPodAutoscaler < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerSpec) }
+          def spec; end
+
+          sig { returns(T::Boolean) }
+          def spec_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerStatus) }
+          def status; end
+
+          sig { returns(T::Boolean) }
+          def status_present?; end
+        end
+
+        class HorizontalPodAutoscalerBehavior < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+          def scale_down; end
+
+          sig { returns(T::Boolean) }
+          def scale_down_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+          def scale_up; end
+
+          sig { returns(T::Boolean) }
+          def scale_up_present?; end
+        end
+
+        class HorizontalPodAutoscalerCondition < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def last_transition_time(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def message(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def reason(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def status(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class HorizontalPodAutoscalerList < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscaler))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscaler]) }
+          def items(elem_name = nil, &block); end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+        end
+
+        class HorizontalPodAutoscalerSpec < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerBehavior) }
+          def behavior; end
+
+          sig { returns(T::Boolean) }
+          def behavior_present?; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def max_replicas(val = nil); end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::MetricSpec))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::MetricSpec]) }
+          def metrics(elem_name = nil, &block); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def min_replicas(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
+          def scale_target_ref; end
+
+          sig { returns(T::Boolean) }
+          def scale_target_ref_present?; end
+        end
+
+        class HorizontalPodAutoscalerStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerCondition))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerCondition]) }
+          def conditions(elem_name = nil, &block); end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::MetricStatus))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::MetricStatus]) }
+          def current_metrics(elem_name = nil, &block); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def current_replicas(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def desired_replicas(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def last_scale_time(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def observed_generation(val = nil); end
+        end
+
+        class HPAScalingPolicy < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def period_seconds(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def value(val = nil); end
+        end
+
+        class HPAScalingRules < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy]) }
+          def policies(elem_name = nil, &block); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def select_policy(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def stabilization_window_seconds(val = nil); end
+        end
+
+        class MetricIdentifier < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def selector; end
+
+          sig { returns(T::Boolean) }
+          def selector_present?; end
+        end
+
+        class MetricSpec < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricSource) }
+          def container_resource; end
+
+          sig { returns(T::Boolean) }
+          def container_resource_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ExternalMetricSource) }
+          def external; end
+
+          sig { returns(T::Boolean) }
+          def external_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ObjectMetricSource) }
+          def object; end
+
+          sig { returns(T::Boolean) }
+          def object_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::PodsMetricSource) }
+          def pods; end
+
+          sig { returns(T::Boolean) }
+          def pods_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ResourceMetricSource) }
+          def resource; end
+
+          sig { returns(T::Boolean) }
+          def resource_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class MetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricStatus) }
+          def container_resource; end
+
+          sig { returns(T::Boolean) }
+          def container_resource_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ExternalMetricStatus) }
+          def external; end
+
+          sig { returns(T::Boolean) }
+          def external_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ObjectMetricStatus) }
+          def object; end
+
+          sig { returns(T::Boolean) }
+          def object_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::PodsMetricStatus) }
+          def pods; end
+
+          sig { returns(T::Boolean) }
+          def pods_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::ResourceMetricStatus) }
+          def resource; end
+
+          sig { returns(T::Boolean) }
+          def resource_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class MetricTarget < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def average_utilization(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def average_value(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def value(val = nil); end
+        end
+
+        class MetricValueStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def average_utilization(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def average_value(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def value(val = nil); end
+        end
+
+        class ObjectMetricSource < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
+          def described_object; end
+
+          sig { returns(T::Boolean) }
+          def described_object_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target; end
+
+          sig { returns(T::Boolean) }
+          def target_present?; end
+        end
+
+        class ObjectMetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current; end
+
+          sig { returns(T::Boolean) }
+          def current_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
+          def described_object; end
+
+          sig { returns(T::Boolean) }
+          def described_object_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+        end
+
+        class PodsMetricSource < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target; end
+
+          sig { returns(T::Boolean) }
+          def target_present?; end
+        end
+
+        class PodsMetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current; end
+
+          sig { returns(T::Boolean) }
+          def current_present?; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+          def metric; end
+
+          sig { returns(T::Boolean) }
+          def metric_present?; end
+        end
+
+        class ResourceMetricSource < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target; end
+
+          sig { returns(T::Boolean) }
+          def target_present?; end
+        end
+
+        class ResourceMetricStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current; end
+
+          sig { returns(T::Boolean) }
+          def current_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
         end
       end
 
@@ -5504,6 +6265,9 @@ module KubeDSL
 
           sig { params(val: T.nilable(Integer)).returns(Integer) }
           def failed(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def ready(val = nil); end
 
           sig { params(val: T.nilable(String)).returns(String) }
           def start_time(val = nil); end
@@ -6936,6 +7700,485 @@ module KubeDSL
           def service_account_present?; end
 
           sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::UserSubject) }
+          def user; end
+
+          sig { returns(T::Boolean) }
+          def user_present?; end
+        end
+
+        class UserSubject < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+        end
+      end
+
+      module V1beta2
+        class FlowDistinguisherMethod < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class FlowSchema < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchemaSpec) }
+          def spec; end
+
+          sig { returns(T::Boolean) }
+          def spec_present?; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchemaStatus) }
+          def status; end
+
+          sig { returns(T::Boolean) }
+          def status_present?; end
+        end
+
+        class FlowSchemaCondition < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def last_transition_time(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def message(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def reason(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def status(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class FlowSchemaList < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchema))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchema]) }
+          def items(elem_name = nil, &block); end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+        end
+
+        class FlowSchemaSpec < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::FlowDistinguisherMethod) }
+          def distinguisher_method; end
+
+          sig { returns(T::Boolean) }
+          def distinguisher_method_present?; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def matching_precedence(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationReference) }
+          def priority_level_configuration; end
+
+          sig { returns(T::Boolean) }
+          def priority_level_configuration_present?; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::PolicyRulesWithSubjects))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::PolicyRulesWithSubjects]) }
+          def rules(elem_name = nil, &block); end
+        end
+
+        class FlowSchemaStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchemaCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::FlowSchemaCondition]) }
+          def conditions(elem_name = nil, &block); end
+        end
+
+        class GroupSubject < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+        end
+
+        class LimitResponse < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::QueuingConfiguration) }
+          def queuing; end
+
+          sig { returns(T::Boolean) }
+          def queuing_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class LimitedPriorityLevelConfiguration < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def assured_concurrency_shares(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse) }
+          def limit_response; end
+
+          sig { returns(T::Boolean) }
+          def limit_response_present?; end
+        end
+
+        class NonResourcePolicyRule < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def non_resource_ur_ls(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def verbs(val = nil); end
+        end
+
+        class PolicyRulesWithSubjects < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::NonResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::NonResourcePolicyRule]) }
+          def non_resource_rules(elem_name = nil, &block); end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::ResourcePolicyRule))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::ResourcePolicyRule]) }
+          def resource_rules(elem_name = nil, &block); end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::Subject))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::Subject]) }
+          def subjects(elem_name = nil, &block); end
+        end
+
+        class PriorityLevelConfiguration < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationSpec) }
+          def spec; end
+
+          sig { returns(T::Boolean) }
+          def spec_present?; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationStatus) }
+          def status; end
+
+          sig { returns(T::Boolean) }
+          def status_present?; end
+        end
+
+        class PriorityLevelConfigurationCondition < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def last_transition_time(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def message(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def reason(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def status(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class PriorityLevelConfigurationList < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfiguration))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfiguration]) }
+          def items(elem_name = nil, &block); end
+
+          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+          def metadata; end
+
+          sig { returns(T::Boolean) }
+          def metadata_present?; end
+        end
+
+        class PriorityLevelConfigurationReference < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+        end
+
+        class PriorityLevelConfigurationSpec < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::LimitedPriorityLevelConfiguration) }
+          def limited; end
+
+          sig { returns(T::Boolean) }
+          def limited_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def type(val = nil); end
+        end
+
+        class PriorityLevelConfigurationStatus < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationCondition))).returns(T::Array[KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationCondition]) }
+          def conditions(elem_name = nil, &block); end
+        end
+
+        class QueuingConfiguration < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def hand_size(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def queue_length_limit(val = nil); end
+
+          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def queues(val = nil); end
+        end
+
+        class ResourcePolicyRule < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def api_groups(val = nil); end
+
+          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          def cluster_scope(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def namespaces(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def resources(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def verbs(val = nil); end
+        end
+
+        class ServiceAccountSubject < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def name(val = nil); end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def namespace(val = nil); end
+        end
+
+        class Subject < ::KubeDSL::DSLObject
+          include KubeDSL::ValueFields::InstanceMethods
+          extend KubeDSL::ValueFields::ClassMethods
+          extend KubeDSL::Validations::ClassMethods
+
+          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+          def serialize; end
+
+          sig { returns(Symbol) }
+          def kind_sym; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::GroupSubject) }
+          def group; end
+
+          sig { returns(T::Boolean) }
+          def group_present?; end
+
+          sig { params(val: T.nilable(String)).returns(String) }
+          def kind(val = nil); end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::ServiceAccountSubject) }
+          def service_account; end
+
+          sig { returns(T::Boolean) }
+          def service_account_present?; end
+
+          sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::UserSubject) }
           def user; end
 
           sig { returns(T::Boolean) }
@@ -9185,281 +10428,6 @@ module KubeDSL
           def namespace(val = nil); end
         end
       end
-
-      module V1alpha1
-        class AggregationRule < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::LabelSelector))).returns(T::Array[KubeDSL::DSL::Meta::V1::LabelSelector]) }
-          def cluster_role_selectors(elem_name = nil, &block); end
-        end
-
-        class ClusterRole < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Rbac::V1alpha1::AggregationRule) }
-          def aggregation_rule; end
-
-          sig { returns(T::Boolean) }
-          def aggregation_rule_present?; end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::PolicyRule))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::PolicyRule]) }
-          def rules(elem_name = nil, &block); end
-        end
-
-        class ClusterRoleBinding < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { returns(KubeDSL::DSL::Rbac::V1alpha1::RoleRef) }
-          def role_ref; end
-
-          sig { returns(T::Boolean) }
-          def role_ref_present?; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::Subject))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::Subject]) }
-          def subjects(elem_name = nil, &block); end
-        end
-
-        class ClusterRoleBindingList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::ClusterRoleBinding))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::ClusterRoleBinding]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-
-        class ClusterRoleList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::ClusterRole))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::ClusterRole]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-
-        class PolicyRule < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def api_groups(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def non_resource_ur_ls(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def resource_names(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def resources(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def verbs(val = nil); end
-        end
-
-        class Role < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::PolicyRule))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::PolicyRule]) }
-          def rules(elem_name = nil, &block); end
-        end
-
-        class RoleBinding < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { returns(KubeDSL::DSL::Rbac::V1alpha1::RoleRef) }
-          def role_ref; end
-
-          sig { returns(T::Boolean) }
-          def role_ref_present?; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::Subject))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::Subject]) }
-          def subjects(elem_name = nil, &block); end
-        end
-
-        class RoleBindingList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::RoleBinding))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::RoleBinding]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-
-        class RoleList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Rbac::V1alpha1::Role))).returns(T::Array[KubeDSL::DSL::Rbac::V1alpha1::Role]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-
-        class RoleRef < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def api_group(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def kind(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def name(val = nil); end
-        end
-
-        class Subject < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def api_version(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def kind(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def name(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def namespace(val = nil); end
-        end
-      end
     end
 
     module Scheduling
@@ -9506,59 +10474,6 @@ module KubeDSL
           def kind_sym; end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Scheduling::V1::PriorityClass))).returns(T::Array[KubeDSL::DSL::Scheduling::V1::PriorityClass]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-      end
-
-      module V1alpha1
-        class PriorityClass < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def description(val = nil); end
-
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-          def global_default(val = nil); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def preemption_policy(val = nil); end
-
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
-          def value(val = nil); end
-        end
-
-        class PriorityClassList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Scheduling::V1alpha1::PriorityClass))).returns(T::Array[KubeDSL::DSL::Scheduling::V1alpha1::PriorityClass]) }
           def items(elem_name = nil, &block); end
 
           sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
@@ -10028,150 +10943,6 @@ module KubeDSL
 
           sig { returns(T::Boolean) }
           def metadata_present?; end
-        end
-
-        class VolumeAttachment < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-
-          sig { returns(KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentSpec) }
-          def spec; end
-
-          sig { returns(T::Boolean) }
-          def spec_present?; end
-
-          sig { returns(KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentStatus) }
-          def status; end
-
-          sig { returns(T::Boolean) }
-          def status_present?; end
-        end
-
-        class VolumeAttachmentList < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1alpha1::VolumeAttachment))).returns(T::Array[KubeDSL::DSL::Storage::V1alpha1::VolumeAttachment]) }
-          def items(elem_name = nil, &block); end
-
-          sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
-
-          sig { returns(T::Boolean) }
-          def metadata_present?; end
-        end
-
-        class VolumeAttachmentSource < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::V1::PersistentVolumeSpec) }
-          def inline_volume_spec; end
-
-          sig { returns(T::Boolean) }
-          def inline_volume_spec_present?; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def persistent_volume_name(val = nil); end
-        end
-
-        class VolumeAttachmentSpec < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def attacher(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def node_name(val = nil); end
-
-          sig { returns(KubeDSL::DSL::Storage::V1alpha1::VolumeAttachmentSource) }
-          def source; end
-
-          sig { returns(T::Boolean) }
-          def source_present?; end
-        end
-
-        class VolumeAttachmentStatus < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { returns(KubeDSL::DSL::Storage::V1alpha1::VolumeError) }
-          def attach_error; end
-
-          sig { returns(T::Boolean) }
-          def attach_error_present?; end
-
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
-          def attached(val = nil); end
-
-          sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
-          def attachment_metadata(&block); end
-
-          sig { returns(KubeDSL::DSL::Storage::V1alpha1::VolumeError) }
-          def detach_error; end
-
-          sig { returns(T::Boolean) }
-          def detach_error_present?; end
-        end
-
-        class VolumeError < ::KubeDSL::DSLObject
-          include KubeDSL::ValueFields::InstanceMethods
-          extend KubeDSL::ValueFields::ClassMethods
-          extend KubeDSL::Validations::ClassMethods
-
-          sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
-          def serialize; end
-
-          sig { returns(Symbol) }
-          def kind_sym; end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def message(val = nil); end
-
-          sig { params(val: T.nilable(String)).returns(String) }
-          def time(val = nil); end
         end
       end
 
@@ -11898,7 +12669,7 @@ module KubeDSL
         def read_only(val = nil); end
       end
 
-      class Handler < ::KubeDSL::DSLObject
+      class GRPCAction < ::KubeDSL::DSLObject
         include KubeDSL::ValueFields::InstanceMethods
         extend KubeDSL::ValueFields::ClassMethods
         extend KubeDSL::Validations::ClassMethods
@@ -11909,23 +12680,11 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { returns(KubeDSL::DSL::V1::ExecAction) }
-        def exec; end
+        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        def port(val = nil); end
 
-        sig { returns(T::Boolean) }
-        def exec_present?; end
-
-        sig { returns(KubeDSL::DSL::V1::HTTPGetAction) }
-        def http_get; end
-
-        sig { returns(T::Boolean) }
-        def http_get_present?; end
-
-        sig { returns(KubeDSL::DSL::V1::TCPSocketAction) }
-        def tcp_socket; end
-
-        sig { returns(T::Boolean) }
-        def tcp_socket_present?; end
+        sig { params(val: T.nilable(String)).returns(String) }
+        def service(val = nil); end
       end
 
       class HostAlias < ::KubeDSL::DSLObject
@@ -12137,17 +12896,47 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { returns(KubeDSL::DSL::V1::Handler) }
+        sig { returns(KubeDSL::DSL::V1::LifecycleHandler) }
         def post_start; end
 
         sig { returns(T::Boolean) }
         def post_start_present?; end
 
-        sig { returns(KubeDSL::DSL::V1::Handler) }
+        sig { returns(KubeDSL::DSL::V1::LifecycleHandler) }
         def pre_stop; end
 
         sig { returns(T::Boolean) }
         def pre_stop_present?; end
+      end
+
+      class LifecycleHandler < ::KubeDSL::DSLObject
+        include KubeDSL::ValueFields::InstanceMethods
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+
+        sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+        def serialize; end
+
+        sig { returns(Symbol) }
+        def kind_sym; end
+
+        sig { returns(KubeDSL::DSL::V1::ExecAction) }
+        def exec; end
+
+        sig { returns(T::Boolean) }
+        def exec_present?; end
+
+        sig { returns(KubeDSL::DSL::V1::HTTPGetAction) }
+        def http_get; end
+
+        sig { returns(T::Boolean) }
+        def http_get_present?; end
+
+        sig { returns(KubeDSL::DSL::V1::TCPSocketAction) }
+        def tcp_socket; end
+
+        sig { returns(T::Boolean) }
+        def tcp_socket_present?; end
       end
 
       class LimitRange < ::KubeDSL::DSLObject
@@ -13041,6 +13830,9 @@ module KubeDSL
         def access_modes(val = nil); end
 
         sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        def allocated_resources(&block); end
+
+        sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def capacity(&block); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PersistentVolumeClaimCondition))).returns(T::Array[KubeDSL::DSL::V1::PersistentVolumeClaimCondition]) }
@@ -13048,6 +13840,9 @@ module KubeDSL
 
         sig { params(val: T.nilable(String)).returns(String) }
         def phase(val = nil); end
+
+        sig { params(val: T.nilable(String)).returns(String) }
+        def resize_status(val = nil); end
       end
 
       class PersistentVolumeClaimTemplate < ::KubeDSL::DSLObject
@@ -13527,6 +14322,21 @@ module KubeDSL
         def metadata_present?; end
       end
 
+      class PodOS < ::KubeDSL::DSLObject
+        include KubeDSL::ValueFields::InstanceMethods
+        extend KubeDSL::ValueFields::ClassMethods
+        extend KubeDSL::Validations::ClassMethods
+
+        sig { returns(T::Hash[Symbol, T.any(String, Integer, Float, T::Boolean, T::Array[T.untyped], T::Hash[Symbol, T.untyped])]) }
+        def serialize; end
+
+        sig { returns(Symbol) }
+        def kind_sym; end
+
+        sig { params(val: T.nilable(String)).returns(String) }
+        def name(val = nil); end
+      end
+
       class PodReadinessGate < ::KubeDSL::DSLObject
         include KubeDSL::ValueFields::InstanceMethods
         extend KubeDSL::ValueFields::ClassMethods
@@ -13660,6 +14470,12 @@ module KubeDSL
 
         sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def node_selector(&block); end
+
+        sig { returns(KubeDSL::DSL::V1::PodOS) }
+        def os; end
+
+        sig { returns(T::Boolean) }
+        def os_present?; end
 
         sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def overhead(&block); end
@@ -13921,6 +14737,12 @@ module KubeDSL
 
         sig { params(val: T.nilable(Integer)).returns(Integer) }
         def failure_threshold(val = nil); end
+
+        sig { returns(KubeDSL::DSL::V1::GRPCAction) }
+        def grpc; end
+
+        sig { returns(T::Boolean) }
+        def grpc_present?; end
 
         sig { returns(KubeDSL::DSL::V1::HTTPGetAction) }
         def http_get; end

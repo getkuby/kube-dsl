@@ -1,3 +1,7 @@
+## 0.8.0
+
+* Update Kubernetes to v1.23.17 to match kuby.
+
 ## 0.7.5
 
 * Fix RBIs for new version of Sorbet.
