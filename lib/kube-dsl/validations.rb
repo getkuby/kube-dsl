@@ -38,10 +38,10 @@ module KubeDSL
       private
 
       def obj_empty?(obj)
-        if obj.respond_to?(:empty)
+        if obj.respond_to?(:empty?)
           obj.empty?
         else
-          !!obj
+          !obj
         end
       end
     end
