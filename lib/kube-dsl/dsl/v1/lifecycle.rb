@@ -4,11 +4,11 @@ module KubeDSL
   module DSL
     module V1
       class Lifecycle < ::KubeDSL::DSLObject
-        object_field(:post_start) { KubeDSL::DSL::V1::Handler.new }
-        object_field(:pre_stop) { KubeDSL::DSL::V1::Handler.new }
+        object_field(:post_start) { KubeDSL::DSL::V1::LifecycleHandler.new }
+        object_field(:pre_stop) { KubeDSL::DSL::V1::LifecycleHandler.new }
 
-        validates :post_start, object: { kind_of: KubeDSL::DSL::V1::Handler }
-        validates :pre_stop, object: { kind_of: KubeDSL::DSL::V1::Handler }
+        validates :post_start, object: { kind_of: KubeDSL::DSL::V1::LifecycleHandler }
+        validates :pre_stop, object: { kind_of: KubeDSL::DSL::V1::LifecycleHandler }
 
         def serialize
           {}.tap do |result|

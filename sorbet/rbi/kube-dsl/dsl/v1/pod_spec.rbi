@@ -100,6 +100,12 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def node_selector(&block); end
 
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodOS) }
+        def os; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def os_present?; end
+
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def overhead(&block); end
 

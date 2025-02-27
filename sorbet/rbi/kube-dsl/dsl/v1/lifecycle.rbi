@@ -18,13 +18,13 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Handler) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::LifecycleHandler) }
         def post_start; end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def post_start_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Handler) }
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::LifecycleHandler) }
         def pre_stop; end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }

@@ -1,6 +1,6 @@
 # typed: true
 module KubeDSL
-  KUBERNETES_VERSION = '1.22.5'.freeze
+  KUBERNETES_VERSION = '1.23.17'.freeze
 
   autoload :AllowBlank,           'kube-dsl/allow_blank'
   autoload :ArrayFieldRes,        'kube-dsl/array_field_res'

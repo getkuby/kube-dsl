@@ -167,6 +167,14 @@ module KubeDSL
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def x_kubernetes_preserve_unknown_fields(val = nil); end
+
+          T::Sig::WithoutRuntime.sig {
+            params(
+              elem_name: T.nilable(Symbol),
+              block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::ValidationRule))
+            ).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::ValidationRule])
+          }
+          def x_kubernetes_validations(elem_name = nil, &block); end
         end
       end
     end

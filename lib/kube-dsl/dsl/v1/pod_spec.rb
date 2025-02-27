@@ -21,6 +21,7 @@ module KubeDSL
         array_field(:init_container) { KubeDSL::DSL::V1::Container.new }
         value_field :node_name
         key_value_field(:node_selector, format: :string)
+        object_field(:os) { KubeDSL::DSL::V1::PodOS.new }
         key_value_field(:overhead, format: :string)
         value_field :preemption_policy
         value_field :priority
@@ -57,6 +58,7 @@ module KubeDSL
         validates :init_containers, array: { kind_of: KubeDSL::DSL::V1::Container }, presence: false
         validates :node_name, field: { format: :string }, presence: false
         validates :node_selector, kv: { value_format: :string }, presence: false
+        validates :os, object: { kind_of: KubeDSL::DSL::V1::PodOS }
         validates :overhead, kv: { value_format: :string }, presence: false
         validates :preemption_policy, field: { format: :string }, presence: false
         validates :priority, field: { format: :integer }, presence: false
@@ -95,6 +97,7 @@ module KubeDSL
             result[:initContainers] = init_containers.map(&:serialize)
             result[:nodeName] = node_name
             result[:nodeSelector] = node_selector.serialize
+            result[:os] = os.serialize
             result[:overhead] = overhead.serialize
             result[:preemptionPolicy] = preemption_policy
             result[:priority] = priority

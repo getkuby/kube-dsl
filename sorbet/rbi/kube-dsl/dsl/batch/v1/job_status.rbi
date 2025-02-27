@@ -39,6 +39,9 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def failed(val = nil); end
 
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+          def ready(val = nil); end
+
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def start_time(val = nil); end
 

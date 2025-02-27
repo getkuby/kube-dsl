@@ -24,6 +24,7 @@ module KubeDSL::DSL::Apps::V1
   autoload :StatefulSet, 'kube-dsl/dsl/apps/v1/stateful_set'
   autoload :StatefulSetCondition, 'kube-dsl/dsl/apps/v1/stateful_set_condition'
   autoload :StatefulSetList, 'kube-dsl/dsl/apps/v1/stateful_set_list'
+  autoload :StatefulSetPersistentVolumeClaimRetentionPolicy, 'kube-dsl/dsl/apps/v1/stateful_set_persistent_volume_claim_retention_policy'
   autoload :StatefulSetSpec, 'kube-dsl/dsl/apps/v1/stateful_set_spec'
   autoload :StatefulSetStatus, 'kube-dsl/dsl/apps/v1/stateful_set_status'
   autoload :StatefulSetUpdateStrategy, 'kube-dsl/dsl/apps/v1/stateful_set_update_strategy'

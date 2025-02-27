@@ -18,20 +18,28 @@ task :generate do
   require 'dry/inflector'
   require 'fileutils'
 
+  FileUtils.mkdir_p('./vendor')
+
+  export_url = "https://github.com/yannh/kubernetes-json-schema"
+  local_checkout_path = "vendor/kubernetes-json-schema/"
+
+  unless File.exist?(local_checkout_path)
+    system("git clone -n --depth 1 --filter tree:0 #{export_url} #{local_checkout_path}")
+
+    Dir.chdir(local_checkout_path) do
+      system("git sparse-checkout set --no-cone /v#{KubeDSL::KUBERNETES_VERSION}-local")
+      system("git checkout")
+    end
+  end
+
+  local_schema_path = "#{local_checkout_path}v#{KubeDSL::KUBERNETES_VERSION}-local"
+
   FileUtils.rm_rf('./lib/kube-dsl/entrypoint.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl.rb')
   FileUtils.rm_rf('./lib/kube-dsl/dsl')
   FileUtils.rm_rf('./sorbet/rbi/kube-dsl')
 
   FileUtils.mkdir_p('./lib/kube-dsl/dsl')
-  FileUtils.mkdir_p('./vendor')
-
-  export_url = "https://github.com/yannh/kubernetes-json-schema/trunk/v#{KubeDSL::KUBERNETES_VERSION}-local"
-  local_schema_path = "vendor/kubernetes-json-schema/v#{KubeDSL::KUBERNETES_VERSION}-local"
-
-  unless File.exist?(local_schema_path)
-    system("svn export #{export_url} #{local_schema_path}")
-  end
 
   generator = KubeDSL::Generator.new(
     schema_dir: local_schema_path,

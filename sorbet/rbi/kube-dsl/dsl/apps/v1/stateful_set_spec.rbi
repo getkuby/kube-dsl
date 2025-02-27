@@ -22,6 +22,12 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_ready_seconds(val = nil); end
 
+          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy) }
+          def persistent_volume_claim_retention_policy; end
+          
+          T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+          def persistent_volume_claim_retention_policy_present?; end
+
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def pod_management_policy(val = nil); end
 

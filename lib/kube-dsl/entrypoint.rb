@@ -138,6 +138,10 @@ module KubeDSL
       ::KubeDSL::DSL::Apps::V1::StatefulSetList.new(&block)
     end
 
+    def stateful_set_persistent_volume_claim_retention_policy(&block)
+      ::KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy.new(&block)
+    end
+
     def stateful_set_spec(&block)
       ::KubeDSL::DSL::Apps::V1::StatefulSetSpec.new(&block)
     end
@@ -234,23 +238,23 @@ module KubeDSL
       ::KubeDSL::DSL::Authorization::V1::SubjectRulesReviewStatus.new(&block)
     end
 
-    def cross_version_object_reference(&block)
+    def autoscaling_v1_cross_version_object_reference(&block)
       ::KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference.new(&block)
     end
 
-    def horizontal_pod_autoscaler(&block)
+    def autoscaling_v1_horizontal_pod_autoscaler(&block)
       ::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscaler.new(&block)
     end
 
-    def horizontal_pod_autoscaler_list(&block)
+    def autoscaling_v1_horizontal_pod_autoscaler_list(&block)
       ::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerList.new(&block)
     end
 
-    def horizontal_pod_autoscaler_spec(&block)
+    def autoscaling_v1_horizontal_pod_autoscaler_spec(&block)
       ::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerSpec.new(&block)
     end
 
-    def horizontal_pod_autoscaler_status(&block)
+    def autoscaling_v1_horizontal_pod_autoscaler_status(&block)
       ::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerStatus.new(&block)
     end
 
@@ -264,6 +268,102 @@ module KubeDSL
 
     def scale_status(&block)
       ::KubeDSL::DSL::Autoscaling::V1::ScaleStatus.new(&block)
+    end
+
+    def container_resource_metric_source(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricSource.new(&block)
+    end
+
+    def container_resource_metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricStatus.new(&block)
+    end
+
+    def autoscaling_v2_cross_version_object_reference(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference.new(&block)
+    end
+
+    def external_metric_source(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ExternalMetricSource.new(&block)
+    end
+
+    def external_metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ExternalMetricStatus.new(&block)
+    end
+
+    def hpa_scaling_policy(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy.new(&block)
+    end
+
+    def hpa_scaling_rules(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HPAScalingRules.new(&block)
+    end
+
+    def autoscaling_v2_horizontal_pod_autoscaler(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscaler.new(&block)
+    end
+
+    def horizontal_pod_autoscaler_behavior(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerBehavior.new(&block)
+    end
+
+    def horizontal_pod_autoscaler_condition(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerCondition.new(&block)
+    end
+
+    def autoscaling_v2_horizontal_pod_autoscaler_list(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerList.new(&block)
+    end
+
+    def autoscaling_v2_horizontal_pod_autoscaler_spec(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerSpec.new(&block)
+    end
+
+    def autoscaling_v2_horizontal_pod_autoscaler_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerStatus.new(&block)
+    end
+
+    def metric_identifier(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::MetricIdentifier.new(&block)
+    end
+
+    def metric_spec(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::MetricSpec.new(&block)
+    end
+
+    def metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::MetricStatus.new(&block)
+    end
+
+    def metric_target(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::MetricTarget.new(&block)
+    end
+
+    def metric_value_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::MetricValueStatus.new(&block)
+    end
+
+    def object_metric_source(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ObjectMetricSource.new(&block)
+    end
+
+    def object_metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ObjectMetricStatus.new(&block)
+    end
+
+    def pods_metric_source(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::PodsMetricSource.new(&block)
+    end
+
+    def pods_metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::PodsMetricStatus.new(&block)
+    end
+
+    def resource_metric_source(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ResourceMetricSource.new(&block)
+    end
+
+    def resource_metric_status(&block)
+      ::KubeDSL::DSL::Autoscaling::V2::ResourceMetricStatus.new(&block)
     end
 
     def cron_job(&block)
@@ -574,6 +674,10 @@ module KubeDSL
       ::KubeDSL::DSL::V1::GCEPersistentDiskVolumeSource.new(&block)
     end
 
+    def grpc_action(&block)
+      ::KubeDSL::DSL::V1::GRPCAction.new(&block)
+    end
+
     def git_repo_volume_source(&block)
       ::KubeDSL::DSL::V1::GitRepoVolumeSource.new(&block)
     end
@@ -592,10 +696,6 @@ module KubeDSL
 
     def http_header(&block)
       ::KubeDSL::DSL::V1::HTTPHeader.new(&block)
-    end
-
-    def handler(&block)
-      ::KubeDSL::DSL::V1::Handler.new(&block)
     end
 
     def host_alias(&block)
@@ -620,6 +720,10 @@ module KubeDSL
 
     def lifecycle(&block)
       ::KubeDSL::DSL::V1::Lifecycle.new(&block)
+    end
+
+    def lifecycle_handler(&block)
+      ::KubeDSL::DSL::V1::LifecycleHandler.new(&block)
     end
 
     def limit_range(&block)
@@ -824,6 +928,10 @@ module KubeDSL
 
     def pod_list(&block)
       ::KubeDSL::DSL::V1::PodList.new(&block)
+    end
+
+    def pod_os(&block)
+      ::KubeDSL::DSL::V1::PodOS.new(&block)
     end
 
     def pod_readiness_gate(&block)
@@ -1444,6 +1552,10 @@ module KubeDSL
 
     def apiextensions_v1_service_reference(&block)
       ::KubeDSL::DSL::Apiextensions::V1::ServiceReference.new(&block)
+    end
+
+    def validation_rule(&block)
+      ::KubeDSL::DSL::Apiextensions::V1::ValidationRule.new(&block)
     end
 
     def apiextensions_v1_webhook_client_config(&block)

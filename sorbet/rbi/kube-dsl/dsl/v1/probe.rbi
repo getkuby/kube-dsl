@@ -27,6 +27,12 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def failure_threshold(val = nil); end
 
+        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::GRPCAction) }
+        def grpc; end
+        
+        T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
+        def grpc_present?; end
+
         T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::HTTPGetAction) }
         def http_get; end
         

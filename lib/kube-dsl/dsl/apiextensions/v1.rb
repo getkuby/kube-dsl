@@ -15,6 +15,7 @@ module KubeDSL::DSL::Apiextensions::V1
   autoload :JSON, 'kube-dsl/dsl/apiextensions/v1/json'
   autoload :JSONSchemaProps, 'kube-dsl/dsl/apiextensions/v1/json_schema_props'
   autoload :ServiceReference, 'kube-dsl/dsl/apiextensions/v1/service_reference'
+  autoload :ValidationRule, 'kube-dsl/dsl/apiextensions/v1/validation_rule'
   autoload :WebhookClientConfig, 'kube-dsl/dsl/apiextensions/v1/webhook_client_config'
   autoload :WebhookConversion, 'kube-dsl/dsl/apiextensions/v1/webhook_conversion'
 end

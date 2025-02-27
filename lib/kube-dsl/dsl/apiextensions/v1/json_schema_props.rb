@@ -46,6 +46,7 @@ module KubeDSL
           value_field :x_kubernetes_list_type
           value_field :x_kubernetes_map_type
           value_field :x_kubernetes_preserve_unknown_fields
+          array_field(:x_kubernetes_validation) { KubeDSL::DSL::Apiextensions::V1::ValidationRule.new }
 
           validates :additional_items, field: { format: :string }, presence: false
           validates :additional_properties, field: { format: :string }, presence: false
@@ -88,6 +89,7 @@ module KubeDSL
           validates :x_kubernetes_list_type, field: { format: :string }, presence: false
           validates :x_kubernetes_map_type, field: { format: :string }, presence: false
           validates :x_kubernetes_preserve_unknown_fields, field: { format: :boolean }, presence: false
+          validates :x_kubernetes_validations, array: { kind_of: KubeDSL::DSL::Apiextensions::V1::ValidationRule }, presence: false
 
           def serialize
             {}.tap do |result|
@@ -132,6 +134,7 @@ module KubeDSL
               result[:'x-kubernetes-list-type'] = x_kubernetes_list_type
               result[:'x-kubernetes-map-type'] = x_kubernetes_map_type
               result[:'x-kubernetes-preserve-unknown-fields'] = x_kubernetes_preserve_unknown_fields
+              result[:'x-kubernetes-validations'] = x_kubernetes_validations.map(&:serialize)
             end
           end
 

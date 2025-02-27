@@ -22,6 +22,9 @@ module KubeDSL
         def access_modes(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        def allocated_resources(&block); end
+
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
         def capacity(&block); end
 
         T::Sig::WithoutRuntime.sig {
@@ -34,6 +37,9 @@ module KubeDSL
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def phase(val = nil); end
+
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        def resize_status(val = nil); end
       end
     end
   end

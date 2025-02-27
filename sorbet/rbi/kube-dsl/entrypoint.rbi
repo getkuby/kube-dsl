@@ -104,6 +104,9 @@ module KubeDSL
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetList) }
     def stateful_set_list(&block); end
 
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy) }
+    def stateful_set_persistent_volume_claim_retention_policy(&block); end
+
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apps::V1::StatefulSetSpec) }
     def stateful_set_spec(&block); end
 
@@ -177,19 +180,19 @@ module KubeDSL
     def subject_rules_review_status(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference) }
-    def cross_version_object_reference(&block); end
+    def autoscaling_v1_cross_version_object_reference(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscaler) }
-    def horizontal_pod_autoscaler(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerList) }
-    def horizontal_pod_autoscaler_list(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_list(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerSpec) }
-    def horizontal_pod_autoscaler_spec(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_spec(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::HorizontalPodAutoscalerStatus) }
-    def horizontal_pod_autoscaler_status(&block); end
+    def autoscaling_v1_horizontal_pod_autoscaler_status(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::Scale) }
     def scale(&block); end
@@ -199,6 +202,78 @@ module KubeDSL
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
     def scale_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricSource) }
+    def container_resource_metric_source(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ContainerResourceMetricStatus) }
+    def container_resource_metric_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
+    def autoscaling_v2_cross_version_object_reference(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ExternalMetricSource) }
+    def external_metric_source(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ExternalMetricStatus) }
+    def external_metric_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy) }
+    def hpa_scaling_policy(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+    def hpa_scaling_rules(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscaler) }
+    def autoscaling_v2_horizontal_pod_autoscaler(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerBehavior) }
+    def horizontal_pod_autoscaler_behavior(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerCondition) }
+    def horizontal_pod_autoscaler_condition(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerList) }
+    def autoscaling_v2_horizontal_pod_autoscaler_list(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerSpec) }
+    def autoscaling_v2_horizontal_pod_autoscaler_spec(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::HorizontalPodAutoscalerStatus) }
+    def autoscaling_v2_horizontal_pod_autoscaler_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricIdentifier) }
+    def metric_identifier(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricSpec) }
+    def metric_spec(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricStatus) }
+    def metric_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+    def metric_target(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+    def metric_value_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ObjectMetricSource) }
+    def object_metric_source(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ObjectMetricStatus) }
+    def object_metric_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::PodsMetricSource) }
+    def pods_metric_source(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::PodsMetricStatus) }
+    def pods_metric_status(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ResourceMetricSource) }
+    def resource_metric_source(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Autoscaling::V2::ResourceMetricStatus) }
+    def resource_metric_status(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Batch::V1::CronJob) }
     def cron_job(&block); end
@@ -431,6 +506,9 @@ module KubeDSL
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GCEPersistentDiskVolumeSource) }
     def gce_persistent_disk_volume_source(&block); end
 
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GRPCAction) }
+    def grpc_action(&block); end
+
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::GitRepoVolumeSource) }
     def git_repo_volume_source(&block); end
 
@@ -445,9 +523,6 @@ module KubeDSL
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::HTTPHeader) }
     def http_header(&block); end
-
-    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Handler) }
-    def handler(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::HostAlias) }
     def host_alias(&block); end
@@ -466,6 +541,9 @@ module KubeDSL
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::Lifecycle) }
     def lifecycle(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::LifecycleHandler) }
+    def lifecycle_handler(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::LimitRange) }
     def limit_range(&block); end
@@ -619,6 +697,9 @@ module KubeDSL
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodList) }
     def pod_list(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodOS) }
+    def pod_os(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::V1::PodReadinessGate) }
     def pod_readiness_gate(&block); end
@@ -1084,6 +1165,9 @@ module KubeDSL
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::ServiceReference) }
     def apiextensions_v1_service_reference(&block); end
+
+    T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::ValidationRule) }
+    def validation_rule(&block); end
 
     T::Sig::WithoutRuntime.sig { params(block: T.proc.void).returns(::KubeDSL::DSL::Apiextensions::V1::WebhookClientConfig) }
     def apiextensions_v1_webhook_client_config(&block); end

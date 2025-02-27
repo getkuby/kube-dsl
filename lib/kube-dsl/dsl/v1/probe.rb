@@ -6,6 +6,7 @@ module KubeDSL
       class Probe < ::KubeDSL::DSLObject
         object_field(:exec) { KubeDSL::DSL::V1::ExecAction.new }
         value_field :failure_threshold
+        object_field(:grpc) { KubeDSL::DSL::V1::GRPCAction.new }
         object_field(:http_get) { KubeDSL::DSL::V1::HTTPGetAction.new }
         value_field :initial_delay_seconds
         value_field :period_seconds
@@ -16,6 +17,7 @@ module KubeDSL
 
         validates :exec, object: { kind_of: KubeDSL::DSL::V1::ExecAction }
         validates :failure_threshold, field: { format: :integer }, presence: false
+        validates :grpc, object: { kind_of: KubeDSL::DSL::V1::GRPCAction }
         validates :http_get, object: { kind_of: KubeDSL::DSL::V1::HTTPGetAction }
         validates :initial_delay_seconds, field: { format: :integer }, presence: false
         validates :period_seconds, field: { format: :integer }, presence: false
@@ -28,6 +30,7 @@ module KubeDSL
           {}.tap do |result|
             result[:exec] = exec.serialize
             result[:failureThreshold] = failure_threshold
+            result[:grpc] = grpc.serialize
             result[:httpGet] = http_get.serialize
             result[:initialDelaySeconds] = initial_delay_seconds
             result[:periodSeconds] = period_seconds
