@@ -46,14 +46,14 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def image_pull_policy(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Lifecycle) }
-        def lifecycle; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Lifecycle).void)).returns(KubeDSL::DSL::V1::Lifecycle) }
+        def lifecycle(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def lifecycle_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
-        def liveness_probe; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Probe).void)).returns(KubeDSL::DSL::V1::Probe) }
+        def liveness_probe(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def liveness_probe_present?; end
@@ -69,26 +69,26 @@ module KubeDSL
         }
         def ports(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
-        def readiness_probe; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Probe).void)).returns(KubeDSL::DSL::V1::Probe) }
+        def readiness_probe(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def readiness_probe_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ResourceRequirements) }
-        def resources; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ResourceRequirements).void)).returns(KubeDSL::DSL::V1::ResourceRequirements) }
+        def resources(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def resources_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SecurityContext) }
-        def security_context; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecurityContext).void)).returns(KubeDSL::DSL::V1::SecurityContext) }
+        def security_context(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def security_context_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Probe) }
-        def startup_probe; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Probe).void)).returns(KubeDSL::DSL::V1::Probe) }
+        def startup_probe(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def startup_probe_present?; end

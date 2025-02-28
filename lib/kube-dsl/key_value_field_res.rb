@@ -22,7 +22,7 @@ module KubeDSL
 
     def fields_to_rbi(_inflector)
       [
-        "T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }",
+        "T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }",
         "def #{underscore(name)}(&block); end"
       ]
     end

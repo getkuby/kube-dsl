@@ -18,11 +18,11 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def hard(&block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ScopeSelector) }
-        def scope_selector; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ScopeSelector).void)).returns(KubeDSL::DSL::V1::ScopeSelector) }
+        def scope_selector(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def scope_selector_present?; end

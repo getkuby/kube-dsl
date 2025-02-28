@@ -28,14 +28,14 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def metric_name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def selector_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference) }
-          def target; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference) }
+          def target(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def target_present?; end

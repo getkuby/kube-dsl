@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
-          def current; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus).void)).returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
+          def current(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def current_present?; end

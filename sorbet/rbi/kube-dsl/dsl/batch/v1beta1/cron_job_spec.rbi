@@ -25,8 +25,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def failed_jobs_history_limit(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec) }
-          def job_template; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec).void)).returns(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec) }
+          def job_template(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def job_template_present?; end

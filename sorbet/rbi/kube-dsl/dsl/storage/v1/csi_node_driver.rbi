@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Storage::V1::VolumeNodeResources) }
-          def allocatable; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Storage::V1::VolumeNodeResources).void)).returns(KubeDSL::DSL::Storage::V1::VolumeNodeResources) }
+          def allocatable(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def allocatable_present?; end

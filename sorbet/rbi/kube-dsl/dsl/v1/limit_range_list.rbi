@@ -28,8 +28,8 @@ module KubeDSL
         def items(elem_name = nil, &block); end
 
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-        def metadata; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ListMeta).void)).returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+        def metadata(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def metadata_present?; end

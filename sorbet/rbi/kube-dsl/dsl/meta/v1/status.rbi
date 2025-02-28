@@ -23,8 +23,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def code(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::StatusDetails) }
-          def details; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::StatusDetails).void)).returns(KubeDSL::DSL::Meta::V1::StatusDetails) }
+          def details(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def details_present?; end
@@ -33,8 +33,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def message(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ListMeta) }
-          def metadata; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ListMeta).void)).returns(KubeDSL::DSL::Meta::V1::ListMeta) }
+          def metadata(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def metadata_present?; end

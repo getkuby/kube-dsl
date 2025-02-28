@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
-          def open_apiv3_schema; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps).void)).returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
+          def open_apiv3_schema(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def open_apiv3_schema_present?; end

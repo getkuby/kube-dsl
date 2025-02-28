@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
-          def load_balancer; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LoadBalancerStatus).void)).returns(KubeDSL::DSL::V1::LoadBalancerStatus) }
+          def load_balancer(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def load_balancer_present?; end

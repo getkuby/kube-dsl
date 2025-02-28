@@ -21,26 +21,26 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def access_modes(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
-        def data_source; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::TypedLocalObjectReference).void)).returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
+        def data_source(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def data_source_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
-        def data_source_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::TypedLocalObjectReference).void)).returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
+        def data_source_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def data_source_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ResourceRequirements) }
-        def resources; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ResourceRequirements).void)).returns(KubeDSL::DSL::V1::ResourceRequirements) }
+        def resources(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def resources_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-        def selector; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+        def selector(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def selector_present?; end

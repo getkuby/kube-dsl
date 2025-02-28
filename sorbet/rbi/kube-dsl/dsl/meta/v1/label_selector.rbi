@@ -27,7 +27,7 @@ module KubeDSL
           }
           def match_expressions(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def match_labels(&block); end
         end
       end

@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-        def label_selector; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+        def label_selector(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def label_selector_present?; end

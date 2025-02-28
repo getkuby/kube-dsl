@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodAffinityTerm) }
-        def pod_affinity_term; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodAffinityTerm).void)).returns(KubeDSL::DSL::V1::PodAffinityTerm) }
+        def pod_affinity_term(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def pod_affinity_term_present?; end

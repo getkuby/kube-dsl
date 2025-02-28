@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def strategy(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::WebhookConversion) }
-          def webhook; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::WebhookConversion).void)).returns(KubeDSL::DSL::Apiextensions::V1::WebhookConversion) }
+          def webhook(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def webhook_present?; end

@@ -36,8 +36,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def read_only(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::LocalObjectReference) }
-        def secret_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
+        def secret_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def secret_ref_present?; end

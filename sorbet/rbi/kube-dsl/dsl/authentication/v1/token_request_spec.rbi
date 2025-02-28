@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def audiences(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Authentication::V1::BoundObjectReference) }
-          def bound_object_ref; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authentication::V1::BoundObjectReference).void)).returns(KubeDSL::DSL::Authentication::V1::BoundObjectReference) }
+          def bound_object_ref(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def bound_object_ref_present?; end

@@ -7,7 +7,7 @@ module KubeDSL
     extend ::KubeDSL::ValueFields
     extend ::KubeDSL::Validations
 
-    T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).void }
+    T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::DSLObject).void)).void }
     def initialize(&block)
       instance_eval(&block) if block
     end

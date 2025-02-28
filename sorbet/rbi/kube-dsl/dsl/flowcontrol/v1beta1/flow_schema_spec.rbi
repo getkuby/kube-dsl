@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowDistinguisherMethod) }
-          def distinguisher_method; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::FlowDistinguisherMethod).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::FlowDistinguisherMethod) }
+          def distinguisher_method(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def distinguisher_method_present?; end
@@ -28,8 +28,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def matching_precedence(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference) }
-          def priority_level_configuration; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference) }
+          def priority_level_configuration(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def priority_level_configuration_present?; end

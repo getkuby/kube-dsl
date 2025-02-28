@@ -24,8 +24,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def value(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::EnvVarSource) }
-        def value_from; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EnvVarSource).void)).returns(KubeDSL::DSL::V1::EnvVarSource) }
+        def value_from(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def value_from_present?; end

@@ -34,20 +34,20 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def revision_history_limit(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def selector_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apps::V1::DeploymentStrategy) }
-          def strategy; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apps::V1::DeploymentStrategy).void)).returns(KubeDSL::DSL::Apps::V1::DeploymentStrategy) }
+          def strategy(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def strategy_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodTemplateSpec) }
-          def template; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodTemplateSpec).void)).returns(KubeDSL::DSL::V1::PodTemplateSpec) }
+          def template(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def template_present?; end

@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def rule(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SELinuxOptions) }
-          def se_linux_options; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SELinuxOptions).void)).returns(KubeDSL::DSL::V1::SELinuxOptions) }
+          def se_linux_options(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def se_linux_options_present?; end

@@ -26,8 +26,8 @@ module KubeDSL
         }
         def preferred_during_scheduling_ignored_during_executions(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSelector) }
-        def required_during_scheduling_ignored_during_execution; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeSelector).void)).returns(KubeDSL::DSL::V1::NodeSelector) }
+        def required_during_scheduling_ignored_during_execution(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def required_during_scheduling_ignored_during_execution_present?; end

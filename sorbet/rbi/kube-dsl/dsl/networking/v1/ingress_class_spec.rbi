@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def controller(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
-          def parameters; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::IngressClassParametersReference).void)).returns(KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
+          def parameters(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def parameters_present?; end

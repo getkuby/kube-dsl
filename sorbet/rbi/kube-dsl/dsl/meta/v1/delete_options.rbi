@@ -32,8 +32,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def orphan_dependents(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::Preconditions) }
-          def preconditions; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::Preconditions).void)).returns(KubeDSL::DSL::Meta::V1::Preconditions) }
+          def preconditions(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def preconditions_present?; end

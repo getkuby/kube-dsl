@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
-          def accepted_names; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
+          def accepted_names(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def accepted_names_present?; end

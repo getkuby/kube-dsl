@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::QueuingConfiguration) }
-          def queuing; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::QueuingConfiguration).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::QueuingConfiguration) }
+          def queuing(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def queuing_present?; end

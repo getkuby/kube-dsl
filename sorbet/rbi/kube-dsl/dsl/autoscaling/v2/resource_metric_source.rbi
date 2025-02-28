@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
-          def target; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
+          def target(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def target_present?; end
