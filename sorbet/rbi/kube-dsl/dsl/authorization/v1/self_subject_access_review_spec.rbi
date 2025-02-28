@@ -19,14 +19,14 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Authorization::V1::NonResourceAttributes) }
-          def non_resource_attributes; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authorization::V1::NonResourceAttributes).void)).returns(KubeDSL::DSL::Authorization::V1::NonResourceAttributes) }
+          def non_resource_attributes(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def non_resource_attributes_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Authorization::V1::ResourceAttributes) }
-          def resource_attributes; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authorization::V1::ResourceAttributes).void)).returns(KubeDSL::DSL::Authorization::V1::ResourceAttributes) }
+          def resource_attributes(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def resource_attributes_present?; end

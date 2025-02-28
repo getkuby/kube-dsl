@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::GroupSubject) }
-          def group; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::GroupSubject).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::GroupSubject) }
+          def group(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def group_present?; end
@@ -28,14 +28,14 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def kind(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject) }
-          def service_account; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject) }
+          def service_account(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def service_account_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta1::UserSubject) }
-          def user; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::UserSubject).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::UserSubject) }
+          def user(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def user_present?; end

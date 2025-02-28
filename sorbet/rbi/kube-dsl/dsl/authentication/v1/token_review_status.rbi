@@ -28,8 +28,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def error(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Authentication::V1::UserInfo) }
-          def user; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authentication::V1::UserInfo).void)).returns(KubeDSL::DSL::Authentication::V1::UserInfo) }
+          def user(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def user_present?; end

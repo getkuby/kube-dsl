@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def assured_concurrency_shares(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse) }
-          def limit_response; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse) }
+          def limit_response(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def limit_response_present?; end

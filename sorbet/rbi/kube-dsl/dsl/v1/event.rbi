@@ -31,8 +31,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def first_timestamp(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ObjectReference) }
-        def involved_object; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
+        def involved_object(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def involved_object_present?; end
@@ -44,8 +44,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def message(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-        def metadata; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+        def metadata(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def metadata_present?; end
@@ -53,8 +53,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def reason(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ObjectReference) }
-        def related; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
+        def related(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def related_present?; end
@@ -65,14 +65,14 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def reporting_instance(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::EventSeries) }
-        def series; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EventSeries).void)).returns(KubeDSL::DSL::V1::EventSeries) }
+        def series(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def series_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::EventSource) }
-        def source; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EventSource).void)).returns(KubeDSL::DSL::V1::EventSource) }
+        def source(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def source_present?; end

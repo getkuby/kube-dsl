@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
-          def port; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::ServiceBackendPort).void)).returns(KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
+          def port(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def port_present?; end

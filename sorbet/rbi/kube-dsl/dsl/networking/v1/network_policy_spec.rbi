@@ -35,8 +35,8 @@ module KubeDSL
           }
           def ingresses(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def pod_selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def pod_selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def pod_selector_present?; end

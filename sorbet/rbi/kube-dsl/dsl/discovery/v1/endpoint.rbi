@@ -22,17 +22,17 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def addresses(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Discovery::V1::EndpointConditions) }
-          def conditions; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Discovery::V1::EndpointConditions).void)).returns(KubeDSL::DSL::Discovery::V1::EndpointConditions) }
+          def conditions(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def conditions_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def deprecated_topology(&block); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Discovery::V1::EndpointHints) }
-          def hints; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Discovery::V1::EndpointHints).void)).returns(KubeDSL::DSL::Discovery::V1::EndpointHints) }
+          def hints(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def hints_present?; end
@@ -43,8 +43,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def node_name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ObjectReference) }
-          def target_ref; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
+          def target_ref(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def target_ref_present?; end

@@ -19,14 +19,14 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
-          def scale_down; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules).void)).returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+          def scale_down(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def scale_down_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
-          def scale_up; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules).void)).returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingRules) }
+          def scale_up(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def scale_up_present?; end

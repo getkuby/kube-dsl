@@ -64,8 +64,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def forbidden_sysctls(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions) }
-          def fs_group; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions) }
+          def fs_group(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def fs_group_present?; end
@@ -96,32 +96,32 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def required_drop_capabilities(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions) }
-          def run_as_group; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions) }
+          def run_as_group(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def run_as_group_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RunAsUserStrategyOptions) }
-          def run_as_user; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::RunAsUserStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::RunAsUserStrategyOptions) }
+          def run_as_user(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def run_as_user_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::RuntimeClassStrategyOptions) }
-          def runtime_class; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::RuntimeClassStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::RuntimeClassStrategyOptions) }
+          def runtime_class(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def runtime_class_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions) }
-          def se_linux; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::SELinuxStrategyOptions) }
+          def se_linux(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def se_linux_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions) }
-          def supplemental_groups; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::SupplementalGroupsStrategyOptions) }
+          def supplemental_groups(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def supplemental_groups_present?; end

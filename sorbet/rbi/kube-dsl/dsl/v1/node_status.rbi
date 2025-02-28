@@ -26,10 +26,10 @@ module KubeDSL
         }
         def addresses(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def allocatable(&block); end
 
-        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def capacity(&block); end
 
         T::Sig::WithoutRuntime.sig {
@@ -40,14 +40,14 @@ module KubeDSL
         }
         def conditions(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeConfigStatus) }
-        def config; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeConfigStatus).void)).returns(KubeDSL::DSL::V1::NodeConfigStatus) }
+        def config(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def config_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeDaemonEndpoints) }
-        def daemon_endpoints; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeDaemonEndpoints).void)).returns(KubeDSL::DSL::V1::NodeDaemonEndpoints) }
+        def daemon_endpoints(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def daemon_endpoints_present?; end
@@ -60,8 +60,8 @@ module KubeDSL
         }
         def images(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSystemInfo) }
-        def node_info; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeSystemInfo).void)).returns(KubeDSL::DSL::V1::NodeSystemInfo) }
+        def node_info(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def node_info_present?; end

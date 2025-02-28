@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ConfigMapEnvSource) }
-        def config_map_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ConfigMapEnvSource).void)).returns(KubeDSL::DSL::V1::ConfigMapEnvSource) }
+        def config_map_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def config_map_ref_present?; end
@@ -27,8 +27,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def prefix(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SecretEnvSource) }
-        def secret_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretEnvSource).void)).returns(KubeDSL::DSL::V1::SecretEnvSource) }
+        def secret_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def secret_ref_present?; end

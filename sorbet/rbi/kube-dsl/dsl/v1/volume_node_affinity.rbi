@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeSelector) }
-        def required; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeSelector).void)).returns(KubeDSL::DSL::V1::NodeSelector) }
+        def required(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def required_present?; end

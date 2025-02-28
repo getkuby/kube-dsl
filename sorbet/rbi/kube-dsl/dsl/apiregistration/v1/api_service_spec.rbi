@@ -31,8 +31,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def insecure_skip_tls_verify(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiregistration::V1::ServiceReference) }
-          def service; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiregistration::V1::ServiceReference).void)).returns(KubeDSL::DSL::Apiregistration::V1::ServiceReference) }
+          def service(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def service_present?; end

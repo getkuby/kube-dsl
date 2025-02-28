@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PersistentVolumeSpec) }
-          def inline_volume_spec; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PersistentVolumeSpec).void)).returns(KubeDSL::DSL::V1::PersistentVolumeSpec) }
+          def inline_volume_spec(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def inline_volume_spec_present?; end

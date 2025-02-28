@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::NodeConfigSource) }
-        def config_source; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeConfigSource).void)).returns(KubeDSL::DSL::V1::NodeConfigSource) }
+        def config_source(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def config_source_present?; end

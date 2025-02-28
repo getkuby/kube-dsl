@@ -18,8 +18,8 @@ module KubeDSL
 
     def fields_to_rbi(_inflector)
       [
-        "T::Sig::WithoutRuntime.sig { returns(#{ruby_type}) }",
-        "def #{ruby_safe_name}; end",
+        "T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(#{ruby_type}).void)).returns(#{ruby_type}) }",
+        "def #{ruby_safe_name}(&block); end",
         "",
         "T::Sig::WithoutRuntime.sig { returns(T::Boolean) }",
         "def #{ruby_safe_name}_present?; end"
