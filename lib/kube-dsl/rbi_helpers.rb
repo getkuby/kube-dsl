@@ -5,7 +5,7 @@ module KubeDSL
 
     TYPE_MAP = {
       'boolean' => 'T::Boolean',
-      'number' => 'Integer'
+      'number' => 'T.any(Integer, Float)'
     }
 
     TYPE_MAP.freeze

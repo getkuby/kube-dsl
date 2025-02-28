@@ -88,6 +88,8 @@ module KubeDSL
             [String]
           when :integer
             [Integer]
+          when :number
+            [Integer, Float]
           when :boolean
             [TrueClass, FalseClass]
           else
