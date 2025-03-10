@@ -21,8 +21,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
         def active_deadline_seconds(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::Affinity) }
-        def affinity; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Affinity).void)).returns(KubeDSL::DSL::V1::Affinity) }
+        def affinity(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def affinity_present?; end
@@ -38,8 +38,8 @@ module KubeDSL
         }
         def containers(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodDNSConfig) }
-        def dns_config; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodDNSConfig).void)).returns(KubeDSL::DSL::V1::PodDNSConfig) }
+        def dns_config(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def dns_config_present?; end
@@ -97,16 +97,16 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def node_name(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def node_selector(&block); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodOS) }
-        def os; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodOS).void)).returns(KubeDSL::DSL::V1::PodOS) }
+        def os(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def os_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def overhead(&block); end
 
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
@@ -135,8 +135,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def scheduler_name(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::PodSecurityContext) }
-        def security_context; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodSecurityContext).void)).returns(KubeDSL::DSL::V1::PodSecurityContext) }
+        def security_context(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def security_context_present?; end

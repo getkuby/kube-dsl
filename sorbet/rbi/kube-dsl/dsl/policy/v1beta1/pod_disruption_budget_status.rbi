@@ -33,7 +33,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def desired_healthy(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def disrupted_pods(&block); end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }

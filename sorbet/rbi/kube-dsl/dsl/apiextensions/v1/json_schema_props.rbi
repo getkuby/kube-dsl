@@ -44,10 +44,10 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def default(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def definitions(&block); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def dependencies(&block); end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
@@ -70,8 +70,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def exclusive_minimum(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
-          def external_docs; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation).void)).returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
+          def external_docs(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def external_docs_present?; end
@@ -112,8 +112,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
           def multiple_of(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
-          def not_field; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps).void)).returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
+          def not_field(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def not_field_present?; end
@@ -132,10 +132,10 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def pattern(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def pattern_properties(&block); end
 
-          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.void)).returns(::KubeDSL::KeyValueFields) }
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def properties(&block); end
 
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }

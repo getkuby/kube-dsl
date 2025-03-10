@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apps::V1::RollingUpdateDaemonSet) }
-          def rolling_update; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apps::V1::RollingUpdateDaemonSet).void)).returns(KubeDSL::DSL::Apps::V1::RollingUpdateDaemonSet) }
+          def rolling_update(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def rolling_update_present?; end

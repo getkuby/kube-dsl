@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::IngressBackend) }
-          def backend; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::IngressBackend).void)).returns(KubeDSL::DSL::Networking::V1::IngressBackend) }
+          def backend(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def backend_present?; end

@@ -25,8 +25,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def node_name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Storage::V1::VolumeAttachmentSource) }
-          def source; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Storage::V1::VolumeAttachmentSource).void)).returns(KubeDSL::DSL::Storage::V1::VolumeAttachmentSource) }
+          def source(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def source_present?; end

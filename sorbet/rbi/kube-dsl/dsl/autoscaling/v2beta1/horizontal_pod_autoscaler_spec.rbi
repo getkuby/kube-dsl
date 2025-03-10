@@ -33,8 +33,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_replicas(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference) }
-          def scale_target_ref; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference) }
+          def scale_target_ref(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def scale_target_ref_present?; end

@@ -27,8 +27,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
         def image_id(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ContainerState) }
-        def last_state; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ContainerState).void)).returns(KubeDSL::DSL::V1::ContainerState) }
+        def last_state(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def last_state_present?; end
@@ -45,8 +45,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
         def started(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ContainerState) }
-        def state; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ContainerState).void)).returns(KubeDSL::DSL::V1::ContainerState) }
+        def state(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def state_present?; end

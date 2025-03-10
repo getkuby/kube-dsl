@@ -19,20 +19,20 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::IPBlock) }
-          def ip_block; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::IPBlock).void)).returns(KubeDSL::DSL::Networking::V1::IPBlock) }
+          def ip_block(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def ip_block_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def namespace_selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def namespace_selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def namespace_selector_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def pod_selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def pod_selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def pod_selector_present?; end

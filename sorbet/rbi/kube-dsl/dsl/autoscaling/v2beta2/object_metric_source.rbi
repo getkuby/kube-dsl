@@ -19,20 +19,20 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
-          def described_object; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
+          def described_object(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def described_object_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier) }
-          def metric; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricIdentifier) }
+          def metric(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def metric_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
-          def target; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
+          def target(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def target_present?; end

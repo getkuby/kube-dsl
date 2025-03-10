@@ -36,8 +36,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation) }
-          def schema; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation) }
+          def schema(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def schema_present?; end
@@ -48,8 +48,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
           def storage(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources) }
-          def subresources; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources) }
+          def subresources(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def subresources_present?; end

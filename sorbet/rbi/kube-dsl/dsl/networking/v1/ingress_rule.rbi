@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def host(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
-          def http; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue).void)).returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
+          def http(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def http_present?; end

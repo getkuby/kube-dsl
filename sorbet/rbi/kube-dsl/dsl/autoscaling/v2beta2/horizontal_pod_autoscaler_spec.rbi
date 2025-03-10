@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
-          def behavior; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::HorizontalPodAutoscalerBehavior) }
+          def behavior(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def behavior_present?; end
@@ -39,8 +39,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_replicas(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
-          def scale_target_ref; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
+          def scale_target_ref(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def scale_target_ref_present?; end

@@ -18,8 +18,8 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ClientIPConfig) }
-        def client_ip; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ClientIPConfig).void)).returns(KubeDSL::DSL::V1::ClientIPConfig) }
+        def client_ip(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def client_ip_present?; end

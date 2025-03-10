@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def admission_review_versions(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
-          def client_config; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig).void)).returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
+          def client_config(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def client_config_present?; end
@@ -37,14 +37,14 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def namespace_selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def namespace_selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def namespace_selector_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
-          def object_selector; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
+          def object_selector(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def object_selector_present?; end

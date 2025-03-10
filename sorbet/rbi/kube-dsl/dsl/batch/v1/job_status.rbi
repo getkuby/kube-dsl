@@ -48,8 +48,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
           def succeeded(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
-          def uncounted_terminated_pods; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods).void)).returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
+          def uncounted_terminated_pods(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def uncounted_terminated_pods_present?; end

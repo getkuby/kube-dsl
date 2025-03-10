@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceConversion) }
-          def conversion; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceConversion).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceConversion) }
+          def conversion(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def conversion_present?; end
@@ -28,8 +28,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def group(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
-          def names; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
+          def names(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def names_present?; end

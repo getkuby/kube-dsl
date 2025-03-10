@@ -18,26 +18,26 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ConfigMapKeySelector) }
-        def config_map_key_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ConfigMapKeySelector).void)).returns(KubeDSL::DSL::V1::ConfigMapKeySelector) }
+        def config_map_key_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def config_map_key_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ObjectFieldSelector) }
-        def field_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectFieldSelector).void)).returns(KubeDSL::DSL::V1::ObjectFieldSelector) }
+        def field_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def field_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::ResourceFieldSelector) }
-        def resource_field_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ResourceFieldSelector).void)).returns(KubeDSL::DSL::V1::ResourceFieldSelector) }
+        def resource_field_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def resource_field_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::V1::SecretKeySelector) }
-        def secret_key_ref; end
+        T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretKeySelector).void)).returns(KubeDSL::DSL::V1::SecretKeySelector) }
+        def secret_key_ref(&block); end
         
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def secret_key_ref_present?; end

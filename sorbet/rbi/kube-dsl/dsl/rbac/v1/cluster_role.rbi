@@ -19,16 +19,16 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Rbac::V1::AggregationRule) }
-          def aggregation_rule; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Rbac::V1::AggregationRule).void)).returns(KubeDSL::DSL::Rbac::V1::AggregationRule) }
+          def aggregation_rule(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def aggregation_rule_present?; end
 
 
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          def metadata(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def metadata_present?; end

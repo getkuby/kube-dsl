@@ -22,8 +22,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
           def ca_bundle(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::ServiceReference) }
-          def service; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::ServiceReference).void)).returns(KubeDSL::DSL::Apiextensions::V1::ServiceReference) }
+          def service(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def service_present?; end

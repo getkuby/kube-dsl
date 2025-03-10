@@ -19,8 +19,8 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceScale) }
-          def scale; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceScale).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresourceScale) }
+          def scale(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def scale_present?; end

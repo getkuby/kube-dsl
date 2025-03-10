@@ -21,20 +21,20 @@ module KubeDSL
 
 
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
-          def metadata; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
+          def metadata(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V1::ScaleSpec) }
-          def spec; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V1::ScaleSpec).void)).returns(KubeDSL::DSL::Autoscaling::V1::ScaleSpec) }
+          def spec(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def spec_present?; end
 
-          T::Sig::WithoutRuntime.sig { returns(KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
-          def status; end
+          T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V1::ScaleStatus).void)).returns(KubeDSL::DSL::Autoscaling::V1::ScaleStatus) }
+          def status(&block); end
           
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def status_present?; end
