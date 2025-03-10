@@ -2248,7 +2248,7 @@ module KubeDSL
           sig { params(val: T.nilable(Integer)).returns(Integer) }
           def max_properties(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
           def maximum(val = nil); end
 
           sig { params(val: T.nilable(Integer)).returns(Integer) }
@@ -2260,10 +2260,10 @@ module KubeDSL
           sig { params(val: T.nilable(Integer)).returns(Integer) }
           def min_properties(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
           def minimum(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
           def multiple_of(val = nil); end
 
           sig { returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
