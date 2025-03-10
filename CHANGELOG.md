@@ -1,3 +1,7 @@
+## 0.8.1
+* Fix Sorbet types for blocks passed to DSL methods (#6, @Bo98)
+* Fix handling of number types (#5, @Bo98)
+
 ## 0.8.0
 
 * Update Kubernetes to v1.23.17 to match kuby.
