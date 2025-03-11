@@ -14,13 +14,13 @@ module KubeDSL
       def value_field(field, default: nil)
         __fields__[:value] << field
 
-        define_method(field) do |*args|
-          if args.empty?
+        define_method(field) do |value = (value_set = true; nil)|
+          if value_set
+            instance_variable_set(:"@#{field}", value)
+          else
             instance_variable_get(:"@#{field}") || (
               default.respond_to?(:call) ? default.call(self) : default
             )
-          else
-            instance_variable_set(:"@#{field}", args.first)
           end
         end
       end
@@ -29,11 +29,11 @@ module KubeDSL
         __fields__[:object] << field
         ivar = :"@#{field}"
 
-        define_method(field) do |*args, &block|
+        define_method(field) do |&block|
           val = instance_variable_get(ivar)
 
           unless val
-            val = field_block.call(*args)
+            val = field_block.call
             instance_variable_set(ivar, val)
           end
 
