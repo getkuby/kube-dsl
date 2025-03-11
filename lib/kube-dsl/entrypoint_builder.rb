@@ -44,7 +44,7 @@ module KubeDSL
         method_name = method_name_for(resource)
         resource_type = "::#{ns}::#{resource.ref.kind}"
 
-        rbi_code << "#{indent}T::Sig::WithoutRuntime.sig { params(block: T.proc.bind(#{resource_type}).void).returns(#{resource_type}) }\n"
+        rbi_code << "#{indent}T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(#{resource_type}).void)).returns(#{resource_type}) }\n"
         rbi_code << "#{indent}def #{method_name}(&block); end\n\n"
       end
 
