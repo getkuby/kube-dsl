@@ -1,3 +1,7 @@
+## 0.8.2
+* Fix entrypoint type signatures to make the block optional (#8, @Bo98)
+* Tighten arity of value and object fields (#9, @Bo98)
+
 ## 0.8.1
 * Fix Sorbet types for blocks passed to DSL methods (#6, @Bo98)
 * Fix handling of number types (#5, @Bo98)
