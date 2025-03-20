@@ -19,7 +19,7 @@ module KubeDSL
         def kind_sym; end
 
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def automount_service_account_token(val = nil); end
 
         T::Sig::WithoutRuntime.sig {

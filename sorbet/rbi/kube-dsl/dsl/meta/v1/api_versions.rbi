@@ -29,7 +29,7 @@ module KubeDSL
           }
           def server_address_by_client_cidrs(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def versions(val = nil); end
         end
       end
