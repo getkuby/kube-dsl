@@ -1519,31 +1519,31 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def build_date(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def compiler(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def git_commit(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def git_tree_state(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def git_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def go_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def major(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def minor(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def platform(val = nil); end
         end
       end
@@ -1562,7 +1562,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def admission_review_versions(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig).void)).returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
@@ -1571,13 +1571,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def client_config_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def failure_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def match_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -1592,16 +1592,16 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def object_selector_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reinvocation_policy(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations]) }
           def rules(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def side_effects(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def timeout_seconds(val = nil); end
         end
 
@@ -1658,19 +1658,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_groups(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_versions(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def operations(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resources(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def scope(val = nil); end
         end
 
@@ -1685,16 +1685,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def port(val = nil); end
         end
 
@@ -1709,7 +1709,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def admission_review_versions(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig).void)).returns(KubeDSL::DSL::Admissionregistration::V1::WebhookClientConfig) }
@@ -1718,13 +1718,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def client_config_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def failure_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def match_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -1742,10 +1742,10 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations))).returns(T::Array[KubeDSL::DSL::Admissionregistration::V1::RuleWithOperations]) }
           def rules(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def side_effects(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def timeout_seconds(val = nil); end
         end
 
@@ -1802,7 +1802,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def ca_bundle(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Admissionregistration::V1::ServiceReference).void)).returns(KubeDSL::DSL::Admissionregistration::V1::ServiceReference) }
@@ -1811,7 +1811,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def service_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def url(val = nil); end
         end
       end
@@ -1830,22 +1830,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def description(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def format(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def json_path(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def priority(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -1860,7 +1860,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def strategy(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::WebhookConversion).void)).returns(KubeDSL::DSL::Apiextensions::V1::WebhookConversion) }
@@ -1911,19 +1911,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -1959,22 +1959,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def categories(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def list_kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def plural(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def short_names(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def singular(val = nil); end
         end
 
@@ -1995,7 +1995,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def conversion_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
@@ -2004,10 +2004,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def names_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def preserve_unknown_fields(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def scope(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionVersion))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionVersion]) }
@@ -2034,7 +2034,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionCondition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def stored_versions(val = nil); end
         end
 
@@ -2052,13 +2052,13 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceColumnDefinition))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::CustomResourceColumnDefinition]) }
           def additional_printer_columns(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def deprecated(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deprecation_warning(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceValidation) }
@@ -2067,10 +2067,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def schema_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def served(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def storage(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceSubresources) }
@@ -2091,13 +2091,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def label_selector_path(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def spec_replicas_path(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status_replicas_path(val = nil); end
         end
 
@@ -2118,7 +2118,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def scale_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
         end
 
@@ -2151,10 +2151,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def description(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def url(val = nil); end
         end
 
@@ -2188,10 +2188,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def additional_items(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def additional_properties(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps]) }
@@ -2200,7 +2200,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps]) }
           def any_ofs(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def default(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -2209,19 +2209,19 @@ module KubeDSL
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def dependencies(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def description(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSON))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::JSON]) }
           def enums(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def example(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def exclusive_maximum(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def exclusive_minimum(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation).void)).returns(KubeDSL::DSL::Apiextensions::V1::ExternalDocumentation) }
@@ -2230,40 +2230,40 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def external_docs_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def format(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def id(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_length(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_properties(val = nil); end
 
-          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.nilable(T.any(Integer, Float))) }
           def maximum(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_items(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_length(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_properties(val = nil); end
 
-          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.nilable(T.any(Integer, Float))) }
           def minimum(val = nil); end
 
-          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.any(Integer, Float)) }
+          sig { params(val: T.nilable(T.any(Integer, Float))).returns(T.nilable(T.any(Integer, Float))) }
           def multiple_of(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps).void)).returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps) }
@@ -2272,13 +2272,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def not_field_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def nullable(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::JSONSchemaProps]) }
           def one_ofs(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def pattern(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -2287,34 +2287,34 @@ module KubeDSL
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def properties(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def required(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def title(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def unique_items(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def x_kubernetes_embedded_resource(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def x_kubernetes_int_or_string(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def x_kubernetes_list_map_keys(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def x_kubernetes_list_type(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def x_kubernetes_map_type(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def x_kubernetes_preserve_unknown_fields(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiextensions::V1::ValidationRule))).returns(T::Array[KubeDSL::DSL::Apiextensions::V1::ValidationRule]) }
@@ -2332,16 +2332,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def port(val = nil); end
         end
 
@@ -2356,10 +2356,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
         end
 
@@ -2374,7 +2374,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def ca_bundle(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::ServiceReference).void)).returns(KubeDSL::DSL::Apiextensions::V1::ServiceReference) }
@@ -2383,7 +2383,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def service_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def url(val = nil); end
         end
 
@@ -2404,7 +2404,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def client_config_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def conversion_review_versions(val = nil); end
         end
       end
@@ -2453,19 +2453,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -2501,16 +2501,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def ca_bundle(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def group_priority_minimum(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def insecure_skip_tls_verify(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiregistration::V1::ServiceReference).void)).returns(KubeDSL::DSL::Apiregistration::V1::ServiceReference) }
@@ -2519,10 +2519,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def service_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def version(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def version_priority(val = nil); end
         end
 
@@ -2552,13 +2552,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def port(val = nil); end
         end
       end
@@ -2577,13 +2577,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_server_id(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def decodable_versions(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def encoding_version(val = nil); end
         end
 
@@ -2604,7 +2604,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def spec(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus).void)).returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus) }
@@ -2625,22 +2625,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -2676,7 +2676,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def common_encoding_version(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionCondition))).returns(T::Array[KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionCondition]) }
@@ -2701,7 +2701,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def data(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -2710,7 +2710,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def revision(val = nil); end
         end
 
@@ -2776,19 +2776,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -2824,10 +2824,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_ready_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def revision_history_limit(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -2860,34 +2860,34 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def collision_count(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1::DaemonSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1::DaemonSetCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_number_scheduled(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_number_scheduled(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def number_available(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def number_misscheduled(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def number_ready(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def number_unavailable(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def updated_number_scheduled(val = nil); end
         end
 
@@ -2908,7 +2908,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def rolling_update_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -2953,22 +2953,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_update_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -3004,19 +3004,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_ready_seconds(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def paused(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def progress_deadline_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def revision_history_limit(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -3049,28 +3049,28 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def available_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def collision_count(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1::DeploymentCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1::DeploymentCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def ready_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def unavailable_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def updated_replicas(val = nil); end
         end
 
@@ -3091,7 +3091,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def rolling_update_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -3136,19 +3136,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -3184,10 +3184,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_ready_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -3214,22 +3214,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def available_replicas(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1::ReplicaSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1::ReplicaSetCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def fully_labeled_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def ready_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
         end
 
@@ -3244,10 +3244,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_surge(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_unavailable(val = nil); end
         end
 
@@ -3262,10 +3262,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_surge(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_unavailable(val = nil); end
         end
 
@@ -3280,7 +3280,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def partition(val = nil); end
         end
 
@@ -3325,19 +3325,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -3373,10 +3373,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def when_deleted(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def when_scaled(val = nil); end
         end
 
@@ -3391,7 +3391,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_ready_seconds(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy).void)).returns(KubeDSL::DSL::Apps::V1::StatefulSetPersistentVolumeClaimRetentionPolicy) }
@@ -3400,13 +3400,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def persistent_volume_claim_retention_policy_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def pod_management_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def revision_history_limit(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -3415,7 +3415,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def selector_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def service_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodTemplateSpec).void)).returns(KubeDSL::DSL::V1::PodTemplateSpec) }
@@ -3445,34 +3445,34 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def available_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def collision_count(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Apps::V1::StatefulSetCondition))).returns(T::Array[KubeDSL::DSL::Apps::V1::StatefulSetCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_revision(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def ready_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def update_revision(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def updated_replicas(val = nil); end
         end
 
@@ -3493,7 +3493,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def rolling_update_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
       end
@@ -3512,16 +3512,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
 
@@ -3566,7 +3566,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def audiences(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authentication::V1::BoundObjectReference).void)).returns(KubeDSL::DSL::Authentication::V1::BoundObjectReference) }
@@ -3575,7 +3575,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def bound_object_ref_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def expiration_seconds(val = nil); end
         end
 
@@ -3590,10 +3590,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def expiration_timestamp(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def token(val = nil); end
         end
 
@@ -3638,10 +3638,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def audiences(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def token(val = nil); end
         end
 
@@ -3656,13 +3656,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def audiences(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def authenticated(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def error(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authentication::V1::UserInfo).void)).returns(KubeDSL::DSL::Authentication::V1::UserInfo) }
@@ -3686,13 +3686,13 @@ module KubeDSL
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def extra(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def groups(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def username(val = nil); end
         end
       end
@@ -3741,10 +3741,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verb(val = nil); end
         end
 
@@ -3759,10 +3759,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def non_resource_ur_ls(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -3777,25 +3777,25 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def subresource(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verb(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def version(val = nil); end
         end
 
@@ -3810,16 +3810,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_groups(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource_names(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resources(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -3918,7 +3918,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
         end
 
@@ -3966,7 +3966,7 @@ module KubeDSL
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def extra(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def groups(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Authorization::V1::NonResourceAttributes).void)).returns(KubeDSL::DSL::Authorization::V1::NonResourceAttributes) }
@@ -3981,10 +3981,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_attributes_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def user(val = nil); end
         end
 
@@ -3999,16 +3999,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def allowed(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def denied(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def evaluation_error(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
         end
 
@@ -4023,10 +4023,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def evaluation_error(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def incomplete(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Authorization::V1::NonResourceRule))).returns(T::Array[KubeDSL::DSL::Authorization::V1::NonResourceRule]) }
@@ -4051,13 +4051,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -4123,10 +4123,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_replicas(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V1::CrossVersionObjectReference) }
@@ -4135,7 +4135,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def scale_target_ref_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def target_cpu_utilization_percentage(val = nil); end
         end
 
@@ -4150,19 +4150,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_cpu_utilization_percentage(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_scale_time(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
 
@@ -4207,7 +4207,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
         end
 
@@ -4222,10 +4222,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def selector(val = nil); end
         end
       end
@@ -4242,10 +4242,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
@@ -4266,7 +4266,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus).void)).returns(KubeDSL::DSL::Autoscaling::V2::MetricValueStatus) }
@@ -4275,7 +4275,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def current_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -4290,13 +4290,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -4413,19 +4413,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -4467,13 +4467,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def behavior_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_replicas(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::MetricSpec))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::MetricSpec]) }
           def metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_replicas(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }
@@ -4500,16 +4500,16 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::MetricStatus))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::MetricStatus]) }
           def current_metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_scale_time(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
 
@@ -4524,13 +4524,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def period_seconds(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def value(val = nil); end
         end
 
@@ -4548,10 +4548,10 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2::HPAScalingPolicy]) }
           def policies(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def select_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def stabilization_window_seconds(val = nil); end
         end
 
@@ -4566,7 +4566,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -4617,7 +4617,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -4662,7 +4662,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -4677,16 +4677,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def value(val = nil); end
         end
 
@@ -4701,13 +4701,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def value(val = nil); end
         end
 
@@ -4830,7 +4830,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2::MetricTarget) }
@@ -4857,7 +4857,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def current_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -4874,16 +4874,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def target_average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_average_value(val = nil); end
         end
 
@@ -4898,16 +4898,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -4922,13 +4922,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -4943,7 +4943,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -4952,10 +4952,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metric_selector_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_value(val = nil); end
         end
 
@@ -4970,13 +4970,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5027,19 +5027,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5075,13 +5075,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_replicas(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta1::MetricSpec))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta1::MetricSpec]) }
           def metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_replicas(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta1::CrossVersionObjectReference) }
@@ -5108,16 +5108,16 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta1::MetricStatus))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta1::MetricStatus]) }
           def current_metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_scale_time(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
 
@@ -5162,7 +5162,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5207,7 +5207,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5222,10 +5222,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5240,7 +5240,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def target_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_value(val = nil); end
         end
 
@@ -5255,13 +5255,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5288,7 +5288,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5297,7 +5297,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def selector_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_average_value(val = nil); end
         end
 
@@ -5312,10 +5312,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def metric_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5336,13 +5336,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def target_average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def target_average_value(val = nil); end
         end
 
@@ -5357,13 +5357,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -5380,10 +5380,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
@@ -5404,7 +5404,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def container(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::MetricValueStatus).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricValueStatus) }
@@ -5413,7 +5413,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def current_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -5428,13 +5428,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -5551,19 +5551,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5605,13 +5605,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def behavior_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_replicas(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricSpec))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta2::MetricSpec]) }
           def metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_replicas(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::CrossVersionObjectReference) }
@@ -5638,16 +5638,16 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricStatus))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta2::MetricStatus]) }
           def current_metrics(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_replicas(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_replicas(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_scale_time(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
 
@@ -5662,13 +5662,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def period_seconds(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def value(val = nil); end
         end
 
@@ -5686,10 +5686,10 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingPolicy))).returns(T::Array[KubeDSL::DSL::Autoscaling::V2beta2::HPAScalingPolicy]) }
           def policies(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def select_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def stabilization_window_seconds(val = nil); end
         end
 
@@ -5704,7 +5704,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -5755,7 +5755,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5800,7 +5800,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def resource_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -5815,16 +5815,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def value(val = nil); end
         end
 
@@ -5839,13 +5839,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def average_utilization(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def average_value(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def value(val = nil); end
         end
 
@@ -5968,7 +5968,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget).void)).returns(KubeDSL::DSL::Autoscaling::V2beta2::MetricTarget) }
@@ -5995,7 +5995,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def current_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -6065,10 +6065,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def concurrency_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def failed_jobs_history_limit(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Batch::V1::JobTemplateSpec).void)).returns(KubeDSL::DSL::Batch::V1::JobTemplateSpec) }
@@ -6077,16 +6077,16 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def job_template_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def schedule(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def starting_deadline_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def successful_jobs_history_limit(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def suspend(val = nil); end
         end
 
@@ -6104,10 +6104,10 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ObjectReference))).returns(T::Array[KubeDSL::DSL::V1::ObjectReference]) }
           def actives(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_schedule_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_successful_time(val = nil); end
         end
 
@@ -6152,22 +6152,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_probe_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -6203,22 +6203,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def active_deadline_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def backoff_limit(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def completion_mode(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def completions(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def manual_selector(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def parallelism(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -6227,7 +6227,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def selector_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def suspend(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodTemplateSpec).void)).returns(KubeDSL::DSL::V1::PodTemplateSpec) }
@@ -6236,7 +6236,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def template_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def ttl_seconds_after_finished(val = nil); end
         end
 
@@ -6251,28 +6251,28 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def active(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def completed_indexes(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def completion_time(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Batch::V1::JobCondition))).returns(T::Array[KubeDSL::DSL::Batch::V1::JobCondition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def failed(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def ready(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def start_time(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def succeeded(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods).void)).returns(KubeDSL::DSL::Batch::V1::UncountedTerminatedPods) }
@@ -6317,10 +6317,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def failed(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def succeeded(val = nil); end
         end
       end
@@ -6388,10 +6388,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def concurrency_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def failed_jobs_history_limit(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec).void)).returns(KubeDSL::DSL::Batch::V1beta1::JobTemplateSpec) }
@@ -6400,16 +6400,16 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def job_template_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def schedule(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def starting_deadline_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def successful_jobs_history_limit(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def suspend(val = nil); end
         end
 
@@ -6427,10 +6427,10 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ObjectReference))).returns(T::Array[KubeDSL::DSL::V1::ObjectReference]) }
           def actives(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_schedule_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_successful_time(val = nil); end
         end
 
@@ -6503,22 +6503,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_update_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -6554,28 +6554,28 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def expiration_seconds(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def extra(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def groups(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def request(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def signer_name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def usages(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def username(val = nil); end
         end
 
@@ -6590,7 +6590,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def certificate(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition))).returns(T::Array[KubeDSL::DSL::Certificates::V1::CertificateSigningRequestCondition]) }
@@ -6657,19 +6657,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def acquire_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def holder_identity(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def lease_duration_seconds(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def lease_transitions(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def renew_time(val = nil); end
         end
       end
@@ -6688,7 +6688,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def addresses(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Discovery::V1::EndpointConditions).void)).returns(KubeDSL::DSL::Discovery::V1::EndpointConditions) }
@@ -6706,10 +6706,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def hints_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def hostname(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def node_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -6718,7 +6718,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def target_ref_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def zone(val = nil); end
         end
 
@@ -6733,13 +6733,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def ready(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def serving(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def terminating(val = nil); end
         end
 
@@ -6769,16 +6769,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def app_protocol(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def port(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def protocol(val = nil); end
         end
 
@@ -6793,7 +6793,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def address_type(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1::Endpoint))).returns(T::Array[KubeDSL::DSL::Discovery::V1::Endpoint]) }
@@ -6841,7 +6841,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -6858,7 +6858,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def addresses(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Discovery::V1beta1::EndpointConditions).void)).returns(KubeDSL::DSL::Discovery::V1beta1::EndpointConditions) }
@@ -6873,10 +6873,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def hints_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def hostname(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def node_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -6900,13 +6900,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def ready(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def serving(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def terminating(val = nil); end
         end
 
@@ -6936,16 +6936,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def app_protocol(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def port(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def protocol(val = nil); end
         end
 
@@ -6960,7 +6960,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def address_type(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Discovery::V1beta1::Endpoint))).returns(T::Array[KubeDSL::DSL::Discovery::V1beta1::Endpoint]) }
@@ -7008,7 +7008,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -7027,16 +7027,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def action(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def deprecated_count(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deprecated_first_timestamp(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deprecated_last_timestamp(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EventSource).void)).returns(KubeDSL::DSL::V1::EventSource) }
@@ -7045,7 +7045,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def deprecated_source_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def event_time(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -7054,10 +7054,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def note(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -7072,10 +7072,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def related_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reporting_controller(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reporting_instance(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Events::V1::EventSeries).void)).returns(KubeDSL::DSL::Events::V1::EventSeries) }
@@ -7084,7 +7084,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def series_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7120,10 +7120,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def count(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_observed_time(val = nil); end
         end
       end
@@ -7140,16 +7140,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def action(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def deprecated_count(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deprecated_first_timestamp(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deprecated_last_timestamp(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EventSource).void)).returns(KubeDSL::DSL::V1::EventSource) }
@@ -7158,7 +7158,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def deprecated_source_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def event_time(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -7167,10 +7167,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def note(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -7185,10 +7185,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def related_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reporting_controller(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reporting_instance(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Events::V1beta1::EventSeries).void)).returns(KubeDSL::DSL::Events::V1beta1::EventSeries) }
@@ -7197,7 +7197,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def series_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7233,10 +7233,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def count(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_observed_time(val = nil); end
         end
       end
@@ -7255,7 +7255,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7300,19 +7300,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7354,7 +7354,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def distinguisher_method_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def matching_precedence(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::PriorityLevelConfigurationReference) }
@@ -7393,7 +7393,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -7414,7 +7414,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def queuing_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7429,7 +7429,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def assured_concurrency_shares(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::LimitResponse).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::LimitResponse) }
@@ -7450,10 +7450,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def non_resource_ur_ls(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -7519,19 +7519,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7567,7 +7567,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -7588,7 +7588,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def limited_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7618,13 +7618,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def hand_size(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def queue_length_limit(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def queues(val = nil); end
         end
 
@@ -7639,19 +7639,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_groups(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def cluster_scope(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespaces(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resources(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -7666,10 +7666,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
         end
 
@@ -7690,7 +7690,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def group_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta1::ServiceAccountSubject) }
@@ -7717,7 +7717,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -7734,7 +7734,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7779,19 +7779,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7833,7 +7833,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def distinguisher_method_present?; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def matching_precedence(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationReference).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta2::PriorityLevelConfigurationReference) }
@@ -7872,7 +7872,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -7893,7 +7893,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def queuing_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -7908,7 +7908,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def assured_concurrency_shares(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta2::LimitResponse) }
@@ -7929,10 +7929,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def non_resource_ur_ls(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -7998,19 +7998,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -8046,7 +8046,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -8067,7 +8067,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def limited_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -8097,13 +8097,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def hand_size(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def queue_length_limit(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def queues(val = nil); end
         end
 
@@ -8118,19 +8118,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_groups(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def cluster_scope(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespaces(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resources(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -8145,10 +8145,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
         end
 
@@ -8169,7 +8169,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def group_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Flowcontrol::V1beta2::ServiceAccountSubject).void)).returns(KubeDSL::DSL::Flowcontrol::V1beta2::ServiceAccountSubject) }
@@ -8196,7 +8196,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end
@@ -8215,7 +8215,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::GroupVersionForDiscovery).void)).returns(KubeDSL::DSL::Meta::V1::GroupVersionForDiscovery) }
@@ -8257,34 +8257,34 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def categories(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def namespaced(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def short_names(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def singular_name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def storage_version_hash(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def version(val = nil); end
         end
 
@@ -8299,7 +8299,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group_version(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::APIResource))).returns(T::Array[KubeDSL::DSL::Meta::V1::APIResource]) }
@@ -8320,7 +8320,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::ServerAddressByClientCIDR))).returns(T::Array[KubeDSL::DSL::Meta::V1::ServerAddressByClientCIDR]) }
           def server_address_by_client_cidrs(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def versions(val = nil); end
         end
 
@@ -8335,22 +8335,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def last_transition_time(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
 
@@ -8365,16 +8365,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def dry_run(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def grace_period_seconds(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def orphan_dependents(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::Preconditions).void)).returns(KubeDSL::DSL::Meta::V1::Preconditions) }
@@ -8383,7 +8383,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def preconditions_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def propagation_policy(val = nil); end
         end
 
@@ -8398,10 +8398,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def version(val = nil); end
         end
 
@@ -8434,13 +8434,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def key(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def operator(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def values(val = nil); end
         end
 
@@ -8455,16 +8455,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def continue(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def remaining_item_count(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def self_link(val = nil); end
         end
 
@@ -8479,25 +8479,25 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def fields_type(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def fields_v1(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def manager(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def operation(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def subresource(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def time(val = nil); end
         end
 
@@ -8515,25 +8515,25 @@ module KubeDSL
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def annotations(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def cluster_name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def creation_timestamp(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def deletion_grace_period_seconds(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def deletion_timestamp(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def finalizers(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def generate_name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def generation(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -8542,22 +8542,22 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::ManagedFieldsEntry))).returns(T::Array[KubeDSL::DSL::Meta::V1::ManagedFieldsEntry]) }
           def managed_fields(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::OwnerReference))).returns(T::Array[KubeDSL::DSL::Meta::V1::OwnerReference]) }
           def owner_references(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def self_link(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
 
@@ -8572,22 +8572,22 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_version(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def block_owner_deletion(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def controller(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
 
@@ -8602,10 +8602,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource_version(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
 
@@ -8620,10 +8620,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def client_cidr(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def server_address(val = nil); end
         end
 
@@ -8638,7 +8638,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def code(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::StatusDetails).void)).returns(KubeDSL::DSL::Meta::V1::StatusDetails) }
@@ -8647,7 +8647,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def details_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ListMeta).void)).returns(KubeDSL::DSL::Meta::V1::ListMeta) }
@@ -8656,10 +8656,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status(val = nil); end
         end
 
@@ -8674,13 +8674,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def field(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reason(val = nil); end
         end
 
@@ -8698,19 +8698,19 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::StatusCause))).returns(T::Array[KubeDSL::DSL::Meta::V1::StatusCause]) }
           def causes(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def retry_after_seconds(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
 
@@ -8725,10 +8725,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def object(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def type(val = nil); end
         end
       end
@@ -8753,10 +8753,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def backend_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path_type(val = nil); end
         end
 
@@ -8885,19 +8885,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def scope(val = nil); end
         end
 
@@ -8912,7 +8912,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def controller(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::IngressClassParametersReference).void)).returns(KubeDSL::DSL::Networking::V1::IngressClassParametersReference) }
@@ -8954,7 +8954,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def host(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue).void)).returns(KubeDSL::DSL::Networking::V1::HTTPIngressRuleValue) }
@@ -8975,7 +8975,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Networking::V1::ServiceBackendPort).void)).returns(KubeDSL::DSL::Networking::V1::ServiceBackendPort) }
@@ -9002,7 +9002,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def default_backend_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def ingress_class_name(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Networking::V1::IngressRule))).returns(T::Array[KubeDSL::DSL::Networking::V1::IngressRule]) }
@@ -9041,10 +9041,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def hosts(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def secret_name(val = nil); end
         end
 
@@ -9059,10 +9059,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def cidr(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def except(val = nil); end
         end
 
@@ -9188,13 +9188,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def end_port(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def port(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def protocol(val = nil); end
         end
 
@@ -9221,7 +9221,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def pod_selector_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def policy_types(val = nil); end
         end
 
@@ -9236,10 +9236,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def number(val = nil); end
         end
       end
@@ -9446,7 +9446,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def overhead_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def runtime_handler(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Node::V1alpha1::Scheduling).void)).returns(KubeDSL::DSL::Node::V1alpha1::Scheduling) }
@@ -9502,7 +9502,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def handler(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -9653,10 +9653,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_unavailable(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def min_available(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -9680,22 +9680,22 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_healthy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_healthy(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def disrupted_pods(&block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def disruptions_allowed(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def expected_pods(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
       end
@@ -9712,7 +9712,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -9727,7 +9727,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def driver(val = nil); end
         end
 
@@ -9742,10 +9742,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def path_prefix(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def read_only(val = nil); end
         end
 
@@ -9763,7 +9763,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::IDRange]) }
           def ranges(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
         end
 
@@ -9778,10 +9778,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min(val = nil); end
         end
 
@@ -9796,10 +9796,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min(val = nil); end
         end
 
@@ -9865,10 +9865,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def max_unavailable(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def min_available(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::LabelSelector).void)).returns(KubeDSL::DSL::Meta::V1::LabelSelector) }
@@ -9892,22 +9892,22 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Meta::V1::Condition))).returns(T::Array[KubeDSL::DSL::Meta::V1::Condition]) }
           def conditions(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_healthy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def desired_healthy(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def disrupted_pods(&block); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def disruptions_allowed(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def expected_pods(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def observed_generation(val = nil); end
         end
 
@@ -9967,13 +9967,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def allow_privilege_escalation(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::AllowedCSIDriver))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::AllowedCSIDriver]) }
           def allowed_csi_drivers(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_capabilities(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::AllowedFlexVolume))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::AllowedFlexVolume]) }
@@ -9982,19 +9982,19 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::AllowedHostPath))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::AllowedHostPath]) }
           def allowed_host_paths(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_proc_mount_types(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_unsafe_sysctls(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def default_add_capabilities(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def default_allow_privilege_escalation(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def forbidden_sysctls(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions) }
@@ -10003,25 +10003,25 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def fs_group_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_ipc(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_network(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_pid(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::HostPortRange))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::HostPortRange]) }
           def host_ports(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def privileged(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def read_only_root_filesystem(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def required_drop_capabilities(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions) }
@@ -10054,7 +10054,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def supplemental_groups_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def volumes(val = nil); end
         end
 
@@ -10072,7 +10072,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::IDRange]) }
           def ranges(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
         end
 
@@ -10090,7 +10090,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::IDRange]) }
           def ranges(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
         end
 
@@ -10105,10 +10105,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_runtime_class_names(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def default_runtime_class_name(val = nil); end
         end
 
@@ -10123,7 +10123,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SELinuxOptions).void)).returns(KubeDSL::DSL::V1::SELinuxOptions) }
@@ -10147,7 +10147,7 @@ module KubeDSL
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Policy::V1beta1::IDRange))).returns(T::Array[KubeDSL::DSL::Policy::V1beta1::IDRange]) }
           def ranges(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def rule(val = nil); end
         end
       end
@@ -10277,19 +10277,19 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_groups(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def non_resource_ur_ls(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resource_names(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def resources(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def verbs(val = nil); end
         end
 
@@ -10394,13 +10394,13 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
 
@@ -10415,16 +10415,16 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def api_group(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def namespace(val = nil); end
         end
       end
@@ -10443,10 +10443,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def description(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def global_default(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -10455,10 +10455,10 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def preemption_policy(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def value(val = nil); end
         end
 
@@ -10543,25 +10543,25 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def attach_required(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def fs_group_policy(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def pod_info_on_mount(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def requires_republish(val = nil); end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def storage_capacity(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::Storage::V1::TokenRequest))).returns(T::Array[KubeDSL::DSL::Storage::V1::TokenRequest]) }
           def token_requests(elem_name = nil, &block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def volume_lifecycle_modes(val = nil); end
         end
 
@@ -10606,13 +10606,13 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def allocatable_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def node_id(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def topology_keys(val = nil); end
         end
 
@@ -10663,7 +10663,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def allow_volume_expansion(val = nil); end
 
           sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::TopologySelectorTerm))).returns(T::Array[KubeDSL::DSL::V1::TopologySelectorTerm]) }
@@ -10675,19 +10675,19 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def mount_options(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
           def parameters(&block); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def provisioner(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def reclaim_policy(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def volume_binding_mode(val = nil); end
         end
 
@@ -10723,10 +10723,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def audience(val = nil); end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def expiration_seconds(val = nil); end
         end
 
@@ -10798,7 +10798,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def inline_volume_spec_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def persistent_volume_name(val = nil); end
         end
 
@@ -10813,10 +10813,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def attacher(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def node_name(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Storage::V1::VolumeAttachmentSource).void)).returns(KubeDSL::DSL::Storage::V1::VolumeAttachmentSource) }
@@ -10843,7 +10843,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def attach_error_present?; end
 
-          sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def attached(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -10867,10 +10867,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def message(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def time(val = nil); end
         end
 
@@ -10885,7 +10885,7 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(Integer)).returns(Integer) }
+          sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def count(val = nil); end
         end
       end
@@ -10902,10 +10902,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def capacity(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def maximum_volume_size(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -10920,7 +10920,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def node_topology_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def storage_class_name(val = nil); end
         end
 
@@ -10958,10 +10958,10 @@ module KubeDSL
           sig { returns(Symbol) }
           def kind_sym; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def capacity(val = nil); end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def maximum_volume_size(val = nil); end
 
           sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -10976,7 +10976,7 @@ module KubeDSL
           sig { returns(T::Boolean) }
           def node_topology_present?; end
 
-          sig { params(val: T.nilable(String)).returns(String) }
+          sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def storage_class_name(val = nil); end
         end
 
@@ -11045,10 +11045,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def device_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
       end
 
@@ -11063,16 +11063,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def partition(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_id(val = nil); end
       end
 
@@ -11087,22 +11087,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def caching_mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def disk_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def disk_uri(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kind(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
       end
 
@@ -11117,16 +11117,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def share_name(val = nil); end
       end
 
@@ -11141,13 +11141,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def share_name(val = nil); end
       end
 
@@ -11186,10 +11186,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def add(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def drop(val = nil); end
       end
 
@@ -11204,16 +11204,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def monitors(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_file(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -11222,7 +11222,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
       end
 
@@ -11237,16 +11237,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def monitors(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_file(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -11255,7 +11255,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
       end
 
@@ -11270,10 +11270,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -11282,7 +11282,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_id(val = nil); end
       end
 
@@ -11297,10 +11297,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -11309,7 +11309,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_id(val = nil); end
       end
 
@@ -11324,7 +11324,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def timeout_seconds(val = nil); end
       end
 
@@ -11339,16 +11339,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def error(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -11411,7 +11411,7 @@ module KubeDSL
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def data(&block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def immutable(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -11432,10 +11432,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -11450,13 +11450,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -11492,19 +11492,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kubelet_config_key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def resource_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def uid(val = nil); end
       end
 
@@ -11522,10 +11522,10 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::KeyToPath))).returns(T::Array[KubeDSL::DSL::V1::KeyToPath]) }
         def items(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -11540,16 +11540,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def default_mode(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::KeyToPath))).returns(T::Array[KubeDSL::DSL::V1::KeyToPath]) }
         def items(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -11564,10 +11564,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def args(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def command(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvVar))).returns(T::Array[KubeDSL::DSL::V1::EnvVar]) }
@@ -11576,10 +11576,10 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvFromSource))).returns(T::Array[KubeDSL::DSL::V1::EnvFromSource]) }
         def env_froms(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image_pull_policy(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Lifecycle).void)).returns(KubeDSL::DSL::V1::Lifecycle) }
@@ -11594,7 +11594,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def liveness_probe_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerPort))).returns(T::Array[KubeDSL::DSL::V1::ContainerPort]) }
@@ -11624,19 +11624,19 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def startup_probe_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def stdin(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def stdin_once(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def termination_message_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def termination_message_policy(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def tty(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeDevice))).returns(T::Array[KubeDSL::DSL::V1::VolumeDevice]) }
@@ -11645,7 +11645,7 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeMount))).returns(T::Array[KubeDSL::DSL::V1::VolumeMount]) }
         def volume_mounts(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def working_dir(val = nil); end
       end
 
@@ -11660,10 +11660,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def names(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def size_bytes(val = nil); end
       end
 
@@ -11678,19 +11678,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def container_port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def host_ip(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def host_port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protocol(val = nil); end
       end
 
@@ -11735,7 +11735,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def started_at(val = nil); end
       end
 
@@ -11750,25 +11750,25 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def container_id(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def exit_code(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def finished_at(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def signal(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def started_at(val = nil); end
       end
 
@@ -11783,10 +11783,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
       end
 
@@ -11801,13 +11801,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def container_id(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image_id(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ContainerState).void)).returns(KubeDSL::DSL::V1::ContainerState) }
@@ -11816,16 +11816,16 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def last_state_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def ready(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def restart_count(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def started(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ContainerState).void)).returns(KubeDSL::DSL::V1::ContainerState) }
@@ -11858,10 +11858,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def controller_publish_secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def driver(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -11876,13 +11876,13 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def node_stage_secret_ref_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def volume_attributes(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_handle(val = nil); end
       end
 
@@ -11897,10 +11897,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def driver(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -11909,7 +11909,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def node_publish_secret_ref_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -11927,7 +11927,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def port(val = nil); end
       end
 
@@ -11963,10 +11963,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def field_ref_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ResourceFieldSelector).void)).returns(KubeDSL::DSL::V1::ResourceFieldSelector) }
@@ -11987,7 +11987,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def default_mode(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::DownwardAPIVolumeFile))).returns(T::Array[KubeDSL::DSL::V1::DownwardAPIVolumeFile]) }
@@ -12005,10 +12005,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def medium(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def size_limit(val = nil); end
       end
 
@@ -12023,13 +12023,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def hostname(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def node_name(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -12050,16 +12050,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def app_protocol(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protocol(val = nil); end
       end
 
@@ -12143,7 +12143,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def config_map_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def prefix(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretEnvSource).void)).returns(KubeDSL::DSL::V1::SecretEnvSource) }
@@ -12164,10 +12164,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EnvVarSource).void)).returns(KubeDSL::DSL::V1::EnvVarSource) }
@@ -12224,10 +12224,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def args(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def command(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvVar))).returns(T::Array[KubeDSL::DSL::V1::EnvVar]) }
@@ -12236,10 +12236,10 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EnvFromSource))).returns(T::Array[KubeDSL::DSL::V1::EnvFromSource]) }
         def env_froms(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image_pull_policy(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Lifecycle).void)).returns(KubeDSL::DSL::V1::Lifecycle) }
@@ -12254,7 +12254,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def liveness_probe_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerPort))).returns(T::Array[KubeDSL::DSL::V1::ContainerPort]) }
@@ -12284,22 +12284,22 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def startup_probe_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def stdin(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def stdin_once(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_container_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def termination_message_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def termination_message_policy(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def tty(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeDevice))).returns(T::Array[KubeDSL::DSL::V1::VolumeDevice]) }
@@ -12308,7 +12308,7 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeMount))).returns(T::Array[KubeDSL::DSL::V1::VolumeMount]) }
         def volume_mounts(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def working_dir(val = nil); end
       end
 
@@ -12341,16 +12341,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def action(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def count(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def event_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def first_timestamp(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -12359,10 +12359,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def involved_object_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_timestamp(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -12371,7 +12371,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def metadata_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -12380,10 +12380,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def related_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reporting_component(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reporting_instance(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::EventSeries).void)).returns(KubeDSL::DSL::V1::EventSeries) }
@@ -12398,7 +12398,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def source_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -12434,10 +12434,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def count(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_observed_time(val = nil); end
       end
 
@@ -12452,10 +12452,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def component(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def host(val = nil); end
       end
 
@@ -12470,7 +12470,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def command(val = nil); end
       end
 
@@ -12485,19 +12485,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def lun(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_ww_ns(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def wwids(val = nil); end
       end
 
@@ -12512,16 +12512,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def driver(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def options(&block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -12542,16 +12542,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def driver(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def options(&block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -12572,10 +12572,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def dataset_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def dataset_uuid(val = nil); end
       end
 
@@ -12590,16 +12590,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def partition(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pd_name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
       end
 
@@ -12614,13 +12614,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def directory(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def repository(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def revision(val = nil); end
       end
 
@@ -12635,16 +12635,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def endpoints(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def endpoints_namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
       end
 
@@ -12659,13 +12659,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def endpoints(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
       end
 
@@ -12680,10 +12680,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def service(val = nil); end
       end
 
@@ -12698,10 +12698,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def hostnames(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip(val = nil); end
       end
 
@@ -12716,10 +12716,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -12734,19 +12734,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def host(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::HTTPHeader))).returns(T::Array[KubeDSL::DSL::V1::HTTPHeader]) }
         def http_headers(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def scheme(val = nil); end
       end
 
@@ -12761,10 +12761,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
       end
 
@@ -12779,31 +12779,31 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_discovery(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_session(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def initiator_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iqn(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iscsi_interface(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def lun(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def portals(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -12812,7 +12812,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_portal(val = nil); end
       end
 
@@ -12827,31 +12827,31 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_discovery(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_session(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def initiator_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iqn(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iscsi_interface(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def lun(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def portals(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -12860,7 +12860,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_portal(val = nil); end
       end
 
@@ -12875,13 +12875,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
       end
 
@@ -12989,7 +12989,7 @@ module KubeDSL
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def min(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -13040,10 +13040,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def hostname(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PortStatus))).returns(T::Array[KubeDSL::DSL::V1::PortStatus]) }
@@ -13076,7 +13076,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
       end
 
@@ -13091,10 +13091,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
       end
 
@@ -13139,19 +13139,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_transition_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -13187,7 +13187,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def finalizers(val = nil); end
       end
 
@@ -13205,7 +13205,7 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::NamespaceCondition))).returns(T::Array[KubeDSL::DSL::V1::NamespaceCondition]) }
         def conditions(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
       end
 
@@ -13220,13 +13220,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def server(val = nil); end
       end
 
@@ -13271,10 +13271,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def address(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -13310,22 +13310,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_heartbeat_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_transition_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -13370,7 +13370,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def assigned_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def error(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NodeConfigSource).void)).returns(KubeDSL::DSL::V1::NodeConfigSource) }
@@ -13445,13 +13445,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def operator(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def values(val = nil); end
       end
 
@@ -13490,22 +13490,22 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def config_source_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def external_id(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pod_cidr(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pod_cid_rs(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def provider_id(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Taint))).returns(T::Array[KubeDSL::DSL::V1::Taint]) }
         def taints(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def unschedulable(val = nil); end
       end
 
@@ -13553,13 +13553,13 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def node_info_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::AttachedVolume))).returns(T::Array[KubeDSL::DSL::V1::AttachedVolume]) }
         def volumes_attacheds(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volumes_in_use(val = nil); end
       end
 
@@ -13574,34 +13574,34 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def architecture(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def boot_id(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def container_runtime_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kernel_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kube_proxy_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kubelet_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def machine_id(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def operating_system(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def os_image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def system_uuid(val = nil); end
       end
 
@@ -13616,10 +13616,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def api_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def field_path(val = nil); end
       end
 
@@ -13634,25 +13634,25 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def api_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def field_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kind(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def resource_version(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def uid(val = nil); end
       end
 
@@ -13727,22 +13727,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_probe_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_transition_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -13778,7 +13778,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def access_modes(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::TypedLocalObjectReference).void)).returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
@@ -13805,13 +13805,13 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def selector_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_class_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
       end
 
@@ -13826,7 +13826,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def access_modes(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -13838,10 +13838,10 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PersistentVolumeClaimCondition))).returns(T::Array[KubeDSL::DSL::V1::PersistentVolumeClaimCondition]) }
         def conditions(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def resize_status(val = nil); end
       end
 
@@ -13880,10 +13880,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def claim_name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
       end
 
@@ -13919,7 +13919,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def access_modes(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::AWSElasticBlockStoreVolumeSource).void)).returns(KubeDSL::DSL::V1::AWSElasticBlockStoreVolumeSource) }
@@ -14015,7 +14015,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def local_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def mount_options(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NFSVolumeSource).void)).returns(KubeDSL::DSL::V1::NFSVolumeSource) }
@@ -14030,7 +14030,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def node_affinity_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def persistent_volume_reclaim_policy(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PhotonPersistentDiskVolumeSource).void)).returns(KubeDSL::DSL::V1::PhotonPersistentDiskVolumeSource) }
@@ -14063,7 +14063,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def scale_io_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_class_name(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::StorageOSPersistentVolumeSource).void)).returns(KubeDSL::DSL::V1::StorageOSPersistentVolumeSource) }
@@ -14072,7 +14072,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def storageos_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_mode(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::VsphereVirtualDiskVolumeSource).void)).returns(KubeDSL::DSL::V1::VsphereVirtualDiskVolumeSource) }
@@ -14093,13 +14093,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
       end
 
@@ -14114,10 +14114,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pd_id(val = nil); end
       end
 
@@ -14192,10 +14192,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def namespace_selector_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def namespaces(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def topology_key(val = nil); end
       end
 
@@ -14228,22 +14228,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_probe_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_transition_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -14258,13 +14258,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def nameservers(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodDNSConfigOption))).returns(T::Array[KubeDSL::DSL::V1::PodDNSConfigOption]) }
         def options(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def searches(val = nil); end
       end
 
@@ -14279,10 +14279,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
       end
 
@@ -14297,7 +14297,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip(val = nil); end
       end
 
@@ -14333,7 +14333,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
       end
 
@@ -14348,7 +14348,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def condition_type(val = nil); end
       end
 
@@ -14363,19 +14363,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def fs_group(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_group_change_policy(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_group(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def run_as_non_root(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_user(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SELinuxOptions).void)).returns(KubeDSL::DSL::V1::SELinuxOptions) }
@@ -14390,7 +14390,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def seccomp_profile_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def supplemental_groups(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Sysctl))).returns(T::Array[KubeDSL::DSL::V1::Sysctl]) }
@@ -14414,7 +14414,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def active_deadline_seconds(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Affinity).void)).returns(KubeDSL::DSL::V1::Affinity) }
@@ -14423,7 +14423,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def affinity_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def automount_service_account_token(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Container))).returns(T::Array[KubeDSL::DSL::V1::Container]) }
@@ -14435,10 +14435,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def dns_config_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def dns_policy(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def enable_service_links(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::EphemeralContainer))).returns(T::Array[KubeDSL::DSL::V1::EphemeralContainer]) }
@@ -14447,16 +14447,16 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::HostAlias))).returns(T::Array[KubeDSL::DSL::V1::HostAlias]) }
         def host_aliases(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def host_ipc(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def host_network(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def host_pid(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def hostname(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::LocalObjectReference))).returns(T::Array[KubeDSL::DSL::V1::LocalObjectReference]) }
@@ -14465,7 +14465,7 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Container))).returns(T::Array[KubeDSL::DSL::V1::Container]) }
         def init_containers(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def node_name(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -14480,25 +14480,25 @@ module KubeDSL
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def overhead(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def preemption_policy(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def priority(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def priority_class_name(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodReadinessGate))).returns(T::Array[KubeDSL::DSL::V1::PodReadinessGate]) }
         def readiness_gates(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def restart_policy(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def runtime_class_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def scheduler_name(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::PodSecurityContext).void)).returns(KubeDSL::DSL::V1::PodSecurityContext) }
@@ -14507,22 +14507,22 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def security_context_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def service_account(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def service_account_name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def set_hostname_as_fqdn(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def share_process_namespace(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def subdomain(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def termination_grace_period_seconds(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::Toleration))).returns(T::Array[KubeDSL::DSL::V1::Toleration]) }
@@ -14555,34 +14555,34 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerStatus))).returns(T::Array[KubeDSL::DSL::V1::ContainerStatus]) }
         def ephemeral_container_statuses(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def host_ip(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ContainerStatus))).returns(T::Array[KubeDSL::DSL::V1::ContainerStatus]) }
         def init_container_statuses(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def nominated_node_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pod_ip(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::PodIP))).returns(T::Array[KubeDSL::DSL::V1::PodIP]) }
         def pod_ips(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def qos_class(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def start_time(val = nil); end
       end
 
@@ -14666,13 +14666,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def error(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protocol(val = nil); end
       end
 
@@ -14687,13 +14687,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_id(val = nil); end
       end
 
@@ -14714,7 +14714,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def preference_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def weight(val = nil); end
       end
 
@@ -14735,7 +14735,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def exec_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def failure_threshold(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::GRPCAction).void)).returns(KubeDSL::DSL::V1::GRPCAction) }
@@ -14750,13 +14750,13 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def http_get_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def initial_delay_seconds(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def period_seconds(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def success_threshold(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::TCPSocketAction).void)).returns(KubeDSL::DSL::V1::TCPSocketAction) }
@@ -14765,10 +14765,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def tcp_socket_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def termination_grace_period_seconds(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def timeout_seconds(val = nil); end
       end
 
@@ -14783,7 +14783,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def default_mode(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::VolumeProjection))).returns(T::Array[KubeDSL::DSL::V1::VolumeProjection]) }
@@ -14801,22 +14801,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def group(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def registry(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def tenant(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume(val = nil); end
       end
 
@@ -14831,22 +14831,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def keyring(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def monitors(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pool(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -14855,7 +14855,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
       end
 
@@ -14870,22 +14870,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def image(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def keyring(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def monitors(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pool(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -14894,7 +14894,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
       end
 
@@ -14939,19 +14939,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def last_transition_time(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def message(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def reason(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def status(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -14987,10 +14987,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def min_ready_seconds(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def replicas(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -15014,22 +15014,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def available_replicas(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ReplicationControllerCondition))).returns(T::Array[KubeDSL::DSL::V1::ReplicationControllerCondition]) }
         def conditions(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def fully_labeled_replicas(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def observed_generation(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def ready_replicas(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def replicas(val = nil); end
       end
 
@@ -15044,13 +15044,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def container_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def divisor(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def resource(val = nil); end
       end
 
@@ -15125,7 +15125,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def scope_selector_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def scopes(val = nil); end
       end
 
@@ -15176,16 +15176,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def gateway(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protection_domain(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -15194,19 +15194,19 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def ssl_enabled(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_pool(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def system(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
       end
 
@@ -15221,16 +15221,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def gateway(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protection_domain(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -15239,19 +15239,19 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def ssl_enabled(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_mode(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_pool(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def system(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
       end
 
@@ -15281,13 +15281,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def operator(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def scope_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def values(val = nil); end
       end
 
@@ -15302,16 +15302,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def level(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def role(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def user(val = nil); end
       end
 
@@ -15326,10 +15326,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def localhost_profile(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -15347,7 +15347,7 @@ module KubeDSL
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def data(&block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def immutable(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::ObjectMeta).void)).returns(KubeDSL::DSL::Meta::V1::ObjectMeta) }
@@ -15359,7 +15359,7 @@ module KubeDSL
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def string_data(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -15374,10 +15374,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -15392,13 +15392,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -15437,10 +15437,10 @@ module KubeDSL
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::KeyToPath))).returns(T::Array[KubeDSL::DSL::V1::KeyToPath]) }
         def items(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
       end
 
@@ -15455,10 +15455,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def namespace(val = nil); end
       end
 
@@ -15473,16 +15473,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def default_mode(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::KeyToPath))).returns(T::Array[KubeDSL::DSL::V1::KeyToPath]) }
         def items(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def optional(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def secret_name(val = nil); end
       end
 
@@ -15497,7 +15497,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def allow_privilege_escalation(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::Capabilities).void)).returns(KubeDSL::DSL::V1::Capabilities) }
@@ -15506,22 +15506,22 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def capabilities_present?; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def privileged(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def proc_mount(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only_root_filesystem(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_group(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def run_as_non_root(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_user(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SELinuxOptions).void)).returns(KubeDSL::DSL::V1::SELinuxOptions) }
@@ -15584,7 +15584,7 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def automount_service_account_token(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::LocalObjectReference))).returns(T::Array[KubeDSL::DSL::V1::LocalObjectReference]) }
@@ -15632,13 +15632,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def audience(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def expiration_seconds(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
       end
 
@@ -15674,22 +15674,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def app_protocol(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def node_port(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def protocol(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_port(val = nil); end
       end
 
@@ -15704,55 +15704,55 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def allocate_load_balancer_node_ports(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def cluster_ip(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def cluster_i_ps(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def external_i_ps(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def external_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def external_traffic_policy(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def health_check_node_port(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def internal_traffic_policy(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip_families(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip_family_policy(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def load_balancer_class(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def load_balancer_ip(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def load_balancer_source_ranges(val = nil); end
 
         sig { params(elem_name: T.nilable(Symbol), block: T.nilable(T.proc.returns(KubeDSL::DSL::V1::ServicePort))).returns(T::Array[KubeDSL::DSL::V1::ServicePort]) }
         def ports(elem_name = nil, &block); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def publish_not_ready_addresses(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
         def selector(&block); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def session_affinity(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SessionAffinityConfig).void)).returns(KubeDSL::DSL::V1::SessionAffinityConfig) }
@@ -15761,7 +15761,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def session_affinity_config_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def type(val = nil); end
       end
 
@@ -15815,10 +15815,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }
@@ -15827,10 +15827,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_namespace(val = nil); end
       end
 
@@ -15845,10 +15845,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::LocalObjectReference).void)).returns(KubeDSL::DSL::V1::LocalObjectReference) }
@@ -15857,10 +15857,10 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_namespace(val = nil); end
       end
 
@@ -15875,10 +15875,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
       end
 
@@ -15893,16 +15893,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def effect(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def time_added(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
       end
 
@@ -15917,10 +15917,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def host(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def port(val = nil); end
       end
 
@@ -15935,19 +15935,19 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def effect(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def operator(val = nil); end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def toleration_seconds(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def value(val = nil); end
       end
 
@@ -15962,10 +15962,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def values(val = nil); end
       end
 
@@ -16001,13 +16001,13 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def label_selector_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def max_skew(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def topology_key(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def when_unsatisfiable(val = nil); end
       end
 
@@ -16022,13 +16022,13 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def api_group(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def kind(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
       end
 
@@ -16151,7 +16151,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def iscsi_present?; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
         sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::NFSVolumeSource).void)).returns(KubeDSL::DSL::V1::NFSVolumeSource) }
@@ -16232,10 +16232,10 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def device_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
       end
 
@@ -16250,22 +16250,22 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def mount_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def mount_propagation(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def sub_path(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def sub_path_expr(val = nil); end
       end
 
@@ -16334,16 +16334,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_policy_id(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_policy_name(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_path(val = nil); end
       end
 
@@ -16364,7 +16364,7 @@ module KubeDSL
         sig { returns(T::Boolean) }
         def pod_affinity_term_present?; end
 
-        sig { params(val: T.nilable(Integer)).returns(Integer) }
+        sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def weight(val = nil); end
       end
 
@@ -16379,16 +16379,16 @@ module KubeDSL
         sig { returns(Symbol) }
         def kind_sym; end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def gmsa_credential_spec(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def gmsa_credential_spec_name(val = nil); end
 
-        sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def host_process(val = nil); end
 
-        sig { params(val: T.nilable(String)).returns(String) }
+        sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def run_as_user_name(val = nil); end
       end
     end

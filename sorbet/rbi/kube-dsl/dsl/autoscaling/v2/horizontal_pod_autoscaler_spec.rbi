@@ -25,7 +25,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def behavior_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def max_replicas(val = nil); end
 
           T::Sig::WithoutRuntime.sig {
@@ -36,7 +36,7 @@ module KubeDSL
           }
           def metrics(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def min_replicas(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference).void)).returns(KubeDSL::DSL::Autoscaling::V2::CrossVersionObjectReference) }

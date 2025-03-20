@@ -21,7 +21,7 @@ module KubeDSL
 
 
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Meta::V1::GroupVersionForDiscovery).void)).returns(KubeDSL::DSL::Meta::V1::GroupVersionForDiscovery) }

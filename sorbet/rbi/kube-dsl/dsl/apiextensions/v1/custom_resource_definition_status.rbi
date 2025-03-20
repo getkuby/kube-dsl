@@ -33,7 +33,7 @@ module KubeDSL
           }
           def conditions(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def stored_versions(val = nil); end
         end
       end

@@ -18,7 +18,7 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def nameservers(val = nil); end
 
         T::Sig::WithoutRuntime.sig {
@@ -29,7 +29,7 @@ module KubeDSL
         }
         def options(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def searches(val = nil); end
       end
     end
