@@ -1,3 +1,8 @@
+## 0.8.3
+* Fix handling of `value_field` to invert incorrect logic (#10, @Bo98)
+* Allow dry-inflector 1.x (#11, @Bo98)
+* Tweak return type of value fields to be nilable (#12, @Bo98)
+
 ## 0.8.2
 * Fix entrypoint type signatures to make the block optional (#8, @Bo98)
 * Tighten arity of value and object fields (#9, @Bo98)

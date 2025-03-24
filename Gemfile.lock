@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    kube-dsl (0.8.2)
-      dry-inflector (~> 0.2)
+    kube-dsl (0.8.3)
+      dry-inflector (>= 0.2.1, < 2)
 
 GEM
   remote: https://rubygems.org/
@@ -16,7 +16,7 @@ GEM
     curdle (1.2.2)
       parser (~> 3.1)
     diff-lcs (1.6.0)
-    dry-inflector (0.3.0)
+    dry-inflector (1.2.0)
     erubi (1.13.1)
     highline (2.0.3)
     method_source (1.1.0)
