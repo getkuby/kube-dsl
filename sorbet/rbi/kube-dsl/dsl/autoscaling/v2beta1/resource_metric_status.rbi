@@ -19,13 +19,13 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def current_average_utilization(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def current_average_value(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
         end
       end

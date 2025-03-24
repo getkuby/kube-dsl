@@ -19,13 +19,13 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def label_selector_path(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def spec_replicas_path(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def status_replicas_path(val = nil); end
         end
       end

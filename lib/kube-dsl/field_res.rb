@@ -20,7 +20,7 @@ module KubeDSL
 
     def fields_to_rbi(inflector)
       [
-        "T::Sig::WithoutRuntime.sig { params(val: T.nilable(#{rbi_type_for(@type)})).returns(#{rbi_type_for(@type)}) }",
+        "T::Sig::WithoutRuntime.sig { params(val: T.nilable(#{rbi_type_for(@type)})).returns(T.nilable(#{rbi_type_for(@type)})) }",
         "def #{ruby_safe_name}(val = nil); end"
       ]
     end

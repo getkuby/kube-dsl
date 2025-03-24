@@ -27,19 +27,19 @@ module KubeDSL
           }
           def causes(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def name(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
           def retry_after_seconds(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def uid(val = nil); end
         end
       end

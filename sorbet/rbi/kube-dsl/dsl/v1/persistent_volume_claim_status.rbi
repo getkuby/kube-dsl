@@ -18,7 +18,7 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def access_modes(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(::KubeDSL::KeyValueFields).void)).returns(::KubeDSL::KeyValueFields) }
@@ -35,10 +35,10 @@ module KubeDSL
         }
         def conditions(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def phase(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def resize_status(val = nil); end
       end
     end

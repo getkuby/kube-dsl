@@ -24,16 +24,16 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def config_source_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def external_id(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pod_cidr(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def pod_cid_rs(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def provider_id(val = nil); end
 
         T::Sig::WithoutRuntime.sig {
@@ -44,7 +44,7 @@ module KubeDSL
         }
         def taints(elem_name = nil, &block); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def unschedulable(val = nil); end
       end
     end

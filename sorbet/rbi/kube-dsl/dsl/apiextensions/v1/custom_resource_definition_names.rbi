@@ -19,22 +19,22 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def categories(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def kind(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def list_kind(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def plural(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def short_names(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def singular(val = nil); end
         end
       end

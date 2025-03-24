@@ -19,7 +19,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def allow_privilege_escalation(val = nil); end
 
           T::Sig::WithoutRuntime.sig {
@@ -30,7 +30,7 @@ module KubeDSL
           }
           def allowed_csi_drivers(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_capabilities(val = nil); end
 
           T::Sig::WithoutRuntime.sig {
@@ -49,19 +49,19 @@ module KubeDSL
           }
           def allowed_host_paths(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_proc_mount_types(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def allowed_unsafe_sysctls(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def default_add_capabilities(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def default_allow_privilege_escalation(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def forbidden_sysctls(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::FSGroupStrategyOptions) }
@@ -70,13 +70,13 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def fs_group_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_ipc(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_network(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def host_pid(val = nil); end
 
           T::Sig::WithoutRuntime.sig {
@@ -87,13 +87,13 @@ module KubeDSL
           }
           def host_ports(elem_name = nil, &block); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def privileged(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def read_only_root_filesystem(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def required_drop_capabilities(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions).void)).returns(KubeDSL::DSL::Policy::V1beta1::RunAsGroupStrategyOptions) }
@@ -126,7 +126,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def supplemental_groups_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def volumes(val = nil); end
         end
       end

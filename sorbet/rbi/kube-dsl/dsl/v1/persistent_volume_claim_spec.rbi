@@ -18,7 +18,7 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def access_modes(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::TypedLocalObjectReference).void)).returns(KubeDSL::DSL::V1::TypedLocalObjectReference) }
@@ -45,13 +45,13 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def selector_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def storage_class_name(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_mode(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def volume_name(val = nil); end
       end
     end

@@ -18,31 +18,31 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_discovery(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def chap_auth_session(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_type(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def initiator_name(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iqn(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def iscsi_interface(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def lun(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def portals(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def read_only(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SecretReference).void)).returns(KubeDSL::DSL::V1::SecretReference) }
@@ -51,7 +51,7 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def secret_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def target_portal(val = nil); end
       end
     end

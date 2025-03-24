@@ -25,7 +25,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def conversion_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def group(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames).void)).returns(KubeDSL::DSL::Apiextensions::V1::CustomResourceDefinitionNames) }
@@ -34,10 +34,10 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def names_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
           def preserve_unknown_fields(val = nil); end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def scope(val = nil); end
 
           T::Sig::WithoutRuntime.sig {

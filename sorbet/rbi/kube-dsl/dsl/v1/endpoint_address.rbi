@@ -18,13 +18,13 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def hostname(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def ip(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def node_name(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ObjectReference).void)).returns(KubeDSL::DSL::V1::ObjectReference) }

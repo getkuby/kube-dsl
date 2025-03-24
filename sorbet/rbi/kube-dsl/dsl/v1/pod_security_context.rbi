@@ -18,19 +18,19 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(Symbol) }
         def kind_sym; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def fs_group(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def fs_group_change_policy(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_group(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T::Boolean) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
         def run_as_non_root(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def run_as_user(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::SELinuxOptions).void)).returns(KubeDSL::DSL::V1::SELinuxOptions) }
@@ -45,7 +45,7 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def seccomp_profile_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def supplemental_groups(val = nil); end
 
         T::Sig::WithoutRuntime.sig {

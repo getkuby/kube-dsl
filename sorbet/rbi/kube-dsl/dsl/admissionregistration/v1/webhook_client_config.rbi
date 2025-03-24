@@ -19,7 +19,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(Symbol) }
           def kind_sym; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def ca_bundle(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Admissionregistration::V1::ServiceReference).void)).returns(KubeDSL::DSL::Admissionregistration::V1::ServiceReference) }
@@ -28,7 +28,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def service_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def url(val = nil); end
         end
       end

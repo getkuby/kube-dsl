@@ -27,7 +27,7 @@ module KubeDSL
           T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
           def metadata_present?; end
 
-          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+          T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
           def spec(val = nil); end
 
           T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus).void)).returns(KubeDSL::DSL::Apiserverinternal::V1alpha1::StorageVersionStatus) }

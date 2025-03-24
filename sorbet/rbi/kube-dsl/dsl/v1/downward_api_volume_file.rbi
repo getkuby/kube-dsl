@@ -24,10 +24,10 @@ module KubeDSL
         T::Sig::WithoutRuntime.sig { returns(T::Boolean) }
         def field_ref_present?; end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(Integer) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(Integer)).returns(T.nilable(Integer)) }
         def mode(val = nil); end
 
-        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(String) }
+        T::Sig::WithoutRuntime.sig { params(val: T.nilable(String)).returns(T.nilable(String)) }
         def path(val = nil); end
 
         T::Sig::WithoutRuntime.sig { params(block: T.nilable(T.proc.bind(KubeDSL::DSL::V1::ResourceFieldSelector).void)).returns(KubeDSL::DSL::V1::ResourceFieldSelector) }
