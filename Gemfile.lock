@@ -60,6 +60,7 @@ GEM
       sorbet-static (= 0.5.11865)
     sorbet-runtime (0.5.11865)
     sorbet-static (0.5.11865-universal-darwin)
+    sorbet-static (0.5.11865-x86_64-linux)
     sorbet-static-and-runtime (0.5.11865)
       sorbet (= 0.5.11865)
       sorbet-runtime (= 0.5.11865)
@@ -80,7 +81,7 @@ GEM
       thor (>= 1.2.0)
       yard-sorbet
     thor (1.3.2)
-    yard (0.9.37)
+    yard (0.9.42)
     yard-sorbet (0.9.0)
       sorbet-runtime
       yard
@@ -88,6 +89,7 @@ GEM
 PLATFORMS
   arm64-darwin-23
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   curdle (~> 1.2)
